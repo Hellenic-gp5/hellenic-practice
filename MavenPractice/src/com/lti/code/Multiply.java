@@ -1,4 +1,4 @@
-package java.com.lti.test;
+package com.lti.code;
 
 public class Multiply {
 	public String mul()

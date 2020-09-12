@@ -1,9 +1,9 @@
 package test.com.lti.test;
 import static org.junit.Assert.assertEquals;
 
-import java.com.lti.test.PracticeTest;
-
 import org.junit.*;
+
+import com.lti.code.PracticeTest;
 
 public class TestCalc {
 private PracticeTest cal;
@@ -13,7 +13,7 @@ public void init() {
 }
 @Test
 public void TestDiv() {
-	assertEquals(25,cal.divide(100, 5));
+	assertEquals(20,cal.divide(100, 5));
 	
 }
 }
