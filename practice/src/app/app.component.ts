@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     <ol>
     <li>Yojan Saini</li>
     <li> Ruhi Sinha</li>
-    <li>Anish Yadav</li>S
+    <li>Anish Yadav</li>
     </ol
      </ol>
     </div>
