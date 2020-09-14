@@ -13,7 +13,7 @@ public void init() {
 }
 @Test
 public void TestDiv() {
-	assertEquals(20,cal.divide(100, 5));
+	assertEquals(25,cal.divide(100, 5));
 	
 }
 }
