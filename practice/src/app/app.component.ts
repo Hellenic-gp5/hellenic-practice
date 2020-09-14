@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
     <h2> Team members<h2>
     <ol>
     <li>Yojan Saini</li>
+    <li> Ruhi Sinha</li>
     </ol
     </div>
   `,
