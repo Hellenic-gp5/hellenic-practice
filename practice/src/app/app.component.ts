@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
     <li>Yojan Saini</li>
     <li> Ruhi Sinha</li>
     <li>Anish Yadav</li>
+    <li>Sakshi Singh</li>
     </ol
      </ol>
     </div>
