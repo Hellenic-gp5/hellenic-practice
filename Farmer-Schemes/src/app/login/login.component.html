@@ -1,0 +1,114 @@
+<p>
+    <br><br></p>
+<section> 
+    <div class ="container">
+      <p>
+      
+      </p>
+    </div>
+  </section>
+  <section class="py-5 ">
+      <div class="container">
+        <h1>Login Screen</h1>
+        <p class="lead">Please Enter the Correct Credintials</p>
+        <p>
+            Username is the email-id you entered while registering.
+        </p>
+        <p>password is case-sensitive</p>
+        <p>select the correct role type -<u><b><a href="#">Farmer</a></b></u> or <u><b> <a href="#">Bidder</a></b></u>?</p>
+      </div>
+    </section>
+    <span class="border-top-0">
+    <form (ngSubmit) ='loggedIn()' class="form-container">
+        <table style="margin-left: auto; margin-right:auto; border-collapse: separate; border-spacing: 0 2px; padding-top: 25px;">
+            <!--<tr><td class="text-center">Email</td>
+                <td><input name="id"
+                        required pattern="[0-9]{3}" size="20"
+                        placeholder="Enter a vaild email"></td>
+            </tr>
+            <tr><td class="text-center">Password</td>
+                <td><input type ="password" name="title"  
+                        required pattern="[A-Z][a-z]{3,}"
+                        placeholder="password"></td>
+            <tr><th colspan="2">
+                <button class="text-center" type="submit">Login</button>
+            </th></tr>
+        </table>
+        </div>
+    </form>-->
+    <tr>
+        <td style="padding: 0 15px 0 15px;"></td>
+    </tr>
+    <tr>
+            <tr><td style="padding: 0 15px 0 15px;">Username</td>
+                <td><input name="username" [(ngModel)]=login.username></td>
+            </tr>
+            <tr><td style="padding: 0 15px 0 15px;">Password</td>
+            <td><input type="password" name="password" [(ngModel)]=login.password></td>
+            
+        </tr>
+        <tr><td></td><td><div class="container" style="background-color:#f1f1f1">
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div></td></tr>
+        <tr><td style="padding: 0 15px 0 15px;">Type</td>
+            <td><select name="role"  [(ngModel)]=login.role>
+                <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+            </select></td>
+        </tr>
+        <tr><th align="right" style="padding: 15px;">
+            <button type="reset" class="btn btn-secondary ">Reset</button>
+        </th>
+    <th><button type="submit" class="btn btn-success ">Login</button></th>
+    </tr>
+    <tr aria-colspan="2"> <div class="form-footer"><td style="padding: 0 15px 0 15px;">
+        <p> New User? Register <a href="#">here</a></p>
+    </td>
+        
+      </div></tr>
+
+        </table>
+        </form>
+    </span>
+ /<!-- <footer class="py-5 bg-dark">
+    
+    <div class="container m-0 text-center text-white">
+    <img src=".\assets\quote1.jpg" class = "logo"  align = "left">  Copyright &copy; Hellenic 2020
+    </div>
+   <!-- footer -->
+   <footer  style="background-color: #2c292f">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 text-center text-md-left ">
+                
+                <div class="py-0">
+                    <h2 class="my-4 text-white"><span class="mx-2 font-italic text-warning ">Our Team</span></h2>
+                    <span class="font-weight-bold "> <img src=".\assets\Group_icon.jpg" class = "logo" ></span>
+                    <p class="text-light py-4 mb-4">&copy;2020 Hellenic GET 852.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 text-white text-center text-md-left ">
+                <div class="py-2 my-4">
+                    <div>
+                        <p class="text-white"> <i class="fa fa-map-marker mx-2 "></i>
+                               <a href="#"> CONTACT US </a></p>
+                    </div>
+
+                    <div> 
+                        <p><i class="fa fa-phone  mx-2 "></i> +91 333-333-3332</p>
+                    </div>
+                    <div>
+                        <p><i class="fa fa-envelope  mx-2"></i><a href="mailto:somedummymail.com">somedummy@gmail.com</a></p>
+                    </div>  
+                </div>  
+            </div>
+            
+            <div class="col-md-4 text-white my-4 text-center text-md-left ">About Us
+      <p class="text-warning my-2" >
+      Crop Insurance is an integrated IT solution and a web-based ecosystem to speed up service delivery, unify fragmented databases, achieve a single view of data, and eliminate manual processes.
+        Crop Insurance provides insurance services to farmers faster than before</p> 
+            </div>
+        </div>  
+    </div>
+ </footer>
+ <!-- end of footer -->

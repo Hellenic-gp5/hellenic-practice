@@ -1,0 +1,30 @@
+.pt-5, .py-5 {
+    padding-top: 1rem !important;
+}
+.pb-5, .py-5 {
+    padding-bottom: 3rem !important;
+}
+img.logo{
+	height:100px;
+	border-radius: 60px;
+  }
+body{
+	background: #383a3d;
+	padding-top: 25vh;	
+}
+/* set form background colour*/
+form{
+	background: #fff;
+}
+/* set padding and size of th form */
+.form-container{
+	border-radius: 10px;
+	padding: 30px;
+}
+table {
+	width: 30%;
+	height: 100%;
+	border: 1px solid black;
+	background-color: #f2f2f2;
+  }
+  tr {}
