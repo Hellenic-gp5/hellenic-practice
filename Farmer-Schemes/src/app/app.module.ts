@@ -8,6 +8,8 @@ import { BidderComponent } from './bidder/bidder.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,11 @@ import { FooterComponent } from './layout/footer/footer.component';
     RegistrationComponent,
     NavbarComponent,
     FooterComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
+
   providers: [],
   bootstrap: [AppComponent],
 })

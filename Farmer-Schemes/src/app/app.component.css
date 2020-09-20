@@ -1,0 +1,30 @@
+img {
+    vertical-align: middle;
+    border-style: none;
+    height :50px;
+}
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
+}
+.navbar-toggler :before
+{
+ content: "";
+ position: absolute ;
+ top: 0%;
+ bottom: 0%;
+ left: 0%;
+ right: 0% ;
+ opacity: 0.5;
+ z-index: -1;
+ background: linear-gradient(to right, 	#FFFF99 0%, 	#FFFF99 0%, 	#FFFF99 100%);
+}
+.nav-item a{
+    color: black !important;
+    font-weight: bold;
+}
