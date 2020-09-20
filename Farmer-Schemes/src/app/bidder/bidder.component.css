@@ -1,6 +1,6 @@
 .container-fluid {
   min-height: 100vh;
-  background: #ffffb3;
+  background:rgba(243, 243, 3, 0.2);
 }
 .container {
   padding-top: 112px;

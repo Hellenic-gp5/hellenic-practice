@@ -7,9 +7,9 @@ import { BidderComponent } from './bidder/bidder.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/add', pathMatch: 'full' },
-  { path: 'add', component: HomeComponent },
-  { path: 'list', component: LoginComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'bidder', component: BidderComponent },
   { path: 'signup', component: RegistrationComponent },
 ];

@@ -1,5 +1,6 @@
 .pt-5, .py-5 {
-    padding-top: 1rem !important;
+	padding-top: 1rem !important;
+	background-color:rgba(243, 243, 3, 0.2);
 }
 .pb-5, .py-5 {
     padding-bottom: 3rem !important;
@@ -25,6 +26,8 @@ table {
 	width: 30%;
 	height: 100%;
 	border: 1px solid black;
-	background-color: #f2f2f2;
+	background-color:rgba(243, 243, 3, 0.2);
   }
-  tr {}
+  div.header-section{
+	  text-align: center;
+  }
