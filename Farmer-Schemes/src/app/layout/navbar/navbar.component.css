@@ -1,0 +1,17 @@
+nav {
+  background-color: #06163a;
+  color: #ffffb3;
+}
+.nav-item {
+  margin: 0px 24px;
+}
+.nav-item a {
+  color: #ffffb3;
+  text-decoration: none;
+  font-size: 16px;
+}
+.nav-item a:hover {
+  color: #06163a;
+  background-color: #fff;
+  border-radius: 4px;
+}

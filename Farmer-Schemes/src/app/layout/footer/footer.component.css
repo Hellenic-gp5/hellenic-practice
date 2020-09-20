@@ -1,0 +1,20 @@
+footer {
+  background-color: #06163a;
+  color: #ffffb3;
+}
+.container {
+  padding: 40px 0px;
+}
+.footer-column-1 {
+  display: grid;
+}
+.footer-contact ul li {
+  margin: 8px 0px;
+}
+.footer-contact ul li a,
+p {
+  text-decoration: none;
+  color: #ffffb3;
+  font-weight: 600;
+  text-align: justify;
+}

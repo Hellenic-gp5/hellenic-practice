@@ -1,0 +1,92 @@
+<div class="container-fluid">
+  <app-navbar></app-navbar>
+  <div class="container">
+    <div class="media border p-3">
+      <img
+        src="../../assets/user.png"
+        alt="John Doe"
+        class="mr-3 rounded-circle"
+        style="width: 80px"
+      />
+      <div class="media-body">
+        <h2>Hello Bidder</h2>
+        <p>Here you can view the Marketplace and Bidding History</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="pb-3">Bidding History</h3>
+      <div class="table-responsive-md">
+        <table class="table table-bordered table-hover table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Crop Type</th>
+              <th>Crop Name</th>
+              <th>Bid Amount</th>
+              <th>Current Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Type</td>
+              <td>Crop</td>
+              <td>40000</td>
+              <td>Accepted</td>
+            </tr>
+            <tr *ngFor="let bid of bids">
+              <td>{{ bid.cropType }}</td>
+              <td>{{ bid.cropName }}</td>
+              <td>{{ bid.bidAmount }}</td>
+              <td>{{ bid.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="pb-3">Market Place</h3>
+      <div class="table-responsive-md">
+        <table class="table table-bordered table-hover table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Crop Type</th>
+              <th>Crop Name</th>
+              <th>Base Price</th>
+              <th>Current Bid</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Type</td>
+              <td>Crop</td>
+              <td>30000</td>
+              <td>40000</td>
+              <td>
+                <button
+                  type="button"
+                  (click)="applyBid()"
+                  class="btn btn-success btn-sm"
+                >
+                  Apply Bid
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card apply-bid" *ngIf="toggle">
+        <h4>Apply Bid Here:</h4>
+        <form class="form-inline" action="/action_page.php">
+          <label for="bid-amount" class="mr-sm-2">Bid Amount: </label>
+          <input
+            type="number"
+            class="form-control mb-2 mr-sm-2"
+            placeholder="₹"
+          />
+          <button type="submit" class="btn btn-primary mb-2">Submit Bid</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
