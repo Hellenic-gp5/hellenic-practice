@@ -10,6 +10,11 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AdminWelcomeComponent } from './admin-welcome/admin-welcome.component';
+import { MarketComponent } from './market/market.component';
+import { UserComponent } from './user/user.component';
+import { SellComponent } from './sell/sell.component';
+import { InsuranceComponent } from './insurance/insurance.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,11 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    AdminWelcomeComponent,
+    MarketComponent,
+    UserComponent,
+    SellComponent,
+    InsuranceComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
 
