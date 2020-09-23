@@ -5,13 +5,23 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { BidderComponent } from './bidder/bidder.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AdminWelcomeComponent } from './admin-welcome/admin-welcome.component';
+import { MarketComponent } from './market/market.component';
+import { UserComponent } from './user/user.component';
+import { SellComponent } from './sell/sell.component';
+import { InsuranceComponent } from './insurance/insurance.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/add', pathMatch: 'full' },
-  { path: 'add', component: HomeComponent },
-  { path: 'list', component: LoginComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'bidder', component: BidderComponent },
   { path: 'signup', component: RegistrationComponent },
+  {path: 'admin-welcome', component: AdminWelcomeComponent},
+  {path: 'user', component: UserComponent},
+  {path: 'sell', component: SellComponent},
+  {path: 'market', component: MarketComponent},
+  {path: 'insurance', component: InsuranceComponent},
 ];
 
 @NgModule({
