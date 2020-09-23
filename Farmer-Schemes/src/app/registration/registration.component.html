@@ -101,8 +101,18 @@
         <div class="form-row">
           <div class="col">
             <div class="form-group">
-              <label for="city">State: </label>
+              <label for="state">State: </label>
               <select
+                class="form-control"
+                placeholder="State"
+                [(ngModel)]="reg.state"
+                #state="ngModel"
+                (change)="changeState($event.target.value)"
+              >
+                <option>--Choose State--</option>
+                <option *ngFor="let state of States">{{ state.name }}</option>
+              </select>
+              <!--<select
                 class="form-control"
                 [(ngModel)]="reg.state"
                 placeholder="State"
@@ -113,7 +123,7 @@
                 <option value="Uttar Pradesh">Uttar Pradesh</option>
                 <option value="Kerala">Kerala</option>
                 <option value="Rajasthan">Rajasthan</option>
-              </select>
+              </select>-->
               <span
                 *ngIf="state.touched && state.invalid"
                 class="alert-warning"
@@ -132,11 +142,20 @@
                 placeholder="City"
               >
                 <option>--Choose City--</option>
+                <option *ngFor="let city of cities">{{ city }}</option>
+              </select>
+              <!--<select
+                class="form-control"
+                [(ngModel)]="reg.city"
+                #city="ngModel"
+                placeholder="City"
+              >
+                <option>--Choose City--</option>
                 <option value="Mumbai">Mumbai</option>
                 <option value="Pune">Pune</option>
                 <option value="Bengaluru">Bengaluru</option>
                 <option value="Kolkata">Kolkata</option>
-              </select>
+              </select>-->
               <span *ngIf="city.touched && city.invalid" class="alert-warning">
                 City not selected!
               </span>
@@ -326,5 +345,4 @@
     </div>
   </div>
 </div>
-
 <app-footer></app-footer>
