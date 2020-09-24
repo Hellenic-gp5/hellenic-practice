@@ -36,7 +36,9 @@ position: relative;
 display: flex;
 justify-content: space-between;
 }
-
+#myCarousel{
+  height: 600px;
+}
 .container .card{
 position: relative;
 cursor: pointer;
@@ -48,6 +50,7 @@ margin: none;
 width: 300px;
 height: 200px;
 transition: 0.5s;
+border: none;
 }
 
 .container .card .face.face1{
