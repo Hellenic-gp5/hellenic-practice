@@ -11,6 +11,7 @@ import { LoginModel } from '../login.module';
 })
 export class LoginComponent implements OnInit {
   login = new LoginModel
+  test:number
   flag:boolean;
  roles :string[];
 
@@ -22,10 +23,13 @@ export class LoginComponent implements OnInit {
   }
   loggedIn(){
     this.flag=true;
+    this.test=1;
     if(this.login.role=="Admin")
-    this.router.navigate(['admin-welcome']);
+    this.router.navigate(['admin']);
     else if(this.login.role=="Bidder")
     this.router.navigate(['bidder']);
+    else
+      this.router.navigate(['farmer']);
   }
   loggedOut(){
     this.flag=false;
