@@ -20,6 +20,7 @@ import {ApplyComponent} from './apply/apply.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ClaimComponent} from './claim/claim.component';
 import {NavbaryComponent} from './navbary/navbary.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {NavbaryComponent} from './navbary/navbary.component';
     SellRComponent,
     DashboardComponent,
     ApplyComponent,
-    ClaimComponent
+    ClaimComponent,
+    NavbarAdminComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
 
