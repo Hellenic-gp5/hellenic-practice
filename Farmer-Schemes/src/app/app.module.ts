@@ -15,6 +15,11 @@ import { MarketComponent } from './market/market.component';
 import { UserComponent } from './user/user.component';
 import { SellComponent } from './sell/sell.component';
 import { InsuranceComponent } from './insurance/insurance.component';
+import {SellRComponent} from './SellR/sellR.component';
+import {ApplyComponent} from './apply/apply.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {ClaimComponent} from './claim/claim.component';
+import {NavbaryComponent} from './navbary/navbary.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import { InsuranceComponent } from './insurance/insurance.component';
     BidderComponent,
     RegistrationComponent,
     NavbarComponent,
+    NavbaryComponent,
     FooterComponent,
     HomeComponent,
     LoginComponent,
@@ -29,7 +35,11 @@ import { InsuranceComponent } from './insurance/insurance.component';
     MarketComponent,
     UserComponent,
     SellComponent,
-    InsuranceComponent
+    InsuranceComponent,
+    SellRComponent,
+    DashboardComponent,
+    ApplyComponent,
+    ClaimComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
 

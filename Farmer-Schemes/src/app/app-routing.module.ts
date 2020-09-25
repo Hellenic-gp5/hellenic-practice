@@ -13,10 +13,22 @@ import { InsuranceComponent } from './insurance/insurance.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, 
+children:[{path:'login',redirectTo:'/login'},
+{path:'register',redirectTo:'/signup'}] },
+
+  { path: 'login', component: LoginComponent,
+  children:[{path:'home',redirectTo:'/home'},
+  {path:'register',redirectTo:'/signup'},
+{path:'farmer',redirectTo:'/farmer-dashboard'},
+{path:'bidder', redirectTo:'/bidder'},
+{path:'admin',redirectTo:'/admin-welcome'}] },
+  
+  { path: 'signup', component: RegistrationComponent,
+children:[{path:'home',redirectTo:'/home'},{path:'login',redirectTo:'/login'}] },
+
   { path: 'bidder', component: BidderComponent },
-  { path: 'signup', component: RegistrationComponent },
+  
   {path: 'admin-welcome', component: AdminWelcomeComponent},
   {path: 'user', component: UserComponent},
   {path: 'sell', component: SellComponent},

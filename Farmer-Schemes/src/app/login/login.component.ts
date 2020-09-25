@@ -1,4 +1,7 @@
+import { identifierModuleUrl } from '@angular/compiler';
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginModel } from '../login.module';
 
 @Component({
@@ -11,7 +14,7 @@ export class LoginComponent implements OnInit {
   flag:boolean;
  roles :string[];
 
-  constructor() {
+  constructor(private router:Router) {
     this.roles = ['Farmer', 'Bidder', "Admin"];
    }
   ngOnInit() {
@@ -19,6 +22,10 @@ export class LoginComponent implements OnInit {
   }
   loggedIn(){
     this.flag=true;
+    if(this.login.role=="Admin")
+    this.router.navigate(['admin-welcome']);
+    else if(this.login.role=="Bidder")
+    this.router.navigate(['bidder']);
   }
   loggedOut(){
     this.flag=false;

@@ -1,0 +1,40 @@
+.container-fluid {
+    min-height: 100vh;
+    background:rgba(243, 243, 3, 0.2);
+  }
+  .container {
+    padding-top: 112px;
+    padding-bottom: 16px;
+  }
+  /* ################# Page Header #################### */
+  .media {
+    background-color: #fff;
+    border: none;
+    padding: 16px;
+  }
+  .media p {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  /* ############# Bidding Table ################### */
+  .card {
+    background-color: #fff;
+    border: none;
+    padding: 16px;
+    margin: 16px 0px;
+  }
+  thead {
+    background-color: #06163a;
+    color: #fff;
+  }
+  td button {
+    display: block;
+    margin: auto;
+  }
+ 
+kbd{
+  background-color: rgb(107, 179, 0);
+  height: 40px;
+}
+a{
+  color: white;
+}  
