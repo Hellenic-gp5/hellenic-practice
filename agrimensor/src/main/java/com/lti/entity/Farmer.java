@@ -33,9 +33,9 @@ public class Farmer {
 	@Column
 	private String farmerState;
 	@Column
-	private long farmerPAN;
+	private String farmerPAN;
 	@Column
-	private int farmerPIN;
+	private int farmerPINCode;
 	@Column
 	private long farmerAADHAR;
 	@Column
@@ -92,17 +92,17 @@ public class Farmer {
 	public void setFarmerState(String farmerState) {
 		this.farmerState = farmerState;
 	}
-	public long getFarmerPAN() {
+	public String getFarmerPAN() {
 		return farmerPAN;
 	}
-	public void setFarmerPAN(long farmerPAN) {
+	public void setFarmerPAN(String farmerPAN) {
 		this.farmerPAN = farmerPAN;
 	}
-	public int getFarmerPIN() {
-		return farmerPIN;
+	public int getFarmerPINCode() {
+		return farmerPINCode;
 	}
-	public void setFarmerPIN(int farmerPIN) {
-		this.farmerPIN = farmerPIN;
+	public void setFarmerPINCode(int farmerPINCode) {
+		this.farmerPINCode = farmerPINCode;
 	}
 	public long getFarmerAADHAR() {
 		return farmerAADHAR;

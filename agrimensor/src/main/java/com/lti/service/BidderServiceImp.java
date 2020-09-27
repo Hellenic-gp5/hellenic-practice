@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Bidder;
@@ -15,7 +16,7 @@ import com.lti.repo.BidderRepo;
 @Service
 public class BidderServiceImp implements BidderService {
 	
-	@PersistenceContext
+	@Autowired
 	private BidderRepo repo;
 
 

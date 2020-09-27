@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Crop;
@@ -15,7 +16,7 @@ import com.lti.repo.CropRepo;
 @Service
 public class CropServiceImp implements CropService {
 	
-	@PersistenceContext
+	@Autowired
 	private CropRepo repo;
 
 	public void persist(Crop crop) {
