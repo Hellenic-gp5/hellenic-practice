@@ -25,29 +25,24 @@ public class BidServiceImpl implements BidService {
 	}
 
 	public Bid findBid(int bidId) {
-		// TODO Auto-generated method stub
 		return repo.fetchBid(bidId);
 	}
 
 	public List<Bid> loadBid() {
-		// TODO Auto-generated method stub
 		return repo.listOfBids();
 	}
 
 	@Transactional(value = TxType.REQUIRED)
 	public void removeBid(int bidId) {
-		// TODO Auto-generated method stub
 		repo.deleteBid(bidId);
 	}
 
 	@Transactional(value = TxType.REQUIRED)
 	public void updateBid(Bid bid) {
-		// TODO Auto-generated method stub
 		repo.updateBid(bid);
 	}
 
 	public void updateBidStatus(int bidId,String bidStatus) {
-		// TODO Auto-generated method stub
 		repo.updateBidStatus(bidId, bidStatus);
 	}
 
