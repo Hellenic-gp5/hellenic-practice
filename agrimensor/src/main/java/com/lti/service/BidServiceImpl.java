@@ -1,0 +1,54 @@
+package com.lti.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lti.entity.Bid;
+import com.lti.repo.BidRepo;
+
+@Service
+public class BidServiceImpl implements BidService {
+
+	@Autowired
+	private BidRepo repo;
+
+	@Transactional(value = TxType.REQUIRED)
+	public void persistBid(Bid bid) {
+		// TODO Auto-generated method stub
+
+		repo.saveBid(bid);
+	}
+
+	public Bid findBid(int bidId) {
+		// TODO Auto-generated method stub
+		return repo.fetchBid(bidId);
+	}
+
+	public List<Bid> loadBid() {
+		// TODO Auto-generated method stub
+		return repo.listOfBids();
+	}
+
+	@Transactional(value = TxType.REQUIRED)
+	public void removeBid(int bidId) {
+		// TODO Auto-generated method stub
+		repo.deleteBid(bidId);
+	}
+
+	@Transactional(value = TxType.REQUIRED)
+	public void updateBid(Bid bid) {
+		// TODO Auto-generated method stub
+		repo.updateBid(bid);
+	}
+
+	public void updateBidStatus(int bidId,String bidStatus) {
+		// TODO Auto-generated method stub
+		repo.updateBidStatus(bidId, bidStatus);
+	}
+
+}
