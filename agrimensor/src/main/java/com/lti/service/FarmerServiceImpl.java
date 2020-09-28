@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 import com.lti.entity.Farmer;
 import com.lti.repo.FarmerRepo;
 
+/**
+ * @author Anish
+ *
+ */
 @Service
 public class FarmerServiceImpl implements FarmerService {
 	

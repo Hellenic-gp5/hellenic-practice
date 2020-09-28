@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.lti.entity.Farmer;
 
+/**
+ * @author Anish
+ *
+ */
 public interface FarmerService {
 	
 void persist(Farmer farmer);

@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Farmer;
 
+/**
+ * @author Anish
+ *
+ */
 @Repository
 public class FarmerRepoImpl implements FarmerRepo {
 

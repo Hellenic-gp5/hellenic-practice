@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lti.entity.Farmer;
 import com.lti.service.FarmerService;
 
+/**
+ * @author Anish
+ *
+ */
 @CrossOrigin
 @RestController
 public class FarmerRestController {
