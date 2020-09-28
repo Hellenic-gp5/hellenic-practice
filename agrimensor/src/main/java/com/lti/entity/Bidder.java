@@ -7,10 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-/**
- * @author Ruhi java version 1.8
- * for entity BIDDER
- */
+
 
 @Entity
 @Table(name="Bidder")
@@ -36,7 +33,7 @@ public class Bidder {
 	@Column
 	private long bidderPAN;
 	@Column
-	private int bidderPIN;
+	private int bidderPINCODE;
 	@Column
 	private long bidderAADHAR;
 	@Column
@@ -95,11 +92,11 @@ public class Bidder {
 	public void setBidderPAN(long bidderPAN) {
 		this.bidderPAN = bidderPAN;
 	}
-	public int getBidderPIN() {
-		return bidderPIN;
+	public int getBidderPINCODE() {
+		return bidderPINCODE;
 	}
-	public void setBidderPIN(int bidderPIN) {
-		this.bidderPIN = bidderPIN;
+	public void setBidderPINCODE(int bidderPINCODE) {
+		this.bidderPINCODE = bidderPINCODE;
 	}
 	public long getBidderAADHAR() {
 		return bidderAADHAR;
