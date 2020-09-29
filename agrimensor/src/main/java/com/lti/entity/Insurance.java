@@ -1,14 +1,6 @@
 package com.lti.entity;
-/**
- * @author Ruhi java version 1.8
- *
- */
-import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,8 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JacksonAnnotationValue;
 
 @Entity
 @Table(name="Insurance")
@@ -38,9 +28,6 @@ public class Insurance {
 	/**
 	 * @author YOJAN
 	 */
-	@OneToOne(mappedBy="insurance", cascade= {CascadeType.ALL}, fetch=FetchType.EAGER )
-	private Crop crop;
-	
 	
 	@ManyToOne
 	@JoinColumn(name = "farmerId")
@@ -128,12 +115,6 @@ public class Insurance {
 	}
 	public void setPolicyCompany(String policyCompany) {
 		this.policyCompany = policyCompany;
-	}
-	public Crop getCrop() {
-		return crop;
-	}
-	public void setCrop(Crop crop) {
-		this.crop = crop;
 	}
 	
 	public Farmer getFarmerPolicy() {
