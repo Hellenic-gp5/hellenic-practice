@@ -35,9 +35,11 @@ public class Farmer {
 	@Column
 	private String farmerPAN;
 	@Column
+	private String farmerCertificate;
+	@Column
 	private int farmerPINCode;
 	@Column
-	private long farmerAADHAR;
+	private String farmerAADHAR;
 	@Column
 	private String farmerIFSC;
 	@Column
@@ -50,6 +52,13 @@ public class Farmer {
 	private String farmerLandPIN;
 	@Column
 	private String farmerLandArea;
+	
+	public String getFarmerCertificate() {
+		return farmerCertificate;
+	}
+	public void setFarmerCertificate(String farmerCertificate) {
+		this.farmerCertificate = farmerCertificate;
+	}
 	public int getFarmerId() {
 		return farmerId;
 	}
@@ -104,10 +113,10 @@ public class Farmer {
 	public void setFarmerPINCode(int farmerPINCode) {
 		this.farmerPINCode = farmerPINCode;
 	}
-	public long getFarmerAADHAR() {
+	public String getFarmerAADHAR() {
 		return farmerAADHAR;
 	}
-	public void setFarmerAADHAR(long farmerAADHAR) {
+	public void setFarmerAADHAR(String farmerAADHAR) {
 		this.farmerAADHAR = farmerAADHAR;
 	}
 	public String getFarmerIFSC() {

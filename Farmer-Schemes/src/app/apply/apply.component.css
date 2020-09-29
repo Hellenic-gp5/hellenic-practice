@@ -1,0 +1,30 @@
+table {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.align {
+  margin: 20px;
+  position: relative;
+  left: 300px;
+  /* background: gainsboro; */
+  padding: 20px;
+}
+ 
+.action {
+  margin: 5px 50px;
+  position: relative;
+  left: 50px;
+}
+
+#heading {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.card {
+  background-color:gainsboro;
+  border: none;
+  padding: 16px;
+  margin: 16px 0px;
+}

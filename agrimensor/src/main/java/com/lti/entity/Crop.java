@@ -1,8 +1,5 @@
 package com.lti.entity;
-/**
- * @author Ruhi java version 1.8
- *
- */
+
 import java.util.Date;
 
 import javax.persistence.Column;
