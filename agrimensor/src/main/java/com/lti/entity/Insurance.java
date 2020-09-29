@@ -38,9 +38,6 @@ public class Insurance {
 	/**
 	 * @author YOJAN
 	 */
-	@OneToOne(mappedBy="insurance", cascade= {CascadeType.ALL}, fetch=FetchType.EAGER )
-	private Crop crop;
-	
 	
 	@ManyToOne
 	@JoinColumn(name = "farmerId")
