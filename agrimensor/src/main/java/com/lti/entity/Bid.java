@@ -36,7 +36,7 @@ import org.hibernate.annotations.DynamicUpdate;
 	@Column(length = 10)
 	private String bidStatus;
 	
-	//relation one-to-many for crop-bids
+	//relation one-to-many for crop-bids entities
 	@ManyToOne
 	private Crop crop;
 	public String getBidStatus() {

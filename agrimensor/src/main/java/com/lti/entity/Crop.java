@@ -58,7 +58,7 @@ public class Crop {
 	inverseJoinColumns= {@JoinColumn(name="bidderId")})
 	private Set<Bidder> bidder = new HashSet<Bidder>();
 	
-	//relation one-to-many for bid-crop
+	//relation one-to-many for bid-crop entites
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private List<Bid> bids = new ArrayList<Bid>();
 	
