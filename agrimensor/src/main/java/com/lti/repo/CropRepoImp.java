@@ -17,7 +17,8 @@ public class CropRepoImp implements CropRepo {
 	
 	@PersistenceContext
 	private EntityManager em;
-
+	
+	@Transactional(value = TxType.REQUIRED)
 	public void save(Crop crop) {
 		em.persist(crop);
 
