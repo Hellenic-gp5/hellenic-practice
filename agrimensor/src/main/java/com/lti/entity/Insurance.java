@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -41,9 +42,9 @@ public class Insurance {
 	private Crop crop;
 	
 	
-	//@OneToOne(mappedBy="crop_insurance", cascade= {CascadeType.ALL}, fetch=FetchType.EAGER )
-	@JoinColumn(name="farmerID")
-	private Farmer farmer;
+	@ManyToOne
+	@JoinColumn(name = "farmerId")
+	private Farmer farmerPolicy;
 	
 	@OneToOne
 	@JoinColumn(name="policyID")
@@ -134,11 +135,12 @@ public class Insurance {
 	public void setCrop(Crop crop) {
 		this.crop = crop;
 	}
-	public Farmer getFarmer() {
-		return farmer;
+	
+	public Farmer getFarmerPolicy() {
+		return farmerPolicy;
 	}
-	public void setFarmer(Farmer farmer) {
-		this.farmer = farmer;
+	public void setFarmerPolicy(Farmer farmerPolicy) {
+		this.farmerPolicy = farmerPolicy;
 	}
 	public InsuranceClaim getClaim() {
 		return claim;

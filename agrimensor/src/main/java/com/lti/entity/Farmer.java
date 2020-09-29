@@ -62,6 +62,8 @@ public class Farmer {
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private List<Crop> crops = new ArrayList<Crop>();
 	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	private List<Insurance> insurance = new ArrayList<Insurance>();
 	
 	public List<Crop> getCrops() {
 		return crops;
@@ -171,6 +173,14 @@ public class Farmer {
 	public void setFarmerLandArea(String farmerLandArea) {
 		this.farmerLandArea = farmerLandArea;
 	}
+	public List<Insurance> getInsurance() {
+		return insurance;
+	}
+	public void setInsurance(List<Insurance> insurance) {
+		this.insurance = insurance;
+	}
+	
+	
 	
 	
 
