@@ -20,22 +20,22 @@ public class Bidder {
 	private int bidderId;
 	@Column(length=30)
 	private String bidderName;
-	@Column
+	@Column(length=50)
 	private String bidderEmail;
 	@Column
 	private String bidderAddressLine1;
 	@Column
 	private String bidderAddressLine2;
-	@Column
+	@Column(length=25)
 	private String bidderCity;
-	@Column
+	@Column(length=25)
 	private String bidderState;
-	@Column
-	private long bidderPAN;
-	@Column
+	@Column(length=30)
+	private String bidderPAN;
+	@Column(length=7)
 	private int bidderPINCODE;
 	@Column
-	private long bidderAADHAR;
+	private String bidderAADHAR;
 	@Column
 	private String bidderIFSC;
 	@Column
@@ -44,6 +44,8 @@ public class Bidder {
 	private String bidderPassword;
 	@Column
 	private String bidderLicense;
+	@Column(length=15)
+	private String bidderStatus;
 	public int getBidderId() {
 		return bidderId;
 	}
@@ -86,10 +88,10 @@ public class Bidder {
 	public void setBidderState(String bidderState) {
 		this.bidderState = bidderState;
 	}
-	public long getBidderPAN() {
+	public String getBidderPAN() {
 		return bidderPAN;
 	}
-	public void setBidderPAN(long bidderPAN) {
+	public void setBidderPAN(String bidderPAN) {
 		this.bidderPAN = bidderPAN;
 	}
 	public int getBidderPINCODE() {
@@ -98,10 +100,10 @@ public class Bidder {
 	public void setBidderPINCODE(int bidderPINCODE) {
 		this.bidderPINCODE = bidderPINCODE;
 	}
-	public long getBidderAADHAR() {
+	public String getBidderAADHAR() {
 		return bidderAADHAR;
 	}
-	public void setBidderAADHAR(long bidderAADHAR) {
+	public void setBidderAADHAR(String bidderAADHAR) {
 		this.bidderAADHAR = bidderAADHAR;
 	}
 	public String getBidderIFSC() {
