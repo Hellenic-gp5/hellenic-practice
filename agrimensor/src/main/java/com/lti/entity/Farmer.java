@@ -1,10 +1,16 @@
 package com.lti.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 /**
@@ -53,6 +59,16 @@ public class Farmer {
 	@Column
 	private String farmerLandArea;
 	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	private List<Crop> crops = new ArrayList<Crop>();
+	
+	
+	public List<Crop> getCrops() {
+		return crops;
+	}
+	public void setCrops(List<Crop> crops) {
+		this.crops = crops;
+	}
 	public String getFarmerCertificate() {
 		return farmerCertificate;
 	}
