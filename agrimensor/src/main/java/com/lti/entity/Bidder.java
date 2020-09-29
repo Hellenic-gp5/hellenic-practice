@@ -1,12 +1,21 @@
 package com.lti.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+
 
 
 @Entity
@@ -17,6 +26,7 @@ public class Bidder {
 
 	@Id
 	@GeneratedValue(generator = "bidderSeq",strategy = GenerationType.SEQUENCE)
+	@Column(name="bidderId")
 	private int bidderId;
 	@Column(length=30)
 	private String bidderName;
@@ -46,6 +56,25 @@ public class Bidder {
 	private String bidderLicense;
 	@Column(length=15)
 	private String bidderStatus;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="bidder_crop",
+			joinColumns= {@JoinColumn(name="bidderId")},
+			inverseJoinColumns= {@JoinColumn(name="cropId")})
+	private Set<Crop>crop = new HashSet<Crop>();
+	
+	public String getBidderStatus() {
+		return bidderStatus;
+	}
+	public void setBidderStatus(String bidderStatus) {
+		this.bidderStatus = bidderStatus;
+	}
+	public Set<Crop> getCrop() {
+		return crop;
+	}
+	public void setCrop(Set<Crop> crop) {
+		this.crop = crop;
+	}
 	public int getBidderId() {
 		return bidderId;
 	}

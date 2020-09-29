@@ -5,13 +5,19 @@ package com.lti.entity;
  */
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JacksonAnnotationValue;
 
 @Entity
 @Table(name="Insurance")
@@ -25,10 +31,26 @@ public class Insurance {
 	private int policyNumber;
 	@Column
 	private int policyFarmerId;	
-	@Column
+	
 	private int policyCropId;
+		
+	/**
+	 * @author YOJAN
+	 */
+	@OneToOne(mappedBy="insurance", cascade= {CascadeType.ALL}, fetch=FetchType.EAGER )
+	private Crop crop;
+	
+	
+	//@OneToOne(mappedBy="crop_insurance", cascade= {CascadeType.ALL}, fetch=FetchType.EAGER )
+	@JoinColumn(name="farmerID")
+	private Farmer farmer;
+	
+	@OneToOne
+	@JoinColumn(name="policyID")
+	private InsuranceClaim claim;
+	
 	@Column(length=10)
-	private String sesson;
+	private String season;
 	@Column
 	private double sumPerHectare;
 	private int policyCropArea;
@@ -38,6 +60,7 @@ public class Insurance {
 	private double policyPremiumAmount;
 	@Column(length=30)
 	private String policyCompany;
+	
 	public int getPolicyId() {
 		return policyId;
 	}
@@ -62,11 +85,12 @@ public class Insurance {
 	public void setPolicyCropId(int policyCropId) {
 		this.policyCropId = policyCropId;
 	}
-	public String getSesson() {
-		return sesson;
+	public String getSeason() {
+		return season;
 	}
-	public void setSesson(String sesson) {
-		this.sesson = sesson;
+	
+	public void setSeason(String season) {
+		this.season = season;
 	}
 	public double getSumPerHectare() {
 		return sumPerHectare;
@@ -104,6 +128,25 @@ public class Insurance {
 	public void setPolicyCompany(String policyCompany) {
 		this.policyCompany = policyCompany;
 	}
+	public Crop getCrop() {
+		return crop;
+	}
+	public void setCrop(Crop crop) {
+		this.crop = crop;
+	}
+	public Farmer getFarmer() {
+		return farmer;
+	}
+	public void setFarmer(Farmer farmer) {
+		this.farmer = farmer;
+	}
+	public InsuranceClaim getClaim() {
+		return claim;
+	}
+	public void setClaim(InsuranceClaim claim) {
+		this.claim = claim;
+	}
+	
 
 
 	

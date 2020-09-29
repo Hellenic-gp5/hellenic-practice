@@ -1,0 +1,20 @@
+.align {
+  margin: 80px auto;
+  position: relative;
+  left: 300px;
+  background: gainsboro;
+  padding: 20px;
+}
+
+.mid {
+  position: relative;
+  left: 300px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: medium;
+}
+
+button {
+  position: relative;
+  left: 300px;;
+}

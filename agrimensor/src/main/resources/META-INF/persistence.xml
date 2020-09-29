@@ -8,7 +8,7 @@
     	<class>com.lti.entity.Bidder</class>
     	<class>com.lti.entity.Crop</class>
 		<properties>
-			       <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+		<property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
         <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
         <property name="hibernate.connection.username" value="anish"/>
         <property name="hibernate.connection.password" value="972505"/> 
