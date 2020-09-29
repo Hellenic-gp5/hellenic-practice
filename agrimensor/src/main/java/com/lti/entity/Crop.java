@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -52,8 +53,17 @@ public class Crop {
 	inverseJoinColumns= {@JoinColumn(name="bidderId")})
 	private Set<Bidder> bidder = new HashSet<Bidder>();
 	
+	@ManyToOne
+	private Farmer farmer;
 	
 	
+	
+	public Farmer getFarmer() {
+		return farmer;
+	}
+	public void setFarmer(Farmer farmer) {
+		this.farmer = farmer;
+	}
 	public Set<Bidder> getBidder() {
 		return bidder;
 	}
