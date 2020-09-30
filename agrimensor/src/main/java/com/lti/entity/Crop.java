@@ -24,9 +24,10 @@ import javax.persistence.Table;
 
 
 
+
 @Entity
 @Table(name="Crop")
-@SequenceGenerator(name="cropSeq", sequenceName = "crop_seq", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="cropSeq", sequenceName = "crop_seq", initialValue = 101, allocationSize = 1)
 
 public class Crop {
 	@Id
@@ -51,12 +52,13 @@ public class Crop {
 	private String cropSoldStatus;
 	@Column
 	private String soilPH;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
+	//fetch = FetchType.EAGER,
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinTable(name="bidder_crop",
 	joinColumns= {@JoinColumn(name="cropId")},
 	inverseJoinColumns= {@JoinColumn(name="bidderId")})
 	private Set<Bidder> bidder = new HashSet<Bidder>();
+	
 	
 	//relation one-to-many for bid-crop entites
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
@@ -64,7 +66,7 @@ public class Crop {
 	
 	@ManyToOne
 	private Farmer farmer;
-
+	
 	
 	public List<Bid> getBids() {
 		return bids;

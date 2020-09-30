@@ -35,17 +35,17 @@ public class TestCrop {
 		c1.setCropSoldStatus("Approved");
 		c1.setSoilPH("acidic");
 		
-		repo.save(c1);
+		repo.saveCrop(c1);
 	}
 	@Test
 	public void fetchCropById() {
-		Crop c1= repo.fetch(1003);
+		Crop c1= repo.fetchCropById(1003);
 		System.out.println(c1.getCropName()+"\t"+c1.getCropType()+"\t"+c1.getCropSoldPrice());
 		
 	}
 	@Test
 	public void testListCrop() {
-		List<Crop> crop= repo.list();
+		List<Crop> crop= repo.listCrop();
 		for (Crop c1 : crop) {
 			System.out.println(c1.getCropName()+"\t"+c1.getCropType()+"\t"+c1.getCropSoldPrice());
 			
@@ -53,13 +53,13 @@ public class TestCrop {
 	}
 	@Test
 	public void testUpdateCrop() {
-		Crop c1= repo.fetch(1002);
+		Crop c1= repo.fetchCropById(1002);
 		c1.setCropBasePrice(22000.0);
-		repo.update(c1);
+		repo.updateCrop(c1);
 	}
 	@Test
 	public void testDeleteCustomer() {
-		repo.delete(1003);
+		repo.deleteCrop(1003);
 		
 	}
 

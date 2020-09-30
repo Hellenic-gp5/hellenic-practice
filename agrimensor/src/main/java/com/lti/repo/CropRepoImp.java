@@ -17,32 +17,38 @@ public class CropRepoImp implements CropRepo {
 	
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Transactional(value = TxType.REQUIRED)
-	public void save(Crop crop) {
+	public void saveCrop(Crop crop) {
 		em.persist(crop);
 
 	}
 
-	public Crop fetch(int cropId) {
+	public Crop fetchCropById(int cropId) {
 		Crop c=em.find(Crop.class, cropId);
 		return c;
 	}
 
-	public List<Crop> list() {
+	public List<Crop> listCrop() {
 		return em.createQuery("from Crop").getResultList();
 	}
 
 	@Transactional(value = TxType.REQUIRED)
-	public void delete(int cropId) {
+	public void deleteCrop(int cropId) {
 		em.remove(em.find(Crop.class, cropId));	
 		
 
 	}
 	@Transactional(value = TxType.REQUIRED)
-	public void update(Crop crop) {
+	public void updateCrop(Crop crop) {
 		em.merge(crop);
 
+	}
+	
+	@Transactional(value = TxType.REQUIRED)
+	public void updateCropSoldStatus(int cropId, String cropSoldStatus) {
+		em.createQuery("UPDATE Crop c SET c.cropSoldStatus= :cropSoldStatus " + "WHERE c.cropId = :cropId");
+		
 	}
 
 }

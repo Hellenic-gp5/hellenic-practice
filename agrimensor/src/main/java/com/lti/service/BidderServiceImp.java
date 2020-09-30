@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Bidder;
+import com.lti.repo.BidRepo;
 import com.lti.repo.BidderRepo;
 
 
@@ -22,26 +23,26 @@ public class BidderServiceImp implements BidderService {
 
 	@Transactional(value = TxType.REQUIRED)
 	public void persist(Bidder bidder) {
-		repo.save(bidder);
+		repo.saveBidder(bidder);
 
 	}
 
 	public Bidder find(int bidderId) {
-		return repo.fetch(bidderId);
+		return repo.fetchBidderById(bidderId);
 	}
 
 	public List<Bidder> load() {
-		return repo.list();
+		return repo.listBidder();
 	}
 
 	@Transactional(value = TxType.REQUIRED)
 	public void remove(int bidderId) {
-		repo.delete(bidderId);
+		repo.deleteBidder(bidderId);
 
 	}
 	@Transactional(value = TxType.REQUIRED)
 	public void edit(Bidder bidder) {
-		repo.update(bidder);
+		repo.updateBidder(bidder);
 
 	}
 

@@ -40,7 +40,7 @@ public class TestCropRelational {
 		Crop c = new Crop();
 		c.setCropId(1001);
 		c.setCropName("Rice");
-		crepo.update(c);
+		crepo.updateCrop(c);
 
 	}
 	

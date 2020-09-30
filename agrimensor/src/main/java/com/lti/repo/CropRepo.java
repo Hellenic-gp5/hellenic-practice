@@ -7,11 +7,13 @@ import com.lti.entity.Crop;
 
 public interface CropRepo {
 	
-	void save(Crop crop);
-	Crop fetch(int cropId);
-	List<Crop> list();
+	void saveCrop(Crop crop);
+	Crop fetchCropById(int cropId);
+	List<Crop> listCrop();
 	
-	void delete(int cropId);
-	void update(Crop crop);
+	void deleteCrop(int cropId);
+	void updateCrop(Crop crop);
+	
+	void updateCropSoldStatus(int cropId,String cropSoldStatus);
 
 }

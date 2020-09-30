@@ -42,18 +42,18 @@ public class TestBidder {
 		b1.setBidderStatus("Approved");
 		
 		
-		repo.save(b1);
+		repo.saveBidder(b1);
 	}
 	@Test
 	public void fetchBidderById() {
-		Bidder b1= repo.fetch(1003);
+		Bidder b1= repo.fetchBidderById(1003);
 		System.out.println(b1.getBidderName()+"\t"+b1.getBidderEmail()+"\t"+b1.getBidderStatus());
 		
 	}
 	
 	@Test
 	public void testListBidder() {
-		List<Bidder> bidder= repo.list();
+		List<Bidder> bidder= repo.listBidder();
 		for (Bidder b1 : bidder) {
 			System.out.println(b1.getBidderName()+"\t"+b1.getBidderEmail()+"\t"+b1.getBidderStatus());
 			
@@ -61,14 +61,14 @@ public class TestBidder {
 	}
 	@Test
 	public void testUpdateBidder() {
-		Bidder c1= repo.fetch(1001);
+		Bidder c1= repo.fetchBidderById(1001);
 		c1.setBidderStatus("Waiting");
-		repo.update(c1);
+		repo.updateBidder(c1);
 	}
 	
 	@Test
 	public void testDeleteCustomer() {
-		repo.delete(1004);
+		repo.deleteBidder(1004);
 		
 	}
 	

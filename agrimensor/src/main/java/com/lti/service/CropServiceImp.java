@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Crop;
+import com.lti.repo.BidRepo;
 import com.lti.repo.CropRepo;
 
 
@@ -20,28 +21,28 @@ public class CropServiceImp implements CropService {
 	private CropRepo repo;
 
 	public void persist(Crop crop) {
-		repo.save(crop);
+		repo.saveCrop(crop);
 		
 
 	}
 
 	public Crop find(int cropId) {
-		return repo.fetch(cropId);
+		return repo.fetchCropById(cropId);
 	}
 
 	public List<Crop> load() {
-		return repo.list();
+		return repo.listCrop();
 	}
 	
 	@Transactional(value = TxType.REQUIRED)
 	public void remove(int cropId) {
-		repo.delete(cropId);
+		repo.deleteCrop(cropId);
 
 	}
 	
 	@Transactional(value = TxType.REQUIRED)
 	public void edit(Crop crop) {
-		repo.update(crop);
+		repo.updateCrop(crop);
 
 	}
 

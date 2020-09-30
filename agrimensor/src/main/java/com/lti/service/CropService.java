@@ -15,5 +15,7 @@ Crop find(int cropId);
 	void remove(int cropId);
 	
 	void edit(Crop crop);
+	
+	//void updateCropSoldStatus(int cropId,String cropSoldStatus);
 
 }
