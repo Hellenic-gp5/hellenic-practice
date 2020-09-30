@@ -40,7 +40,7 @@ public class TestBidderCrop {
 		Set<Crop> crop = b1.getCrop();
 		   for (Crop c : crop) {
 			   System.out.println(c.getCropId()+" \t "+c.getCropName());
-		}
+		   }
 	}
 	
 	
