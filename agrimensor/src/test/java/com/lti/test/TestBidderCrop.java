@@ -15,7 +15,7 @@ import com.lti.repo.CropRepo;
 import com.lti.repo.CropRepoImp;
 
 /**
- * @author SAKSHI Java version 1.8 Test case for Bidder-Crop Relation
+ * @author SAKSHI Java version 1.8 Test case for Bidder-Crop Relation.
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,8 +25,6 @@ public class TestBidderCrop {
 	@Autowired
 	private BidderRepo repo;
 	
-	//@Autowired
-	//private CropRepo repo1;
 	
 	
 	@Test
