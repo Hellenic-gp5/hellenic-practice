@@ -3,6 +3,7 @@ package com.lti.repo;
 import java.util.List;
 
 import com.lti.entity.Farmer;
+import com.lti.entity.Insurance;
 
 /**
  * @author Anish
@@ -19,4 +20,6 @@ public interface FarmerRepo {
 	void update(Farmer farmerId);
 	
 	void delete(int farmerId);
+	
+	void addInsurance(int farmerId, Insurance insurance);
 }

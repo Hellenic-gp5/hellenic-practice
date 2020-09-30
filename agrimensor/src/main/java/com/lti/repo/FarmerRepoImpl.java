@@ -10,6 +10,7 @@ import javax.transaction.Transactional.TxType;
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Farmer;
+import com.lti.entity.Insurance;
 
 /**
  * @author Anish
@@ -44,6 +45,15 @@ public class FarmerRepoImpl implements FarmerRepo {
 	public void delete(int farmerId) {
 		em.remove(em.find(Farmer.class, farmerId));
 
+	}
+	
+	@Transactional(value = TxType.REQUIRED)
+	public void addInsurance(int farmerId, Insurance insurance) {
+		Farmer farmer=em.find(Farmer.class,farmerId);
+		insurance.setFarmerPolicy(farmer);
+		farmer.getInsurance().add(insurance);
+		em.persist(insurance);
+		em.merge(farmer);
 	}
 
 }
