@@ -1,4 +1,5 @@
 package com.lti.entity;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,10 +19,10 @@ public class Insurance {
 	@Id
 	@GeneratedValue(generator = "insureSeq",strategy = GenerationType.SEQUENCE)
 	private int policyId;
-	@Column
-	private int policyNumber;
-	@Column
-	private int policyFarmerId;	
+//	@Column
+//	private int policyNumber;
+//	@Column
+//	private int policyFarmerId;	
 	
 	private int policyCropId;
 		
@@ -33,8 +34,8 @@ public class Insurance {
 	@JoinColumn(name = "farmerId")
 	private Farmer farmerPolicy;
 	
-	@OneToOne
-	@JoinColumn(name="policyID")
+	@OneToOne(mappedBy = "insurance",cascade = CascadeType.ALL)
+//	@JoinColumn(name="policyID")
 	private InsuranceClaim claim;
 	
 	@Column(length=10)
@@ -55,18 +56,18 @@ public class Insurance {
 	public void setPolicyId(int policyId) {
 		this.policyId = policyId;
 	}
-	public int getPolicyNumber() {
-		return policyNumber;
-	}
-	public void setPolicyNumber(int policyNumber) {
-		this.policyNumber = policyNumber;
-	}
-	public int getPolicyFarmerId() {
-		return policyFarmerId;
-	}
-	public void setPolicyFarmerId(int policyFarmerId) {
-		this.policyFarmerId = policyFarmerId;
-	}
+//	public int getPolicyNumber() {
+//		return policyNumber;
+//	}
+//	public void setPolicyNumber(int policyNumber) {
+//		this.policyNumber = policyNumber;
+//	}
+//	public int getPolicyFarmerId() {
+//		return policyFarmerId;
+//	}
+//	public void setPolicyFarmerId(int policyFarmerId) {
+//		this.policyFarmerId = policyFarmerId;
+//	}
 	public int getPolicyCropId() {
 		return policyCropId;
 	}

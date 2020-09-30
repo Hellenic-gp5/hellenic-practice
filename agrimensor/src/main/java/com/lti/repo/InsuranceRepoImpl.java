@@ -23,26 +23,26 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 	private EntityManager em;
 
 	@Transactional(value = TxType.REQUIRED)
-	@Override
+	//@Override
 	public void Save(Insurance ins) {
 		// TODO Auto-generated method stub
 		em.persist(ins);
 	}
 
-	@Override
+	//@Override
 	public Insurance fetch(int polid) {
 		// TODO Auto-generated method stub
 		return em.find(Insurance.class, polid);
 	}
 
-	@Override
+	//@Override
 	public List<Insurance> list() {
 		// TODO Auto-generated method stub
 		return (List<Insurance>) em.createQuery("From Insurance").getResultList();
 	}
 
 	@Transactional(value = TxType.REQUIRED)
-	@Override
+	//@Override
 	public void update(String status, int polid) {
 		// TODO Auto-generated method stub
 		em.find(Insurance.class, polid).setPolicyStatus(status);
