@@ -51,8 +51,20 @@ public class BidRepoImpl implements BidRepo {
 	@Transactional(value = TxType.REQUIRED)
 	public void updateBidStatus(int bidId, String bidStatus) {
 		// TODO Auto-generated method stub
-		em.createQuery("UPDATE Bid b SET b.bidStatus= :bidStatus " + "WHERE b.bidId = :bidId");
+		Bid b1 = em.find(Bid.class, bidId);
+		b1.setBidStatus(bidStatus);
+	}
+	
+	public List<Bid> listOfRejectedBids(String Status) {
+		Query q1 = em.createNamedQuery("getBidStatus");
+		q1.setParameter("crl", "Rejected");
+		return q1.getResultList();
+	}
 
+	public List<Bid> listOfApprovedBids(String Status) {
+		Query q1 = em.createNamedQuery("getBidStatus");
+		q1.setParameter("crl", "Approved");
+		return q1.getResultList();
 	}
 
 }

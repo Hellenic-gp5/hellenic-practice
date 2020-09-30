@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 
@@ -64,6 +66,16 @@ public class BidderRepoImp implements BidderRepo{
 	}
 	
 
+/**
+* method for getting all the bids of a particular bidder
+* 
+* @author Ruhi
+*
+*/
+	public List<Bid> listOfBidsById(Bidder id) {
+		Query q1 = em.createNamedQuery("getBidsByBidder");
+		q1.setParameter("bidderId", id);
+		return q1.getResultList();
+	}
 	
-
 }

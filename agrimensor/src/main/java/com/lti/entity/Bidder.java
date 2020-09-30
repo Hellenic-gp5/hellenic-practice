@@ -68,9 +68,6 @@ public class Bidder {
 			inverseJoinColumns= {@JoinColumn(name="cropId")})
 	private Set<Crop>crop = new HashSet<Crop>();
 	
-	
-	
-	
 	public String getBidderStatus() {
 		return bidderStatus;
 	}

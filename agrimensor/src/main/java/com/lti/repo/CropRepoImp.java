@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 
@@ -51,4 +53,15 @@ public class CropRepoImp implements CropRepo {
 		
 	}
 
+	/**
+	* method for getting all the bids of a particular crop
+	* 
+	* @author Ruhi
+	*
+	*/
+		public List<Bid> listOfBidsByCropId(Crop id) {
+			Query q1 = em.createNamedQuery("getBidsByCropId");
+			q1.setParameter("cropId", id);
+			return q1.getResultList();
+		}
 }
