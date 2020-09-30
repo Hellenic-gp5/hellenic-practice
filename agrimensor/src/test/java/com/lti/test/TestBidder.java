@@ -13,8 +13,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lti.entity.Bidder;
 import com.lti.repo.BidderRepo;
-
-
+/**
+ * @author SAKSHI Java version 1.8 Test case for Bidder
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:appctx.xml")
 public class TestBidder {
 	
 	@Autowired

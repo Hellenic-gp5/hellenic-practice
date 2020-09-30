@@ -2,6 +2,7 @@ package com.lti.test;
 
 import java.util.List;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.repo.CropRepo;
+/**
+ * @author SAKSHI Java version 1.8 Test case for Crop
+ */
 
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:appctx.xml")
 public class TestCrop {
 	
 	@Autowired
