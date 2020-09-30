@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SecondaryTable;
+import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,6 +22,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Bidder")
+@SecondaryTables({@SecondaryTable(name="bidder_doc"),@SecondaryTable(name="bidder_info")})
 @SequenceGenerator(name="bidderSeq", sequenceName = "bidder_seq", initialValue = 1001, allocationSize = 1)
 
 public class Bidder {
@@ -32,29 +35,29 @@ public class Bidder {
 	private String bidderName;
 	@Column(length=50)
 	private String bidderEmail;
-	@Column
+	@Column(length = 30, name="bidder_info")
 	private String bidderAddressLine1;
-	@Column
+	@Column(length = 30, name="bidder_info")
 	private String bidderAddressLine2;
-	@Column(length=25)
+	@Column(length=25, name="bidder_info")
 	private String bidderCity;
-	@Column(length=25)
+	@Column(length=25, name="bidder_info")
 	private String bidderState;
-	@Column(length=30)
+	@Column(length=30, name="bidder_doc")
 	private String bidderPAN;
-	@Column(length=7)
+	@Column(length=7, name="bidder_info")
 	private int bidderPINCODE;
-	@Column
+	@Column(length=30, name="bidder_doc")
 	private String bidderAADHAR;
-	@Column
+	@Column(length=25, name="bidder_info")
 	private String bidderIFSC;
-	@Column
+	@Column(name="bidder_info")
 	private long bidderAccountNumber;
 	@Column
 	private String bidderPassword;
-	@Column
+	@Column(length=30, name="bidder_doc")
 	private String bidderLicense;
-	@Column(length=15)
+	@Column(length=15, name="bidder_info")
 	private String bidderStatus;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
