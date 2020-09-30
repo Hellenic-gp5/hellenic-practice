@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SecondaryTable;
+import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 /**
@@ -19,6 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Farmer")
+@SecondaryTables({@SecondaryTable(name="farmer_info"),@SecondaryTable(name="farmer_doc")})
 @SequenceGenerator(name="farmerSeq", sequenceName = "farmer_seq", initialValue = 1001, allocationSize = 1)
 
 public class Farmer {
@@ -28,41 +31,41 @@ public class Farmer {
 	private int farmerId;
 	@Column(length=30)
 	private String farmerName;
-	@Column
+	@Column(length = 30)
 	private String farmerEmail;
-	@Column
+	@Column(length=30, table="farmer_info")
 	private String farmerAddressLine1;
-	@Column
+	@Column(length=30, table="farmer_info")
 	private String farmerAddressLine2;
-	@Column
+	@Column(length=20, table="farmer_info")
 	private String farmerCity;
-	@Column
+	@Column(length=15, table="farmer_info")
 	private String farmerState;
-	@Column
+	@Column(length=40, table="farmer_doc")
 	private String farmerPAN;
-	@Column
+	@Column(length=40, table="farmer_doc")
 	private String farmerCertificate;
-	@Column
+	@Column(table="farmer_info")
 	private int farmerPINCode;
-	@Column
+	@Column(length=40, table="farmer_doc")
 	private String farmerAADHAR;
-	@Column
+	@Column(length=15, table="farmer_info")
 	private String farmerIFSC;
-	@Column
+	@Column(table="farmer_info")
 	private long farmerAccountNumber;
 	@Column
 	private String farmerPassword;
-	@Column
+	@Column(length=20, table="farmer_info")
 	private String farmerLandAddress;
-	@Column
+	@Column(length=20, table="farmer_info")
 	private String farmerLandPIN;
-	@Column
+	@Column(length=20, table="farmer_info")
 	private String farmerLandArea;
 	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToMany(cascade = {CascadeType.ALL})
 	private List<Crop> crops = new ArrayList<Crop>();
 	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToMany(cascade = {CascadeType.ALL})
 	private List<Insurance> insurance = new ArrayList<Insurance>();
 	
 	public List<Crop> getCrops() {
