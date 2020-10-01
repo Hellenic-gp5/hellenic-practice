@@ -53,7 +53,7 @@ public class Crop {
 	@JoinTable(name="bidder_crop",
 	joinColumns= {@JoinColumn(name="cropId")},
 	inverseJoinColumns= {@JoinColumn(name="bidderId")})
-	private Set<Bidder> bidder = new HashSet<Bidder>();
+	private List<Bidder> bidder = new ArrayList<Bidder>();
 	
 	
 	//relation one-to-many for bid-crop entites
@@ -76,10 +76,10 @@ public class Crop {
 	public void setFarmer(Farmer farmer) {
 		this.farmer = farmer;
 	}
-	public Set<Bidder> getBidder() {
+	public List<Bidder> getBidder() {
 		return bidder;
 	}
-	public void setBidder(Set<Bidder> bidder) {
+	public void setBidder(List<Bidder> bidder) {
 		this.bidder = bidder;
 	}
 	public int getCropId() {
