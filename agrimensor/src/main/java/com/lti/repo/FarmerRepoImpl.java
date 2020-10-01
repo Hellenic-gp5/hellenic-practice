@@ -50,7 +50,6 @@ public class FarmerRepoImpl implements FarmerRepo {
 	@Transactional(value = TxType.REQUIRED)
 	public void addInsurance(int farmerId, Insurance insurance) {
 		Farmer farmer=em.find(Farmer.class,farmerId);
-		insurance.setFarmerPolicy(farmer);
 		farmer.getInsurance().add(insurance);
 		em.persist(insurance);
 		em.merge(farmer);
