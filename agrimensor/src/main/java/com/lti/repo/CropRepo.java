@@ -20,5 +20,7 @@ public interface CropRepo {
 	void updateCropSoldStatus(int cropId,String cropSoldStatus);
 	
 	List<Bid> listOfBidsByCropId(Crop id);
+	
+	List<Crop> listofCrop();
 
 }

@@ -14,6 +14,7 @@ import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 
+
 @Repository
 public class CropRepoImp implements CropRepo {
 	
@@ -63,5 +64,23 @@ public class CropRepoImp implements CropRepo {
 			Query q1 = em.createNamedQuery("getBidsByCropId");
 			q1.setParameter("cropId", id);
 			return q1.getResultList();
+		}
+		
+		/**
+		* 
+		* @author Sakshi
+		*
+		*/
+		
+		public List<Crop> listofCrop(){
+			Query q1 = em.createNativeQuery("SELECT cropId FROM bidder_crop WHERE bidderId=1001");
+			//List <Object>list = q1.getResultList();
+			List <Integer>list = q1.getResultList();
+			
+				Query q2 = em.createNamedQuery("sql");
+				q2.setParameter("cropId", list);
+				return q2.getResultList();
+				
+			
 		}
 }

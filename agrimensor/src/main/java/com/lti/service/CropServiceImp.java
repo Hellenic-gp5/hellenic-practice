@@ -14,6 +14,10 @@ import com.lti.repo.BidRepo;
 import com.lti.repo.CropRepo;
 
 
+/**
+ * @author Sakshi
+ *
+ */
 @Service
 public class CropServiceImp implements CropService {
 	
@@ -44,6 +48,11 @@ public class CropServiceImp implements CropService {
 	public void edit(Crop crop) {
 		repo.updateCrop(crop);
 
+	}
+	
+	public List<Crop> loadofCrop() {
+		
+		return repo.listofCrop();
 	}
 
 }

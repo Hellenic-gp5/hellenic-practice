@@ -24,8 +24,8 @@ package com.lti.rest;
 	@RestController
 	public class CropRestController {
 		
-		//@Autowired
-		//private CropService CropService;
+		@Autowired
+		private CropService CropService;
 		
 		@Autowired
 		private BidderService BidderService;
@@ -40,8 +40,11 @@ package com.lti.rest;
 			Bidder b1= BidderService.find(bidderId);
 			List<Crop> crop=b1.getCrop();
 			return crop;
-			
-			
+		}
+		//Fetching through named query
+		@GetMapping(value = "/fetchCrop", produces = "application/json")
+		public List<Crop> fetchCropOfBider(){
+			return CropService.loadofCrop();
 		}
 
 }
