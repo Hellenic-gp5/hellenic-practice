@@ -13,11 +13,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Insurance")
-@SequenceGenerator(name="insureSeq", sequenceName = "insure_seq", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="insuranceSeq", sequenceName = "insurance_seq", initialValue = 1001, allocationSize = 1)
 
 public class Insurance {
 	@Id
-	@GeneratedValue(generator = "insureSeq",strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "insuranceSeq",strategy = GenerationType.SEQUENCE)
 	private int policyId;
 //	@Column
 //	private int policyNumber;
@@ -30,9 +30,9 @@ public class Insurance {
 	 * @author YOJAN
 	 */
 	
-	@ManyToOne
-	@JoinColumn(name = "farmerId")
-	private Farmer farmerPolicy;
+//	@ManyToOne
+//	@JoinColumn(name = "farmerId")
+//	private Farmer farmerPolicy;
 	
 	@OneToOne(mappedBy = "insurance",cascade = CascadeType.ALL)
 //	@JoinColumn(name="policyID")
@@ -118,12 +118,10 @@ public class Insurance {
 		this.policyCompany = policyCompany;
 	}
 	
-	public Farmer getFarmerPolicy() {
-		return farmerPolicy;
-	}
-	public void setFarmerPolicy(Farmer farmerPolicy) {
-		this.farmerPolicy = farmerPolicy;
-	}
+	/*
+	 * public Farmer getFarmerPolicy() { return farmerPolicy; } public void
+	 * setFarmerPolicy(Farmer farmerPolicy) { this.farmerPolicy = farmerPolicy; }
+	 */
 	public InsuranceClaim getClaim() {
 		return claim;
 	}
