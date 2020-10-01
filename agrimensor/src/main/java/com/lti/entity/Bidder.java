@@ -1,6 +1,8 @@
 package com.lti.entity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -66,7 +68,7 @@ public class Bidder {
 	@JoinTable(name="bidder_crop",
 			joinColumns= {@JoinColumn(name="bidderId")},
 			inverseJoinColumns= {@JoinColumn(name="cropId")})
-	private Set<Crop>crop = new HashSet<Crop>();
+	private List<Crop>crop = new ArrayList<Crop>();
 	
 	public String getBidderStatus() {
 		return bidderStatus;
@@ -74,10 +76,10 @@ public class Bidder {
 	public void setBidderStatus(String bidderStatus) {
 		this.bidderStatus = bidderStatus;
 	}
-	public Set<Crop> getCrop() {
+	public List<Crop> getCrop() {
 		return crop;
 	}
-	public void setCrop(Set<Crop> crop) {
+	public void setCrop(List<Crop> crop) {
 		this.crop = crop;
 	}
 	public int getBidderId() {
