@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +14,8 @@ import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * @author Ruhi java version 1.8
  * for entity FARMER
@@ -63,9 +64,11 @@ public class Farmer {
 	private String farmerLandArea;
 	
 	@OneToMany(cascade = {CascadeType.ALL})
+	@JsonIgnore
 	private List<Crop> crops = new ArrayList<Crop>();
 	
 	@OneToMany(cascade = {CascadeType.ALL})
+	@JsonIgnore
 	private List<Insurance> insurance = new ArrayList<Insurance>();
 	
 	public List<Crop> getCrops() {
