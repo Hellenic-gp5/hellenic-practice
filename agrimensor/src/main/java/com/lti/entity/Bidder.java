@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.SecondaryTable;
+import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -26,43 +28,52 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Bidder")
+@SecondaryTables({@SecondaryTable(name="bidder_doc"),@SecondaryTable(name="bidder_info")})
 @SequenceGenerator(name="bidderSeq", sequenceName = "bidder_seq", initialValue = 1001, allocationSize = 1)
 
 public class Bidder {
-
 	@Id
-	@GeneratedValue(generator = "bidderSeq",strategy = GenerationType.SEQUENCE)
-	@Column(name="bidderId")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "bidderSeq")
 	private int bidderId;
 	@Column(length=30)
 	private String bidderName;
-	@Column(length=30)
+	@Column(length=50)
 	private String bidderEmail;
-	@Column(length=30)
-	private String bidderAddressLine1;
-	@Column(length=30)
-	private String bidderAddressLine2;
-	@Column(length=20)
-	private String bidderCity;
-	@Column(length=25)
-	private String bidderState;
-	@Column(length=25)
-	private String bidderPAN;
-	@Column(length=7)
-	private int bidderPINCODE;
-	@Column(length=25)
-	private String bidderAADHAR;
-	@Column(length=25)
-	private String bidderIFSC;
-	@Column(length=20)
-	private int bidderAccountNumber;
-	@Column(length=20)
-	private String bidderPassword;
-	@Column(length=20)
-	private String bidderLicense;
-	@Column(length=15)
-	private String bidderStatus;
 	
+	@Column(length = 30, table="bidder_info")
+	private String bidderAddressLine1;
+	
+	@Column(length = 30, table="bidder_info")
+	private String bidderAddressLine2;
+
+	@Column(length=25, table="bidder_info")
+	private String bidderCity;
+
+	@Column(length=25, table="bidder_info")
+	private String bidderState;
+
+	@Column(length=30, table="bidder_doc")
+	private String bidderPAN;
+
+	@Column(length=7, table="bidder_info")
+	private int bidderPINCODE;
+
+	@Column(length=30, table="bidder_doc")
+	private String bidderAADHAR;
+
+	@Column(length=25, table="bidder_info")
+	private String bidderIFSC;
+
+	@Column(table ="bidder_info")
+	private String bidderAccountNumber;
+	@Column
+	private String bidderPassword;
+
+	@Column(length=30, table="bidder_doc")
+	private String bidderLicense;
+	
+	@Column(length=15, table="bidder_info")
+	private String bidderStatus;
 	
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinTable(name="bidder_crop",
@@ -148,10 +159,10 @@ public class Bidder {
 	public void setBidderIFSC(String bidderIFSC) {
 		this.bidderIFSC = bidderIFSC;
 	}
-	public int getBidderAccountNumber() {
+	public String getBidderAccountNumber() {
 		return bidderAccountNumber;
 	}
-	public void setBidderAccountNumber(int bidderAccountNumber) {
+	public void setBidderAccountNumber(String bidderAccountNumber) {
 		this.bidderAccountNumber = bidderAccountNumber;
 	}
 	public String getBidderPassword() {
