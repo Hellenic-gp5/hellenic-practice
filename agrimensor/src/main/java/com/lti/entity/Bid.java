@@ -11,6 +11,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * for entity Bid
  * 
@@ -21,8 +23,8 @@ import javax.persistence.Table;
 @Table(name = "Bids")
 @SequenceGenerator(name = "bidSeq", sequenceName = "bid_seq", initialValue = 1001, allocationSize = 1)
 /* @NamedQuery(name="getBidStatus", query="From Bid WHERE bidStatus=:crl") */
-@NamedQuery(name = "getBidsByBidder", query = "FROM Bid WHERE bidderId=:bidderId")
-@NamedQuery(name = "getBidsByCropId", query = "FROM Bid WHERE cropId=:cropId")
+//@NamedQuery(name = "getBidsByBidder", query = "FROM Bid WHERE bidderId=:bidderId")
+//@NamedQuery(name = "getBidsByCropId", query = "FROM Bid WHERE cropId=:cropId")
 public class Bid {
 
 	@Id
@@ -34,10 +36,12 @@ public class Bid {
 	private String bidStatus = "Queued";
 
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "bidderId")
 	private Bidder bidderId;
 
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "cropId")
 	private Crop cropId;
 

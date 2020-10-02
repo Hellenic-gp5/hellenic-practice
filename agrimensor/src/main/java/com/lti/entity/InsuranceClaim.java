@@ -22,13 +22,11 @@ import javax.persistence.Table;
 public class InsuranceClaim {
 	@Id
 	@GeneratedValue(generator = "insureclaimSeq",strategy = GenerationType.SEQUENCE)
-	private int policyId;
-	@Column(length=30)
-	private String policyCompany;
+	private int claimId;
 	@Column
 	private String claimReason;
 	@Column
-	private Date dateOfLoss;
+	private String dateOfLoss;
 	@Column(length=10)
 	private String insuranceClaimStatus;
 	
@@ -40,27 +38,22 @@ public class InsuranceClaim {
 	private Insurance insurance;
 	
 	public int getPolicyId() {
-		return policyId;
+		return claimId;
 	}
 	public void setPolicyId(int policyId) {
-		this.policyId = policyId;
+		this.claimId = policyId;
 	}
-	public String getPolicyCompany() {
-		return policyCompany;
-	}
-	public void setPolicyCompany(String policyCompany) {
-		this.policyCompany = policyCompany;
-	}
+	
 	public String getClaimReason() {
 		return claimReason;
 	}
 	public void setClaimReason(String claimReason) {
 		this.claimReason = claimReason;
 	}
-	public Date getDateOfLoss() {
+	public String getDateOfLoss() {
 		return dateOfLoss;
 	}
-	public void setDateOfLoss(Date dateOfLoss) {
+	public void setDateOfLoss(String dateOfLoss) {
 		this.dateOfLoss = dateOfLoss;
 	}
 	public String getInsuranceClaimStatus() {

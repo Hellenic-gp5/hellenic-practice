@@ -3,6 +3,7 @@ package com.lti.service;
 import java.util.List;
 
 import com.lti.entity.Insurance;
+import com.lti.entity.InsuranceClaim;
 
 
 /**
@@ -14,8 +15,11 @@ void Apply(Insurance ins);
 	
 	Insurance search(int polid);
 	
-	List<Insurance> Show();
-	
+
 	void action(String status, int polid);
+	
+	void addClaim(int polid, InsuranceClaim claim);
+	
+	
 	
 }

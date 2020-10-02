@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Farmer;
+import com.lti.entity.Insurance;
 import com.lti.repo.FarmerRepo;
 
 @Service
@@ -38,6 +39,12 @@ public class FarmerServiceImpl implements FarmerService {
 	@Transactional(value = TxType.REQUIRED)
 	public void edit(Farmer farmer) {
 		repo.update(farmer);
+	}
+
+	@Override
+	public void insure(int fid, Insurance insurance) {
+		// TODO Auto-generated method stub
+		repo.addInsurance(fid, insurance);		
 	}
 
 }

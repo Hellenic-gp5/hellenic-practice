@@ -3,12 +3,14 @@ package com.lti.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Farmer;
+import com.lti.entity.Insurance;
 import com.lti.service.FarmerService;
 
 @CrossOrigin
@@ -23,7 +25,11 @@ public class FarmerRestController {
 		service.persist(farmer);
 		return "Farmer added successfully";
 	}
-	
+	@PostMapping(value="/apply/{fid}", consumes="application/json")
+	public String apply(@PathVariable int fid, @RequestBody Insurance insurance) {
+		service.insure(fid, insurance);
+		return "insurance added successfully";
+	}
 	@GetMapping(value = "/fetchfarmer", produces = "application/json")
 	public Farmer fetchFarmer(@RequestParam("farmerId") int farmerId) {
 		return service.find(farmerId);
@@ -45,4 +51,6 @@ public class FarmerRestController {
 //		service.remove(farmerId);
 //		return "Farmer deleted successfully";
 //	}
+	
+	
 }
