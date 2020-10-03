@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.lti.entity.Crop;
 
+/**
+ * @author Sakshi
+ *
+ */
 public interface CropService {
 	
 void persist(Crop crop);
@@ -17,6 +21,6 @@ Crop find(int cropId);
 	void edit(Crop crop);
 	
 	//void updateCropSoldStatus(int cropId,String cropSoldStatus);
-	List<Crop> loadofCrop();
+	List<Crop> loadofCrop(int bidderId);
 
 }

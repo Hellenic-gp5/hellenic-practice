@@ -16,6 +16,10 @@ import com.lti.repo.BidderRepo;
 
 
 
+/**
+ * @author Sakshi
+ *
+ */
 @Service
 public class BidderServiceImp implements BidderService {
 
@@ -47,6 +51,16 @@ public class BidderServiceImp implements BidderService {
 		repo.updateBidder(bidder);
 
 	}
+	/**
+	 * @author Sakshi
+	 *methods to add crops with a particular bidder
+	 */
+	@Transactional(value = TxType.REQUIRED)
+	public void persistBidderCrop(Bidder bidder, int cropId) {
+		repo.saveBidderCrop(bidder, cropId);
+		
+	}
+
 	/**
 	 * @author YOJAN
 	 *methods to add bid and make bid

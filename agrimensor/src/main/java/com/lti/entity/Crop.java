@@ -1,6 +1,7 @@
 package com.lti.entity;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -22,10 +23,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name="Crop")
 @SequenceGenerator(name="cropSeq", sequenceName = "crop_seq", initialValue = 101, allocationSize = 1)
-@NamedQuery(name = "sql", query = "SELECT cropId, cropName FROM Crop WHERE cropId IN(:cropId)")
 
 public class Crop {
 	@Id
@@ -50,7 +52,10 @@ public class Crop {
 	private String cropSoldStatus;
 	@Column
 	private String soilPH;
-	//fetch = FetchType.EAGER,
+	/**
+	 * @author Sakshi
+	 *Many to many relation with bidder
+	 */
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinTable(name="bidder_crop",
 	joinColumns= {@JoinColumn(name="cropId")},

@@ -77,7 +77,10 @@ public class Bidder {
 	
 	@Column(length=15, table="bidder_info")
 	private String bidderStatus;
-	
+	/**
+	 * @author Sakshi
+	 *Many to many relation with crop
+	 */
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinTable(name="bidder_crop",
 			joinColumns= {@JoinColumn(name="bidderId")},

@@ -21,6 +21,6 @@ public interface CropRepo {
 	
 	List<Bid> listOfBidsByCropId(Crop id);
 	
-	List<Crop> listofCrop();
+	List<Crop> listofCrop(int bidderId);
 
 }

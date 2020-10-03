@@ -50,9 +50,9 @@ public class CropServiceImp implements CropService {
 
 	}
 	
-	public List<Crop> loadofCrop() {
+	public List<Crop> loadofCrop(int bidderId) {
 		
-		return repo.listofCrop();
+		return repo.listofCrop(bidderId);
 	}
 
 }

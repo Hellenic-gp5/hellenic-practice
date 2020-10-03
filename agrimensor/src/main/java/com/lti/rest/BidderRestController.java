@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.service.BidderService;
-
+/**
+ * @author Sakshi
+ * Bidder controller class
+ *
+ */
 @CrossOrigin
 @RestController
 public class BidderRestController {

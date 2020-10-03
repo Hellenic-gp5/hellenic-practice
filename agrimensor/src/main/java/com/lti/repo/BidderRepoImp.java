@@ -17,6 +17,12 @@ import com.lti.entity.Crop;
 
 
 
+/**
+ * 
+ * @author Sakshi 
+ *
+ */
+
 @Repository
 public class BidderRepoImp implements BidderRepo{
 	@PersistenceContext
@@ -56,7 +62,11 @@ public class BidderRepoImp implements BidderRepo{
 
 
 	}
-
+	/**
+	 * method for adding crop with bidder
+	 * @author Sakshi
+	 *
+	 */
 	@Transactional(value = TxType.REQUIRED)
 	public void saveBidderCrop(Bidder bidder, int cropId) {
 		Crop c=em.find(Crop.class, cropId);

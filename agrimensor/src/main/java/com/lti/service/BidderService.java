@@ -6,6 +6,10 @@ import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 
 
+/**
+ * @author Sakshi
+ *
+ */
 public interface BidderService {
 	
 	void persist(Bidder bidder);
@@ -21,5 +25,6 @@ public interface BidderService {
 	List<Bid> listBids(int bidderid);
 	
 	void makeBid(int bidderid, Bid bid, int cropid);
+	void persistBidderCrop(Bidder bidder, int cropId);
 
 }
