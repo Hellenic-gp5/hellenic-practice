@@ -25,6 +25,11 @@ public class InsuranceRestController {
 	@Autowired
 	private InsuranceService service;
 	
+	@GetMapping(value="/insurancestatus/{polid}")
+	public String updateInsurance(@RequestParam String status, @PathVariable int polid) {
+		service.action(status, polid);
+		return "Status changed successfully to "+status;
+	}
 
 	@GetMapping(value="/fetchpolicy", produces="application/json")
 	public Insurance FetchPolicy(@RequestParam int id)

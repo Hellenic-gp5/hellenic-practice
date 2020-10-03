@@ -27,11 +27,10 @@ public class InsuranceClaim {
 	private String claimReason;
 	@Column
 	private String dateOfLoss;
-	@Column(length=10)
-	private String insuranceClaimStatus;
-	
+		
 	/**
 	 * @author YOJAN
+	 * one to one relationship with Insurance
 	 */
 	@OneToOne
 	@JoinColumn(name = "policyID")
@@ -56,12 +55,12 @@ public class InsuranceClaim {
 	public void setDateOfLoss(String dateOfLoss) {
 		this.dateOfLoss = dateOfLoss;
 	}
-	public String getInsuranceClaimStatus() {
-		return insuranceClaimStatus;
-	}
-	public void setInsuranceClaimStatus(String insuranceClaimStatus) {
-		this.insuranceClaimStatus = insuranceClaimStatus;
-	}
+//	public String getInsuranceClaimStatus() {
+//		return insuranceClaimStatus;
+//	}
+//	public void setInsuranceClaimStatus(String insuranceClaimStatus) {
+//		this.insuranceClaimStatus = insuranceClaimStatus;
+//	}
 	public Insurance getInsurance() {
 		return insurance;
 	}

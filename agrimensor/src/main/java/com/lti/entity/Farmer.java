@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
@@ -22,18 +23,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 @Table(name="Farmer")
+/**
+ * @author YOJAN Java version 1.8
+ * Join table with User as base and secondary tables for basic info and documents
+ */
+@PrimaryKeyJoinColumn(name="farmerid", referencedColumnName = "user_id")
 @SecondaryTables({@SecondaryTable(name="farmer_info"),@SecondaryTable(name="farmer_doc")})
 @SequenceGenerator(name="farmerSeq", sequenceName = "farmer_seq", initialValue = 1001, allocationSize = 1)
 
-public class Farmer {
+public class Farmer extends User{
+//	@GeneratedValue(generator = "farmerSeq",strategy = GenerationType.SEQUENCE)
+
 	
-	@Id
-	@GeneratedValue(generator = "farmerSeq",strategy = GenerationType.SEQUENCE)
-	private int farmerId;
+	//private int farmerId;
 	@Column(length=30)
 	private String farmerName;
-	@Column(length = 30)
-	private String farmerEmail;
+//	@Column(length = 30)
+//	private String farmerEmail;
 	@Column(length=30, table="farmer_info")
 	private String farmerAddressLine1;
 	@Column(length=30, table="farmer_info")
@@ -54,8 +60,8 @@ public class Farmer {
 	private String farmerIFSC;
 	@Column(table="farmer_info")
 	private long farmerAccountNumber;
-	@Column
-	private String farmerPassword;
+//	@Column
+//	private String farmerPassword;
 	@Column(length=20, table="farmer_info")
 	private String farmerLandAddress;
 	@Column(length=20, table="farmer_info")
@@ -83,24 +89,24 @@ public class Farmer {
 	public void setFarmerCertificate(String farmerCertificate) {
 		this.farmerCertificate = farmerCertificate;
 	}
-	public int getFarmerId() {
-		return farmerId;
-	}
-	public void setFarmerId(int farmerId) {
-		this.farmerId = farmerId;
-	}
+//	public int getFarmerId() {
+//		return farmerId;
+//	}
+//	public void setFarmerId(int farmerId) {
+//		this.farmerId = farmerId;
+//	}
 	public String getFarmerName() {
 		return farmerName;
 	}
 	public void setFarmerName(String farmerName) {
 		this.farmerName = farmerName;
 	}
-	public String getFarmerEmail() {
-		return farmerEmail;
-	}
-	public void setFarmerEmail(String farmerEmail) {
-		this.farmerEmail = farmerEmail;
-	}
+//	public String getFarmerEmail() {
+//		return farmerEmail;
+//	}
+//	public void setFarmerEmail(String farmerEmail) {
+//		this.farmerEmail = farmerEmail;
+//	}
 	public String getFarmerAddressLine1() {
 		return farmerAddressLine1;
 	}
@@ -155,12 +161,12 @@ public class Farmer {
 	public void setFarmerAccountNumber(long farmerAccountNumber) {
 		this.farmerAccountNumber = farmerAccountNumber;
 	}
-	public String getFarmerPassword() {
-		return farmerPassword;
-	}
-	public void setFarmerPassword(String farmerPassword) {
-		this.farmerPassword = farmerPassword;
-	}
+//	public String getFarmerPassword() {
+//		return farmerPassword;
+//	}
+//	public void setFarmerPassword(String farmerPassword) {
+//		this.farmerPassword = farmerPassword;
+//	}
 	public String getFarmerLandAddress() {
 		return farmerLandAddress;
 	}

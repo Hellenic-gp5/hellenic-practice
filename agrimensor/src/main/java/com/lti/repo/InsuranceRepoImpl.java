@@ -41,9 +41,10 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 	//@Override
 	public void update(String status, int polid) {
 		// TODO Auto-generated method stub
-		em.find(Insurance.class, polid).setPolicyStatus(status);
-
-	}
+		Insurance i= em.find(Insurance.class, polid);
+		i.setPolicyStatus(status);
+		em.merge(i);
+		}
 	@Transactional(value = TxType.REQUIRED)
 	@Override	
 	public void claim(int polid, InsuranceClaim claim) {
