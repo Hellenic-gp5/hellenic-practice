@@ -5,6 +5,7 @@ package com.lti.repo;
 import java.util.List;
 
 import com.lti.entity.Insurance;
+import com.lti.entity.InsuranceClaim;
 
 
 
@@ -17,7 +18,7 @@ public interface InsuranceRepo {
 	
 	Insurance fetch(int polid);
 	
-	List<Insurance> list();
+	void claim(int polid, InsuranceClaim claim);
 	
 	void update(String status, int polid);
 	

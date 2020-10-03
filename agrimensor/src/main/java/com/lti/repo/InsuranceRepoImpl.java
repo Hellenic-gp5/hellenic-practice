@@ -11,6 +11,7 @@ import javax.transaction.Transactional.TxType;
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Insurance;
+import com.lti.entity.InsuranceClaim;
 
 /**
  * @author YOJAN java version 1.8
@@ -35,18 +36,21 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 		return em.find(Insurance.class, polid);
 	}
 
-	//@Override
-	public List<Insurance> list() {
-		// TODO Auto-generated method stub
-		return (List<Insurance>) em.createQuery("From Insurance").getResultList();
-	}
-
+	
 	@Transactional(value = TxType.REQUIRED)
 	//@Override
 	public void update(String status, int polid) {
 		// TODO Auto-generated method stub
 		em.find(Insurance.class, polid).setPolicyStatus(status);
 
+	}
+	@Transactional(value = TxType.REQUIRED)
+	@Override	
+	public void claim(int polid, InsuranceClaim claim) {
+		Insurance i =em.find(Insurance.class, polid);
+		i.setClaim(claim);
+		em.persist(claim);
+		em.merge(i);
 	}
 
 }

@@ -24,7 +24,7 @@ public class BidderRestController {
 	@Autowired
 	private BidderService service;
 	
-	@PostMapping(value = "/addBidder", consumes = "application/json")
+	@PostMapping(value = "/addbidder", consumes = "application/json")
 	public String addBidder(@RequestBody Bidder bidder) {
 		service.persist(bidder);
 		return "Bidder added successfully";
@@ -33,7 +33,7 @@ public class BidderRestController {
 	public Bidder fetchBidder(@RequestParam("bidderId") int bidderId) {
 		return service.find(bidderId);
 	}
-	@GetMapping(value = "/listBidder", produces = "application/json")
+	@GetMapping(value = "/listBids", produces = "application/json")
 	public List<Bidder> listBid() {
 		return service.load();
 	}
@@ -47,5 +47,15 @@ public class BidderRestController {
 		service.remove(bidderId);
 		return "Bid deleted successfully";
 	}
+	
+	@GetMapping(value="/makebid", consumes="application/json")
+	public String bid(@RequestParam int bidderid, @RequestParam int cropid, @RequestBody Bid bid) {
+		service.makeBid(bidderid, bid, cropid);
+		return "Bid made successfully";
+	}
 
+	@GetMapping(value="/listbids", produces="application/json")
+	public List<Bid> listbid(@RequestParam int bidderid){
+		return service.listBids(bidderid);
+	}
 }

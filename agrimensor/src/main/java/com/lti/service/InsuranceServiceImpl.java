@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Insurance;
+import com.lti.entity.InsuranceClaim;
 import com.lti.repo.InsuranceRepo;
 /**
  * @author YOJAN java version 1.8
@@ -35,17 +36,22 @@ public class InsuranceServiceImpl implements InsuranceService{
 		return repo.fetch(polid);
 	}
 
-	@Override
-	public List<Insurance> Show() {
-		// TODO Auto-generated method stub
-		return repo.list();
-	}
+	
 	@Transactional(value = TxType.REQUIRED)
 	@Override
 	public void action(String status, int polid) {
 		// TODO Auto-generated method stub
 		repo.update(status, polid);
 	}
+	@Transactional(value = TxType.REQUIRED)
+	@Override
+	public void addClaim(int polid, InsuranceClaim claim) {
+		// TODO Auto-generated method stub
+		repo.claim(polid, claim);
+		
+	}
+
+	
 	
 	
 }

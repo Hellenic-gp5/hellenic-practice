@@ -22,7 +22,9 @@ public interface BidderRepo {
 	
 	void saveBidderCrop(Bidder bidder,int cropid);
 	
-	List<Bid> listOfBidsById(Bidder id);
+	void bid(int bidderid, Bid bid, int cropid);
+	
+	List<Bid> listOfBidsById(int id);
 
 
 }

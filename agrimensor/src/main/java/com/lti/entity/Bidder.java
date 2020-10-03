@@ -16,10 +16,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -79,13 +82,24 @@ public class Bidder {
 	@JoinTable(name="bidder_crop",
 			joinColumns= {@JoinColumn(name="bidderId")},
 			inverseJoinColumns= {@JoinColumn(name="cropId")})
+	@JsonIgnore
 	private List<Crop>crop = new ArrayList<Crop>();
+	
+	@OneToMany(mappedBy = "bidderId",cascade = {CascadeType.ALL})
+	@JsonIgnore
+	private List<Bid>bids=new ArrayList<Bid>();
 	
 	public String getBidderStatus() {
 		return bidderStatus;
 	}
 	public void setBidderStatus(String bidderStatus) {
 		this.bidderStatus = bidderStatus;
+	}
+	public List<Bid> getBids() {
+		return bids;
+	}
+	public void setBids(List<Bid> bids) {
+		this.bids = bids;
 	}
 	public List<Crop> getCrop() {
 		return crop;

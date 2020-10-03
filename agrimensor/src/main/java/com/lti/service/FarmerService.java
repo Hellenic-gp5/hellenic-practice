@@ -3,11 +3,8 @@ package com.lti.service;
 import java.util.List;
 
 import com.lti.entity.Farmer;
+import com.lti.entity.Insurance;
 
-/**
- * @author Anish
- *
- */
 public interface FarmerService {
 	
 void persist(Farmer farmer);
@@ -19,4 +16,6 @@ void persist(Farmer farmer);
 	void remove(int farmer);
 	
 	void edit(Farmer farmer);
+	
+	void insure(int fid, Insurance insurance);
 }
