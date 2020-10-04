@@ -17,6 +17,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;
 import javax.persistence.SequenceGenerator;
@@ -31,21 +32,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Bidder")
+
+/**
+ * @author YOJAN Java version 1.8
+ * Join table with User as base and secondary tables for basic info and documents
+ */
+@PrimaryKeyJoinColumn(name="bidderid", referencedColumnName = "user_id")
 @SecondaryTables({@SecondaryTable(name="bidder_doc"),@SecondaryTable(name="bidder_info")})
 @SequenceGenerator(name="bidderSeq", sequenceName = "bidder_seq", initialValue = 1001, allocationSize = 1)
 
-public class Bidder {
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "bidderSeq")
-	private int bidderId;
+public class Bidder extends User {
+
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "bidderSeq")
+	
+	//private int bidderId;
 	@Column(length=30)
 	private String bidderName;
-	@Column(length=50)
-	private String bidderEmail;
-	
+	//	@Column(length=50)
+	//	private String bidderEmail;
+
 	@Column(length = 30, table="bidder_info")
 	private String bidderAddressLine1;
-	
+
 	@Column(length = 30, table="bidder_info")
 	private String bidderAddressLine2;
 
@@ -74,7 +82,7 @@ public class Bidder {
 
 	@Column(length=30, table="bidder_doc")
 	private String bidderLicense;
-	
+
 	@Column(length=15, table="bidder_info")
 	private String bidderStatus;
 	/**
@@ -83,15 +91,15 @@ public class Bidder {
 	 */
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinTable(name="bidder_crop",
-			joinColumns= {@JoinColumn(name="bidderId")},
-			inverseJoinColumns= {@JoinColumn(name="cropId")})
+	joinColumns= {@JoinColumn(name="bidderId")},
+	inverseJoinColumns= {@JoinColumn(name="cropId")})
 	@JsonIgnore
 	private List<Crop>crop = new ArrayList<Crop>();
-	
+
 	@OneToMany(mappedBy = "bidderId",cascade = {CascadeType.ALL})
 	@JsonIgnore
 	private List<Bid>bids=new ArrayList<Bid>();
-	
+
 	public String getBidderStatus() {
 		return bidderStatus;
 	}
@@ -110,24 +118,24 @@ public class Bidder {
 	public void setCrop(List<Crop> crop) {
 		this.crop = crop;
 	}
-	public int getBidderId() {
-		return bidderId;
-	}
-	public void setBidderId(int bidderId) {
-		this.bidderId = bidderId;
-	}
+//	public int getBidderId() {
+//		return bidderId;
+//	}
+//	public void setBidderId(int bidderId) {
+//		this.bidderId = bidderId;
+//	}
 	public String getBidderName() {
 		return bidderName;
 	}
 	public void setBidderName(String bidderName) {
 		this.bidderName = bidderName;
 	}
-	public String getBidderEmail() {
-		return bidderEmail;
-	}
-	public void setBidderEmail(String bidderEmail) {
-		this.bidderEmail = bidderEmail;
-	}
+	//	public String getBidderEmail() {
+	//		return bidderEmail;
+	//	}
+	//	public void setBidderEmail(String bidderEmail) {
+	//		this.bidderEmail = bidderEmail;
+	//	}
 	public String getBidderAddressLine1() {
 		return bidderAddressLine1;
 	}
@@ -182,18 +190,18 @@ public class Bidder {
 	public void setBidderAccountNumber(String bidderAccountNumber) {
 		this.bidderAccountNumber = bidderAccountNumber;
 	}
-	public String getBidderPassword() {
-		return bidderPassword;
-	}
-	public void setBidderPassword(String bidderPassword) {
-		this.bidderPassword = bidderPassword;
-	}
+	//	public String getBidderPassword() {
+	//		return bidderPassword;
+	//	}
+	//	public void setBidderPassword(String bidderPassword) {
+	//		this.bidderPassword = bidderPassword;
+	//	}
 	public String getBidderLicense() {
 		return bidderLicense;
 	}
 	public void setBidderLicense(String bidderLicense) {
 		this.bidderLicense = bidderLicense;
 	}
-	
-	
+
+
 }

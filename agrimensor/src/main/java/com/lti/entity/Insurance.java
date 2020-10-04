@@ -45,7 +45,7 @@ public class Insurance {
 	@Column
 	private double sumPerHectare;
 	private int policyCropArea;
-	@Column(length = 15)
+	@Column(length =50)
 	private String policyStatus;
 	private double policySharedPremium;
 	private double policyPremiumAmount;
