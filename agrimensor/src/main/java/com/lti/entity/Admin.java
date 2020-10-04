@@ -9,6 +9,8 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name="userId", referencedColumnName = "user_id")
 public class Admin extends User {
 		//fields for approval status
-
-	
+	//cropSoldStatus
+	//bidderStatus
+	//farmerStatus
+	//policyStatus
 }

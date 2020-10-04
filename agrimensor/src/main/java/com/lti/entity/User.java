@@ -58,7 +58,5 @@ public class User {
 		String encodedPass= encoder.encodeToString(password.getBytes());
 		this.password = encodedPass;
 	}
-	
-
 
 }
