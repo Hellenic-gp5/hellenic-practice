@@ -18,12 +18,13 @@ import javax.persistence.Table;
 @Table(name="users")
 @SequenceGenerator(name="usersSeq", sequenceName = "users_seq", initialValue = 1001, allocationSize = 1)
 @Inheritance(strategy = InheritanceType.JOINED)
+
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "usersSeq")
 	@Column(name="user_id")
 	private int userId;
-	@Column(length=50, unique=true)
+	@Column(length=50, unique=true, nullable= false)
 	private String emailId;
 	@Column(length=32)
 	private String password;
