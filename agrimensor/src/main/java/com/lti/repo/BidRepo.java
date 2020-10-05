@@ -15,11 +15,13 @@ public interface BidRepo {
 
 	void updateBid(Bid bid);
 
-	void updateBidStatus(int bidId, String bidStatus);
-
 	List<Bid> listOfRejectedBids(String Status);
 
 	List<Bid> listOfApprovedBids(String Status);
-	
+
+	List<Bid> listOfBidsOfBidder(int bidderId);
+
+	List<Bid> listOfBidsByCrop(int cropId);
+
 	Bid fetchCurrentBid(int cropId);
 }

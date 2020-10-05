@@ -42,8 +42,17 @@ public class BidServiceImpl implements BidService {
 		repo.updateBid(bid);
 	}
 
-	public void updateBidStatus(int bidId,String bidStatus) {
+	public void updateBidStatus(int bidId, String bidStatus) {
 		repo.updateBidStatus(bidId, bidStatus);
 	}
 
+	public List<Bid> bidsOfBidder(int id) {
+		return repo.listOfBidsOfBidder(id);
+	}
+
+	@Override
+	public List<Bid> getBidsOnCrop(int cropId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
+import com.lti.entity.Insurance;
 
 
 
@@ -56,12 +57,15 @@ public class BidderRepoImp implements BidderRepo{
 
 	}
 
+	//method to update status of biider
 	@Transactional(value = TxType.REQUIRED)
-	public void updateBidderStatus(int bidderId, String bidderStatus) {
-		em.createQuery("UPDATE Bidder b SET b.bidderStatus= :bidderStatus " + "WHERE b.bidderId = :bidderId");
-
-
-	}
+	@Override
+	public void updateBidderStatus(int bidderId, String bidderStatus)  {
+		// TODO Auto-generated method stub
+		Bidder bidder = em.find(Bidder.class, bidderId);
+		bidder.setBidderStatus(bidderStatus);
+		em.merge(bidder);
+		}
 	/**
 	 * method for adding crop with bidder
 	 * @author Sakshi

@@ -32,12 +32,12 @@ public class BidRelationsController {
 		service.persistBid(bid);
 		return "Bid add for bidder "+bid.getBidderId();
 	}
-	/*
-	 * @GetMapping(value = "/getBidsOnCrops/{cropId}", produces =
-	 * "application/json") public List<Bid> getBidsOnCrops(@PathVariable int cropId)
-	 * { return service.getBidsOnCrop(cropId);
-	 * 
-	 * }
-	 */
+	
+	  @GetMapping(value = "/getBidsOnCrops/{cropId}", produces =
+	  "application/json") public List<Bid> getBidsOnCrops(@PathVariable int cropId)
+	  { return service.getBidsOnCrop(cropId);
+	  
+	  }
+	 
 
 }

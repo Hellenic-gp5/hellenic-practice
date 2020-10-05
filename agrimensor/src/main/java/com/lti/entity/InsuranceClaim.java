@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="InsuranceClaim")
-@SequenceGenerator(name="insureclaimSeq", sequenceName = "insureclaim_seq", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="insureclaimSeq", sequenceName = "insureclaim_seq1", initialValue = 1001, allocationSize = 1)
 
 public class InsuranceClaim {
 	@Id
@@ -67,6 +67,9 @@ public class InsuranceClaim {
 	public void setInsurance(Insurance insurance) {
 		this.insurance = insurance;
 	}
+	/*
+	 * { "claimReason":"Floods", "dateOfLoss":"12032020" }
+	 */
 	
 	
 }
