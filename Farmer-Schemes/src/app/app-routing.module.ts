@@ -58,7 +58,11 @@ const routes: Routes = [
   },
 
   // <--------Bidder route----------->
-  { path: 'bidder', component: BidderComponent },
+  {
+    path: 'bidder',
+    component: BidderComponent,
+    children: [{ path: 'home', redirectTo: '/home' }],
+  },
   //<---------------Admin Module route------------->
   {
     path: 'admin',
