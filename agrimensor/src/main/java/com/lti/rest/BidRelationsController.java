@@ -22,19 +22,22 @@ public class BidRelationsController {
 	@Autowired
 	private BidService service;
 	
-	@GetMapping(value = "/BidsOfBidder/{bidderId}", produces = "application/json")
-	public List<Bid> fetchBid(@PathVariable int bidderId) {
-		return service.bidsOfBidder(bidderId);
-	}
+	/*
+	 * @GetMapping(value = "/BidsOfBidder/{bidderId}", produces =
+	 * "application/json") public List<Bid> fetchBid(@PathVariable int bidderId) {
+	 * return service.bidsOfBidder(bidderId); }
+	 */
 	@PutMapping(value = "/addBids", consumes = "application/json")
 	public String addBidsForBidder(@RequestBody Bid bid) {
 		service.persistBid(bid);
 		return "Bid add for bidder "+bid.getBidderId();
 	}
-	@GetMapping(value = "/getBidsOnCrops/{cropId}", produces = "application/json")
-	public List<Bid> getBidsOnCrops(@PathVariable int cropId) {
-		return service.getBidsOnCrop(cropId);
-	
-	}
+	/*
+	 * @GetMapping(value = "/getBidsOnCrops/{cropId}", produces =
+	 * "application/json") public List<Bid> getBidsOnCrops(@PathVariable int cropId)
+	 * { return service.getBidsOnCrop(cropId);
+	 * 
+	 * }
+	 */
 
 }

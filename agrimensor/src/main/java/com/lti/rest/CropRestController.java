@@ -42,9 +42,9 @@ package com.lti.rest;
 			return crop;
 		}
 		//Fetching through named query
-		@GetMapping(value = "/fetchCrop", produces = "application/json")
-		public List<Crop> fetchCropOfBider(){
-			return CropService.loadofCrop();
-		}
+		/*
+		 * @GetMapping(value = "/fetchCrop", produces = "application/json") public
+		 * List<Crop> fetchCropOfBider(){ return CropService.loadofCrop(); }
+		 */
 
 }
