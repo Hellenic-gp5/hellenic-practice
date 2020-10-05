@@ -53,12 +53,6 @@ public class FarmerRestController {
 //		return service.load();
 //	}
 //	
-//	@PutMapping(value = "/editfarmer", consumes = "application/json")
-//	public String updateFarmer(@RequestBody Farmer farmer) {
-//		service.edit(farmer);
-//		return "Farmer updated successfully";
-//	}
-//	
 //	@DeleteMapping("/delfarmer")
 //	public String delEmployee(@RequestParam("farmerId") int farmerId) {
 //		service.remove(farmerId);
