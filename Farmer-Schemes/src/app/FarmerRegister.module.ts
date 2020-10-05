@@ -9,6 +9,9 @@ export class FarmerRegisterModel {
   public landAddress: string;
   public city: string;
   public state: string;
+  public aadhar: string;
+  public pancard: string;
+  public certificate: string;
   public pincode: number;
   public accountNo: number;
   public ifscCode: string;

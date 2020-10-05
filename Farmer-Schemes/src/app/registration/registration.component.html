@@ -1,349 +1,240 @@
 <div class="container-fluid">
-<app-navbar></app-navbar>
-  <div class="card">
-    <div class="header">
-      <a href="#">
-        <img
-          src="../../../assets/logo.png"
-          alt="Logo"
-          style="width: 64px; margin-right: 16px"
-        />
-      </a>
-      <h2>Registration Page</h2>
+  <app-navbar></app-navbar>
+  <div class="container">
+    <h1>Bidder Registration</h1>
+    <div class="alert-message" *ngIf="allAlert">
+      {{ allAlert }}
     </div>
-    <form action="./action.php" (ngSubmit)="saveReg()" #addForm="ngForm">
-      <div class="personal-details sections">
-        <p style="width: 12%">Personal Details</p>
-        <div class="form-group">
-          <label for="name">Full Name:</label>
+    <form [formGroup]="bidderRegisterForm" (ngSubmit)="onRegister()">
+      <div class="form">
+        <div class="col">
           <input
-            type="text"
-            name="name"
-            class="form-control"
-            required
-            pattern="[A-Z][a-z]{3,}"
-            placeholder="Enter Full Name"
-            [(ngModel)]="reg.name"
-            #name="ngModel"
+            type="radio"
+            id="role"
+            name="bidder"
+            formControlName="role"
+            value="bidder"
+            checked
           />
-          <span *ngIf="name.touched && name.invalid" class="alert-warning">
-            Name is invalid!
-          </span>
+          <label for="role">Bidder:</label>
         </div>
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input
-            type="email"
-            class="form-control"
-            [(ngModel)]="reg.email"
-            required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
-            placeholder="Enter email"
-            #email="ngModel"
-          />
-          <span *ngIf="email.touched && email.invalid" class="alert-warning">
-            Email is invalid!
-          </span>
-        </div>
-        <div class="form-group">
-          <label for="contact">Contact No:</label>
-          <input
-            type="number"
-            [(ngModel)]="reg.contact"
-            class="form-control"
-            required
-            pattern="[0-9]{10,}"
-            placeholder="Enter Mobile No"
-            #contact="ngModel"
-          />
-          <span
-            *ngIf="contact.touched && contact.invalid"
-            class="alert-warning"
-          >
-            Contact No is invalid!
-          </span>
+        <div class="col">
+          <input type="radio" id="role" name="farmer" value="farmer" disabled />
+          <label for="role">Farmer:</label>
         </div>
       </div>
-      <div class="address-details sections">
-        <p style="width: 12%">Address Details</p>
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
-              <label for="address">Address 1:</label>
-              <textarea
-                class="form-control"
-                rows="3"
-                id="address"
-                required
-                pattern="[A-Za-z0-9]+"
-                [(ngModel)]="reg.address"
-                #address="ngModel"
-              ></textarea>
-              <span
-                *ngIf="address.touched && address.invalid"
-                class="alert-warning"
-              >
-                Address is invalid!
-              </span>
+      <div class="form">
+        <p style="width: 15%">Personal Details</p>
+        <label for="username">Full Name:</label>
+        <input type="text" name="name" formControlName="userName" />
+        <div
+          *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+          class="alert-message"
+        >
+          <div *ngIf="userName.errors.required">Name is required.</div>
+          <div *ngIf="userName.errors.pattern">Invalid Name Format</div>
+        </div>
+        <div class="form-group">
+          <div class="nested-form">
+            <label for="email">Email:</label>
+            <input type="email" name="email" formControlName="email" />
+            <div
+              *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="alert-message"
+            >
+              <div *ngIf="email.errors.required">email is required.</div>
+              <div *ngIf="email.errors.email">Invalid email Format</div>
             </div>
           </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="address">Address 2:</label>
-              <textarea
-                class="form-control"
-                rows="3"
-                id="address"
-                [(ngModel)]="reg.address"
-              ></textarea>
+          <div class="nested-form">
+            <label for="contact">Contact:</label>
+            <input type="number" name="contact" formControlName="contact" />
+            <div
+              *ngIf="contact.invalid && (contact.dirty || contact.touched)"
+              class="alert-message"
+            >
+              <div *ngIf="contact.errors.required">contact is required.</div>
+              <div *ngIf="contact.errors.pattern">Invalid contact Format</div>
             </div>
           </div>
         </div>
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
+      </div>
+      <div class="form">
+        <p style="width: 26%">Address Details</p>
+        <div class="form-group">
+          <div class="nested-form">
+            <label for="address">Address Line 1:</label>
+            <textarea rows="3" formControlName="address"></textarea>
+            <div
+              *ngIf="address.invalid && (address.dirty || address.touched)"
+              class="alert-message"
+            >
+              <div *ngIf="address.errors.required">One Address is required</div>
+            </div>
+          </div>
+
+          <div class="nested-form">
+            <label for="address">Address Line 2:</label>
+            <textarea rows="3"></textarea>
+          </div>
+        </div>
+        <div class="nested-form">
+          <div class="form-row mb-4">
+            <div class="col">
               <label for="state">State: </label>
               <select
                 class="form-control"
                 placeholder="State"
-                [(ngModel)]="reg.state"
-                #state="ngModel"
                 (change)="changeState($event.target.value)"
+                formControlName="state"
               >
                 <option>--Choose State--</option>
                 <option *ngFor="let state of States">{{ state.name }}</option>
               </select>
-              <!--<select
-                class="form-control"
-                [(ngModel)]="reg.state"
-                placeholder="State"
-                #state="ngModel"
+              <div
+                *ngIf="state.invalid && (state.dirty || state.touched)"
+                class="alert-message"
               >
-                <option>--Choose States--</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Rajasthan">Rajasthan</option>
-              </select>-->
-              <span
-                *ngIf="state.touched && state.invalid"
-                class="alert-warning"
-              >
-                State not selected!
-              </span>
+                <div *ngIf="state.errors.required">State is required.</div>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
+            <div class="col">
               <label for="state">City:</label>
               <select
                 class="form-control"
-                [(ngModel)]="reg.city"
-                #city="ngModel"
                 placeholder="City"
+                formControlName="city"
               >
                 <option>--Choose City--</option>
                 <option *ngFor="let city of cities">{{ city }}</option>
               </select>
-              <!--<select
-                class="form-control"
-                [(ngModel)]="reg.city"
-                #city="ngModel"
-                placeholder="City"
+              <div
+                *ngIf="city.invalid && (city.dirty || city.touched)"
+                class="alert-message"
               >
-                <option>--Choose City--</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Pune">Pune</option>
-                <option value="Bengaluru">Bengaluru</option>
-                <option value="Kolkata">Kolkata</option>
-              </select>-->
-              <span *ngIf="city.touched && city.invalid" class="alert-warning">
-                City not selected!
-              </span>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="pincode">Pincode:</label>
-              <input
-                type="number"
-                class="form-control"
-                required
-                pattern="[0-9]{7,}"
-                [(ngModel)]="reg.pincode"
-                #pincode="ngModel"
-              />
-              <span
-                *ngIf="pincode.touched && pincode.invalid"
-                class="alert-warning"
-              >
-                Pincode is invalid!
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bank-details sections">
-        <p style="width: 10%">Bank Details</p>
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
-              <label for="account-no">Account No: </label>
-              <input
-                type="number"
-                class="form-control"
-                required
-                pattern="[0-9]{9,18}"
-                [(ngModel)]="reg.accountNo"
-                #accountNo="ngModel"
-              />
-              <span
-                *ngIf="accountNo.touched && accountNo.invalid"
-                class="alert-warning"
-              >
-                Account No is invalid!
-              </span>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="ifsc">IFSC Code:</label>
-              <input
-                type="text"
-                class="form-control"
-                required
-                pattern="^[A-Z]{4}0[A-Z0-9]{6}$"
-                [(ngModel)]="reg.ifscCode"
-                #ifscCode="ngModel"
-              />
-              <span
-                *ngIf="ifscCode.touched && ifscCode.invalid"
-                class="alert-warning"
-              >
-                IFSC Code is invalid!
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="document-details sections">
-        <p style="width: 13%">Doucment Details</p>
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
-                <label class="custom-file-label" for="customFile"
-                  >Choose Aadhar</label
-                >
+                <div *ngIf="city.errors.required">city is required.</div>
               </div>
-              <script>
-                // Add the following code if you want the name of the file appear on select
-                $(".custom-file-input").on("change", function () {
-                  var fileName = $(this).val().split("\\").pop();
-                  $(this)
-                    .siblings(".custom-file-label")
-                    .addClass("selected")
-                    .html(fileName);
-                });
-              </script>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
-                <label class="custom-file-label" for="customFile"
-                  >Choose PAN</label
-                >
-              </div>
-              <script>
-                // Add the following code if you want the name of the file appear on select
-                $(".custom-file-input").on("change", function () {
-                  var fileName = $(this).val().split("\\").pop();
-                  $(this)
-                    .siblings(".custom-file-label")
-                    .addClass("selected")
-                    .html(fileName);
-                });
-              </script>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
-                <label class="custom-file-label" for="customFile"
-                  >Choose Trader Licence
-                </label>
-              </div>
-              <script>
-                // Add the following code if you want the name of the file appear on select
-                $(".custom-file-input").on("change", function () {
-                  var fileName = $(this).val().split("\\").pop();
-                  $(this)
-                    .siblings(".custom-file-label")
-                    .addClass("selected")
-                    .html(fileName);
-                });
-              </script>
             </div>
           </div>
         </div>
       </div>
-      <div class="set-password sections">
-        <p style="width: 10%">Set Password</p>
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
-              <label for="password">Password: </label>
-              <input
-                type="password"
-                class="form-control"
-                required
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                [(ngModel)]="reg.password"
-                #password="ngModel"
-              />
-              <span
-                *ngIf="password.touched && password.invalid"
-                class="alert-warning"
-              >
-                Password is invalid!
-              </span>
+      <div class="form">
+        <p style="width: 22%">Bank Details</p>
+        <div class="form-group">
+          <div class="nested-form">
+            <label for="account">Account No.:</label>
+            <input type="number" name="account" formControlName="accno" />
+            <div
+              *ngIf="accno.invalid && (accno.dirty || accno.touched)"
+              class="alert-message"
+            >
+              <div *ngIf="accno.errors.required">Account No. is required.</div>
+              <div *ngIf="accno.errors.pattern">Invalid Account No.</div>
             </div>
           </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="password">Confirm Password: </label>
-              <input
-                type="password"
-                class="form-control"
-                required
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                [(ngModel)]="reg.confirmPassword"
-                #confirmPassword="ngModel"
-              />
-              <span
-                *ngIf="password.touched && password.invalid"
-                class="alert-warning"
-              >
-                Password is invalid!
-              </span>
+          <div class="nested-form">
+            <label for="ifsc">IFSC Code:</label>
+            <input type="text" name="ifsc" formControlName="ifsc" />
+            <div
+              *ngIf="ifsc.invalid && (ifsc.dirty || ifsc.touched)"
+              class="alert-message"
+            >
+              <div *ngIf="ifsc.errors.required">IFSC Code. is required.</div>
+              <div *ngIf="ifsc.errors.pattern">Invalid IFSC</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="btn-group">
-        <button type="submit" [disabled]="!addForm.valid" class="btn">
-          Register
-        </button>
-        <button type="button" class="btn">Reset</button>
+      <div class="form">
+        <p style="width: 18%">Document</p>
+        <div class="document">
+          <label for="aadhar">Aadhar Card No.:</label>
+          <input type="file" name="fileToUpload" formControlName="aadhar" />
+        </div>
+        <div
+          *ngIf="aadhar.invalid && (aadhar.dirty || aadhar.touched)"
+          class="alert-message"
+        >
+          <div *ngIf="aadhar.errors.required">Aadhar card is required.</div>
+        </div>
+        <div class="document">
+          <label for="pan">Pan Card No.:</label>
+          <input type="file" name="fileToUpload" formControlName="pan" />
+        </div>
+        <div
+          *ngIf="pan.invalid && (pan.dirty || pan.touched)"
+          class="alert-message"
+        >
+          <div *ngIf="pan.errors.required">Pan Card is required.</div>
+        </div>
+        <div class="document">
+          <label for="certificate">Trader License:</label>
+          <input
+            type="file"
+            name="fileToUpload"
+            formControlName="certificate"
+          />
+        </div>
+        <div
+          *ngIf="
+            certificate.invalid && (certificate.dirty || certificate.touched)
+          "
+          class="alert-message"
+        >
+          <div *ngIf="certificate.errors.required">
+            Certificate is required.
+          </div>
+        </div>
       </div>
+      <div class="form">
+        <p style="width: 17%">Password</p>
+        <div class="form-group">
+          <div class="nested-form">
+            <label for="password">Password:</label>
+            <input type="password" name="password" formControlName="password" />
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert-message"
+            >
+              <div *ngIf="password.errors.required">Password is required.</div>
+              <div *ngIf="password.errors.pattern">
+                Must contain 1 Uppercase, 1 Lowercase, 1 Special Character, 1
+                Number and Minimum 8 characters
+              </div>
+            </div>
+          </div>
+          <div class="nested-form">
+            <label for="password">Confirm Password:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              formControlName="confirmPassword"
+            />
+            <div
+              *ngIf="
+                confirmPassword.invalid &&
+                (confirmPassword.dirty || confirmPassword.touched)
+              "
+              class="alert-message"
+            >
+              <div *ngIf="confirmPassword.errors.required">
+                Password is required.
+              </div>
+              <div *ngIf="confirmPassword.errors.pattern">
+                Must contain 1 Uppercase, 1 Lowercase, 1 Special Character, 1
+                Number and Minimum 8 characters
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="reg-button" type="submit">Register</button>
+      <p>
+        Already have an account?
+        <a class="log-btn" routerLink="/login" routerLinkActive="active"
+          >Login</a
+        >
+      </p>
     </form>
-    <div class="already">
-      <p>Already have an account? <a href="/login">Login</a></p>
-    </div>
   </div>
 </div>
-<app-footer></app-footer>

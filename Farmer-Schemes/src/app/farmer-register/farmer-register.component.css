@@ -1,70 +1,118 @@
 .container-fluid {
   min-height: 100vh;
-  background: #066862;
-  padding: 4rem 3rem;
+  background-color: #066862;
+  padding: 3rem 0rem;
 }
-.card {
-  background-color: #fff;
-  padding: 16px;
-  border: none;
-}
-.card .header {
-  display: flex;
-  width: 100%;
+.container {
+  width: 70%;
   margin: auto;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 16px;
-}
-.sections {
-  border: 2px solid #06163a;
-  border-radius: 4px;
-  margin: 16px;
-  padding: 16px;
-  padding-top: 0px;
-}
-.sections p {
-  color: #06163a;
-  font-weight: 500;
-  transform: translateY(-15px);
-  background: white;
-  padding-left: 14px;
-}
-.btn-group {
-  margin: 16px;
-  width: 98%;
-}
-.btn-group .btn {
-  color: #06163a;
   background-color: #fff;
-  border: 2px solid #06163a;
-  margin: 6px;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 12px 0px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 5rem;
 }
-.btn-group .btn:hover {
-  color: #fff;
-  background-color: #06163a;
-}
-.already {
-  margin: 8px 24px;
-  font-size: 16px;
-  font-weight: 600;
-}
-.already a {
-  text-decoration: none;
-  color: #06163a;
-  font-size: 18px;
-  padding: 6px;
-  border-radius: 4px;
-}
-.already a:hover {
-  color: #fff;
-  background-color: #06163a;
+.container h1 {
+  text-align: center;
+  color: #066862;
+  margin: 2rem 0rem;
 }
 
-h2 {
-  padding-top: 60px;
+form {
+  margin: auto;
+  width: 97%;
+}
+.column h1 {
+  font-weight: 600;
+  color: #066862;
+  font-size: 2rem;
+  text-align: center;
+}
+form .form {
+  width: 100%;
+  border: 2px solid #066862;
+  border-radius: 4px;
+  padding: 0px 8px;
+  margin: 16px 16px 16px 0px;
+}
+form .form input {
+  width: 100%;
+}
+form .form p {
+  color: #066862;
+  font-weight: 600;
+  transform: translateY(-18px);
+  background-color: #fff;
+  margin-left: 12px;
+  padding-left: 8px;
+  margin-bottom: 0px;
+}
+.form-group {
+  display: flex;
+  border: none;
+}
+.form-group .nested-form:nth-child(odd) {
+  margin-right: 8px;
+}
+.form-group .nested-form {
+  border: none;
+  width: 100%;
+  margin: 4px 0px 8px;
+}
+.nested-form textarea {
+  width: 100%;
+  border: 2px solid #066862;
+  border-radius: 4px;
+  margin-top: 4px;
+  outline: none;
+  padding: 8px;
+  font-weight: 600;
+}
+.document {
+  display: flex;
+}
+.document label {
+  width: 35%;
+  margin: auto;
+}
+.document input {
+  border: none;
+}
+input[type="file"]::-webkit-file-upload-button {
+  color: white;
+  display: inline-block;
+  background: #066862;
+  border: 2px solid #066862;
+  padding: 7px 15px;
+  font-weight: 700;
+  border-radius: 4px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 10pt;
+  outline: none;
+}
+.reg-button {
+  width: 100%;
+  border: 2px solid #066862;
+  background-color: #066862;
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+}
+.reg-button:hover {
+  opacity: 0.9;
+}
+p {
+  padding: 8px 0px;
+}
+.pincode {
+  margin-bottom: 8px;
+}
+input,
+select {
+  border: 2px solid #066862;
+  border-radius: 4px;
 }

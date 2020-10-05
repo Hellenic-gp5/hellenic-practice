@@ -10,4 +10,7 @@ export class RegisterModel {
   public ifscCode: string;
   public password: string;
   public confirmPassword: string;
+  public aadhar: string;
+  public pancard: string;
+  public bidderLicence: string;
 }
