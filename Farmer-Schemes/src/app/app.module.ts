@@ -15,12 +15,13 @@ import { MarketComponent } from './market/market.component';
 import { UserComponent } from './user/user.component';
 import { SellComponent } from './sell/sell.component';
 import { InsuranceComponent } from './insurance/insurance.component';
-import {SellRComponent} from './SellR/sellR.component';
-import {ApplyComponent} from './apply/apply.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {ClaimComponent} from './claim/claim.component';
-import {NavbaryComponent} from './navbary/navbary.component';
+import { SellRComponent } from './SellR/sellR.component';
+import { ApplyComponent } from './apply/apply.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ClaimComponent } from './claim/claim.component';
+import { NavbaryComponent } from './navbary/navbary.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { FarmerRegisterComponent } from './farmer-register/farmer-register.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
     DashboardComponent,
     ApplyComponent,
     ClaimComponent,
-    NavbarAdminComponent
+    NavbarAdminComponent,
+    FarmerRegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
 
