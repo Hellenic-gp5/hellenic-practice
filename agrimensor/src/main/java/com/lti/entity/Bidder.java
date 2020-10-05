@@ -40,8 +40,8 @@ public class Bidder extends User {
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "bidderSeq")
 
 	// private int bidderId;
-	@Column(length = 30)
-	private String bidderName;
+//	@Column(length = 30)
+//	private String bidderName;
 	// @Column(length=50)
 	// private String bidderEmail;
 
@@ -120,13 +120,13 @@ public class Bidder extends User {
 //	public void setBidderId(int bidderId) {
 //		this.bidderId = bidderId;
 //	}
-	public String getBidderName() {
-		return bidderName;
-	}
-
-	public void setBidderName(String bidderName) {
-		this.bidderName = bidderName;
-	}
+//	public String getBidderName() {
+//		return bidderName;
+//	}
+//
+//	public void setBidderName(String bidderName) {
+//		this.bidderName = bidderName;
+//	}
 
 	// public String getBidderEmail() {
 	// return bidderEmail;

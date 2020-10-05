@@ -30,7 +30,14 @@ public class User {
 	private String password;
 	@Column(length=10)
 	private String role;
-	
+	@Column(length=30)
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getRole() {
 		return role;
 	}
