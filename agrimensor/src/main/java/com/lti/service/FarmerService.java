@@ -21,4 +21,6 @@ void persist(Farmer farmer);
 	void insure(int fid, Insurance insurance);
 	
 	void Add(Crop crop);
+	
+	void updateFarmerStatus(String farmerStatus, int farmerId);
 }

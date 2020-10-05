@@ -16,13 +16,13 @@ import com.lti.repo.FarmerRepo;
 
 @Service
 public class FarmerServiceImpl implements FarmerService {
-	
+
 	@Autowired
 	private FarmerRepo repo;
-	
+
 	@Autowired
 	private CropRepo crepo;
-	
+
 	@Transactional(value = TxType.REQUIRED)
 	public void persist(Farmer farmer) {
 		repo.save(farmer);
@@ -48,12 +48,17 @@ public class FarmerServiceImpl implements FarmerService {
 
 	@Override
 	public void insure(int fid, Insurance insurance) {
-		repo.addInsurance(fid, insurance);		
+		repo.addInsurance(fid, insurance);
 	}
-	
+
 	@Transactional(value = TxType.REQUIRED)
 	public void Add(Crop crop) {
 		crepo.saveCrop(crop);
+	}
+
+	@Override
+	public void updateFarmerStatus(String farmerStatus, int farmerId) {
+		repo.updateFarmerStatus(farmerId, farmerStatus);
 	}
 
 }
