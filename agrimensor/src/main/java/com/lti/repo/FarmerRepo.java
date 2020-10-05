@@ -25,4 +25,8 @@ public interface FarmerRepo {
 	void addInsurance(int farmerId, Insurance insurance);
 	
 	void addCrop(int farmerId, Crop crop);
+	
+	void updateFarmerStatus(int farmerId,String farmerStatus);
+	
+	
 }

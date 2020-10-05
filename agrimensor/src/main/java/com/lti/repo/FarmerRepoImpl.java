@@ -9,6 +9,7 @@ import javax.transaction.Transactional.TxType;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
@@ -63,6 +64,16 @@ public class FarmerRepoImpl implements FarmerRepo {
 		farmer.getCrops().add(crop);
 		em.persist(crop);
 		em.merge(farmer);
+	}
+	//changing status of Farmer
+
+	@Override
+	@Transactional(value = TxType.REQUIRED)
+	public void updateFarmerStatus(int farmerId, String farmerStatus) {
+		Farmer farmer = em.find(Farmer.class, farmerId);
+		farmer.setFarmerStatus(farmerStatus);
+		em.merge(farmer);
+		
 	}
 
 }

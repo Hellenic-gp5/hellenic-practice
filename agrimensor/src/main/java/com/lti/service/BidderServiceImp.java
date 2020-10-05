@@ -78,4 +78,10 @@ public class BidderServiceImp implements BidderService {
 
 	}
 
+	@Override
+	public void updateBidderStatus(int bidderId, String bidderStatus) {
+		repo.updateBidderStatus(bidderId, bidderStatus);
+		
+	}
+
 }

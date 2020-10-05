@@ -16,4 +16,9 @@ public interface BidService {
 	void updateBid(Bid bid);
 	
 	void updateBidStatus(int bidId,String bidStatus);
+	
+	List<Bid> bidsOfBidder(int bidderId);
+	
+	List<Bid> getBidsOnCrop(int cropId);
+	
 }

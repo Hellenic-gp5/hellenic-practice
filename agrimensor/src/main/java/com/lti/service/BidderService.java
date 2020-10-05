@@ -25,6 +25,9 @@ public interface BidderService {
 	List<Bid> listBids(int bidderid);
 	
 	void makeBid(int bidderid, Bid bid, int cropid);
+	
 	void persistBidderCrop(Bidder bidder, int cropId);
+	
+	void updateBidderStatus(int bidderId, String bidderStatus);
 
 }

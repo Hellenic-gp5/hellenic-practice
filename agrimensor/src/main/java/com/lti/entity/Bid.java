@@ -21,14 +21,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 @Table(name = "Bids")
-@SequenceGenerator(name = "bidSeq", sequenceName = "bid_seq", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name = "bidsSeq", sequenceName = "bids_seq", initialValue = 1001, allocationSize = 1)
 /* @NamedQuery(name="getBidStatus", query="From Bid WHERE bidStatus=:crl") */
 //@NamedQuery(name = "getBidsByBidder", query = "FROM Bid WHERE bidderId=:bidderId")
 //@NamedQuery(name = "getBidsByCropId", query = "FROM Bid WHERE cropId=:cropId")
 public class Bid {
 
 	@Id
-	@GeneratedValue(generator = "bidSeq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "bidsSeq", strategy = GenerationType.SEQUENCE)
 	private int bidId;
 	@Column
 	private double bidAmount;
@@ -37,7 +37,7 @@ public class Bid {
 
 	@ManyToOne
 	@JsonIgnore
-	@JoinColumn(name = "bidderId")
+	@JoinColumn(name = "bidderid")
 	private Bidder bidderId;
 
 	@ManyToOne

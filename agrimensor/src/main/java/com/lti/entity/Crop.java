@@ -29,11 +29,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Crop")
-@SequenceGenerator(name="cropSeq", sequenceName = "crop_seq", initialValue = 101, allocationSize = 1)
+@SequenceGenerator(name="cropsSeq", sequenceName = "crops_seq", initialValue = 101, allocationSize = 1)
 
 public class Crop {
 	@Id
-	@GeneratedValue(generator = "cropSeq",strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "cropsSeq",strategy = GenerationType.SEQUENCE)
 	@Column(name="cropId")
 	private int cropId;
 	@Column(length=30)
@@ -46,8 +46,8 @@ public class Crop {
 	private double cropBasePrice;
 	@Column
 	private double cropSoldPrice;
-	@Column
-	private Date cropSoldDate;
+	@Column(length=14)
+	private String cropSoldDate;
 	@Column
 	private int cropQuantity;
 	@Column(length = 10)
@@ -72,6 +72,7 @@ public class Crop {
 	private List<Bid> bids = new ArrayList<Bid>();
 	
 	@ManyToOne
+	@JsonIgnore
 	private Farmer farmer;
 	
 	
@@ -129,10 +130,10 @@ public class Crop {
 	public void setCropSoldPrice(double cropSoldPrice) {
 		this.cropSoldPrice = cropSoldPrice;
 	}
-	public Date getCropSoldDate() {
+	public String getCropSoldDate() {
 		return cropSoldDate;
 	}
-	public void setCropSoldDate(Date cropSoldDate) {
+	public void setCropSoldDate(String cropSoldDate) {
 		this.cropSoldDate = cropSoldDate;
 	}
 	public int getCropQuantity() {
