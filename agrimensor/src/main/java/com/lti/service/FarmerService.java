@@ -2,6 +2,7 @@ package com.lti.service;
 
 import java.util.List;
 
+import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
 
@@ -18,4 +19,6 @@ void persist(Farmer farmer);
 	void edit(Farmer farmer);
 	
 	void insure(int fid, Insurance insurance);
+	
+	void Add(Crop crop);
 }

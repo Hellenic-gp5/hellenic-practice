@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
 import com.lti.service.FarmerService;
-
+/**
+ * 
+ * @author Anish
+ *
+ */
 @CrossOrigin
 @RestController
 public class FarmerRestController {
@@ -25,14 +30,22 @@ public class FarmerRestController {
 		service.persist(farmer);
 		return "Farmer added successfully";
 	}
+	
 	@PostMapping(value="/apply/{fid}", consumes="application/json")
 	public String apply(@PathVariable int fid, @RequestBody Insurance insurance) {
 		service.insure(fid, insurance);
 		return "insurance added successfully";
 	}
+	
 	@GetMapping(value = "/fetchfarmer", produces = "application/json")
 	public Farmer fetchFarmer(@RequestParam("farmerId") int farmerId) {
 		return service.find(farmerId);
+	}
+	
+	@PostMapping(value = "/addcrop", consumes = "application/json")
+	public String addCrop(@RequestBody Crop crop) {
+		service.Add(crop);
+		return "Crop added successfully";
 	}
 	
 //	@GetMapping(value = "/listfarmer", produces = "application/json")
