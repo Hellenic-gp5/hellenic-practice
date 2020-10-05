@@ -8,8 +8,10 @@ import javax.transaction.Transactional.TxType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
+import com.lti.repo.CropRepo;
 import com.lti.repo.FarmerRepo;
 
 @Service
@@ -17,6 +19,9 @@ public class FarmerServiceImpl implements FarmerService {
 	
 	@Autowired
 	private FarmerRepo repo;
+	
+	@Autowired
+	private CropRepo crepo;
 	
 	@Transactional(value = TxType.REQUIRED)
 	public void persist(Farmer farmer) {
@@ -43,8 +48,12 @@ public class FarmerServiceImpl implements FarmerService {
 
 	@Override
 	public void insure(int fid, Insurance insurance) {
-		// TODO Auto-generated method stub
 		repo.addInsurance(fid, insurance);		
+	}
+	
+	@Transactional(value = TxType.REQUIRED)
+	public void Add(Crop crop) {
+		crepo.saveCrop(crop);
 	}
 
 }
