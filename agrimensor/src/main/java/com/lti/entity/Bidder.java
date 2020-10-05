@@ -77,8 +77,6 @@ public class Bidder extends User {
 
 	@Column(table ="bidder_info")
 	private String bidderAccountNumber;
-	@Column
-	private String bidderPassword;
 
 	@Column(length=30, table="bidder_doc")
 	private String bidderLicense;

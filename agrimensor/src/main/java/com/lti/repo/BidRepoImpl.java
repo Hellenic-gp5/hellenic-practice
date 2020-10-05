@@ -66,5 +66,10 @@ public class BidRepoImpl implements BidRepo {
 		q1.setParameter("crl", "Approved");
 		return q1.getResultList();
 	}
+	public Bid fetchCurrentBid(int cropId) {
+		Query q1= em.createQuery("FROM Bid where bidAmount in (select max(bidAmount) from Bid where cropId=:cropId)", Bid.class);
+		q1.setParameter("cropId", cropId);
+		return (Bid) q1.getSingleResult();
+	}
 
 }

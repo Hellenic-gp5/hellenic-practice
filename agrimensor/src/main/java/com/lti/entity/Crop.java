@@ -23,6 +23,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -50,7 +52,7 @@ public class Crop {
 	private int cropQuantity;
 	@Column(length = 10)
 	private String cropSoldStatus;
-	@Column
+	@Column(length=20)
 	private String soilPH;
 	/**
 	 * @author Sakshi
@@ -60,11 +62,13 @@ public class Crop {
 	@JoinTable(name="bidder_crop",
 	joinColumns= {@JoinColumn(name="cropId")},
 	inverseJoinColumns= {@JoinColumn(name="bidderId")})
+	@JsonIgnore
 	private List<Bidder> bidder = new ArrayList<Bidder>();
 	
 	
 	//relation one-to-many for bid-crop entites
 	@OneToMany(cascade = {CascadeType.ALL})
+	@JsonIgnore
 	private List<Bid> bids = new ArrayList<Bid>();
 	
 	@ManyToOne

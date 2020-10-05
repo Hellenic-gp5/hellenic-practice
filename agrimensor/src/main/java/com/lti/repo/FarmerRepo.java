@@ -2,12 +2,13 @@ package com.lti.repo;
 
 import java.util.List;
 
+import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
 
 /**
  * @author Anish
- *Methods to be implemented
+ *Methods to be implemented by farmer
  */
 public interface FarmerRepo {
 	
@@ -22,4 +23,6 @@ public interface FarmerRepo {
 	void delete(int farmerId);
 	
 	void addInsurance(int farmerId, Insurance insurance);
+	
+	void addCrop(int farmerId, Crop crop);
 }

@@ -9,11 +9,13 @@ import javax.transaction.Transactional.TxType;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
 
 /**
  * @author Anish
+ * Implementation of the methods
  *
  */
 @Repository
@@ -52,6 +54,14 @@ public class FarmerRepoImpl implements FarmerRepo {
 		Farmer farmer=em.find(Farmer.class,farmerId);
 		farmer.getInsurance().add(insurance);
 		em.persist(insurance);
+		em.merge(farmer);
+	}
+	
+	@Transactional(value = TxType.REQUIRED)
+	public void addCrop(int farmerId, Crop crop) {
+		Farmer farmer=em.find(Farmer.class,farmerId);
+		farmer.getCrops().add(crop);
+		em.persist(crop);
 		em.merge(farmer);
 	}
 

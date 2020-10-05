@@ -20,4 +20,6 @@ public interface BidRepo {
 	List<Bid> listOfRejectedBids(String Status);
 
 	List<Bid> listOfApprovedBids(String Status);
+	
+	Bid fetchCurrentBid(int cropId);
 }
