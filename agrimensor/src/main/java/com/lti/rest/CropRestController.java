@@ -13,7 +13,8 @@ package com.lti.rest;
 	import org.springframework.web.bind.annotation.RequestParam;
 	import org.springframework.web.bind.annotation.RestController;
 
-	import com.lti.entity.Bidder;
+import com.lti.entity.Bid;
+import com.lti.entity.Bidder;
 	import com.lti.entity.Crop;
 	import com.lti.entity.Farmer;
 	import com.lti.service.CropService;
@@ -41,10 +42,10 @@ package com.lti.rest;
 			List<Crop> crop=b1.getCrop();
 			return crop;
 		}
-		//Fetching through named query
-		/*
-		 * @GetMapping(value = "/fetchCrop", produces = "application/json") public
-		 * List<Crop> fetchCropOfBider(){ return CropService.loadofCrop(); }
-		 */
+
+		@GetMapping(value="/listbidsOnCrop", produces="application/json")
+		public List<Bid> listbid(@RequestParam int cropId){
+			return CropService.listOfBids(cropId);
+		}
 
 }

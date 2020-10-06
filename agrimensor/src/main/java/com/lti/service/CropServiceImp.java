@@ -9,6 +9,7 @@ import javax.transaction.Transactional.TxType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lti.entity.Bid;
 import com.lti.entity.Crop;
 import com.lti.repo.BidRepo;
 import com.lti.repo.CropRepo;
@@ -53,6 +54,11 @@ public class CropServiceImp implements CropService {
 	public List<Crop> loadofCrop(int bidderId) {
 		
 		return repo.listofCrop(bidderId);
+	}
+
+	@Override
+	public List<Bid> listOfBids(int cropId) {
+		return repo.listOfBidsByCropId(cropId);
 	}
 
 }

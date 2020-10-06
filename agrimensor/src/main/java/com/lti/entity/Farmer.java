@@ -68,7 +68,7 @@ public class Farmer extends User {
 	@Column(length = 20, table = "farmer_info")
 	private String farmerLandArea;
 	@Column(length = 10)
-	private String farmerStatus;
+	private String farmerStatus="Queued";
 
 	public String getFarmerStatus() {
 		return farmerStatus;
