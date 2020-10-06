@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService {
 		return repo.authenticate(login);
 	}
 
+	@Override
+	public void updateStatus(int userId, String status) {
+		repo.updateUserStatus(userId, status);
+	}
+
 }

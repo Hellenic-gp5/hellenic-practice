@@ -10,5 +10,7 @@ import com.lti.pojo.Login;
  */
 public interface UserRepo {
 	User authenticate(Login login);
+	
+	void updateUserStatus(int userId, String status);
 
 }

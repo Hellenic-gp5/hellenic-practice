@@ -61,5 +61,12 @@ public class AdminController {
 	  updateFarmer(@RequestParam String farmerStatus, @PathVariable int farmerId) {
 	  farmerService.updateFarmerStatus(farmerStatus, farmerId); return
 	  "Status changed successfully to "+farmerStatus; }
+	  
+	/*
+	 * @GetMapping(value="/userstatus/{userId}") public String updateU(@RequestParam
+	 * String farmerStatus, @PathVariable int farmerId) {
+	 * farmerService.updateFarmerStatus(farmerStatus, farmerId); return
+	 * "Status changed successfully to "+farmerStatus; }
+	 */
 	 
 }
