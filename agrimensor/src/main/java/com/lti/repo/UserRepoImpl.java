@@ -45,7 +45,7 @@ public class UserRepoImpl implements UserRepo {
 
 			em.merge(user);
 		} else {
-			em.remove(userId);
+			em.remove(user);
 		}
 
 	}
