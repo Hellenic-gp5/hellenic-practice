@@ -13,59 +13,53 @@ export class FarmerRegisterComponent implements OnInit {
   allAlert: String;
   data: any;
 
-  rolee: string = 'farmer';
   // Getter Methods for shortening in form validation in html
 
-  get role() {
-    return this.farmerRegisterForm.get('rolee').value;
+  get name() {
+    return this.farmerRegisterForm.get('name');
   }
-  get userName() {
-    return this.farmerRegisterForm.get('userName');
+  get emailId() {
+    return this.farmerRegisterForm.get('emailId');
   }
-  get email() {
-    return this.farmerRegisterForm.get('email');
+  get farmerContact() {
+    return this.farmerRegisterForm.get('farmerContact');
   }
-  get contact() {
-    return this.farmerRegisterForm.get('contact');
+  get farmerAddressLine1() {
+    return this.farmerRegisterForm.get('farmerAddressLine1');
   }
-  get address() {
-    return this.farmerRegisterForm.get('address');
+  get farmerLandAddress() {
+    return this.farmerRegisterForm.get('farmerLandAddress');
   }
-  get landAddress() {
-    return this.farmerRegisterForm.get('landAddress');
+  get farmerLandArea() {
+    return this.farmerRegisterForm.get('farmerLandArea');
   }
-  get area() {
-    return this.farmerRegisterForm.get('area');
+  get farmerLandPIN() {
+    return this.farmerRegisterForm.get('farmerLandPIN');
   }
-  get pincode() {
-    return this.farmerRegisterForm.get('pincode');
+  get farmerAccountNumber() {
+    return this.farmerRegisterForm.get('farmerAccountNumber');
   }
-  get accno() {
-    return this.farmerRegisterForm.get('accno');
+  get farmerIFSC() {
+    return this.farmerRegisterForm.get('farmerIFSC');
   }
-  get ifsc() {
-    return this.farmerRegisterForm.get('ifsc');
+  get farmerAADHAR() {
+    return this.farmerRegisterForm.get('farmerAADHAR');
   }
-  get aadhar() {
-    return this.farmerRegisterForm.get('aadhar');
+  get farmerPAN() {
+    return this.farmerRegisterForm.get('farmerPAN');
   }
-  get pan() {
-    return this.farmerRegisterForm.get('pan');
-  }
-  get certificate() {
-    return this.farmerRegisterForm.get('certificate');
+  get farmerCertificate() {
+    return this.farmerRegisterForm.get('farmerCertificate');
   }
   get password() {
     return this.farmerRegisterForm.get('password');
   }
-  get confirmPassword() {
-    return this.farmerRegisterForm.get('confirmPassword');
+
+  get farmerState() {
+    return this.farmerRegisterForm.get('farmerState');
   }
-  get state() {
-    return this.farmerRegisterForm.get('state');
-  }
-  get city() {
-    return this.farmerRegisterForm.get('city');
+  get farmerCity() {
+    return this.farmerRegisterForm.get('farmerCity');
   }
 
   constructor(
@@ -79,45 +73,42 @@ export class FarmerRegisterComponent implements OnInit {
   }
   createFarmerRegisterForm(): void {
     this.farmerRegisterForm = this.fb.group({
-      userName: [
+      name: [
         '',
         [
           Validators.required,
           Validators.pattern('^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$'),
         ],
       ],
-      email: ['', [Validators.required, Validators.email]],
-      contact: [
+      emailId: ['', [Validators.required, Validators.email]],
+      farmerContact: [
         '',
         [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')],
       ],
-      address: ['', [Validators.required, Validators.maxLength(255)]],
-      landAddress: ['', [Validators.required, Validators.maxLength(255)]],
-      area: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      pincode: [
+      farmerAddressLine1: [
+        '',
+        [Validators.required, Validators.maxLength(255)],
+      ],
+      farmerLandAddress: ['', [Validators.required, Validators.maxLength(255)]],
+      farmerLandArea: ['', Validators.required],
+      farmerState: ['', Validators.required],
+      farmerCity: ['', Validators.required],
+      farmerLandPIN: [
         '',
         [Validators.required, Validators.pattern('^[1-9][0-9]{5}$')],
       ],
-      accno: ['', [Validators.required, Validators.pattern('^[0-9]{9,18}?$')]],
-      ifsc: [
+      farmerAccountNumber: [
+        '',
+        [Validators.required, Validators.pattern('^[0-9]{9,18}?$')],
+      ],
+      farmerIFSC: [
         '',
         [Validators.required, Validators.pattern('^[A-Z]{4}0[A-Z0-9]{6}$')],
       ],
-      aadhar: ['', Validators.required],
-      pan: ['', Validators.required],
-      certificate: ['', Validators.required],
+      farmerAADHAR: ['', Validators.required],
+      farmerPAN: ['', Validators.required],
+      farmerCertificate: ['', Validators.required],
       password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
-          ),
-        ],
-      ],
-      confirmPassword: [
         '',
         [
           Validators.required,
@@ -150,12 +141,12 @@ export class FarmerRegisterComponent implements OnInit {
   States: Array<any> = [
     {
       name: 'Maharashtra',
-      cities: ['Duesseldorf', 'Leinfelden-Echterdingen', 'Eschborn'],
+      cities: ['Mumbai', 'Pune'],
     },
-    { name: 'Uttar Pradesh', cities: ['Barcelona'] },
-    { name: 'Kerala', cities: ['Downers Grove'] },
-    { name: 'Rajasthan', cities: ['Puebla'] },
-    { name: 'Karnataka', cities: ['Delhi', 'Kolkata', 'Mumbai', 'Bangalore'] },
+    { name: 'Uttar Pradesh', cities: ['Lucknow', 'Allahabad', 'Kanpur'] },
+    { name: 'Kerala', cities: ['Kochi', 'Thiruvanthapuram'] },
+    { name: 'Rajasthan', cities: ['Jaipur', 'Udaipur'] },
+    { name: 'Karnataka', cities: ['Bengaluru', 'Mangalore', 'Hubli'] },
   ];
 
   cities: Array<any>;

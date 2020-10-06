@@ -142,12 +142,12 @@ export class RegistrationComponent implements OnInit {
   States: Array<any> = [
     {
       name: 'Maharashtra',
-      cities: ['Duesseldorf', 'Leinfelden-Echterdingen', 'Eschborn'],
+      cities: ['Mumbai', 'Pune'],
     },
-    { name: 'Uttar Pradesh', cities: ['Barcelona'] },
-    { name: 'Kerala', cities: ['Downers Grove'] },
-    { name: 'Rajasthan', cities: ['Puebla'] },
-    { name: 'Karnataka', cities: ['Delhi', 'Kolkata', 'Mumbai', 'Bangalore'] },
+    { name: 'Uttar Pradesh', cities: ['Lucknow', 'Allahabad', 'Kanpur'] },
+    { name: 'Kerala', cities: ['Kochi', 'Thiruvanthapuram'] },
+    { name: 'Rajasthan', cities: ['Jaipur', 'Udaipur'] },
+    { name: 'Karnataka', cities: ['Bengaluru', 'Mangalore', 'Hubli'] },
   ];
 
   cities: Array<any>;
