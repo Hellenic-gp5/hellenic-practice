@@ -13,50 +13,53 @@ export class RegistrationComponent implements OnInit {
   allAlert: String;
   statusMsg: String;
   data: any;
-  
+
   // Getter Methods for shortening in form validation in html
 
   get role() {
-    return this.bidderRegisterForm.get('rolee');
+    return this.bidderRegisterForm.get('role');
   }
-  get userName() {
-    return this.bidderRegisterForm.get('userName');
+  get name() {
+    return this.bidderRegisterForm.get('name');
   }
-  get email() {
-    return this.bidderRegisterForm.get('email');
+  get emailId() {
+    return this.bidderRegisterForm.get('emailId');
   }
-  get contact() {
-    return this.bidderRegisterForm.get('contact');
+  get bidderContact() {
+    return this.bidderRegisterForm.get('bidderContact');
   }
-  get address() {
-    return this.bidderRegisterForm.get('address');
+  get bidderAddressLine1() {
+    return this.bidderRegisterForm.get('bidderAddressLine1');
   }
-  get accno() {
-    return this.bidderRegisterForm.get('accno');
+  get bidderAddressLine2() {
+    return this.bidderRegisterForm.get('bidderAddressLine2');
   }
-  get ifsc() {
-    return this.bidderRegisterForm.get('ifsc');
+  get bidderAccnountNumber() {
+    return this.bidderRegisterForm.get('bidderAccnountNumber');
   }
-  get aadhar() {
-    return this.bidderRegisterForm.get('aadhar');
+  get bidderIFSC() {
+    return this.bidderRegisterForm.get('bidderIFSC');
   }
-  get pan() {
-    return this.bidderRegisterForm.get('pan');
+  get bidderAADHAR() {
+    return this.bidderRegisterForm.get('bidderAADHAR');
   }
-  get certificate() {
-    return this.bidderRegisterForm.get('certificate');
+  get bidderPAN() {
+    return this.bidderRegisterForm.get('bidderPAN');
+  }
+  get bidderLicense() {
+    return this.bidderRegisterForm.get('bidderLicense');
   }
   get password() {
     return this.bidderRegisterForm.get('password');
   }
-  get confirmPassword() {
-    return this.bidderRegisterForm.get('confirmPassword');
+  //get confirmPassword() {
+  //return this.bidderRegisterForm.get('confirmPassword');
+  //}
+  get bidderState() {
+    return this.bidderRegisterForm.get('bidderState');
   }
-  get state() {
-    return this.bidderRegisterForm.get('state');
-  }
-  get city() {
-    return this.bidderRegisterForm.get('city');
+  get bidderCity() {
+    return this.bidderRegisterForm.get('bidderCity');
   }
 
   constructor(
@@ -70,29 +73,35 @@ export class RegistrationComponent implements OnInit {
   }
   createBidderRegisterForm(): void {
     this.bidderRegisterForm = this.fb.group({
-      userName: [
+      name: [
         '',
         [
           Validators.required,
           Validators.pattern('^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$'),
         ],
       ],
-      email: ['', [Validators.required, Validators.email]],
-      contact: [
+      emailId: ['', [Validators.required, Validators.email]],
+      bidderContact: [
         '',
         [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')],
       ],
-      address: ['', [Validators.required, Validators.maxLength(255)]],
-      accno: ['', [Validators.required, Validators.pattern('^[0-9]{9,18}?$')]],
-      ifsc: [
+      bidderAddressLine1: [
+        '',
+        [Validators.required, Validators.maxLength(255)],
+      ],
+      bidderAccnountNumber: [
+        '',
+        [Validators.required, Validators.pattern('^[0-9]{9,18}?$')],
+      ],
+      bidderIFSC: [
         '',
         [Validators.required, Validators.pattern('^[A-Z]{4}0[A-Z0-9]{6}$')],
       ],
-      aadhar: ['', Validators.required],
-      pan: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      certificate: ['', Validators.required],
+      bidderAADHAR: ['', Validators.required],
+      bidderPAN: ['', Validators.required],
+      bidderState: ['', Validators.required],
+      bidderCity: ['', Validators.required],
+      bidderLicense: ['', Validators.required],
       password: [
         '',
         [
@@ -102,7 +111,7 @@ export class RegistrationComponent implements OnInit {
           ),
         ],
       ],
-      confirmPassword: [
+      /* confirmPassword: [
         '',
         [
           Validators.required,
@@ -110,7 +119,7 @@ export class RegistrationComponent implements OnInit {
             '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
           ),
         ],
-      ],
+      ],*/
     });
   }
   onRegister(): void {
