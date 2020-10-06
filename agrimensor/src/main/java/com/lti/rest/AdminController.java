@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Admin;
 import com.lti.entity.Bid;
+import com.lti.entity.User;
 import com.lti.repo.BidRepo;
 import com.lti.service.AdminService;
 import com.lti.service.BidService;
@@ -41,6 +42,10 @@ public class AdminController {
 		return "Admin added successfully";
 	}
 	
+	@PostMapping(value="/approvallist",produces="application/json")
+	public List<User> approval(){
+		return aservice.approvals();
+	}
 	
 	@GetMapping(value = "/currentBid/{cropId}", produces = "application/json")
 	public Bid getCurrentBid(@PathVariable int cropId) {
