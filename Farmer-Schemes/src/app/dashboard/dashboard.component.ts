@@ -9,6 +9,7 @@ import {policy} from './insurance.model';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  fname:string;
   crops:crop[]=[];
   bids:items[]=[];
   pb:boolean=false;
@@ -26,6 +27,7 @@ export class DashboardComponent implements OnInit {
     
   }
   ngOnInit(): void {
+    this.fname = localStorage.getItem("uname");
   }
 
 }
