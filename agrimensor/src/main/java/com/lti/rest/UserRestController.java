@@ -28,8 +28,8 @@ public class UserRestController {
 	{
 		return service.validate(login);
 	}
-	@GetMapping(value = "/userstatus/{userId}")
-	public String updateUserStatus(@RequestParam String userStatus, @PathVariable int userId) {
+	@GetMapping(value = "/userstatus")
+	public String updateUserStatus(@RequestParam String userStatus, @RequestParam int userId) {
 		service.updateStatus(userId, userStatus);
 		return "Status changed successfully to " + userStatus;
 	}
