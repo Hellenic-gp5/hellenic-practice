@@ -13,11 +13,11 @@ export class RegistrationComponent implements OnInit {
   allAlert: String;
   statusMsg: String;
   data: any;
-  rolee: string = 'bidder';
+  
   // Getter Methods for shortening in form validation in html
 
   get role() {
-    return this.bidderRegisterForm.get('rolee').value;
+    return this.bidderRegisterForm.get('rolee');
   }
   get userName() {
     return this.bidderRegisterForm.get('userName');

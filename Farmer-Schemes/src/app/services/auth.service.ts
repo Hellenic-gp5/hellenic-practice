@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  registerUrl: string = 'http://localhost:8080/Agri-Rest/rest/addBidder';
+  registerUrl: string = 'http://localhost:8080/agrimensor/rest/addbidder';
 
   constructor(private http: HttpClient) {}
 
