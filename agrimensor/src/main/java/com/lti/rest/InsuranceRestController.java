@@ -35,8 +35,8 @@ public class InsuranceRestController {
 	public Insurance FetchPolicy(@RequestParam int id)
 	{ return service.search(id);}
 	
-	@PostMapping(value="/applyclaim/{polid}",consumes="application/json")
-	public String claim(@PathVariable int polid, @RequestBody InsuranceClaim cl) {
+	@PostMapping(value="/applyclaim",consumes="application/json")
+	public String claim(@RequestParam int polid, @RequestBody InsuranceClaim cl) {
 		service.addClaim(polid, cl);
 		return "Claim applied successfully";
 	}

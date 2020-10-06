@@ -54,7 +54,9 @@ public class CropRepoImp implements CropRepo {
 	
 	@Transactional(value = TxType.REQUIRED)
 	public void updateCropSoldStatus(int cropId, String cropSoldStatus) {
-		em.createQuery("UPDATE Crop c SET c.cropSoldStatus= :cropSoldStatus " + "WHERE c.cropId = :cropId");
+		Crop crop = em.find(Crop.class, cropId);
+		crop.setCropSoldStatus(cropSoldStatus);
+		em.merge(crop);
 		
 	}
 	/**
@@ -78,7 +80,11 @@ public class CropRepoImp implements CropRepo {
 		public List<Bid> listOfBidsByCropId(int id) {
 			return em.find(Crop.class, id).getBids();
 		}
-		
-		
+
+	@Override
+	public Number countSoldCrop() {
+		 return ((Number)em.createQuery("SELECT count(c) From Crop c WHERE c.cropSoldStatus='SOLD'").getSingleResult()).intValue();
+	}
+	
 		
 }

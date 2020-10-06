@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Admin;
+import com.lti.entity.Count;
 import com.lti.entity.User;
 import com.lti.repo.AdminRepo;
 @Service
@@ -28,6 +29,12 @@ public class AdminServiceImpl implements AdminService{
 	public List<User> approvals() {
 		// TODO Auto-generated method stub
 		return repo.approval();
+	}
+
+	@Override
+	public Count totalCount() {
+		// TODO Auto-generated method stub
+		return  repo.totalCount();
 	}
 	
 

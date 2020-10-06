@@ -58,14 +58,13 @@ public class BidderRepoImp implements BidderRepo{
 	}
 
 	//method to update status of biider
-	@Transactional(value = TxType.REQUIRED)
-	@Override
-	public void updateBidderStatus(int bidderId, String bidderStatus)  {
-		// TODO Auto-generated method stub
-		Bidder bidder = em.find(Bidder.class, bidderId);
-		bidder.setBidderStatus(bidderStatus);
-		em.merge(bidder);
-		}
+	/*
+	 * @Transactional(value = TxType.REQUIRED)
+	 * 
+	 * @Override public void updateBidderStatus(int bidderId, String bidderStatus) {
+	 * // TODO Auto-generated method stub Bidder bidder = em.find(Bidder.class,
+	 * bidderId); bidder.setBidderStatus(bidderStatus); em.merge(bidder); }
+	 */
 	/**
 	 * method for adding crop with bidder
 	 * @author Sakshi
@@ -109,6 +108,12 @@ public class BidderRepoImp implements BidderRepo{
 		em.persist(bid);
 		em.merge(b);
 
+	}
+
+	@Override
+	public Number countBidder() {
+		 return ((Number)em.createQuery("SELECT count(b) From Bidder b").getSingleResult()).intValue();
+			
 	}
 
 }

@@ -28,6 +28,9 @@ public interface BidderService {
 	
 	void persistBidderCrop(Bidder bidder, int cropId);
 	
-	void updateBidderStatus(int bidderId, String bidderStatus);
+	/*
+	 * void updateBidderStatus(int bidderId, String bidderStatus);
+	 */
+	Number countBidder();
 
 }

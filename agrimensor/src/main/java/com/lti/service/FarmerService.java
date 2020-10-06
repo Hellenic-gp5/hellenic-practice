@@ -22,5 +22,7 @@ void persist(Farmer farmer);
 	
 	void Add(int farmerId,Crop crop);
 	
-	void updateFarmerStatus(String farmerStatus, int farmerId);
+	/* void updateFarmerStatus(String farmerStatus, int farmerId); */
+	
+	Number countFarmer();
 }
