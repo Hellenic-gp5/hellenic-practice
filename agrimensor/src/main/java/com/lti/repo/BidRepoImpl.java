@@ -54,7 +54,7 @@ public class BidRepoImpl implements BidRepo {
 		Bid b1 = em.find(Bid.class, bidId);
 		b1.setBidStatus(bidStatus);
 	}
-	
+
 	public List<Bid> listOfRejectedBids(String Status) {
 		Query q1 = em.createNamedQuery("getBidStatus");
 		q1.setParameter("crl", "Rejected");
@@ -66,10 +66,26 @@ public class BidRepoImpl implements BidRepo {
 		q1.setParameter("crl", "Approved");
 		return q1.getResultList();
 	}
+
 	public Bid fetchCurrentBid(int cropId) {
-		Query q1= em.createQuery("FROM Bid where bidAmount in (select max(bidAmount) from Bid where cropId=:cropId)", Bid.class);
+		Query q1 = em.createQuery("FROM Bid where bidAmount in (select max(bidAmount) from Bid where cropId=:cropId)",
+				Bid.class);
 		q1.setParameter("cropId", cropId);
 		return (Bid) q1.getSingleResult();
+	}
+
+	@Override
+	public List<Bid> listOfBidsOfBidder(int bidderId) {
+		Query q1 = em.createQuery("SELECT bidId, bidAmount, cropId FROM Bid WHERE bidderId=:bidderId", Bid.class);
+		q1.setParameter("bidderId", bidderId);
+		return q1.getResultList();
+
+	}
+
+	@Override
+	public List<Bid> listOfBidsByCrop(int cropId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
