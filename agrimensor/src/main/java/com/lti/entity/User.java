@@ -24,13 +24,20 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "userSeq1")
 	@Column(name="user_id")
 	private int userId;
-	@Column(length=50, unique=true, nullable= false)
+	@Column(length=50, unique=true)
 	private String emailId;
 	@Column(length=32)
 	private String password;
 	@Column(length=10)
 	private String role;
-	
+	@Column(length=30)
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getRole() {
 		return role;
 	}

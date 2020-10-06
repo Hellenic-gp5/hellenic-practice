@@ -9,13 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.entity.Admin;
 import com.lti.entity.Bid;
 import com.lti.repo.BidRepo;
+import com.lti.service.AdminService;
 import com.lti.service.BidService;
 import com.lti.service.BidderService;
 import com.lti.service.FarmerService;
@@ -23,13 +26,21 @@ import com.lti.service.FarmerService;
 @CrossOrigin
 @RestController
 public class AdminController {
-
+	@Autowired
+	private AdminService aservice;
 	@Autowired
 	private BidRepo repo;
 	@Autowired
 	private BidderService bidderService;
 	@Autowired
 	private FarmerService farmerService;
+	
+	@PostMapping(value="/addadmin",consumes="application/json")
+	public String create(@RequestBody Admin admin) {
+		aservice.createAdmin(admin);
+		return "Admin added successfully";
+	}
+	
 	
 	@GetMapping(value = "/currentBid/{cropId}", produces = "application/json")
 	public Bid getCurrentBid(@PathVariable int cropId) {

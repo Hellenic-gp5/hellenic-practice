@@ -35,8 +35,8 @@ public class Farmer extends User {
 //	@GeneratedValue(generator = "farmerSeq",strategy = GenerationType.SEQUENCE)
 
 	// private int farmerId;
-	@Column(length = 30)
-	private String farmerName;
+//	@Column(length = 30)
+//	private String farmerName;
 //	@Column(length = 30)
 //	private String farmerEmail;
 	@Column(length = 30, table = "farmer_info")
@@ -108,13 +108,13 @@ public class Farmer extends User {
 //	public void setFarmerId(int farmerId) {
 //		this.farmerId = farmerId;
 //	}
-	public String getFarmerName() {
-		return farmerName;
-	}
-
-	public void setFarmerName(String farmerName) {
-		this.farmerName = farmerName;
-	}
+//	public String getFarmerName() {
+//		return farmerName;
+//	}
+//
+//	public void setFarmerName(String farmerName) {
+//		this.farmerName = farmerName;
+//	}
 
 //	public String getFarmerEmail() {
 //		return farmerEmail;

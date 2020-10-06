@@ -52,8 +52,8 @@ public class FarmerServiceImpl implements FarmerService {
 	}
 
 	@Transactional(value = TxType.REQUIRED)
-	public void Add(Crop crop) {
-		crepo.saveCrop(crop);
+	public void Add(int farmerId,Crop crop) {
+		repo.addCrop(farmerId,crop);
 	}
 
 	@Override

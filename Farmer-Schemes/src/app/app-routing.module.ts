@@ -61,13 +61,14 @@ const routes: Routes = [
   {
     path: 'bidder',
     component: BidderComponent,
-    children: [{ path: 'home', redirectTo: '/home' }],
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'}
+      ],
   },
   //<---------------Admin Module route------------->
   {
     path: 'admin',
     component: AdminWelcomeComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'user', redirectTo: '/user', pathMatch: 'full' },
       { path: 'sell', redirectTo: '/sell', pathMatch: 'full' },
       { path: 'market', redirectTo: '/market', pathMatch: 'full' },
@@ -78,7 +79,7 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'sell', redirectTo: '/sell', pathMatch: 'full' },
       { path: 'market', redirectTo: '/market', pathMatch: 'full' },
       { path: 'insurance', redirectTo: '/insurance', pathMatch: 'full' },
@@ -89,7 +90,7 @@ const routes: Routes = [
   {
     path: 'sell',
     component: SellComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'user', redirectTo: '/user', pathMatch: 'full' },
       { path: 'market', redirectTo: '/market', pathMatch: 'full' },
       { path: 'insurance', redirectTo: '/insurance', pathMatch: 'full' },
@@ -100,7 +101,7 @@ const routes: Routes = [
   {
     path: 'market',
     component: MarketComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'user', redirectTo: '/user', pathMatch: 'full' },
       { path: 'sell', redirectTo: '/sell', pathMatch: 'full' },
       { path: 'insurance', redirectTo: '/insurance', pathMatch: 'full' },
@@ -111,7 +112,7 @@ const routes: Routes = [
   {
     path: 'insurance',
     component: InsuranceComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'user', redirectTo: '/user', pathMatch: 'full' },
       { path: 'sell', redirectTo: '/sell', pathMatch: 'full' },
       { path: 'market', redirectTo: '/market', pathMatch: 'full' },
@@ -123,7 +124,7 @@ const routes: Routes = [
   {
     path: 'farmer',
     component: DashboardComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'claim', redirectTo: '/claim', pathMatch: 'full' },
       { path: 'apply', redirectTo: '/apply', pathMatch: 'full' },
       { path: 'add', redirectTo: '/add', pathMatch: 'full' },
@@ -133,7 +134,7 @@ const routes: Routes = [
   {
     path: 'apply',
     component: ApplyComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'farmer', redirectTo: '/farmer', pathMatch: 'full' },
       { path: 'claim', redirectTo: '/claim', pathMatch: 'full' },
       { path: 'add', redirectTo: '/add', pathMatch: 'full' },
@@ -143,7 +144,7 @@ const routes: Routes = [
   {
     path: 'add',
     component: SellRComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'farmer', redirectTo: '/farmer', pathMatch: 'full' },
       { path: 'claim', redirectTo: '/claim', pathMatch: 'full' },
       { path: 'apply', redirectTo: '/apply', pathMatch: 'full' },
@@ -153,7 +154,7 @@ const routes: Routes = [
   {
     path: 'claim',
     component: ClaimComponent,
-    children: [
+    children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
       { path: 'farmer', redirectTo: '/farmer', pathMatch: 'full' },
       { path: 'add', redirectTo: '/add', pathMatch: 'full' },
       { path: 'apply', redirectTo: '/apply', pathMatch: 'full' },
