@@ -6,6 +6,7 @@ package com.lti.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Admin;
 import com.lti.entity.Bid;
+import com.lti.entity.Count;
 import com.lti.entity.User;
 import com.lti.repo.BidRepo;
+import com.lti.repo.UserRepo;
 import com.lti.service.AdminService;
 import com.lti.service.BidService;
 import com.lti.service.BidderService;
@@ -31,6 +34,8 @@ public class AdminController {
 	private AdminService aservice;
 	@Autowired
 	private BidRepo repo;
+	@Autowired
+	private UserRepo urepo;
 	@Autowired
 	private BidderService bidderService;
 	@Autowired
@@ -51,22 +56,35 @@ public class AdminController {
 	public Bid getCurrentBid(@PathVariable int cropId) {
 		return repo.fetchCurrentBid(cropId);
 	}
-	@GetMapping(value="/bidderstatus/{bidderId}")
-	public String updateBidder(@RequestParam String bidderStatus, @PathVariable int bidderId) {
-		bidderService.updateBidderStatus(bidderId, bidderStatus);
-		return "Status changed successfully to "+bidderStatus;
-	}
-
-	  @GetMapping(value="/farmerstatus/{farmerId}") public String
-	  updateFarmer(@RequestParam String farmerStatus, @PathVariable int farmerId) {
-	  farmerService.updateFarmerStatus(farmerStatus, farmerId); return
-	  "Status changed successfully to "+farmerStatus; }
-	  
+	/*
+	 * @GetMapping(value="/bidderstatus/{bidderId}") public String
+	 * updateBidder(@RequestParam String bidderStatus, @PathVariable int bidderId) {
+	 * bidderService.updateBidderStatus(bidderId, bidderStatus); return
+	 * "Status changed successfully to "+bidderStatus; }
+	 */
+	/*
+	 * @GetMapping(value="/farmerstatus/{farmerId}") public String
+	 * updateFarmer(@RequestParam String farmerStatus, @PathVariable int farmerId) {
+	 * farmerService.updateFarmerStatus(farmerStatus, farmerId); return
+	 * "Status changed successfully to "+farmerStatus; }
+	 */
 	/*
 	 * @GetMapping(value="/userstatus/{userId}") public String updateU(@RequestParam
 	 * String farmerStatus, @PathVariable int farmerId) {
 	 * farmerService.updateFarmerStatus(farmerStatus, farmerId); return
 	 * "Status changed successfully to "+farmerStatus; }
 	 */
+	  @GetMapping(value = "/details", produces = "application/json")
+		public Number getTotalCount() {
+			return urepo.countUsers();
+		}
+	  @GetMapping(value = "/totalbidder", produces = "application/json")
+		public Number getTotalBidders() {
+			return bidderService.countBidder();
+		}
+	  @GetMapping(value = "/totalfarmer", produces = "application/json")
+		public Number getTotalFarmers() {
+			return farmerService.countFarmer();
+		}
 	 
 }

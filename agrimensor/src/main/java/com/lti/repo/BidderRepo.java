@@ -18,13 +18,16 @@ public interface BidderRepo {
 	
 	void updateBidder(Bidder bidder);
 
-	void updateBidderStatus(int bidderId,String bidderStatus);
-	
+	/*
+	 * void updateBidderStatus(int bidderId,String bidderStatus);
+	 */
 	void saveBidderCrop(Bidder bidder,int cropid);
 	
 	void bid(int bidderid, Bid bid, int cropid);
 	
 	List<Bid> listOfBidsById(int id);
+	
+	Number countBidder();
 
 
 }

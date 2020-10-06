@@ -78,10 +78,16 @@ public class BidderServiceImp implements BidderService {
 
 	}
 
+	/*
+	 * @Override public void updateBidderStatus(int bidderId, String bidderStatus) {
+	 * repo.updateBidderStatus(bidderId, bidderStatus);
+	 * 
+	 * }
+	 */
 	@Override
-	public void updateBidderStatus(int bidderId, String bidderStatus) {
-		repo.updateBidderStatus(bidderId, bidderStatus);
-		
+	public Number countBidder() {
+		// TODO Auto-generated method stub
+		return repo.countBidder();
 	}
 
 }

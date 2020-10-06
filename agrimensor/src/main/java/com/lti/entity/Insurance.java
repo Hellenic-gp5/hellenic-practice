@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Insurance")
-@SequenceGenerator(name="insuranceSeq", sequenceName = "insurance_seq1", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="insuranceSeq", sequenceName = "insurance_seq2", initialValue = 1001, allocationSize = 1)
 
 public class Insurance {
 	@Id
@@ -46,7 +46,7 @@ public class Insurance {
 	private double sumPerHectare;
 	private int policyCropArea;
 	@Column(length =50)
-	private String policyStatus;
+	private String policyStatus="PENDING";
 	private double policySharedPremium;
 	private double policyPremiumAmount;
 	@Column(length=30)
