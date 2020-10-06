@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Crop")
-@SequenceGenerator(name="cropsSeq", sequenceName = "crops_seq", initialValue = 101, allocationSize = 1)
+@SequenceGenerator(name="cropsSeq", sequenceName = "crops_seq1", initialValue = 101, allocationSize = 1)
 
 public class Crop {
 	@Id
@@ -61,13 +61,13 @@ public class Crop {
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinTable(name="bidder_crop",
 	joinColumns= {@JoinColumn(name="cropId")},
-	inverseJoinColumns= {@JoinColumn(name="bidderId")})
+	inverseJoinColumns= {@JoinColumn(name="bidderid")})
 	@JsonIgnore
 	private List<Bidder> bidder = new ArrayList<Bidder>();
 	
 	
 	//relation one-to-many for bid-crop entites
-	@OneToMany(cascade = {CascadeType.ALL})
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<Bid> bids = new ArrayList<Bid>();
 	

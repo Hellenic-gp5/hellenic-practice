@@ -75,10 +75,8 @@ public class CropRepoImp implements CropRepo {
 	* @author Ruhi
 	*
 	*/
-		public List<Bid> listOfBidsByCropId(Crop id) {
-			Query q1 = em.createNamedQuery("getBidsByCropId");
-			q1.setParameter("cropId", id);
-			return q1.getResultList();
+		public List<Bid> listOfBidsByCropId(int id) {
+			return em.find(Crop.class, id).getBids();
 		}
 		
 		

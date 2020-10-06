@@ -76,17 +76,17 @@ public class Bidder extends User {
 	private String bidderLicense;
 
 	@Column(length = 15, table = "bidder_info")
-	private String bidderStatus;
+	private String bidderStatus= "Queued";
 	/**
 	 * @author Sakshi Many to many relation with crop
 	 */
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "bidder_crop", joinColumns = { @JoinColumn(name = "bidderId") }, inverseJoinColumns = {
+	@JoinTable(name = "bidder_crop", joinColumns = { @JoinColumn(name = "bidderid") }, inverseJoinColumns = {
 			@JoinColumn(name = "cropId") })
 	@JsonIgnore
 	private List<Crop> crop = new ArrayList<Crop>();
 
-	@OneToMany(mappedBy = "bidderId", cascade = { CascadeType.ALL })
+	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	@JsonIgnore
 	private List<Bid> bids = new ArrayList<Bid>();
 

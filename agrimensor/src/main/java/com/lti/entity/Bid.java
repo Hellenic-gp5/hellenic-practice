@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 @Table(name = "Bids")
-@SequenceGenerator(name = "bidsSeq", sequenceName = "bids_seq", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name = "bidsSeq", sequenceName = "bids_seq1", initialValue = 1001, allocationSize = 1)
 /* @NamedQuery(name="getBidStatus", query="From Bid WHERE bidStatus=:crl") */
 //@NamedQuery(name = "getBidsByBidder", query = "FROM Bid WHERE bidderId=:bidderId")
 //@NamedQuery(name = "getBidsByCropId", query = "FROM Bid WHERE cropId=:cropId")
@@ -36,29 +36,27 @@ public class Bid {
 	private String bidStatus = "Queued";
 
 	@ManyToOne
-	@JsonIgnore
-	@JoinColumn(name = "bidderid")
-	private Bidder bidderId;
+	private Bidder bidder;
 
 	@ManyToOne
-	@JsonIgnore
-	@JoinColumn(name = "cropId")
-	private Crop cropId;
+	private Crop crop;
 
-	public Crop getCropId() {
-		return cropId;
-	}
-
-	public void setCropId(Crop cropId) {
-		this.cropId = cropId;
-	}
+	
 
 	public Bidder getBidder() {
-		return bidderId;
+		return bidder;
 	}
 
-	public void setBidder(Bidder bidderId) {
-		this.bidderId = bidderId;
+	public void setBidder(Bidder bidder) {
+		this.bidder = bidder;
+	}
+
+	public Crop getCrop() {
+		return crop;
+	}
+
+	public void setCrop(Crop crop) {
+		this.crop = crop;
 	}
 
 	public String getBidStatus() {
@@ -75,14 +73,6 @@ public class Bid {
 
 	public void setBidId(int bidId) {
 		this.bidId = bidId;
-	}
-
-	public Bidder getBidderId() {
-		return bidderId;
-	}
-
-	public void setBidderId(Bidder bidderId) {
-		this.bidderId = bidderId;
 	}
 
 	public double getBidAmount() {
