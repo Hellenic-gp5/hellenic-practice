@@ -54,4 +54,19 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 		em.merge(i);
 	}
 
+	@Override
+	public Number countRejectedInsurance() {
+		return ((Number)em.createQuery("SELECT count(i) From Insurance i WHERE i.policyStatus='REJECTED'").getSingleResult()).intValue();
+	}
+
+	@Override
+	public Number countPendingInsurances() {
+		return ((Number)em.createQuery("SELECT count(i) From Insurance i WHERE i.policyStatus='PENDING'").getSingleResult()).intValue();
+	}
+
+	@Override
+	public Number countApprovedInsurances() {
+		return ((Number)em.createQuery("SELECT count(i) From Insurance i WHERE i.policyStatus='APPROVED'").getSingleResult()).intValue();
+		}
+
 }

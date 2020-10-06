@@ -17,7 +17,11 @@ public interface CropRepo {
 	
 	void updateCrop(Crop crop);
 	
+	Number countUnsoldCrop();
+	
 	Number countSoldCrop();
+	
+	Number countAllCrops();
 	
 	void updateCropSoldStatus(int cropId,String cropSoldStatus);
 	

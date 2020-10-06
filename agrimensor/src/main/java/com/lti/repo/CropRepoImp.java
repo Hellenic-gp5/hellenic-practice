@@ -85,6 +85,16 @@ public class CropRepoImp implements CropRepo {
 	public Number countSoldCrop() {
 		 return ((Number)em.createQuery("SELECT count(c) From Crop c WHERE c.cropSoldStatus='SOLD'").getSingleResult()).intValue();
 	}
-	
+
+	@Override
+	public Number countAllCrops() {
+		 return ((Number)em.createQuery("SELECT count(u) From Crop u").getSingleResult()).intValue();
+			
+	}
+
+	@Override
+	public Number countUnsoldCrop() {
+		 return ((Number)em.createQuery("SELECT count(c) From Crop c WHERE c.cropSoldStatus='Not Sold'").getSingleResult()).intValue();
+		}
 		
 }

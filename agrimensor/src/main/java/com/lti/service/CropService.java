@@ -27,4 +27,8 @@ Crop find(int cropId);
 	List<Bid> listOfBids(int cropId);
 	
 	Number countSoldCrops();
+	
+	Number countAllCrops();
+	
+	Number countUnsoldCrops();
 }

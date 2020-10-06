@@ -53,8 +53,19 @@ public class CropRestController {
 		CropService.updateCropSoldStatus(cropId, cropSoldStatus);
 		return "Status changed successfully to " + cropSoldStatus;
 	}
+	
+	//methods for admin-dashboard
+	
 	@GetMapping(value = "/soldcrops", produces = "application/json")
 	public Number getSoldCrops() {
 		return CropService.countSoldCrops();
+	}
+	@GetMapping(value = "/allcrops", produces = "application/json")
+	public Number getAllCrops() {
+		return CropService.countAllCrops();
+	}
+	@GetMapping(value = "/unsoldcrops", produces = "application/json")
+	public Number getUnsoldCrops() {
+		return CropService.countUnsoldCrops();
 	}
 }
