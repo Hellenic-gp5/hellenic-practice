@@ -67,15 +67,16 @@ public class Farmer extends User {
 	private String farmerLandPIN;
 	@Column(length = 20, table = "farmer_info")
 	private String farmerLandArea;
-	@Column(length = 10)
-	private String farmerStatus="Queued";
+	@Column(length=10)
+	private String farmerContact;
+	
 
-	public String getFarmerStatus() {
-		return farmerStatus;
+	public String getFarmerContact() {
+		return farmerContact;
 	}
 
-	public void setFarmerStatus(String farmerStatus) {
-		this.farmerStatus = farmerStatus;
+	public void setFarmerContact(String farmerContact) {
+		this.farmerContact = farmerContact;
 	}
 
 	@OneToMany(cascade = { CascadeType.ALL })
