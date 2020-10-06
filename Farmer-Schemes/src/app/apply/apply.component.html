@@ -1,7 +1,7 @@
 <app-navbary></app-navbary>
 
-        <h3 id="heading">Apply for Policy</h3>    
-        <!-- <form class="form-group">
+<h3 id="heading">Apply for Policy</h3>
+<!-- <form class="form-group">
             <table>
                 <tr>
                   <td>Season: </td>
@@ -23,65 +23,87 @@
                 </tr>              
                 </table>
             </form> -->
-                <div class="card">
-                    <form class="align">
-                        <div class="form-group row">
-                          <label for="season" class="col-sm-2 col-form-label">Season</label>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" id="Season" placeholder="Season">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="year" class="col-sm-2 col-form-label">Year</label>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" id="inputPassword3" placeholder="Year">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="crop" class="col-sm-2 col-form-label">Crop</label>
-                            <div class="col-sm-3">
-                              <input type="text" class="form-control" id="crop" placeholder="Crop">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="sum" class="col-sm-2 col-form-label">Sum Insured</label>
-                            <div class="col-sm-3">
-                              <input type="number" class="form-control" id="sum">
-                            </div>
-                          </div>
-                        <div class="form-group row">
-                          <div class="col-sm-10">
-                            <button type="reset" class="btn btn-warning action">Reset</button>
-                            <button type="submit" class="btn btn-info action">Calculate</button>
-                          </div>
-                        </div>
-                      </form>
-                </div>
-                
-                <table class="table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Company</th>
-                            <th>Sum/Hectare</th>
-                            <th>Crop Name</th>
-                            <th>Premium</th>
-                            <th>Share Premium</th>
-                            <th>Area</th>
-                            <th>Sum Insured</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>orient</td>
-                            <td>3000</td>
-                            <td>Wheat</td>
-                            <td>40000</td>
-                            <td>100</td>
-                            <td>2</td>
-                            <td>100000</td>
-                            <td><button type="submit" class="btn btn-success">Apply</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            
+<div class="card">
+  <form class="align" [formGroup]="policyApplyForm" (ngSubmit)="onApply()">
+    <div class="form-group row">
+      <label for="season" class="col-sm-2 col-form-label">Season</label>
+      <div class="col-sm-3">
+        <input
+          type="text"
+          class="form-control"
+          id="Season"
+          placeholder="Season"
+          formControlName="season"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="year" class="col-sm-2 col-form-label">Year</label>
+      <div class="col-sm-3">
+        <input
+          type="text"
+          class="form-control"
+          id="inputPassword3"
+          placeholder="Year"
+          formControlName="year"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="crop" class="col-sm-2 col-form-label">Crop</label>
+      <div class="col-sm-3">
+        <input
+          type="text"
+          class="form-control"
+          id="crop"
+          placeholder="Crop"
+          formControlName="crop"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="sum" class="col-sm-2 col-form-label">Sum Insured</label>
+      <div class="col-sm-3">
+        <input
+          type="number"
+          class="form-control"
+          id="sum"
+          formControlName="sumInsured"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="reset" class="btn btn-warning action">Reset</button>
+        <button type="submit" class="btn btn-info action">Calculate</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<table class="table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Sum/Hectare</th>
+      <th>Crop Name</th>
+      <th>Premium</th>
+      <th>Share Premium</th>
+      <th>Area</th>
+      <th>Sum Insured</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orient</td>
+      <td>3000</td>
+      <td>Wheat</td>
+      <td>40000</td>
+      <td>100</td>
+      <td>2</td>
+      <td>100000</td>
+      <td><button type="submit" class="btn btn-success">Apply</button></td>
+    </tr>
+  </tbody>
+</table>

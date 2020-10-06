@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  registerUrl: string = 'http://localhost:8080/Agri-Rest/rest/addBidder';
+  registerUrl: string = 'http://localhost:8080/Agri-Rest/rest';
 
   constructor(private http: HttpClient) {}
 
   bidderRegister(bidderRegisterForm: FormGroup): Observable<any> {
-    return this.http.post(this.registerUrl, bidderRegisterForm);
+    return this.http.post(this.registerUrl + '/addbidder', bidderRegisterForm);
+  }
+
+  farmerRegister(bidderRegisterForm: FormGroup): Observable<any> {
+    return this.http.post(this.registerUrl + '/addfarmer', bidderRegisterForm);
   }
 }
