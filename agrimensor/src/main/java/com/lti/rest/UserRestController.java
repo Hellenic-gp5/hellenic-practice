@@ -24,8 +24,10 @@ public class UserRestController {
 	private UserServiceImpl service;
 	
 	@PostMapping(value="/login",produces="application/json")
-	public User signin(@RequestBody Login login) 
+	public User signin(@RequestParam("username")String username, @RequestParam("password")String password,
+			@RequestParam("role")String role) 
 	{
+		Login login=new Login(username,password,role);
 		return service.validate(login);
 	}
 	@GetMapping(value = "/userstatus")

@@ -30,6 +30,7 @@ public class BidderRestController {
 	
 	@PostMapping(value = "/addbidder", consumes = "application/json")
 	public String addBidder(@RequestBody Bidder bidder) {
+		bidder.setRole("Bidder");
 		service.persist(bidder);
 		return "Bidder added successfully";
 	}
