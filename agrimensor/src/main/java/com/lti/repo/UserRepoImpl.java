@@ -52,11 +52,6 @@ public class UserRepoImpl implements UserRepo {
 
 	@Override
 	public Number countUsers() {
-		/*
-		 * Query q1 =
-		 * em.createQuery("SELECT count(u) From User u WHERE u.status='Queued'"); int
-		 * totalUsers = q1.getFirstResult();
-		 */
 		 return ((Number)em.createQuery("SELECT count(u) From User u WHERE u.status='Queued'").getSingleResult()).intValue();
 		
 	}
