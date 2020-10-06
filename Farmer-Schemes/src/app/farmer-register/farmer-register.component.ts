@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-farmer-register',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class FarmerRegisterComponent implements OnInit {
   farmerRegisterForm: FormGroup;
   allAlert: String;
+  data: any;
 
   rolee: string = 'farmer';
   // Getter Methods for shortening in form validation in html
@@ -66,7 +68,11 @@ export class FarmerRegisterComponent implements OnInit {
     return this.farmerRegisterForm.get('city');
   }
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.createFarmerRegisterForm();
@@ -125,15 +131,21 @@ export class FarmerRegisterComponent implements OnInit {
   onRegister(): void {
     // console.log(this.farmerRegisterForm.value); //testing purpose only
     if (this.farmerRegisterForm.valid) {
-      // this.register();
-      this.router.navigate(['/login']);
+      this.register();
+      // this.router.navigate(['/login']);
     } else {
       this.allAlert = 'All fields are mandatory to register.';
     }
   }
-  // register() {
-  //   this.httpService.register();
-  // }
+  register() {
+    this.authService
+      .farmerRegister(this.farmerRegisterForm.value)
+      .subscribe((response) => {
+        this.data = response;
+      });
+    this.router.navigate(['/login']);
+  }
+
   selectedCountry: String = '--Choose State--';
   States: Array<any> = [
     {

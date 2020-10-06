@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BidderComponent implements OnInit {
   toggle: Boolean = false;
+  bname:string;
   // Bidding History Array
   bids = [
     {
@@ -34,7 +35,7 @@ export class BidderComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { this.bname = localStorage.getItem("uname");}
   applyBid() {
     this.toggle = !this.toggle;
   }
