@@ -23,7 +23,7 @@ public class UserRestController {
 	@Autowired
 	private UserServiceImpl service;
 	
-	@PostMapping(value="/login",produces="application/json")
+	@GetMapping(value="/login",produces="application/json")
 	public User signin(@RequestParam("username")String username, @RequestParam("password")String password,
 			@RequestParam("role")String role) 
 	{
