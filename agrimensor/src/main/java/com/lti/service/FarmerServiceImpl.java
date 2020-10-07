@@ -55,10 +55,14 @@ public class FarmerServiceImpl implements FarmerService {
 	public void Add(int farmerId,Crop crop) {
 		repo.addCrop(farmerId,crop);
 	}
+	/*
+	 * @Override public void updateFarmerStatus(String farmerStatus, int farmerId) {
+	 * repo.updateFarmerStatus(farmerId, farmerStatus); }
+	 */
+
 
 	@Override
-	public void updateFarmerStatus(String farmerStatus, int farmerId) {
-		repo.updateFarmerStatus(farmerId, farmerStatus);
+	public Number countFarmer() {
+			return repo.countFarmer();
 	}
-
 }

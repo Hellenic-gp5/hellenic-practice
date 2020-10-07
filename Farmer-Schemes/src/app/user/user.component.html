@@ -3,45 +3,26 @@
 <table class="table-bordered table-striped">
   <thead>
     <tr>
+      <th>UserId</th>
       <th>Name</th>
-      <th>Account No.</th>
-      <th>Aadhaar No.</th>
-      <th>PAN</th>
+      <th>EmailID</th>
+      <th>Role</th>
+      <!-- <th>PAN</th>
       <th>Certificate</th>
-      <th>Action</th>
+      <th>Action</th> -->
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let u of users" value="u">
+      <td>{{u.userId}}</td>
+      <td>{{u.name}}</td>
+      <td>{{u.emailId}}</td>
+      <td>{{u.role}}</td>
       <td><button class="btn btn-info"><i class="fa fa-info-circle"></i></button></td>
-      <td><button class="btn btn-success"><i class="fa fa-check"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+      <td><button class="btn btn-success" (click)="reject()"><i class="fa fa-check"></i></button>
+          <button class="btn btn-danger" (click)="accept()"><i class="fa fa-times"></i></button>
       </td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button class="btn btn-info"><i class="fa fa-info-circle"></i></button></td>
-      <td><button class="btn btn-success"><i class="fa fa-check"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button class="btn btn-info"><i class="fa fa-info-circle"></i></button></td>
-      <td><button class="btn btn-success"><i class="fa fa-check"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-      </td>
-    </tr>
-  </tbody>
+    </tbody>
 </table>
 <app-footer></app-footer>

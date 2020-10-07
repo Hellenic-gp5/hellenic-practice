@@ -12,14 +12,18 @@ import { Router } from '@angular/router';
 export class SellRComponent implements OnInit {
   crop = new Crop();
   userId: string;
+  stringifiedData: string;
+  parsedJson: any;
   constructor(private service: CropService, private router: Router) {}
 
   ngOnInit(): void {
-    this.userId = localStorage.getItem("userId");
+    this.userId = localStorage.getItem('userId');
   }
 
   saveCrop() {
-    this.service.saveFarmerCrop(this.crop);
-    this.router.navigate(['list']);
+    this.stringifiedData = JSON.stringify(this.crop);
+    this.parsedJson = JSON.parse(this.stringifiedData);
+    this.service.saveFarmerCrop(this.parsedJson);
+    //this.router.navigate(['list']);
   }
 }

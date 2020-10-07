@@ -75,8 +75,18 @@ public class Bidder extends User {
 	@Column(length = 30, table = "bidder_doc")
 	private String bidderLicense;
 
-	@Column(length = 15, table = "bidder_info")
-	private String bidderStatus= "Queued";
+	@Column(length=10, table="bidder_info")
+	private String bidderContact;
+	
+	
+	public String getBidderContact() {
+		return bidderContact;
+	}
+
+	public void setBidderContact(String bidderContact) {
+		this.bidderContact = bidderContact;
+	}
+
 	/**
 	 * @author Sakshi Many to many relation with crop
 	 */
@@ -90,14 +100,7 @@ public class Bidder extends User {
 	@JsonIgnore
 	private List<Bid> bids = new ArrayList<Bid>();
 
-	public String getBidderStatus() {
-		return bidderStatus;
-	}
-
-	public void setBidderStatus(String bidderStatus) {
-		this.bidderStatus = bidderStatus;
-	}
-
+	
 	public List<Bid> getBids() {
 		return bids;
 	}

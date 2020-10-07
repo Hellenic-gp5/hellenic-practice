@@ -67,13 +67,20 @@ public class FarmerRepoImpl implements FarmerRepo {
 	}
 	//changing status of Farmer
 
+	/*
+	 * @Override
+	 * 
+	 * @Transactional(value = TxType.REQUIRED) public void updateFarmerStatus(int
+	 * farmerId, String farmerStatus) { Farmer farmer = em.find(Farmer.class,
+	 * farmerId); farmer.setFarmerStatus(farmerStatus); em.merge(farmer);
+	 * 
+	 * }
+	 */
+
 	@Override
-	@Transactional(value = TxType.REQUIRED)
-	public void updateFarmerStatus(int farmerId, String farmerStatus) {
-		Farmer farmer = em.find(Farmer.class, farmerId);
-		farmer.setFarmerStatus(farmerStatus);
-		em.merge(farmer);
-		
+	public Number countFarmer() {
+		 return ((Number)em.createQuery("SELECT count(f) From Farmer f").getSingleResult()).intValue();
+			
 	}
 
 }

@@ -14,9 +14,17 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
+
+
+/**
+ * @author YOJAN Java Version 1.8
+ * Parent User class
+ *
+ */
 @Entity
 @Table(name="users")
-@SequenceGenerator(name="userSeq1", sequenceName = "user_seq1", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="userSeq1", sequenceName = "user_seq2", initialValue = 1001, allocationSize = 1)
 @Inheritance(strategy = InheritanceType.JOINED)
 
 public class User {
@@ -32,6 +40,16 @@ public class User {
 	private String role;
 	@Column(length=30)
 	private String name;
+	
+	@Column(length = 30)
+	private String status= "Queued";
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getName() {
 		return name;
 	}

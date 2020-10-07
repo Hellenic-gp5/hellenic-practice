@@ -21,8 +21,14 @@ Crop find(int cropId);
 	
 	void edit(Crop crop);
 	
-	//void updateCropSoldStatus(int cropId,String cropSoldStatus);
+	void updateCropSoldStatus(int cropId,String cropSoldStatus);
 	List<Crop> loadofCrop(int bidderId);
 
 	List<Bid> listOfBids(int cropId);
+	
+	Number countSoldCrops();
+	
+	Number countAllCrops();
+	
+	Number countUnsoldCrops();
 }

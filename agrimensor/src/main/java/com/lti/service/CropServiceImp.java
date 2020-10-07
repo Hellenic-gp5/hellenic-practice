@@ -61,4 +61,27 @@ public class CropServiceImp implements CropService {
 		return repo.listOfBidsByCropId(cropId);
 	}
 
+	@Override
+	public void updateCropSoldStatus(int cropId, String cropSoldStatus) {
+		repo.updateCropSoldStatus(cropId, cropSoldStatus);
+		
+	}
+
+	@Override
+	public Number countSoldCrops() {
+		
+		return repo.countSoldCrop();
+	}
+
+	@Override
+	public Number countAllCrops() {
+		// TODO Auto-generated method stub
+		return repo.countAllCrops();
+	}
+
+	@Override
+	public Number countUnsoldCrops() {
+		return repo.countUnsoldCrop();
+	}
+
 }

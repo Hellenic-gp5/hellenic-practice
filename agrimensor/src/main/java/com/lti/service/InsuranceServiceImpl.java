@@ -51,6 +51,24 @@ public class InsuranceServiceImpl implements InsuranceService{
 		
 	}
 
+	@Override
+	public Number countRejectedInsurance() {
+		// TODO Auto-generated method stub
+		return repo.countRejectedInsurance();
+	}
+
+	@Override
+	public Number countPendingInsurances() {
+		// TODO Auto-generated method stub
+		return repo.countPendingInsurances();
+	}
+
+	@Override
+	public Number countApprovedInsurances() {
+		// TODO Auto-generated method stub
+		return repo.countApprovedInsurances();
+	}
+
 	
 	
 	

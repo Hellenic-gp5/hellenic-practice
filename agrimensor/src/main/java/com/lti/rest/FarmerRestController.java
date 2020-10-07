@@ -27,6 +27,7 @@ public class FarmerRestController {
 	
 	@PostMapping(value = "/addfarmer", consumes = "application/json")
 	public String addFarmer(@RequestBody Farmer farmer) {
+		farmer.setRole("Farmer");
 		service.persist(farmer);
 		return "Farmer added successfully";
 	}

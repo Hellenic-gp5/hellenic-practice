@@ -26,7 +26,9 @@ public interface FarmerRepo {
 	
 	void addCrop(int farmerId, Crop crop);
 	
-	void updateFarmerStatus(int farmerId,String farmerStatus);
+	/* void updateFarmerStatus(int farmerId,String farmerStatus); */
+	
+	Number countFarmer();
 	
 	
 }
