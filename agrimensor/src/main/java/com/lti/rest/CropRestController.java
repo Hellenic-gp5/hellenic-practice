@@ -15,6 +15,7 @@ import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
+import com.lti.repo.CropBid;
 import com.lti.service.CropService;
 import com.lti.service.BidderService;
 import com.lti.service.FarmerService;
@@ -44,7 +45,7 @@ public class CropRestController {
 	}
 
 	@GetMapping(value = "/listbidsOnCrop", produces = "application/json")
-	public List<Bid> listbid(@RequestParam int cropId) {
+	public List<CropBid> listbid(@RequestParam int cropId) {
 		return CropService.listOfBids(cropId);
 	}
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lti.entity.Bid;
 import com.lti.entity.Crop;
+import com.lti.repo.CropBid;
 
 /**
  * @author Sakshi
@@ -24,7 +25,7 @@ Crop find(int cropId);
 	void updateCropSoldStatus(int cropId,String cropSoldStatus);
 	List<Crop> loadofCrop(int bidderId);
 
-	List<Bid> listOfBids(int cropId);
+	List<CropBid> listOfBids(int cropId);
 	
 	Number countSoldCrops();
 	

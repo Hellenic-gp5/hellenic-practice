@@ -1,5 +1,6 @@
 package com.lti.repo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -77,8 +78,20 @@ public class CropRepoImp implements CropRepo {
 	* @author Ruhi
 	*
 	*/
-		public List<Bid> listOfBidsByCropId(int id) {
-			return em.find(Crop.class, id).getBids();
+		public List<CropBid> listOfBidsByCropId(int id) {
+			Query q=em.createNativeQuery(" select b.bidder_bidderid,c.bidamount, c.bidid  from bidder_bids b join bids c on b.bids_bidid=c.bidid "
+					+ "where c.bidid in (select bids_bidid from crop_bids where crop_cropid =111) order by c.bidamount desc");
+			List<Object[]> items=q.getResultList();
+			List<CropBid> bids=new ArrayList<CropBid>();
+			for(Object[] c: items)
+			{CropBid d=new CropBid();
+			d.setBidAmount((Number)c[1]);
+			d.setBidId((Number)c[2]);
+			d.setBidderId((Number)c[0]);
+			bids.add(d);
+			}
+			
+			return bids;
 		}
 
 	@Override
