@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ClaimReq } from '../claimreq.module';
+import { PolicyreqService } from '../services/policyreq.service';
 @Component({
   selector: 'app-insurance',
   templateUrl: './insurance.component.html',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsuranceComponent implements OnInit {
 
-  constructor() { }
+  claims:ClaimReq[]=[];
+  constructor(private service : PolicyreqService) { }
 
-  ngOnInit() {
+  ngOnInit() {this.service.getClaimRequest().subscribe((data) => (this.claims= data));
   }
+  claimApproved(policyId) {
+    this.service.updateClaimStatus(policyId, 'Approved')
+    }
+    claimRejected(policyId) {
+      this.service.updateClaimStatus(policyId, 'Rejetced') 
+    }
+
 
 }

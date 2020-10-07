@@ -5,7 +5,7 @@ import { SellRequest } from '../sellrequest.module';
   providedIn: 'root'
 })
 export class SellreqService {
-  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   constructor(private http: HttpClient) {}
   getSellRequest()
   {
