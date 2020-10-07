@@ -1,5 +1,7 @@
 package com.lti.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Insurance;
 import com.lti.entity.InsuranceClaim;
+import com.lti.repo.InsuranceRepo;
 import com.lti.service.InsuranceService;
 import com.lti.service.InsuranceServiceImpl;
 
@@ -25,6 +28,9 @@ public class InsuranceRestController {
 	@Autowired
 	private InsuranceService service;
 
+	@Autowired
+	private InsuranceRepo repo;
+	
 	@GetMapping(value = "/insurancestatus/{polid}")
 	public String updateInsurance(@RequestParam String status, @PathVariable int polid) {
 		service.action(status, polid);
@@ -56,5 +62,10 @@ public class InsuranceRestController {
 	@GetMapping(value = "/approvedinsure", produces = "application/json")
 	public Number getApprovedInsure() {
 		return service.countApprovedInsurances();
+	}
+	
+	@GetMapping(value = "/getclaims", produces="application/json")
+	public List<InsuranceClaim> claims(){
+		return repo.getClaims();
 	}
 }

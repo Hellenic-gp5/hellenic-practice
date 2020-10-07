@@ -4,10 +4,17 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="Agrimensor" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    	<class>com.lti.entity.Bid</class>
+       <class>com.lti.entity.Crop</class>
+       <class>com.lti.entity.Bidder</class>
+       <class>com.lti.entity.Insurance</class>
+       <class>com.lti.entity.InsuranceClaim</class>
+       <class>com.lti.entity.User</class>
+       <class>com.lti.entity.Farmer</class>
 		<properties>
 		<property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
-        <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-        <property name="hibernate.connection.username" value="gladiator"/>
+        <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:ose"/>
+        <property name="hibernate.connection.username" value="gladiator5"/>
         <property name="hibernate.connection.password" value="project"/> 
        <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
 		<property name="hibernate.show_sql" value="true"/>

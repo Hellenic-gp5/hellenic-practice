@@ -50,9 +50,9 @@ public class Crop {
 	private String cropSoldDate;
 	@Column
 	private int cropQuantity;
-	@Column(length = 10)
-	private String cropSoldStatus;
-	@Column(length=20)
+	@Column(length = 80)
+	private String cropSoldStatus= "Waiting for approval";
+	@Column(length=50)
 	private String soilPH;
 	/**
 	 * @author Sakshi
@@ -71,9 +71,9 @@ public class Crop {
 	@JsonIgnore
 	private List<Bid> bids = new ArrayList<Bid>();
 	
-	@ManyToOne
-	@JsonIgnore
-	private Farmer farmer;
+//	@ManyToOne
+//	@JsonIgnore
+//	private Farmer farmer;
 	
 	
 	public List<Bid> getBids() {
@@ -82,12 +82,12 @@ public class Crop {
 	public void setBids(List<Bid> bids) {
 		this.bids = bids;
 	}
-	public Farmer getFarmer() {
-		return farmer;
-	}
-	public void setFarmer(Farmer farmer) {
-		this.farmer = farmer;
-	}
+//	public Farmer getFarmer() {
+//		return farmer;
+//	}
+//	public void setFarmer(Farmer farmer) {
+//		this.farmer = farmer;
+//	}
 	public List<Bidder> getBidder() {
 		return bidder;
 	}
