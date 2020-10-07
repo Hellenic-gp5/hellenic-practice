@@ -29,11 +29,15 @@ export class DashboardComponent implements OnInit {
       this.pb = false;
       this.bid = 'View Details';
     }
-    await this.service
+
+    /* await this.service
       .viewMarketPlaceDetails(this.pri)
       .then((data) => (this.cropBid = data));
     localStorage.setItem('cropBid', JSON.stringify(this.cropBid));
-    localStorage.setItem('id', this.cropBid.cropId.toString());
+    localStorage.setItem('id', this.cropBid.cropId.toString());*/
+  }
+  previousBidsOnCrop(cropId: number) {
+    this.service.viewMarketPlaceDetails(cropId);
   }
   ngOnInit(): void {
     this.fname = localStorage.getItem('uname');

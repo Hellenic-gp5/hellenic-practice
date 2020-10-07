@@ -39,49 +39,132 @@
 </div> -->
 
 <!-- <div class="card"> -->
-  <form class="align">
-      <div class="form-group row">
-        <label for="details1" class="col-sm-2 col-form-label mid">Details of Insuree</label>
-      </div>
-      <div class="form-group row">
-        <label for="policy_no" class="col-sm-2 col-form-label">Policy No.</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" id="policy_no" placeholder="Policy">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="company" class="col-sm-2 col-form-label">Insurance Company</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" id="company" placeholder="Company">
-        </div>
-      </div>
-      <div class="form-group row">
-          <label for="name" class="col-sm-2 col-form-label">Name</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control" id="name" placeholder="Name">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="sum" class="col-sm-2 col-form-label">Sum Insured</label>
-          <div class="col-sm-3">
-            <input type="number" class="form-control" id="sum">
-          </div>
-        </div>
-      <div class="form-group row">
-        <label for="details2" class="col-sm-2 col-form-label mid">Details of Cause for Loss</label>
-      </div>
-      <div class="form-group row">
-        <label for="cause" class="col-sm-2 col-form-label">Cause of Loss</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" id="cause">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="date" class="col-sm-2 col-form-label">Date of Loss</label>
-        <div class="col-sm-3">
-          <input type="date" class="form-control" id="date">
-        </div>
-      </div>
-      <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+<form class="align" (ngSubmit)="saveClaim()" #addForm="ngForm">
+  <div class="form-group row">
+    <label for="details1" class="col-sm-2 col-form-label mid"
+      >Details of Insuree</label
+    >
+  </div>
+  <div class="form-group row">
+    <label for="policy_no" class="col-sm-2 col-form-label">Policy No.</label>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        name="policyNo"
+        [(ngModel)]="claim.policyNo"
+        required
+        pattern="[0-9]{1,}"
+        #policyNo="ngModel"
+        class="form-control"
+        placeholder="Policy"
+      />
+      <span class="alert-warning" *ngIf="policyNo.touched && policyNo.invalid"
+        >Policy No is invalid</span
+      >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="company" class="col-sm-2 col-form-label"
+      >Insurance Company</label
+    >
+    <div class="col-sm-3">
+      <input
+        type="text"
+        class="form-control"
+        name="insuranceCompany"
+        [(ngModel)]="claim.insuranceCompany"
+        required
+        pattern="[A-Za-z]{3,}"
+        #insuranceCompany="ngModel"
+        placeholder="Company"
+      />
+      <span
+        class="alert-warning"
+        *ngIf="insuranceCompany.touched && insuranceCompany.invalid"
+        >Insurance Company is invalid</span
+      >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="claim.name"
+        required
+        pattern="[A-Za-z]{3,}"
+        placeholder="Name"
+        #name="ngModel"
+      />
+      <span class="alert-warning" *ngIf="name.touched && name.invalid"
+        >Name is invalid</span
+      >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="sum" class="col-sm-2 col-form-label">Sum Insured</label>
+    <div class="col-sm-3">
+      <input
+        type="number"
+        class="form-control"
+        name="sumInsured"
+        [(ngModel)]="claim.sumInsured"
+        required
+        pattern="[0-9]{1,}"
+        #sumInsured="ngModel"
+      />
+      <span
+        class="alert-warning"
+        *ngIf="sumInsured.touched && sumInsured.invalid"
+        >Sum Insured is invalid</span
+      >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="details2" class="col-sm-2 col-form-label mid"
+      >Details of Cause for Loss</label
+    >
+  </div>
+  <div class="form-group row">
+    <label for="cause" class="col-sm-2 col-form-label">Cause of Loss</label>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        class="form-control"
+        name="claimReason"
+        [(ngModel)]="claim.claimReason"
+        required
+        pattern="[A-Za-z]{3,}"
+        #claimReason="ngModel"
+      />
+      <span
+        class="alert-warning"
+        *ngIf="claimReason.touched && claimReason.invalid"
+        >Cause of Loss is invalid</span
+      >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="date" class="col-sm-2 col-form-label">Date of Loss</label>
+    <div class="col-sm-3">
+      <input
+        type="date"
+        class="form-control"
+        name="dateOfLoss"
+        [(ngModel)]="claim.dateOfLoss"
+        #dateOfLoss="ngModel"
+      />
+      <span
+        class="alert-warning"
+        *ngIf="dateOfLoss.touched && dateOfLoss.invalid"
+        >Date of Loss is invalid</span
+      >
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!addForm.valid">
+    Submit
+  </button>
+</form>
 <!-- </div> -->

@@ -119,7 +119,7 @@
               <td>
                 <button
                   type="button"
-                  (click)="previousBid()"
+                  (click)="previousBidsOnCrop(b.cropId)"
                   class="btn btn-success btn-sm"
                 >
                   {{ bid }}
@@ -152,7 +152,7 @@
               </tr>
               <tr *ngFor="let p of pbids">
                 <td>{{ p.serial }}</td>
-                <td>{{ p.bidderIdd }}</td>
+                <td>{{ p.bidderId }}</td>
                 <td>{{ p.bidAmount }}</td>
                 <td>{{ p.time }}</td>
               </tr>
