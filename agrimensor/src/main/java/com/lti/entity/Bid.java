@@ -5,13 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * for entity Bid
@@ -31,9 +27,9 @@ public class Bid {
 	@GeneratedValue(generator = "bidsSeq", strategy = GenerationType.SEQUENCE)
 	private int bidId;
 	@Column
-	private double bidAmount;
-	@Column(length = 10)
-	private String bidStatus = "Queued";
+	private int bidAmount;
+//	@Column(length = 10)
+//	private String bidStatus/* = "Queued" */;
 
 	@ManyToOne
 	private Bidder bidder;
@@ -59,13 +55,13 @@ public class Bid {
 		this.crop = crop;
 	}
 
-	public String getBidStatus() {
-		return bidStatus;
-	}
-
-	public void setBidStatus(String bidStatus) {
-		this.bidStatus = bidStatus;
-	}
+//	public String getBidStatus() {
+//		return bidStatus;
+//	}
+//
+//	public void setBidStatus(String bidStatus) {
+//		this.bidStatus = bidStatus;
+//	}
 
 	public int getBidId() {
 		return bidId;
@@ -75,11 +71,11 @@ public class Bid {
 		this.bidId = bidId;
 	}
 
-	public double getBidAmount() {
+	public int getBidAmount() {
 		return bidAmount;
 	}
 
-	public void setBidAmount(double bidAmount) {
+	public void setBidAmount(int bidAmount) {
 		this.bidAmount = bidAmount;
 	}
 

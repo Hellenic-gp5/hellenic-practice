@@ -11,7 +11,7 @@ import {User} from '.././User.module'
 export class LoginService {
   
   flag:boolean;
-  private baseUrl: string = "http://localhost:8081/agrimensor/rest";
+  private baseUrl: string = "http://localhost:8080/agrimensor/rest";
   constructor(private router: Router, private http: HttpClient) {
     this.flag=false;
   }

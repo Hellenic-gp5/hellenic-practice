@@ -69,6 +69,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminWelcomeComponent,
     children: [{path:'login',redirectTo:'/login',pathMatch:'full'},
+      { path: 'admin', redirectTo: '/admin', pathMatch: 'full' },
       { path: 'user', redirectTo: '/user', pathMatch: 'full' },
       { path: 'sell', redirectTo: '/sell', pathMatch: 'full' },
       { path: 'market', redirectTo: '/market', pathMatch: 'full' },

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../User.module';
 import { UserApprovalService } from '../services/user-approval.service';
 import { AuthService } from '../services/auth.service';
-
+import {AdminService} from '../services/admin.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -13,15 +13,18 @@ export class UserComponent implements OnInit {
   list: User[] = [];
   //service: any;
   users: User[] = [];
-  constructor(private service: AuthService) {}
+  approved: String='Approved';
+  rejected:String ='Rejected';
+  userId:number;
+  constructor(private service: AuthService, private serve: AdminService) {}
 
   ngOnInit() {
     this.service.getUserApprovalList().subscribe((data) => (this.users = data));
   }
-  reject() {
-    //   const params = new HttpParams()
-    //     .append("status", "Rejected");
-    //   this.service.
+  reject(userId) {
+  this.serve.updateUserStatus(userId, 'Rejected')
   }
-  accept() {}
+  accept(userId) {
+    this.serve.updateUserStatus(userId, 'Approved') 
+  }
 }

@@ -25,7 +25,7 @@ export class FarmerDashboardService {
   }
 
   viewMarketPlace() {
-    return this.http.get<items[]>(this.baseUrl + '/marketcrop');
+    return this.http.get<items[]>(this.baseUrl + '/marketcrops');
   }
 
   /*viewMarketPlaceDetails(pri: previous): Promise<items> {
