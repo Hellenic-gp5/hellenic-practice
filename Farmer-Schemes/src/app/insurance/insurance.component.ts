@@ -13,6 +13,7 @@ export class InsuranceComponent implements OnInit {
 
   ngOnInit() {this.service.getClaimRequest().subscribe((data) => (this.claims= data));
   }
+  //check for params
   claimApproved(policyId) {
     this.service.updateClaimStatus(policyId, 'Approved')
     }
