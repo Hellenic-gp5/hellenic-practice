@@ -25,7 +25,7 @@
     </nav>
     </div> -->
 <div class="container">
-  <app-navbary></app-navbary><br><br><br><br><br><br><br>
+  <app-navbary></app-navbary><br /><br /><br /><br /><br /><br /><br />
   <div class="panel panel-primary" style="float: center">
     <div class="panel-heading">Place Sell Request</div>
     <div class="panel-body">
@@ -78,6 +78,24 @@
                 class="alert-warning"
                 *ngIf="fertilizer.touched && fertilizer.invalid"
                 >Fertilizer is invalid</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>MSP</td>
+            <td>
+              <input
+                type="text"
+                name="cropBasePrice"
+                [(ngModel)]="crop.cropBasePrice"
+                required
+                pattern="[1-9]"
+                #cropBasePrice="ngModel"
+              />
+              <span
+                class="alert-warning"
+                *ngIf="cropBasePrice.touched && cropBasePrice.invalid"
+                >MSP is invalid</span
               >
             </td>
           </tr>

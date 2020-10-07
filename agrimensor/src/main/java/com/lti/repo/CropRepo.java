@@ -28,5 +28,7 @@ public interface CropRepo {
 	List<Bid> listOfBidsByCropId(int id);
 	
 	List<Crop> listofCrop(int bidderId);
+	
+	List<Crop>ActiveCrops();
 
 }
