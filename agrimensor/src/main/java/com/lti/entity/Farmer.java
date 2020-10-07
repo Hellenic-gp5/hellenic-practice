@@ -79,7 +79,7 @@ public class Farmer extends User {
 		this.farmerContact = farmerContact;
 	}
 
-	@OneToMany(cascade = { CascadeType.ALL })
+	@OneToMany(cascade = { CascadeType.REMOVE })
 	@JsonIgnore
 	private List<Crop> crops = new ArrayList<Crop>();
 
