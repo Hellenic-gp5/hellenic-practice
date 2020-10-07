@@ -47,7 +47,7 @@ public class AdminController {
 		return "Admin added successfully";
 	}
 	
-	@PostMapping(value="/approvallist",produces="application/json")
+	@GetMapping(value="/approvallist",produces="application/json")
 	public List<User> approval(){
 		return aservice.approvals();
 	}

@@ -60,10 +60,10 @@
         <table class="table table-bordered table-hover table-striped table-sm">
           <thead>
             <tr>
-              <th>Crop Type</th>
-              <th>Crop Name</th>
+              <th>Bid ID</th>
               <th>Bid Amount</th>
-              <th>Current Status</th>
+              <th>Bid Status</th>
+              <th>Crop</th>
             </tr>
           </thead>
           <tbody>
@@ -74,10 +74,10 @@
               <td>Accepted</td>
             </tr>
             <tr *ngFor="let bid of bids">
-              <td>{{ bid.cropType }}</td>
-              <td>{{ bid.cropName }}</td>
+              <td>{{ bid.bidId }}</td>
               <td>{{ bid.bidAmount }}</td>
-              <td>{{ bid.status }}</td>
+              <td>{{ bid.bidStatus }}</td>
+              <td>{{ bid.cropName }}</td>
             </tr>
           </tbody>
         </table>

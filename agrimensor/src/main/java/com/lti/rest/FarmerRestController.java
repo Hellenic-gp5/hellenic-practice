@@ -1,5 +1,7 @@
 package com.lti.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
+import com.lti.repo.FarmerRepo;
 import com.lti.service.FarmerService;
 /**
  * 
@@ -24,6 +27,8 @@ public class FarmerRestController {
 	
 	@Autowired
 	private FarmerService service;
+	@Autowired
+	private FarmerRepo repo;
 	
 	@PostMapping(value = "/addfarmer", consumes = "application/json")
 	public String addFarmer(@RequestBody Farmer farmer) {
@@ -60,6 +65,11 @@ public class FarmerRestController {
 //		service.remove(farmerId);
 //		return "Farmer deleted successfully";
 //	}
+	@GetMapping(value ="/listallcrops", produces="appplication/json")
+		public List<Crop> getAllCrops(){
+			return repo.getAllCrops();
+		}
+	
 	
 	
 }
