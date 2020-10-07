@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
@@ -13,6 +14,7 @@ import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
+import com.lti.entity.User;
 
 /**
  * @author Anish
@@ -81,6 +83,18 @@ public class FarmerRepoImpl implements FarmerRepo {
 	public Number countFarmer() {
 		 return ((Number)em.createQuery("SELECT count(f) From Farmer f").getSingleResult()).intValue();
 			
+	}
+
+	@Override
+	public List<Crop> getAllCrops() {
+		/*
+		 * return em.
+		 * createNativeQuery("Select cropName, cropType, cropId From Crop where cropId in (Select cropId from farmer_crop)"
+		 * ).getResultList();
+		 */
+		Query q=em.createQuery("From Crop");
+		List<Crop> users= q.getResultList();
+		return users;
 	}
 
 }

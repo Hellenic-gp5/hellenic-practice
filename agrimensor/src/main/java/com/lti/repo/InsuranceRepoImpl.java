@@ -69,4 +69,10 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 		return ((Number)em.createQuery("SELECT count(i) From Insurance i WHERE i.policyStatus='APPROVED'").getSingleResult()).intValue();
 		}
 
+	@Override
+	public List<InsuranceClaim> getClaims() {
+		
+		return em.createQuery("FROM InsuranceClaim").getResultList();
+	}
+
 }

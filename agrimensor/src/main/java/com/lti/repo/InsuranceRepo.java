@@ -17,6 +17,8 @@ public interface InsuranceRepo {
 	void claim(int polid, InsuranceClaim claim);
 
 	void update(String status, int polid);
+	
+	List<InsuranceClaim> getClaims();
 
 	Number countRejectedInsurance();
 
