@@ -1,3 +1,7 @@
+import { hell } from './makeBid.model';
+import { items } from './../dashboard/bid.model';
+import { Crop } from './../crop.module';
+import { FarmerDashboardService } from './../services/farmer-dashboard.service';
 import { BidderService } from './../services/bidder.service';
 import { from } from 'rxjs';
 import { Bids } from './../bids.module';
@@ -13,46 +17,31 @@ export class BidderComponent implements OnInit {
   bname:string;
   // Bidding History Array
    bids : Bids[] = [];
+   crops : items[] = [];
+   cropId : number;
+   bid : hell;
+  stringifiedData: string;
+  parsedJson: any;
 
-   constructor(private service : BidderService) {}
+   constructor(private service : BidderService, private service2 : FarmerDashboardService) {}
 
-  //[
-  //   {
-  //     bidId: 1,
-  //     cropType: 'Type1',
-  //     cropName: 'Crop1',
-  //     bidAmount: 50000,
-  //     status: 'Accpeted',
-  //   },
-  //   {
-  //     bidId: 2,
-  //     cropType: 'Type2',
-  //     cropName: 'Crop2',
-  //     bidAmount: 60000,
-  //     status: 'Waiting',
-  //   },
-  //   {
-  //     bidId: 3,
-  //     cropType: 'Type3',
-  //     cropName: 'Crop3',
-  //     bidAmount: 60000,
-  //     status: 'Accpeted',
-  //   },
-  // ];
-
-  // ngOnInit() {
-  //   this.service.getBidHistory().subscribe((data) => (this.bids = data));
-  // }
+ 
   ngOnInit(): void { 
     this.bname = localStorage.getItem("uname");
     this.service.getBidHistory().subscribe((data) =>(this.bids = data));
+    this.service2.viewMarketPlace().subscribe((data) => (this.crops = data));
   }
 
-  getBidHistory(){
-    
-  }
-
-  applyBid() {
+ 
+  applyBid(u: number) {
+    this.cropId = u;
     this.toggle = !this.toggle;
+  }
+
+  makeBid(){
+    this.stringifiedData = JSON.stringify(this.bid);
+    this.parsedJson = JSON.parse(this.stringifiedData);
+    this.service.setBid(this.parsedJson);
+    this.service.addBid(this.cropId);
   }
 }

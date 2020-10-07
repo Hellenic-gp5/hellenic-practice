@@ -59,9 +59,9 @@
           </thead>
           <tbody>
             <tr>
-              <td>Type</td>
-              <td>Crop</td>
-              <td>40000</td>
+              <td></td>
+              <td></td>
+              <td></td>
               <!-- <td>Accepted</td> -->
             </tr>
             <tr *ngFor="let bid of bids">
@@ -80,6 +80,7 @@
         <table class="table table-bordered table-hover table-striped table-sm">
           <thead>
             <tr>
+              <th>Auction ID</th>
               <th>Crop Type</th>
               <th>Crop </th>
               <th>Base Price (₹)</th>
@@ -88,19 +89,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Type</td>
-              <td>Crop</td>
-              <td>30000</td>
-              <td>40000</td>
+            <tr *ngFor="let c of crops" >
+              <td>{{c.cropId}}</td>
+              <td>{{c.cropType}}</td>
+              <td>{{c.cropName}}</td>
+              <td>{{c.cropBasePrice}}</td>
+              <td>{{c.bidAmount}}</td>
               <td>
                 <button
                   type="button"
-                  (click)="applyBid()"
+                  (click)="applyBid(c.cropId)"
                   class="btn btn-success btn-sm"
                 >
                   Apply Bid
-                </button>
+                  {{cropId}}
+                              </button>
               </td>
             </tr>
           </tbody>
@@ -108,17 +111,25 @@
       </div>
       <div class="card apply-bid" *ngIf="toggle">
         <h4>Apply Bid Here:</h4>
-        <form class="form-inline" action="/action_page.php">
+        <form (ngSubmit)="makeBid()">
+          <label for="bid-amount">Bid Amount:</label>
+          <input type="number" placeholder="₹" required pattern="[0-9]" [(ngModel)] = "bid.bidAmount" name="bidAmnt"/>
+          {{bid.bidAmount}}
+          <button type="submit">Submit Bid</button>
+        </form>
+       <!-- <form class="form-inline" (ngSubmit)="makeBid()">
+           {{cropId}} 
           <label for="bid-amount" class="mr-sm-2">Bid Amount: </label>
           <input
             type="number"
             class="form-control mb-2 mr-sm-2"
             placeholder="₹"
             required
-            pattern="[0-9]"
+            pattern="[0-9]" [(ngModel)] = "bid.bidAmount" name="bidAmt"
           />
+          {{bid.bidAmount}}
           <button type="submit" class="btn btn-primary mb-2">Submit Bid</button>
-        </form>
+        </form>-->
       </div>
     </div>
   </div>
