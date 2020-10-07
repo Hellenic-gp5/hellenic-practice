@@ -17,7 +17,7 @@ export class ApplyComponent implements OnInit {
   get year() {
     return this.policyApplyForm.get('year');
   }
-  get crop() {
+  get cropName() {
     return this.policyApplyForm.get('crop');
   }
 
