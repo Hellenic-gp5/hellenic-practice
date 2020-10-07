@@ -11,16 +11,19 @@ import { User } from '../User.module';
 export class CropService {
   private baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   crop: Crop;
+  farmerId:number;
   user: User;
   parsedJson: (
     text: string,
     reviver?: (this: any, key: string, value: any) => any
   ) => any;
-  constructor(private router: Router, private http: HttpClient) {}
-  saveFarmerCrop(crop: Crop): Promise<User> {
+  constructor(private router: Router, private http: HttpClient) {
+    this.farmerId=parseInt(localStorage.getItem("userId"));
+  }
+  saveFarmerCrop(crop: any): Promise<User> {
     const params = new HttpParams().append(
       'userId',
-      this.user.userId.toString()
+      this.farmerId.toString()
     );
 
     let result = this.http
