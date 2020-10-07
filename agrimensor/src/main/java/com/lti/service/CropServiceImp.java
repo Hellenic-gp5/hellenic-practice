@@ -84,4 +84,10 @@ public class CropServiceImp implements CropService {
 		return repo.countUnsoldCrop();
 	}
 
+	@Override
+	public List<Crop> Active() {
+		// TODO Auto-generated method stub
+		return repo.ActiveCrops();
+	}
+
 }

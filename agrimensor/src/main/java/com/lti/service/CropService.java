@@ -31,4 +31,6 @@ Crop find(int cropId);
 	Number countAllCrops();
 	
 	Number countUnsoldCrops();
+	
+	List<Crop> Active();
 }

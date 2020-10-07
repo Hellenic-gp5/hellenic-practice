@@ -68,4 +68,9 @@ public class CropRestController {
 	public Number getUnsoldCrops() {
 		return CropService.countUnsoldCrops();
 	}
+	
+	@GetMapping(value="/marketcrops", produces="application/json")
+	public List<Crop> activeCrops(){
+		return CropService.Active();
+	}
 }

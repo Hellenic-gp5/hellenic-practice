@@ -33,11 +33,10 @@ public class BidRelationsController {
 	 * "Bid add for bidder "+bid.getBidderId(); }
 	 */
 	
-	  @GetMapping(value = "/getBidsOnCrops/{cropId}", produces =
-	  "application/json") public List<Bid> getBidsOnCrops(@PathVariable int cropId)
+	  @GetMapping(value = "/getBidsOnCrops", produces ="application/json") 
+	  public List<Bid> getBidsOnCrops(@RequestParam int cropId)
 	  { return service.getBidsOnCrop(cropId);
-	  
-	  }
+	  	  }
 	 
 
 }
