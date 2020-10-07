@@ -2,19 +2,20 @@
     <div class="container">
       <app-navbary></app-navbary>
       <div class="media border p-3">
-        <!-- <img
+        <img
           src="../../assets/user.png"
           alt="John Doe"
           class="mr-3 rounded-circle"
           style="width: 80px"
-        /> -->
+        />
         <div class="media-body">
           <h2>Hello {{fname}}</h2>
           <p>Here you can Place Sell Request, View the Marketplace, Apply for Insurance and Claim for Loss</p>
         </div>
       </div>
       <div class="card">
-       <kbd><h3 class="pb-3">View Sold Crop History <button class="btn btn-primary" [routerLink]="['add']" style="float: right;">Place Sell Request</button></h3></kbd>
+        <h3>View Sold Crop History</h3>
+       <kbd><button class="btn btn-primary" [routerLink]="['add']" style="float: right;">Place Sell Request</button></kbd>
         
         <!-- <router-outlet></router-outlet>   -->
         <div class="table-responsive-md">
@@ -59,8 +60,68 @@
           </table>
         </div>
       </div>
+
       <div class="card">
-        <kbd><h3 class="pb-3">Market Place</h3></kbd>
+        <h3>Insurance History</h3>
+       <kbd><button class="btn btn-primary" [routerLink]="['apply']" style="float: right;">Apply for insurance</button></kbd>
+        <div class="table-responsive-md">
+         <table class="table table-bordered table-hover table-striped " >
+           <thead>
+             <tr>
+               <th>Policy No.</th>
+               <th>Insurance Company</th>
+               <th>Sum/Hectare</th>
+               <th>Crop Name</th>
+               <th>Area</th>
+               <th>Premium Share</th>
+               <th>Premium Amount</th>
+               <th>Sum Insured</th>
+               <th>Valid till</th>
+               <th>Status</th>
+               <th>Action</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>KH</td>
+               <td>Orient</td>
+               <td>40000</td>
+               <td>Rice</td>
+               <td>4</td>
+               <td>6000</td>
+               <td>40000</td>
+               <td>160000</td>
+               <td>25/09/2020</td>
+               <td>Active</td>
+               <td>
+                 <button class="btn btn-success btn-sm" [routerLink]="['claim']">Claim</button>
+               </td>
+             </tr>
+             <tr *ngFor="let i of policies" >
+               <td>{{p.policy_no}}</td>
+               <td>{{p.company}}</td>
+               <td>{{p.sph}}</td>
+               <td>{{p.crop_name}}</td>
+               <td>{{p.area}}</td>
+               <td>{{p.share}}</td>
+               <td>{{p.amount}}</td>
+               <td>{{p.status}}</td>
+               <td>{{p.exdate}}</td>
+               <td>
+                 <div >
+                   <button type="button" [routerLink]="['claim']" class="btn-success">
+                     Claim
+                   </button>
+                 </div>
+               </td>
+             </tr>
+           </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>MarketPlace</h3>
         <div class="table-responsive-md">
           <table class="table table-bordered table-hover table-striped table-sm">
             <thead>
@@ -85,11 +146,7 @@
                 <td>450</td>
                 <td>In Process</td>
                 <td>
-                  <button
-                    type="button"
-                    (click)="previousBid()"
-                    class="btn btn-success btn-sm"
-                  >
+                  <button type="button" (click)="previousBid()" class="btn btn-success btn-sm">
                     View Details
                   </button>
                 </td>
@@ -117,7 +174,7 @@
         </div>
        </div>
        <div class="card" [hidden]="!pb">
-       <kbd><h3 class="pb-3">Previous Bid</h3></kbd>
+        <h3 class="pb-3">Previous Bid</h3>
        <div class="table-hover">
          <div class="table-responsive-md">
            <table class="table table-bordered table-striped">
@@ -146,67 +203,6 @@
          </div>
        </div>  
        </div>
-       <div class="card">
-        
-        <kbd><h3>Insurance History
-        <button class="btn btn-primary" [routerLink]="['apply']" style="float: right;">Apply for insurance</button></h3></kbd>
-         <div class="table-responsive-md">
-          <table class="table table-bordered table-hover table-striped table-sm" style=" overflow-y:scroll; height:200px;">
-            <thead>
-              <tr>
-                <th>Policy No.</th>
-                <th>Insurance Company</th>
-                <th>Sum/Hectare</th>
-                <th>Crop Name</th>
-                <th>Area</th>
-                <th>Premium Share</th>
-                <th>Premium Amount</th>
-                <th>Sum Insured</th>
-                <th>Valid till</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>KH</td>
-                <td>Orient</td>
-                <td>40000</td>
-                <td>Rice</td>
-                <td>4</td>
-                <td>6000</td>
-                <td>40000</td>
-                <td>160000</td>
-                <td>25/09/2020</td>
-                <td>Active</td>
-                <td>
-                  <button class="btn-primary" [routerLink]="['claim']">Claim</button>
-                </td>
-              </tr>
-              <tr *ngFor="let i of policies" >
-                <td>{{p.policy_no}}</td>
-                <td>{{p.company}}</td>
-                <td>{{p.sph}}</td>
-                <td>{{p.crop_name}}</td>
-                <td>{{p.area}}</td>
-                <td>{{p.share}}</td>
-                <td>{{p.amount}}</td>
-                <td>{{p.status}}</td>
-                <td>{{p.exdate}}</td>
-                <td>
-                  <div >
-                    <button type="button" [routerLink]="['claim']" class="btn-success">
-                      Claim
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-       </div>
-
-    </div>
   </div>
-  <!-- <app-footer></app-footer> -->
+  <app-footer></app-footer>
   

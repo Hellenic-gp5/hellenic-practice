@@ -43,9 +43,10 @@ export class BidderComponent implements OnInit {
   // ngOnInit() {
   //   this.service.getBidHistory().subscribe((data) => (this.bids = data));
   // }
-  ngOnInit(): void { this.bname = localStorage.getItem("uname");
-  this.service.getBidHistory().subscribe((data) =>(this.bids = data));
-}
+  ngOnInit(): void { 
+    this.bname = localStorage.getItem("uname");
+    this.service.getBidHistory().subscribe((data) =>(this.bids = data));
+  }
 
   getBidHistory(){
     

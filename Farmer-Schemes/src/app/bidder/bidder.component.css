@@ -1,10 +1,12 @@
 .container-fluid {
   min-height: 100vh;
-  background: rgba(243, 243, 3, 0.2);
+  background-color: #066862;
+  padding: 3rem 0rem;
 }
 .container {
-  padding-top: 112px;
-  padding-bottom: 16px;
+  /* padding-top: 10px; */
+  /* padding-bottom: 16px; */
+  margin-top: 50px;
 }
 /* ################# Page Header ##################### */
 .media {
@@ -55,3 +57,14 @@ img {
   background-color: #fff;
   border-radius: 4px;
 }
+
+table {
+  text-align: center;
+}
+
+#logout {
+  position: relative;
+  left: 700px;
+}
+
+

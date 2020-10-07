@@ -1,9 +1,10 @@
-.container-fluid {
+  .container-fluid {
     min-height: 100vh;
-    background:rgba(243, 243, 3, 0.2);
+    background-color: #066862;
+    padding: 3rem 0rem 0rem 0rem;
   }
   .container {
-    padding-top: 112px;
+    padding-top: 50px;
     padding-bottom: 16px;
   }
   /* ################# Page Header #################### */
@@ -32,9 +33,13 @@
   }
  
 kbd{
-  background-color: rgb(107, 179, 0);
+  background-color: white; 
   height: 40px;
 }
 a{
   color: white;
 }  
+
+table {
+  text-align: center;
+}

@@ -9,6 +9,7 @@ import { User } from '../User.module';
 export class BidderService {
   baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   bidderId : number;
+  cropId : number;
   user: User;
   parsedJson: (
     text: string,
@@ -22,5 +23,10 @@ export class BidderService {
   getBidHistory()
   {
     return this.http.get<Bids[]>(this.baseUrl +'/listbids?bidderid=' + this.bidderId);
+  }
+
+  applyBid()
+  {
+    return this.http.get(this.baseUrl + '/makebid?bidderid='+ this.bidderId + '&cropid=' + this.cropId);
   }
 }
