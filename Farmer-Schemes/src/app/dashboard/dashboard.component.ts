@@ -3,6 +3,8 @@ import { crop } from './crop.model';
 import { items } from './bid.model';
 import { previous } from './pb.model';
 import { policy } from './insurance.model';
+import { FarmerDashboardService } from '../services/farmer-dashboard.service';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -15,9 +17,11 @@ export class DashboardComponent implements OnInit {
   pb: boolean = false;
   bid: string = 'View Details';
   pbids: previous[] = [];
+  cropBid: items;
+  pri: previous;
   policies: policy[] = [];
-  constructor() {}
-  previousBid() {
+  constructor(private service: FarmerDashboardService) {}
+  async previousBid() {
     if (this.bid == 'View Details') {
       this.pb = true;
       this.bid = 'close';
@@ -25,8 +29,15 @@ export class DashboardComponent implements OnInit {
       this.pb = false;
       this.bid = 'View Details';
     }
+    await this.service
+      .viewMarketPlaceDetails(this.pri)
+      .then((data) => (this.cropBid = data));
+    localStorage.setItem('cropBid', JSON.stringify(this.cropBid));
+    localStorage.setItem('id', this.cropBid.cropId.toString());
   }
   ngOnInit(): void {
     this.fname = localStorage.getItem('uname');
+    this.service.viewMarketPlace().subscribe((data) => (this.bids = data));
+    this.service.viewSoldCropList().subscribe((data) => (this.crops = data));
   }
 }

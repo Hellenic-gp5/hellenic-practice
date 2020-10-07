@@ -2,6 +2,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { items } from '../dashboard/bid.model';
 import { LoginModel } from '../login.module';
 import { LoginService } from '../services/login.service';
 import { User } from '../User.module';
@@ -13,6 +14,7 @@ import { User } from '../User.module';
 })
 export class LoginComponent implements OnInit {
   login: LoginModel;
+  bids: items;
   user: User;
   roles: string[];
 
@@ -28,7 +30,8 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('user', JSON.stringify(this.user));
     localStorage.setItem('uname', this.user.name);
     localStorage.setItem('userId', this.user.userId.toString());
-   // const userId = parseInt(userId.toString();)
+
+    // const userId = parseInt(userId.toString();)
     if (this.user) {
       this.service.setFlag(true);
     }
