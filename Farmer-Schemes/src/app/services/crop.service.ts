@@ -11,16 +11,16 @@ import { User } from '../User.module';
 export class CropService {
   private baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   crop: Crop;
-  farmerId:number;
+  farmerId: number;
   user: User;
   parsedJson: (
     text: string,
     reviver?: (this: any, key: string, value: any) => any
   ) => any;
   constructor(private router: Router, private http: HttpClient) {
-    this.farmerId=parseInt(localStorage.getItem("userId"));
+    this.farmerId = parseInt(localStorage.getItem('userId'));
   }
-  saveFarmerCrop(crop: any): Promise<User> {
+  /*saveFarmerCrop(crop: any): Promise<User> {
     const params = new HttpParams().append(
       'userId',
       this.farmerId.toString()
@@ -31,5 +31,10 @@ export class CropService {
       .toPromise();
 
     return result;
+  }*/
+  saveFarmerCrop(crop: any) {
+    return this.http
+      .post(this.baseUrl + '/addCrop?farmerId=' + this.farmerId, crop)
+      .subscribe((data) => (data = crop));
   }
 }

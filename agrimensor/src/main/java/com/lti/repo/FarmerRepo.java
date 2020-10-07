@@ -30,5 +30,7 @@ public interface FarmerRepo {
 	
 	Number countFarmer();
 	
+	List<Crop> getAllCrops();
+	
 	
 }
