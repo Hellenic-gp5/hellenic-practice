@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Claim } from '../claim/claim.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InsuranceService {
+  claim: Claim;
 
-  constructor() { }
+  constructor() {}
+
+  saveInsuranceClaim(claim: any) {}
 }

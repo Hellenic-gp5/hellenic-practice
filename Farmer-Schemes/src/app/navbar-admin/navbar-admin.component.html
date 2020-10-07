@@ -13,17 +13,14 @@
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
-            <li class="nav-item"> <!-- Brand -->
-            <a class="navbar-brand" href="#">
-              <img src="../../../assets/Project_Icon_name.jpg" alt="Logo" style="width: 200px" />  
-            </a>
-          </li>
           <li class="nav-item">
             <a class="navbar-brand" href="#">
               <img src="../../../assets/Project_Icon.jpg" alt="Logo" style="width: 64px" />  
             </a>
           </li>
-            
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['admin']">Home</a>
+           </li>
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['user']">User Approval Requests</a>
             </li>

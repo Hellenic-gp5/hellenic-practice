@@ -1,24 +1,35 @@
 <div class="container-fluid">
-    <div class="container">
-      <app-navbary></app-navbary>
-      <div class="media border p-3">
-        <img
-          src="../../assets/user.png"
-          alt="John Doe"
-          class="mr-3 rounded-circle"
-          style="width: 80px"
-        />
-        <div class="media-body">
-          <h2>Hello {{fname}}</h2>
-          <p>Here you can Place Sell Request, View the Marketplace, Apply for Insurance and Claim for Loss</p>
-        </div>
+  <div class="container">
+    <app-navbary></app-navbary>
+    <div class="media border p-3">
+      <img
+        src="../../assets/user.png"
+        alt="John Doe"
+        class="mr-3 rounded-circle"
+        style="width: 80px"
+      />
+      <div class="media-body">
+        <h2>Hello {{ fname }}</h2>
+        <p>
+          Here you can Place Sell Request, View the Marketplace, Apply for
+          Insurance and Claim for Loss
+        </p>
       </div>
-      <div class="card">
-        <h3>View Sold Crop History</h3>
-       <kbd><button class="btn btn-primary" [routerLink]="['add']" style="float: right;">Place Sell Request</button></kbd>
-        
-        <!-- <router-outlet></router-outlet>   -->
-        /> -->
+    </div>
+    <div class="card">
+      <h3>View Sold Crop History</h3>
+      <kbd
+        ><button
+          class="btn btn-primary"
+          [routerLink]="['add']"
+          style="float: right"
+        >
+          Place Sell Request
+        </button></kbd
+      >
+
+      <!-- <router-outlet></router-outlet>   -->
+
       <div class="media-body">
         <h2>Hello {{ fname }}</h2>
         <p>
@@ -130,7 +141,7 @@
               <td>
                 <button
                   type="button"
-                  (click)="previousBid()"
+                  (click)="previousBidsOnCrop(b.cropId)"
                   class="btn btn-success btn-sm"
                 >
                   {{ bid }}
@@ -163,7 +174,7 @@
               </tr>
               <tr *ngFor="let p of pbids">
                 <td>{{ p.serial }}</td>
-                <td>{{ p.bidderIdd }}</td>
+                <td>{{ p.bidderId }}</td>
                 <td>{{ p.bidAmount }}</td>
                 <td>{{ p.time }}</td>
               </tr>
@@ -174,59 +185,76 @@
 
       <div class="card">
         <h3>Insurance History</h3>
-       <kbd><button class="btn btn-primary" [routerLink]="['apply']" style="float: right;">Apply for insurance</button></kbd>
+        <kbd
+          ><button
+            class="btn btn-primary"
+            [routerLink]="['apply']"
+            style="float: right"
+          >
+            Apply for insurance
+          </button></kbd
+        >
         <div class="table-responsive-md">
-         <table class="table table-bordered table-hover table-striped " >
-           <thead>
-             <tr>
-               <th>Policy No.</th>
-               <th>Insurance Company</th>
-               <th>Sum/Hectare</th>
-               <th>Crop Name</th>
-               <th>Area</th>
-               <th>Premium Share</th>
-               <th>Premium Amount</th>
-               <th>Sum Insured</th>
-               <th>Valid till</th>
-               <th>Status</th>
-               <th>Action</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <td>KH</td>
-               <td>Orient</td>
-               <td>40000</td>
-               <td>Rice</td>
-               <td>4</td>
-               <td>6000</td>
-               <td>40000</td>
-               <td>160000</td>
-               <td>25/09/2020</td>
-               <td>Active</td>
-               <td>
-                 <button class="btn btn-success btn-sm" [routerLink]="['claim']">Claim</button>
-               </td>
-             </tr>
-             <tr *ngFor="let i of policies" >
-               <td>{{p.policy_no}}</td>
-               <td>{{p.company}}</td>
-               <td>{{p.sph}}</td>
-               <td>{{p.crop_name}}</td>
-               <td>{{p.area}}</td>
-               <td>{{p.share}}</td>
-               <td>{{p.amount}}</td>
-               <td>{{p.status}}</td>
-               <td>{{p.exdate}}</td>
-               <td>
-                 <div >
-                   <button type="button" [routerLink]="['claim']" class="btn-success">
-                     Claim
-                   </button>
-                 </div>
-               </td>
-             </tr>
-           </tbody>
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Policy No.</th>
+                <th>Insurance Company</th>
+                <th>Sum/Hectare</th>
+                <th>Crop Name</th>
+                <th>Area</th>
+                <th>Premium Share</th>
+                <th>Premium Amount</th>
+                <th>Sum Insured</th>
+                <th>Valid till</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>KH</td>
+                <td>Orient</td>
+                <td>40000</td>
+                <td>Rice</td>
+                <td>4</td>
+                <td>6000</td>
+                <td>40000</td>
+                <td>160000</td>
+                <td>25/09/2020</td>
+                <td>Active</td>
+                <td>
+                  <button
+                    class="btn btn-success btn-sm"
+                    [routerLink]="['claim']"
+                  >
+                    Claim
+                  </button>
+                </td>
+              </tr>
+              <tr *ngFor="let i of policies">
+                <td>{{ p.policy_no }}</td>
+                <td>{{ p.company }}</td>
+                <td>{{ p.sph }}</td>
+                <td>{{ p.crop_name }}</td>
+                <td>{{ p.area }}</td>
+                <td>{{ p.share }}</td>
+                <td>{{ p.amount }}</td>
+                <td>{{ p.status }}</td>
+                <td>{{ p.exdate }}</td>
+                <td>
+                  <div>
+                    <button
+                      type="button"
+                      [routerLink]="['claim']"
+                      class="btn-success"
+                    >
+                      Claim
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -234,7 +262,9 @@
       <div class="card">
         <h3>MarketPlace</h3>
         <div class="table-responsive-md">
-          <table class="table table-bordered table-hover table-striped table-sm">
+          <table
+            class="table table-bordered table-hover table-striped table-sm"
+          >
             <thead>
               <tr>
                 <th>Auction Id</th>
@@ -257,19 +287,23 @@
                 <td>450</td>
                 <td>In Process</td>
                 <td>
-                  <button type="button" (click)="previousBid()" class="btn btn-success btn-sm">
+                  <button
+                    type="button"
+                    (click)="previousBid()"
+                    class="btn btn-success btn-sm"
+                  >
                     View Details
                   </button>
                 </td>
               </tr>
               <tr *ngFor="let b of bids">
-                <td>{{b.crop_id}}</td>
+                <td>{{ b.crop_id }}</td>
                 <td>{{ b.crop_type }}</td>
                 <td>{{ b.crop_name }}</td>
                 <td>{{ b.quantity }}</td>
-                <td>{{b.base_price}}</td>
-                <td>{{b.current_bid}}</td>
-                <td>{{b.status}}</td>
+                <td>{{ b.base_price }}</td>
+                <td>{{ b.current_bid }}</td>
+                <td>{{ b.status }}</td>
                 <td>
                   <button
                     type="button"
@@ -279,40 +313,43 @@
                     Claim
                   </button>
                 </td>
-            </tr>
+              </tr>
             </tbody>
           </table>
         </div>
-       </div>
-       <div class="card" [hidden]="!pb">
+      </div>
+      <div class="card" [hidden]="!pb">
         <h3 class="pb-3">Previous Bid</h3>
-       <div class="table-hover">
-         <div class="table-responsive-md">
-           <table class="table table-bordered table-striped">
-             <thead>
-               <tr>
-                <th>S.No.</th> 
-                <th>Bidder ID</th>
-                 <th>Bid Amount</th>
-                 <th>Bid Time</th>
-               </tr>
+        <div class="table-hover">
+          <div class="table-responsive-md">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Bidder ID</th>
+                  <th>Bid Amount</th>
+                  <th>Bid Time</th>
+                </tr>
               </thead>
               <tbody>
-                <tr><td>1</td>
-                <td>1001</td>
-              <td>50000</td>
-              <td>12:00 A.M.</td>    
-            </tr>
-            <tr *ngFor="let p of pbids">
-              <td>{{p.serial}}</td>
-              <td>{{p.bidder_id}}</td>
-              <td>{{p.bid_amount}}</td>
-              <td>{{p.time}}</td>
-            </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1001</td>
+                  <td>50000</td>
+                  <td>12:00 A.M.</td>
+                </tr>
+                <tr *ngFor="let p of pbids">
+                  <td>{{ p.serial }}</td>
+                  <td>{{ p.bidder_id }}</td>
+                  <td>{{ p.bid_amount }}</td>
+                  <td>{{ p.time }}</td>
+                </tr>
               </tbody>
-           </table>
-         </div>
-       </div>  
-       </div>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
+</div>

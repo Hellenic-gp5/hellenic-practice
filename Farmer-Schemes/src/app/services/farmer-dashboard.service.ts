@@ -28,7 +28,7 @@ export class FarmerDashboardService {
     return this.http.get<items[]>(this.baseUrl + '/marketcrops');
   }
 
-  viewMarketPlaceDetails(pri: previous): Promise<items> {
+  /*viewMarketPlaceDetails(pri: previous): Promise<items> {
     const params = new HttpParams().append(
       'cropId',
       this.bids.cropId.toString()
@@ -40,5 +40,8 @@ export class FarmerDashboardService {
     return result;
 
     //   return this.http.get<previous[]>(this.baseUrl + '/getBidsOnCrops'   );
+  }*/
+  viewMarketPlaceDetails(cropId) {
+    return this.http.get(this.baseUrl + '/getBidsOnCrops?cropId=' + cropId);
   }
 }
