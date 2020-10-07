@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,10 +52,10 @@ public class BidderRestController {
 		return "Bid deleted successfully";
 	}
 	
-	@GetMapping(value="/makebid", consumes="application/json")
-	public String bid(@RequestParam int bidderid, @RequestParam int cropid, @RequestBody Bid bid) {
+	@PostMapping(value="/makebid", consumes="application/json")
+	public void bid(@RequestParam int bidderid, @RequestParam int cropid, @RequestBody Bid bid) {
 		service.makeBid(bidderid, bid, cropid);
-		return "Bid made successfully";
+//		return "Bid made successfully";
 	}
 
 	@GetMapping(value="/listbids", produces="application/json")
