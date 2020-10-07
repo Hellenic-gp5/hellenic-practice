@@ -24,38 +24,114 @@
         </ul>
     </nav>
     </div> -->
-    <div class="container">  
-      <app-navbary></app-navbary>
-    <div class="panel panel-primary" style="float: center;">
-            <div class="panel-heading">Place Sell Request</div>
-            <div class="panel-body">
-              <form class="form-group">
-                <table>
-                  <tr>
-                    <td>Crop Type :</td>
-                    <input type="text">
-
-                  </tr>
-                  <tr><td>Crop Name:</td>
-                  <input type="text">
-                  </tr>
-                  <tr><td>Fertilizer Type</td>
-                    <td><input type="text"></td>
-                  </tr>
-                  <tr><td>Quantity: </td>
-                  <td><input type="number"></td></tr>
-                  <tr><td>Soil pH Certificate: </td>
-                  <td>  <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                  </td></tr>
-                  <tr>
-                    <th colspan="2"><button type="submit" class="btn btn-success">
-                      Place Sell Request</button>
-                    </th>
-                  </tr>  
-                  
-                  </table>
-              </form>
-
-            </div>
-          </div>        
-          </div>
+<div class="container">
+  <app-navbary></app-navbary><br><br><br><br><br><br><br>
+  <div class="panel panel-primary" style="float: center">
+    <div class="panel-heading">Place Sell Request</div>
+    <div class="panel-body">
+      <form class="form-group" (ngSubmit)="saveCrop()" #addForm="ngForm">
+        <table>
+          <tr>
+            <td>Crop Type :</td>
+            <input
+              type="text"
+              name="cropType"
+              [(ngModel)]="crop.cropType"
+              required
+              pattern="[A-Za-z]{3,}"
+              #cropType="ngModel"
+            />
+            <span
+              class="alert-warning"
+              *ngIf="cropType.touched && cropType.invalid"
+              >Crop Type is invalid</span
+            >
+          </tr>
+          <tr>
+            <td>Crop Name:</td>
+            <input
+              type="text"
+              name="cropName"
+              [(ngModel)]="crop.cropName"
+              required
+              pattern="[A-Za-z]{3,}"
+              #cropName="ngModel"
+            />
+            <span
+              class="alert-warning"
+              *ngIf="cropName.touched && cropName.invalid"
+              >Crop Name is invalid</span
+            >
+          </tr>
+          <tr>
+            <td>Fertilizer Type</td>
+            <td>
+              <input
+                type="text"
+                name="fertilizer"
+                [(ngModel)]="crop.fertilizer"
+                required
+                pattern="[A-Za-z]{3,}"
+                #fertilizer="ngModel"
+              />
+              <span
+                class="alert-warning"
+                *ngIf="fertilizer.touched && fertilizer.invalid"
+                >Fertilizer is invalid</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Quantity:</td>
+            <td>
+              <input
+                type="number"
+                name="cropQAuantity"
+                [(ngModel)]="crop.cropQuantity"
+                required
+                pattern="[1-9]"
+                #cropQuantity="ngModel"
+              />
+              <span
+                class="alert-warning"
+                *ngIf="cropQuantity.touched && cropQuantity.invalid"
+                >Crop Quantity is invalid</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Soil pH Certificate:</td>
+            <td>
+              <input
+                type="file"
+                name="soilPH"
+                [(ngModel)]="crop.soilPH"
+                class="form-control-file"
+                id="exampleFormControlFile1"
+                required
+                pattern="[A-Za-z]{3,}"
+                #soilPH="ngModel"
+              />
+              <span
+                class="alert-warning"
+                *ngIf="soilPH.touched && soilPH.invalid"
+                >Soil PH is invalid</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2">
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="!addForm.valid"
+              >
+                Place Sell Request
+              </button>
+            </th>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

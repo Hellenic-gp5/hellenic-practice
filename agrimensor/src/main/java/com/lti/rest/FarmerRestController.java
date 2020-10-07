@@ -49,7 +49,8 @@ public class FarmerRestController {
 	}
 	
 	@PostMapping(value = "/addcrop", consumes = "application/json")
-	public String addCrop(@RequestParam int farmerId,@RequestBody Crop crop) {
+	public String addCrop(@RequestParam("farmerId") int farmerId,@RequestBody Crop crop) {
+//		int id= Integer.parseInt(farmerId);
 		service.Add(farmerId,crop);
 		return "Crop added successfully";
 	}
