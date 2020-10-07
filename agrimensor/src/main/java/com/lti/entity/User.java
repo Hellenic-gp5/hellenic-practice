@@ -34,7 +34,7 @@ public class User {
 	private int userId;
 	@Column(length=50, unique=true)
 	private String emailId;
-	@Column(length=32)
+	@Column(length=100)
 	private String password;
 	@Column(length=10)
 	private String role;
