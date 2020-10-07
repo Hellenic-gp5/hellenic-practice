@@ -30,7 +30,7 @@ public class AdminRepoImpl implements AdminRepo{
 	@Override
 	public List<User> approval() {
 		// TODO Auto-generated method stub
-		Query q=em.createQuery("From User where status='Queued'");
+		Query q=em.createQuery("From User where status='Queued' AND role IN ('Farmer', 'Bidder')");
 		List<User> users= q.getResultList();
 		return users;
 	}
