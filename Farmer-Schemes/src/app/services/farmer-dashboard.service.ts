@@ -14,6 +14,7 @@ export class FarmerDashboardService {
   farmerId: number;
   bids: items;
   cropId: number;
+  pBid: previous;
 
   constructor(private router: Router, private http: HttpClient) {
     this.farmerId = parseInt(localStorage.getItem('userId'));
@@ -42,6 +43,8 @@ export class FarmerDashboardService {
     //   return this.http.get<previous[]>(this.baseUrl + '/getBidsOnCrops'   );
   }*/
   viewMarketPlaceDetails(cropId) {
-    return this.http.get(this.baseUrl + '/getBidsOnCrops?cropId=' + cropId);
+    return this.http.get<previous[]>(
+      this.baseUrl + '/getBidsOnCrops?cropId=' + cropId
+    );
   }
 }

@@ -159,107 +159,101 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>S.No.</th>
+                <th>Bid ID</th>
                 <th>Bidder ID</th>
                 <th>Bid Amount</th>
-                <th>Bid Time</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
+                <td>101</td>
                 <td>1001</td>
                 <td>50000</td>
-                <td>12:00 A.M.</td>
               </tr>
               <tr *ngFor="let p of pbids">
-                <td>{{ p.serial }}</td>
+                <td>{{ p.bidId }}</td>
                 <td>{{ p.bidderId }}</td>
                 <td>{{ p.bidAmount }}</td>
-                <td>{{ p.time }}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-
-      <div class="card">
-        <h3>Insurance History</h3>
-        <kbd
-          ><button
-            class="btn btn-primary"
-            [routerLink]="['apply']"
-            style="float: right"
-          >
-            Apply for insurance
-          </button></kbd
+    </div>
+    <div class="card">
+      <h3>Insurance History</h3>
+      <kbd
+        ><button
+          class="btn btn-primary"
+          [routerLink]="['apply']"
+          style="float: right"
         >
-        <div class="table-responsive-md">
-          <table class="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>Policy No.</th>
-                <th>Insurance Company</th>
-                <th>Sum/Hectare</th>
-                <th>Crop Name</th>
-                <th>Area</th>
-                <th>Premium Share</th>
-                <th>Premium Amount</th>
-                <th>Sum Insured</th>
-                <th>Valid till</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>KH</td>
-                <td>Orient</td>
-                <td>40000</td>
-                <td>Rice</td>
-                <td>4</td>
-                <td>6000</td>
-                <td>40000</td>
-                <td>160000</td>
-                <td>25/09/2020</td>
-                <td>Active</td>
-                <td>
+          Apply for insurance
+        </button></kbd
+      >
+      <div class="table-responsive-md">
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Policy No.</th>
+              <th>Insurance Company</th>
+              <th>Sum/Hectare</th>
+              <th>Crop Name</th>
+              <th>Area</th>
+              <th>Premium Share</th>
+              <th>Premium Amount</th>
+              <th>Sum Insured</th>
+              <th>Valid till</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>KH</td>
+              <td>Orient</td>
+              <td>40000</td>
+              <td>Rice</td>
+              <td>4</td>
+              <td>6000</td>
+              <td>40000</td>
+              <td>160000</td>
+              <td>25/09/2020</td>
+              <td>Active</td>
+              <td>
+                <button class="btn btn-success btn-sm" [routerLink]="['claim']">
+                  Claim
+                </button>
+              </td>
+            </tr>
+            <tr *ngFor="let i of policies">
+              <td>{{ p.policy_no }}</td>
+              <td>{{ p.company }}</td>
+              <td>{{ p.sph }}</td>
+              <td>{{ p.crop_name }}</td>
+              <td>{{ p.area }}</td>
+              <td>{{ p.share }}</td>
+              <td>{{ p.amount }}</td>
+              <td>{{ p.status }}</td>
+              <td>{{ p.exdate }}</td>
+              <td>
+                <div>
                   <button
-                    class="btn btn-success btn-sm"
+                    type="button"
                     [routerLink]="['claim']"
+                    class="btn-success"
                   >
                     Claim
                   </button>
-                </td>
-              </tr>
-              <tr *ngFor="let i of policies">
-                <td>{{ p.policy_no }}</td>
-                <td>{{ p.company }}</td>
-                <td>{{ p.sph }}</td>
-                <td>{{ p.crop_name }}</td>
-                <td>{{ p.area }}</td>
-                <td>{{ p.share }}</td>
-                <td>{{ p.amount }}</td>
-                <td>{{ p.status }}</td>
-                <td>{{ p.exdate }}</td>
-                <td>
-                  <div>
-                    <button
-                      type="button"
-                      [routerLink]="['claim']"
-                      class="btn-success"
-                    >
-                      Claim
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
 
-      <div class="card">
+    <!--<div class="card">
         <h3>MarketPlace</h3>
         <div class="table-responsive-md">
           <table
@@ -317,8 +311,8 @@
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="card" [hidden]="!pb">
+      </div>-->
+    <!--<div class="card" [hidden]="!pb">
         <h3 class="pb-3">Previous Bid</h3>
         <div class="table-hover">
           <div class="table-responsive-md">
@@ -348,8 +342,8 @@
             </table>
           </div>
         </div>
-      </div>
-    </div>
+      </div>-->
+
     <app-footer></app-footer>
   </div>
 </div>

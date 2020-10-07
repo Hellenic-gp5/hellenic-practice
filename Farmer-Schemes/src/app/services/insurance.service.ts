@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Claim } from '../claim/claim.module';
 
@@ -5,9 +6,14 @@ import { Claim } from '../claim/claim.module';
   providedIn: 'root',
 })
 export class InsuranceService {
-  claim: Claim;
+  private baseUrl: string = 'http://localhost:8080/agrimensor/rest';
+  // claim: Claim;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  saveInsuranceClaim(claim: any) {}
+  saveInsuranceClaim(policyId, claim: any) {
+    return this.http
+      .post(this.baseUrl + '/-----?policyId=' + policyId, claim)
+      .subscribe((data) => (data = claim));
+  }
 }

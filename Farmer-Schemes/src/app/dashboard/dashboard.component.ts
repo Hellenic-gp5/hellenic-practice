@@ -37,7 +37,9 @@ export class DashboardComponent implements OnInit {
     localStorage.setItem('id', this.cropBid.cropId.toString());*/
   }
   previousBidsOnCrop(cropId: number) {
-    this.service.viewMarketPlaceDetails(cropId);
+    this.service
+      .viewMarketPlaceDetails(cropId)
+      .subscribe((data) => (this.pbids = data));
   }
   ngOnInit(): void {
     this.fname = localStorage.getItem('uname');

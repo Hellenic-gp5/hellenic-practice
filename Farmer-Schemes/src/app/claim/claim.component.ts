@@ -17,9 +17,9 @@ export class ClaimComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveClaim() {
+  saveClaim(policyId) {
     this.stringifiedData = JSON.stringify(this.claim);
     this.parsedJson = JSON.parse(this.stringifiedData);
-    this.service.saveInsuranceClaim(this.parsedJson);
+    this.service.saveInsuranceClaim(policyId, this.parsedJson);
   }
 }
