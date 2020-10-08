@@ -44,7 +44,9 @@ export class FarmerDashboardService {
   }*/
   viewMarketPlaceDetails(cropId) {
     return this.http.get<previous[]>(
-      this.baseUrl + '/getBidsOnCrops?cropId=' + cropId
+      this.baseUrl + '/listbidsOnCrop?cropId=' + cropId
     );
   }
+
+
 }

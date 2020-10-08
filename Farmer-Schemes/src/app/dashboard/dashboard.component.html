@@ -136,7 +136,7 @@
               <td>{{ b.cropName }}</td>
               <td>{{ b.cropQuantity }}</td>
               <td>{{ b.cropBasePrice }}</td>
-              <td>{{ b.bidAmount }}</td>
+              <td>{{b.currentBid}} </td>
               <td>{{ b.cropSoldStatus }}</td>
               <td>
                 <button
@@ -144,7 +144,8 @@
                   (click)="previousBidsOnCrop(b.cropId)"
                   class="btn btn-success btn-sm"
                 >
-                  {{ bid }}
+                  {{ bid}}
+
                 </button>
               </td>
             </tr>
@@ -158,6 +159,7 @@
         <div class="table-responsive-md">
           <table class="table table-bordered table-striped">
             <thead>
+              
               <tr>
                 <th>Bid ID</th>
                 <th>Bidder ID</th>
