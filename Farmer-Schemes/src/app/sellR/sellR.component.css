@@ -1,0 +1,26 @@
+.container-fluid {
+  background-color: #066862;
+  padding: 5rem 4rem;
+}
+.container {
+  padding: 16px;
+  width: 50%;
+  margin: auto;
+  border: 2px solid #066862;
+  border-radius: 4px;
+  background-color: #fff;
+}
+h2 {
+  text-align: center;
+  color: #06163a;
+}
+.btn {
+  border: 2px solid #066862;
+  background-color: #066862;
+  color: #fff;
+}
+.form-control,
+.custom-select,
+.custom-file-input {
+  border: 2px solid #066862;
+}

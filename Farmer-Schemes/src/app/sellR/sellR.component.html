@@ -24,121 +24,112 @@
         </ul>
     </nav>
     </div> -->
-<div class="container">
-  <app-navbary></app-navbary><br /><br /><br /><br /><br /><br /><br />
-  <div class="panel panel-primary" style="float: center">
-    <div class="panel-heading">Place Sell Request</div>
-    <div class="panel-body">
-      <form class="form-group" (ngSubmit)="saveCrop()" #addForm="ngForm">
-        <table>
-          <tr>
-            <td>Crop Type :</td>
-            <select name="cropType" [(ngModel)]="crop.cropType">
-              <option value="Kharif">Kharif</option>
-              <option value="Rabi">Rabi</option>
-            </select>
-              
-          </tr>
-          <tr>
-            <td>Crop Name:</td>
-            <input
-              type="text"
-              name="cropName"
-              [(ngModel)]="crop.cropName"
-              required
-              pattern="[A-Za-z]{3,}"
-              #cropName="ngModel"
-            />
-            <span
-              class="alert-warning"
-              *ngIf="cropName.touched && cropName.invalid"
-              >Crop Name is invalid</span
-            >
-          </tr>
-          <tr>
-            <td>Fertilizer Type</td>
-            <td>
-              <select
-                type="text"
-                name="fertilizer"
-                [(ngModel)]="crop.fertilizer">
-                <option value="Nitrogen">Nitrogen</option>
-                <option value="Phosphorous">Phosphorous</option>
-                <option value="Potassium">Potassium</option>
-                <option value="Urea">Urea</option>
-                </select>
-              
-            </td>
-          </tr>
-          <tr>
-            <td>MSP</td>
-            <td>
-              <input
-                type="text"
-                name="cropBasePrice"
-                [(ngModel)]="crop.cropBasePrice"
-                required
-                pattern="[1-9]"
-                #cropBasePrice="ngModel"
-              />
-              <span
-                class="alert-warning"
-                *ngIf="cropBasePrice.touched && cropBasePrice.invalid"
-                >MSP is invalid</span
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>Quantity:</td>
-            <td>
-              <input
-                type="number"
-                name="cropQAuantity"
-                [(ngModel)]="crop.cropQuantity"
-                required
-                pattern="[1-9]"
-                #cropQuantity="ngModel"
-              />
-              <span
-                class="alert-warning"
-                *ngIf="cropQuantity.touched && cropQuantity.invalid"
-                >Crop Quantity is invalid</span
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>Soil pH Certificate:</td>
-            <td>
-              <input
-                type="file"
-                name="soilPH"
-                [(ngModel)]="crop.soilPH"
-                class="form-control-file"
-                id="exampleFormControlFile1"
-                required
-                pattern="[A-Za-z]{3,}"
-                #soilPH="ngModel"
-              />
-              <span
-                class="alert-warning"
-                *ngIf="soilPH.touched && soilPH.invalid"
-                >Soil PH is invalid</span
-              >
-            </td>
-          </tr>
-          <tr>
-            <th colspan="2">
-              <button
-                type="submit"
-                class="btn btn-success"
-                [disabled]="!addForm.valid"
-              >
-                Place Sell Request
-              </button>
-            </th>
-          </tr>
-        </table>
-      </form>
-    </div>
+
+<app-navbary></app-navbary>
+<div class="container-fluid">
+  <div class="container">
+    <h2>Place Sell Request</h2>
+    <form (ngSubmit)="saveCrop()" #addForm="ngForm">
+      <div class="form-group">
+        <label for="crop type">Crop Type</label>
+        <select
+          name="cropType"
+          [(ngModel)]="crop.cropType"
+          class="custom-select"
+        >
+          <option selected>Please Select Crop Type</option>
+          <option value="Kharif">Kharif</option>
+          <option value="Rabi">Rabi</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="crop name">Crop Name:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="cropName"
+          [(ngModel)]="crop.cropName"
+          required
+          pattern="[A-Za-z]{3,}"
+          #cropName="ngModel"
+        />
+        <span class="alert-warning" *ngIf="cropName.touched && cropName.invalid"
+          >Crop Name is invalid</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="fertilizer type">Fertilizer Type</label>
+        <select
+          type="text"
+          name="fertilizer"
+          class="custom-select"
+          [(ngModel)]="crop.fertilizer"
+        >
+          <option selected>Select Fertilizer Type</option>
+          <option value="Nitrogen">Nitrogen</option>
+          <option value="Phosphorous">Phosphorous</option>
+          <option value="Potassium">Potassium</option>
+          <option value="Urea">Urea</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="msp">MSP:</label>
+        <input
+          type="text"
+          name="cropBasePrice"
+          [(ngModel)]="crop.cropBasePrice"
+          required
+          pattern="[0-9]{1,}"
+          #cropBasePrice="ngModel"
+          class="form-control"
+        />
+        <span
+          class="alert-warning"
+          *ngIf="cropBasePrice.touched && cropBasePrice.invalid"
+          >MSP is invalid</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="Quantity">Quantity:</label>
+        <input
+          class="form-control"
+          type="number"
+          name="cropQAuantity"
+          [(ngModel)]="crop.cropQuantity"
+          required
+          pattern="[1-9]{1,}"
+          #cropQuantity="ngModel"
+        />
+        <span
+          class="alert-warning"
+          *ngIf="cropQuantity.touched && cropQuantity.invalid"
+          >Crop Quantity is invalid</span
+        >
+      </div>
+      <div class="custom-file">
+        <input
+          type="file"
+          name="soilPH"
+          [(ngModel)]="crop.soilPH"
+          class="form-control-file"
+          id="exampleFormControlFile1"
+          #soilPH="ngModel"
+          class="custom-file-input"
+        />
+        <span class="alert-warning" *ngIf="soilPH.touched && soilPH.invalid"
+          >Soil PH is invalid</span
+        >
+        <label class="custom-file-label" for="customFile"
+          >Choose file of pH Certificate</label
+        >
+      </div>
+      <button
+        type="submit"
+        class="btn btn-block mt-3"
+        [disabled]="!addForm.valid"
+      >
+        Place Sell Request
+      </button>
+    </form>
   </div>
 </div>
