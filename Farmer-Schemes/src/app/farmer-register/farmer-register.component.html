@@ -233,7 +233,8 @@
           <label for="aadhar">Aadhar Card No.:</label>
           <input
             type="file"
-            name="fileToUpload"
+            name="farmerAADHAR"
+            [(ngModel)]="farmer.farmerAADHAR"
             formControlName="farmerAADHAR"
           />
         </div>
@@ -249,7 +250,12 @@
         </div>
         <div class="document">
           <label for="pan">Pan Card No.:</label>
-          <input type="file" name="fileToUpload" formControlName="farmerPAN" />
+          <input
+            type="file"
+            [(ngModel)]="farmer.farmerPAN"
+            name="farmerPAN"
+            formControlName="farmerPAN"
+          />
         </div>
         <div
           *ngIf="farmerPAN.invalid && (farmerPAN.dirty || farmerPAN.touched)"
@@ -261,7 +267,8 @@
           <label for="certificate">Certificate:</label>
           <input
             type="file"
-            name="fileToUpload"
+            [(ngModel)]="farmer.farmerCertificate"
+            name="farmerCertificate"
             formControlName="farmerCertificate"
           />
         </div>

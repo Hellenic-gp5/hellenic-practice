@@ -5,6 +5,7 @@ import java.util.List;
 import com.lti.entity.Bid;
 import com.lti.entity.Crop;
 import com.lti.repo.CropBid;
+import com.lti.repo.HistCrops;
 
 /**
  * @author Sakshi
@@ -37,5 +38,5 @@ Crop find(int cropId);
 	
 	Number currentBid(int cropid);
 	
-	List<Crop> sale(int farmerId);
+	List<HistCrops> sale(int farmerId);
 }

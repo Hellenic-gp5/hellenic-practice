@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Bids } from '../bids.module';
 import { items } from '../dashboard/bid.model';
 import { crop } from '../dashboard/crop.model';
+import { crop1 } from '../dashboard/crop1.model';
 import { previous } from '../dashboard/pb.model';
 
 @Injectable({
@@ -22,7 +23,9 @@ export class FarmerDashboardService {
   }
 
   viewSoldCropList() {
-    return this.http.get<crop[]>(this.baseUrl + '/');
+    return this.http.get<crop1[]>(
+      this.baseUrl + '/sale?farmerId=' + this.farmerId
+    );
   }
 
   viewMarketPlace() {
@@ -47,6 +50,4 @@ export class FarmerDashboardService {
       this.baseUrl + '/listbidsOnCrop?cropId=' + cropId
     );
   }
-
-
 }

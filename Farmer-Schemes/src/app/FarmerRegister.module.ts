@@ -1,20 +1,20 @@
 export class FarmerRegisterModel {
-  public contact: number;
+  public farmerContact: number;
   public name: string;
-  public email: number;
-  public addressLine1: string;
-  public addressLine2: string;
-  public area: number;
-  public landPincode: number;
-  public landAddress: string;
-  public city: string;
-  public state: string;
-  public aadhar: string;
-  public pancard: string;
-  public certificate: string;
-  public pincode: number;
-  public accountNo: number;
-  public ifscCode: string;
+  public emailId: number;
+  public farmerAddressLine1: string;
+  public farmerAddressLine2: string;
+  public farmerLandArea: number;
+  public farmerLandPIN: number;
+  public farmerLandAddress: string;
+  public farmerCity: string;
+  public farmerState: string;
+  public farmerAADHAR: string;
+  public farmerPAN: string;
+  public farmerCertificate: string;
+  public farmerPINCode: number;
+  public farmerAccountNumber: number;
+  public farmerIFSC: string;
   public password: string;
   public confirmPassword: string;
 }
