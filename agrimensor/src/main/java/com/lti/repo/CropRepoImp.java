@@ -100,7 +100,7 @@ public class CropRepoImp implements CropRepo {
 
 		@Override
 		public List<ReturnCrop> crops() {
-		Query q = em.createNativeQuery("select cropid, cropname, croptype, fertilizer, cropbaseprice, soilph from crop"  );
+		Query q = em.createNativeQuery("select cropid, cropname, croptype, fertilizer, cropbaseprice, soilph from crop where cropsoldstatus='Queued'"  );
 		List<Object[]> crop= q.getResultList();
 		List<ReturnCrop> returnCrop=new ArrayList<ReturnCrop>();
 		for (Object[] o: crop) {
