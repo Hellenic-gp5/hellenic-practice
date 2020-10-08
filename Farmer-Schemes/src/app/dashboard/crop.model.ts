@@ -3,7 +3,7 @@ export class crop {
   public cropType: string;
   public cropName: string;
   public fertilizer: string;
-  public cropQuantity: number;
+  public cropQuantity: Number;
   public cropBasePrice: number; //msp
   public cropSoldPrice: number;
   //public total_price:number;

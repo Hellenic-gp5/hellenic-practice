@@ -147,21 +147,36 @@ public class CropRepoImp implements CropRepo {
 	}
 
 	@Override
-	public List<Crop> soldCrops(int farmerId) {
+	public List<HistCrops> soldCrops(int farmerId) {
 		// TODO Auto-generated method stub
-//		Query q= em.createNativeQuery("select * from crop where cropsoldstatus='Sold' and cropid in (select crops_cropid from farmer_crop where farmer_farmerid=:fid)");
-//		q.setParameter("fid", farmerId);
-		Farmer farmer= em.find(Farmer.class, farmerId);
-		List<Crop> crops=farmer.getCrops();
-		List<Crop> sold=new ArrayList<Crop>();
-		for(Crop c:crops) {
-			System.out.println(c);
-			if(c.getCropSoldStatus()=="Sold")
-				sold.add(c);
+		Query q= em.createNativeQuery("select * from crop where cropsoldstatus='Sold' and cropid in (select crops_cropid from farmer_crop where farmer_farmerid=:fid)");
+		q.setParameter("fid", farmerId);
+//		Farmer farmer= em.find(Farmer.class, farmerId);
+//		List<Crop> crops=farmer.getCrops();
+//		List<Crop> sold=new ArrayList<Crop>();
+//		for(Crop c:crops) {
+//			
+//			if(c.getCropSoldStatus()=="Sold")
+//			{sold.add(c);
+//			System.out.println(c);
+//			}
+//		}
+		
+		List<Object[]> sold=q.getResultList();
+		List<HistCrops> hist= new ArrayList<HistCrops>();
+		for(Object[] c:sold) {
+			HistCrops d=new HistCrops();
+			d.setCropId((Number)c[0]);
+			d.setCropBasePrice((Number)c[1]);
+			d.setCropName((String)c[2]);
+			d.setQuantity((Number)c[3]);
+			d.setCropSoldPrice((Number)c[5]);
+			d.setCropSoldStatus((String)c[6]);
+			d.setCropType((String)c[7]);
+			d.setFertilizer((String)c[8]);
+			hist.add(d);			
 		}
-//		for(Crop f:sold)
-//			System.out.println(f);
-		return sold;
+		return hist;
 	}
 
 	
