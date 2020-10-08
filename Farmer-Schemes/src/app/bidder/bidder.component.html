@@ -48,7 +48,7 @@
             <tr>
               <th>Bid ID</th>
               <th>Bid Amount (₹)</th>
-              <th>Bid Status</th>
+              <!-- <th>Bid Status</th> -->
               <!-- <th>Crop</th> -->
             </tr>
           </thead>
@@ -62,7 +62,7 @@
             <tr *ngFor="let bid of bids">
               <td>{{ bid.bidId }}</td>
               <td>{{ bid.bidAmount }}</td>
-              <td>{{ bid.bidStatus }}</td>
+              <!-- <td>{{ bid.bidStatus }}</td> -->
               <!-- <td>{{ bid.cropName }}</td> -->
             </tr>
           </tbody>
@@ -89,7 +89,7 @@
               <td>{{c.cropType}}</td>
               <td>{{c.cropName}}</td>
               <td>{{c.cropBasePrice}}</td>
-              <td>{{c.bidAmount}}</td>
+              <td>{{c.currentBid}}</td>
               <td>
                 <button
                   type="button"
@@ -114,7 +114,7 @@
             required
             pattern="[0-9]{1,}" [(ngModel)] = "bid.bidAmount" name="bidAmt"
           />
-          {{bid.bidAmount}}
+         
           <button type="submit" class="btn btn-primary mb-2">Submit Bid</button>
         </form>
       </div>
