@@ -17,33 +17,37 @@ import com.lti.entity.Bidder;
 import com.lti.entity.Count;
 import com.lti.entity.Farmer;
 import com.lti.entity.User;
+
 @Repository
-public class AdminRepoImpl implements AdminRepo{
+public class AdminRepoImpl implements AdminRepo {
 
 	private CountRepo repo;
 	@PersistenceContext
 	private EntityManager em;
+
 	@Transactional(value = TxType.REQUIRED)
 	@Override
 	public void addAdmin(Admin admin) {
 		// TODO Auto-generated method stub
 		em.persist(admin);
 	}
+
 	@Override
 	public List<User> approval() {
 		// TODO Auto-generated method stub
-		Query q=em.createQuery("From User where status='Queued' AND role IN ('Farmer', 'Bidder')");
-		List<User> users= q.getResultList();
+		Query q = em.createQuery("From User where status='Queued' AND role IN ('Farmer', 'Bidder')");
+		List<User> users = q.getResultList();
 		return users;
 	}
+
 	@Override
 	public List<Counts> counts() {
 		List<Counts> adminCounts = new ArrayList<Counts>();
 		Counts count = new Counts();
 		Number sold = repo.countSoldCrop();
 		Number unsold = repo.countUnsoldCrop();
-		Number allcrops= (Number)(sold.intValue() + unsold.intValue());
-		Number pending=repo.countPendingInsurances();
+		Number allcrops = (Number) (sold.intValue() + unsold.intValue());
+		Number pending = repo.countPendingInsurances();
 		count.setAllUsers(repo.countUsers());
 		count.setAllFarmers(repo.countFarmer());
 		count.setAllBidders(repo.countBidder());

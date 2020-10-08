@@ -43,7 +43,7 @@ public class InsuranceRestController {
 	}
 
 	@PostMapping(value = "/applyclaim", consumes = "application/json")
-	public String claim(@RequestParam int polid, @RequestBody InsuranceClaim cl) {
+	public String claim(@RequestParam("polid") int polid, @RequestBody InsuranceClaim cl) {
 		service.addClaim(polid, cl);
 		return "Claim applied successfully";
 	}

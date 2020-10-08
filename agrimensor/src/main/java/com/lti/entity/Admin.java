@@ -5,12 +5,12 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Admin")
-@PrimaryKeyJoinColumn(name="userId", referencedColumnName = "user_id")
+@Table(name = "Admin")
+@PrimaryKeyJoinColumn(name = "userId", referencedColumnName = "user_id")
 public class Admin extends User {
-		//fields for approval status
-	//cropSoldStatus
-	//bidderStatus
-	//farmerStatus
-	//policyStatus
+	// fields for approval status
+	// cropSoldStatus
+	// bidderStatus
+	// farmerStatus
+	// policyStatus
 }

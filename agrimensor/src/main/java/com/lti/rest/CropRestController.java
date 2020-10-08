@@ -36,8 +36,6 @@ public class CropRestController {
 
 	@Autowired
 	private BidderService BidderService;
-	@Autowired
-	private CropRepo repo;
 
 	/*
 	 * @GetMapping(value = "/fetchCrop", produces = "application/json") public
@@ -88,7 +86,7 @@ public class CropRestController {
 	}
 	@GetMapping(value="/getAllCrops", produces = "application/json")
 	public List<ReturnCrop> getCrops(){
-		return repo.crops();
+		return CropService.crops();
 		
 	}
 	
@@ -109,6 +107,6 @@ public class CropRestController {
 	
 	@GetMapping(value="/marketplace", produces="application/json")
 	public List<Market> market(){
-		return repo.market();
+		return CropService.market();
 	}
 }

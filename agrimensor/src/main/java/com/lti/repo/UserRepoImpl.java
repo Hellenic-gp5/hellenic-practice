@@ -29,7 +29,8 @@ public class UserRepoImpl implements UserRepo {
 	public User authenticate(Login login) {
 		// TODO Auto-generated method stub
 		Encoder encode = Base64.getEncoder();
-		Query query = em.createQuery("FROM User WHERE emailId=:uname AND password=:pwd AND role=:rol AND status='Approved'");
+		Query query = em
+				.createQuery("FROM User WHERE emailId=:uname AND password=:pwd AND role=:rol AND status='Approved'");
 		query.setParameter("uname", login.getUsername());
 		query.setParameter("pwd", encode.encodeToString(login.getPassword().getBytes()));
 		query.setParameter("rol", login.getRole());
@@ -49,7 +50,5 @@ public class UserRepoImpl implements UserRepo {
 		}
 
 	}
-
-	
 
 }

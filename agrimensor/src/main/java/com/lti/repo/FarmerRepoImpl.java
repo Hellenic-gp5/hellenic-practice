@@ -1,5 +1,6 @@
 package com.lti.repo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -79,11 +80,11 @@ public class FarmerRepoImpl implements FarmerRepo {
 	 * }
 	 */
 
-	@Override
-	public Number countFarmer() {
-		 return ((Number)em.createQuery("SELECT count(f) From Farmer f").getSingleResult()).intValue();
-			
-	}
+//	@Override
+//	public Number countFarmer() {
+//		 return ((Number)em.createQuery("SELECT count(f) From Farmer f").getSingleResult()).intValue();
+//			
+//	}
 
 	@Override
 	public List<Crop> getAllCrops() {
@@ -95,6 +96,26 @@ public class FarmerRepoImpl implements FarmerRepo {
 		Query q=em.createQuery("From Crop");
 		List<Crop> users= q.getResultList();
 		return users;
+	}
+
+	@Override
+	public List<Policies> getinsurance(int farmerid) {
+		// TODO Auto-generated method stub
+		Query q= em.createNativeQuery("select policyid, policycompany,policycroparea,season,policysharedpremium from "
+				+ "insurance where policyid in (select insurance_policyid from farmer_insurance where farmer_farmerid=:fid)");
+		q.setParameter("fid",farmerid);
+		List<Object[]> policies=q.getResultList();
+		List<Policies> insurance=new ArrayList<Policies>();
+		for(Object[] c: policies)
+		{ Policies p= new Policies();
+			p.setPolicyId((Number)c[0]);
+			p.setPolicyCompany((String)c[1]);
+			p.setPolicyCropArea((Number)c[2]);
+			p.setSeason((String)c[3]);
+			p.setPolicySharedPremium((Number)c[4]);
+			insurance.add(p);
+		}
+		return insurance;
 	}
 
 	

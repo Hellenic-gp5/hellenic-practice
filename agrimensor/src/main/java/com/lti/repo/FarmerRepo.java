@@ -30,6 +30,10 @@ public interface FarmerRepo {
 	
 	List<Crop> getAllCrops();
 	
+	List<Policies> getinsurance(int farmerid);
+
+	
+	
 	
 	
 	

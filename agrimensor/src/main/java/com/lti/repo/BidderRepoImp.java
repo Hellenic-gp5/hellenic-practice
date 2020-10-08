@@ -15,17 +15,14 @@ import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.entity.Insurance;
 
-
-
-
 /**
  * 
- * @author Sakshi 
+ * @author Sakshi
  *
  */
 
 @Repository
-public class BidderRepoImp implements BidderRepo{
+public class BidderRepoImp implements BidderRepo {
 	@PersistenceContext
 	private EntityManager em;
 
@@ -37,7 +34,7 @@ public class BidderRepoImp implements BidderRepo{
 
 	public Bidder fetchBidderById(int bidderId) {
 
-		Bidder b=em.find(Bidder.class, bidderId);
+		Bidder b = em.find(Bidder.class, bidderId);
 		return b;
 	}
 
@@ -48,16 +45,17 @@ public class BidderRepoImp implements BidderRepo{
 
 	@Transactional(value = TxType.REQUIRED)
 	public void deleteBidder(int bidderId) {
-		em.remove(em.find(Bidder.class, bidderId));	
+		em.remove(em.find(Bidder.class, bidderId));
 
 	}
+
 	@Transactional(value = TxType.REQUIRED)
 	public void updateBidder(Bidder bidder) {
 		em.merge(bidder);
 
 	}
 
-	//method to update status of biider
+	// method to update status of biider
 	/*
 	 * @Transactional(value = TxType.REQUIRED)
 	 * 
@@ -67,18 +65,18 @@ public class BidderRepoImp implements BidderRepo{
 	 */
 	/**
 	 * method for adding crop with bidder
+	 * 
 	 * @author Sakshi
 	 *
 	 */
 	@Transactional(value = TxType.REQUIRED)
 	public void saveBidderCrop(Bidder bidder, int cropId) {
-		Crop c=em.find(Crop.class, cropId);
+		Crop c = em.find(Crop.class, cropId);
 		bidder.getCrop().add(c);
 
 		em.merge(bidder);
 
 	}
-
 
 	/**
 	 * method for getting all the bids of a particular bidder
@@ -92,19 +90,18 @@ public class BidderRepoImp implements BidderRepo{
 //		return q1.getResultList();
 		return em.find(Bidder.class, id).getBids();
 	}
+
 	/**
-	 * @author YOJAN
-	 *make bid method to add a bid
+	 * @author YOJAN make bid method to add a bid
 	 */
-	
-	
+
 	@Transactional(value = TxType.REQUIRED)
 	@Override
 	public void bid(int bidderid, Bid bid, int cropid) {
-		Bidder b= em.find(Bidder.class, bidderid);
+		Bidder b = em.find(Bidder.class, bidderid);
 		b.getBids().add(bid);
-		Crop c= em.find(Crop.class,cropid);
-		c.getBids().add(bid);		
+		Crop c = em.find(Crop.class, cropid);
+		c.getBids().add(bid);
 		em.persist(bid);
 		em.merge(b);
 

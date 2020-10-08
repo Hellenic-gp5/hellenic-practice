@@ -37,8 +37,6 @@ public class Bid {
 	@ManyToOne
 	private Crop crop;
 
-	
-
 	public Bidder getBidder() {
 		return bidder;
 	}
