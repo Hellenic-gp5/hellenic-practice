@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   bids: items;
   user: User;
   roles: string[];
+  allAlert: string;
 
   constructor(private router: Router, private service: LoginService) {
     this.login = new LoginModel();
@@ -28,14 +29,17 @@ export class LoginComponent implements OnInit {
   async loggedIn() {
     await this.service.login(this.login).then((data) => (this.user = data));
     localStorage.setItem('user', JSON.stringify(this.user));
-   
+    if (!this.user) {
+      this.allAlert = 'Invalid email/password';
+    }
+
     localStorage.setItem('uname', this.user.name);
     localStorage.setItem('userId', this.user.userId.toString());
 
     // const userId = parseInt(userId.toString();)
-    if (this.user) {
-      this.service.setFlag(true);
-    }
+    // if (this.user) {
+    // this.service.setFlag(true);
+    //}
     if (this.user.role == 'Bidder') this.router.navigate(['bidder']);
     else if (this.user.role == 'Farmer') this.router.navigate(['farmer']);
     else this.router.navigate(['admin']);
