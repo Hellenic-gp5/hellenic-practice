@@ -9,6 +9,6 @@ import com.lti.entity.User;
 public interface AdminRepo {
 	void addAdmin(Admin admin);
 	List<User> approval();
-	Count totalCount();
+	public List<Counts> counts();
 
 }

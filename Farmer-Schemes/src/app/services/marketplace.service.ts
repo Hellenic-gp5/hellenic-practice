@@ -9,6 +9,7 @@ export class MarketplaceService {
   constructor(private http: HttpClient) {}
   getMarketCrops()
   {
-    return this.http.get<Market[]>(this.baseUrl+"/marketcrops");
+    return this.http.get<Market[]>(this.baseUrl+"/marketplace");
   }
+  
 }

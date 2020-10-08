@@ -20,10 +20,5 @@ public interface InsuranceRepo {
 	
 	List<InsuranceClaim> getClaims();
 
-	Number countRejectedInsurance();
-
-	Number countApprovedInsurances();
-
-	Number countPendingInsurances();
 
 }

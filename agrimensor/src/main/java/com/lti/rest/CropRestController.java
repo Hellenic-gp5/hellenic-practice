@@ -18,6 +18,9 @@ import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.repo.CropBid;
 import com.lti.repo.CropRepo;
+
+import com.lti.repo.Market;
+
 import com.lti.repo.HistCrops;
 import com.lti.repo.ReturnCrop;
 import com.lti.service.CropService;
@@ -102,5 +105,10 @@ public class CropRestController {
 		return crop;
 		
 		
+	}
+	
+	@GetMapping(value="/marketplace", produces="application/json")
+	public List<Market> market(){
+		return repo.market();
 	}
 }

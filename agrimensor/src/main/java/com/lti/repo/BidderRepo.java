@@ -27,7 +27,7 @@ public interface BidderRepo {
 	
 	List<Bid> listOfBidsById(int id);
 	
-	Number countBidder();
+	
 
 
 }
