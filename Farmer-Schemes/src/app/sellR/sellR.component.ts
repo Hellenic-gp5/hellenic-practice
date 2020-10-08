@@ -20,12 +20,14 @@ export class SellRComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
   }
 
-
   saveCrop() {
-    this.crop.soilPH=this.crop.soilPH.replace(/^c:\\fakepath\\/i, 'assets/img/document/');
+    this.crop.soilPH = this.crop.soilPH.replace(
+      /^c:\\fakepath\\/i,
+      'assets/img/document/'
+    );
     this.stringifiedData = JSON.stringify(this.crop);
     this.parsedJson = JSON.parse(this.stringifiedData);
     this.service.saveFarmerCrop(this.parsedJson);
-    //this.router.navigate(['list']);
+    this.router.navigate(['/farmer']);
   }
 }
