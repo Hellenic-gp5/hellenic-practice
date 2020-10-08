@@ -32,3 +32,6 @@ img {
   position: relative;
   left: 850px;
 }
+.dropdown-menu{
+  background-color: #06163a;
+}

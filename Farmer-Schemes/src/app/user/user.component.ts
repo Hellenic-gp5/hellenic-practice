@@ -21,10 +21,17 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.service.getUserApprovalList().subscribe((data) => (this.users = data));
   }
-  reject(userId) {
-  this.serve.updateUserStatus(userId, 'Rejected')
+  async reject(userId) {
+    var ans = confirm("This user will be rejected. Click Ok to proceed. ");
+    if (ans) {
+      await this.serve.updateUserStatus(userId, 'Rejected')
+    }
+  
   }
-  accept(userId) {
-    this.serve.updateUserStatus(userId, 'Approved') 
+ async accept(userId) {
+    var ans = confirm("This user will be Approved. Click Ok to proceed. ");
+    if (ans) {
+     this.serve.updateUserStatus(userId, 'Approved') 
   }
+}
 }
