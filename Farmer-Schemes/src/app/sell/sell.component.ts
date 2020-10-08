@@ -18,7 +18,7 @@ cropId:number;
     this.service.updateCropStatus(cropId, 'Rejected')
     }
     unsold(cropId) {
-      this.service.updateCropStatus(cropId, 'Claimed') 
+      this.service.updateCropStatus(cropId, 'In Market') 
     }
 
 }

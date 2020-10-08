@@ -9,7 +9,7 @@ import { User } from '../User.module';
   providedIn: 'root',
 })
 export class CropService {
-  private baseUrl: string = 'http://localhost:8080/agrimensor/rest';
+  private baseUrl: string = 'http://localhost:8081/agrimensor/rest';
   crop: Crop;
   farmerId: number;
   user: User;
@@ -34,7 +34,7 @@ export class CropService {
   }*/
   saveFarmerCrop(crop: any) {
     return this.http
-      .post(this.baseUrl + '/addCrop?farmerId=' + this.farmerId, crop)
+      .post(this.baseUrl + '/addcrop?farmerId=' + this.farmerId, crop)
       .subscribe((data) => (data = crop));
   }
 }

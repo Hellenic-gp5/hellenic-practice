@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Market } from '../marketplace.module';
+import { MarketplaceService } from '../services/marketplace.service';
 
 @Component({
   selector: 'app-market',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./market.component.css']
 })
 export class MarketComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  market : Market[]=[];
+    constructor(private service : MarketplaceService) { }
+  
+    ngOnInit() {
+      this.service.getMarketCrops().subscribe((data) => (this.market = data));
+    }
+  
 
 }

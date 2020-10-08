@@ -10,7 +10,7 @@ import { previous } from '../dashboard/pb.model';
   providedIn: 'root',
 })
 export class FarmerDashboardService {
-  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
   farmerId: number;
   bids: items;
   cropId: number;

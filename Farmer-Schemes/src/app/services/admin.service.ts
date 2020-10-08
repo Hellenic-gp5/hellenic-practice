@@ -6,7 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminService {
-  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
 
   constructor(private http: HttpClient) { }
 updateUserStatus(userId:number, status:string)

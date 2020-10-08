@@ -6,7 +6,7 @@ import { ClaimReq } from '../claimreq.module';
   providedIn: 'root'
 })
 export class PolicyreqService {
-  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
   constructor(private http: HttpClient) {}
   getClaimRequest()
   {

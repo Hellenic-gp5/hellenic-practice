@@ -74,11 +74,11 @@
             <td>MSP</td>
             <td>
               <input
-                type="text"
+                type="number"
                 name="cropBasePrice"
                 [(ngModel)]="crop.cropBasePrice"
                 required
-                pattern="[1-9]"
+                pattern="[1-9]{1,}"
                 #cropBasePrice="ngModel"
               />
               <span
@@ -96,7 +96,7 @@
                 name="cropQAuantity"
                 [(ngModel)]="crop.cropQuantity"
                 required
-                pattern="[1-9]"
+                pattern="[1-9]{1,}"
                 #cropQuantity="ngModel"
               />
               <span
@@ -115,8 +115,6 @@
                 [(ngModel)]="crop.soilPH"
                 class="form-control-file"
                 id="exampleFormControlFile1"
-                required
-                pattern="[A-Za-z]{3,}"
                 #soilPH="ngModel"
               />
               <span
