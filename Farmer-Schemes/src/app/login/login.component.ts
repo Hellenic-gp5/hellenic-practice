@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   async loggedIn() {
     await this.service.login(this.login).then((data) => (this.user = data));
     localStorage.setItem('user', JSON.stringify(this.user));
+   
     localStorage.setItem('uname', this.user.name);
     localStorage.setItem('userId', this.user.userId.toString());
 

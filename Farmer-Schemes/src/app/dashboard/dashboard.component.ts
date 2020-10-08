@@ -60,5 +60,6 @@ export class DashboardComponent implements OnInit {
     this.fname = localStorage.getItem('uname');
     this.service.viewMarketPlace().subscribe((data) => (this.bids = data));
     this.service.viewSoldCropList().subscribe((data) => (this.crops = data));
+    this.service.viewInsurance().subscribe((data)=>(this.insClaim=data));
   }
 }
