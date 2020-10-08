@@ -12,30 +12,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let m of market " value="u">
+      <td>{{m.seller}}</td>
+      <td>{{m.biddername}}</td>
+      <td>{{m.cropName}}</td>
+      <td>{{m.cropSeason}}</td>
+      <td>{{m.cropQuantity}}</td>
+      <td>{{m.previousBid}}</td>
+      <td>{{m.currentBid}}</td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
+    </tbody>
 </table>
 <app-footer></app-footer>

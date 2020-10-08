@@ -3,10 +3,12 @@
 <table class="table-bordered table-striped">
   <thead>
     <tr>
-      <th>Crop ID/th>
+      <th>Crop ID</th>
       <th>Crop Name</th>
       <th>Crop Type</th>
       <th>Fertilizer</th>
+      <th>Base Price</th>
+      <th>Soil PH</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -16,6 +18,7 @@
       <td>{{s.cropName}}</td>
       <td>{{s.cropType}}</td>
       <td>{{s.fertilizer}}</td>
+      <td>{{s.cropBasePrice}}</td>
       <td><button class="btn btn-info"><i class="fa fa-info-circle"></i></button></td>
       <td><button class="btn btn-success" (click)="unsold(s.cropId)"><i class="fa fa-check"></i></button>
           <button class="btn btn-danger" (click)="rejected(s.cropId)"><i class="fa fa-times"></i></button>

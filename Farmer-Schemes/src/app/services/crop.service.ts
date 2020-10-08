@@ -34,7 +34,7 @@ export class CropService {
   }*/
   saveFarmerCrop(crop: any) {
     return this.http
-      .post(this.baseUrl + '/addCrop?farmerId=' + this.farmerId, crop)
+      .post(this.baseUrl + '/addcrop?farmerId=' + this.farmerId, crop)
       .subscribe((data) => (data = crop));
   }
 }

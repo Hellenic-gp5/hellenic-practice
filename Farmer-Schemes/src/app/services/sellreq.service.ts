@@ -9,7 +9,7 @@ export class SellreqService {
   constructor(private http: HttpClient) {}
   getSellRequest()
   {
-    return this.http.get<SellRequest[]>(this.baseUrl+"/marketcrops");
+    return this.http.get<SellRequest[]>(this.baseUrl+"/getAllCrops");
   }
   updateCropStatus(cropId:number, status:string)
 {
