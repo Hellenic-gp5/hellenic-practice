@@ -10,7 +10,7 @@ export class PolicyreqService {
   constructor(private http: HttpClient) {}
   getClaimRequest()
   {
-    return this.http.get<ClaimReq[]>(this.baseUrl+"/marketcrops");
+    return this.http.get<ClaimReq[]>(this.baseUrl+"/getclaims");
   }
   updateClaimStatus(policyId:number, status:string)
 {
