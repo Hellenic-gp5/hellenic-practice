@@ -2,7 +2,7 @@ import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import{User} from '.././user.module'
+import { User } from '.././user.module';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +20,11 @@ export class AuthService {
     return this.http.post(this.baseUrl + '/addfarmer', farmerRegisterForm);
   }
 
-  getUserApprovalList()
-  {
-    return this.http.get<User[]>(this.baseUrl+"/approvallist");
+  getUserApprovalList() {
+    return this.http.get<User[]>(this.baseUrl + '/approvallist');
+  }
+
+  sendEmail(emailId) {
+    return this.http.get<User[]>(this.baseUrl + '/sendMail?emailId=' + emailId);
   }
 }

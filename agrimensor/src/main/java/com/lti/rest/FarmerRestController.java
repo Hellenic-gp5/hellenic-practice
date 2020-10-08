@@ -15,6 +15,7 @@ import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
 import com.lti.repo.FarmerRepo;
+import com.lti.repo.Policies;
 import com.lti.service.FarmerService;
 /**
  * 
@@ -69,7 +70,10 @@ public class FarmerRestController {
 		public List<Crop> getAllCrops(){
 			return repo.getAllCrops();
 		}
-	
+	@GetMapping(value="/listpolicies",produces="application/json")
+		public List<Policies> getInsurances(@RequestParam("farmerId")int farmerid){
+		return service.policies(farmerid);
+	}
 	
 	
 }

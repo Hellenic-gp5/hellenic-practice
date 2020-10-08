@@ -170,45 +170,30 @@
             <tr>
               <th>Policy No.</th>
               <th>Insurance Company</th>
-              <th>Sum/Hectare</th>
-              <th>Crop Name</th>
               <th>Area</th>
+              <th>Season</th>
               <th>Premium Share</th>
-              <th>Premium Amount</th>
-              <th>Sum Insured</th>
-              <th>Valid till</th>
-              <th>Status</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>KH</td>
               <td>Orient</td>
+              <td>45</td>
+              <td>Winter</td>
               <td>40000</td>
-              <td>Rice</td>
-              <td>4</td>
-              <td>6000</td>
-              <td>40000</td>
-              <td>160000</td>
-              <td>25/09/2020</td>
-              <td>Active</td>
               <td>
                 <button class="btn btn-success btn-sm" [routerLink]="['claim']">
                   Claim
                 </button>
               </td>
             </tr>
-            <tr *ngFor="let i of policies">
-              <td>{{ p.policy_no }}</td>
-              <td>{{ p.company }}</td>
-              <td>{{ p.sph }}</td>
-              <td>{{ p.crop_name }}</td>
-              <td>{{ p.area }}</td>
-              <td>{{ p.share }}</td>
-              <td>{{ p.amount }}</td>
-              <td>{{ p.status }}</td>
-              <td>{{ p.exdate }}</td>
+            <tr *ngFor="let i of insClaim">
+              <td>{{ i.policyId }}</td>
+              <td>{{ i.policyCompany }}</td>
+              <td>{{ i.policyCropArea }}</td>
+              <td>{{ i.season }}</td>
+              <td>{{ i.policySharedPremium }}</td>
               <td>
                 <div>
                   <button

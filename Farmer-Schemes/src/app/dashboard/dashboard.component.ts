@@ -4,6 +4,8 @@ import { items } from './bid.model';
 import { previous } from './pb.model';
 import { policy } from './insurance.model';
 import { FarmerDashboardService } from '../services/farmer-dashboard.service';
+import { insuranceClaim } from '../dashboard/insuranceHistory.model';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +22,8 @@ export class DashboardComponent implements OnInit {
   pbids: previous[] = [];
   cropBid: items;
   policies: policy[] = [];
+  insClaim: insuranceClaim[] = [];
+
   constructor(private service: FarmerDashboardService) {}
   async previousBid() {
     if (this.bid == 'View Details') {

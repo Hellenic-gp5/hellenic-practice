@@ -49,6 +49,7 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 	public void claim(int polid, InsuranceClaim claim) {
 		Insurance i = em.find(Insurance.class, polid);
 		i.setClaim(claim);
+		i.setPolicyStatus("In Claim");
 		em.persist(claim);
 		em.merge(i);
 	}
