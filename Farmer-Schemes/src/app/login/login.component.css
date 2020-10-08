@@ -41,7 +41,7 @@ body {
   margin-top: -10px;
   margin-bottom: auto;
   width: 400px;
-  background-color: rgb(3, 48, 45) !important;
+  background-color: rgb(3, 48, 45, 0.6) !important;
 }
 
 .social_icon span {
