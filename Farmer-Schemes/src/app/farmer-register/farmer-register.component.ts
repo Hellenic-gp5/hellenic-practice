@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { FarmerRegisterModel } from '../FarmerRegister.module';
 
 @Component({
   selector: 'app-farmer-register',
@@ -12,6 +13,7 @@ export class FarmerRegisterComponent implements OnInit {
   farmerRegisterForm: FormGroup;
   allAlert: String;
   data: any;
+  farmer: FarmerRegisterModel;
 
   // Getter Methods for shortening in form validation in html
 
@@ -43,12 +45,15 @@ export class FarmerRegisterComponent implements OnInit {
     return this.farmerRegisterForm.get('farmerIFSC');
   }
   get farmerAADHAR() {
+    //this.farmerAADHAR.setValue('assets/img/document/');
     return this.farmerRegisterForm.get('farmerAADHAR');
   }
   get farmerPAN() {
+    // this.farmerPAN.setValue('');
     return this.farmerRegisterForm.get('farmerPAN');
   }
   get farmerCertificate() {
+    // this.farmerCertificate.setValue('');
     return this.farmerRegisterForm.get('farmerCertificate');
   }
   get password() {

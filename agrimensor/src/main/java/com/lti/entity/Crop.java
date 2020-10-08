@@ -53,7 +53,7 @@ public class Crop {
 	@Column
 	private int cropQuantity;
 	@Column(length = 80)
-	private String cropSoldStatus= "Waiting for approval";
+	private String cropSoldStatus= "Queued";
 	@Column(length=50)
 	private String soilPH;
 	/**

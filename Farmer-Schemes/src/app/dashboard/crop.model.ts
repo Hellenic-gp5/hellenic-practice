@@ -1,11 +1,11 @@
-export class crop{
-    public deal_id:number;
-    public crop_type:string;
-    public crop_name:string;
-    public fertiiser:string;
-    public quantity:number;
-    public msp:number;
-    public sell_price:number;
-    public total_price:number;
-    public status:string;
+export class crop {
+  public cropId: number;
+  public cropType: string;
+  public cropName: string;
+  public fertilizer: string;
+  public cropQuantity: Number;
+  public cropBasePrice: number; //msp
+  public cropSoldPrice: number;
+  //public total_price:number;
+  public cropSoldStatus: string;
 }

@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
+
 import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.repo.CropBid;
 import com.lti.repo.CropRepo;
+import com.lti.repo.HistCrops;
 import com.lti.repo.ReturnCrop;
 import com.lti.service.CropService;
 import com.lti.service.BidderService;
@@ -93,12 +94,12 @@ public class CropRestController {
 //		return CropService.currentBid(cropid);
 //	}
 	
-	@PostMapping(value="/sale",produces="application/json")
-	public List<Crop> sellCrops(@RequestParam("farmerId")int farmerId){
-		List<Crop> sold= CropService.sale(farmerId);
-		for(Crop c:sold)
-			System.out.println(c);
-		return sold;
+	@GetMapping(value="/sale",produces="application/json")
+	public List<HistCrops> sellCrops(@RequestParam("farmerId")int farmerId){
+		List<HistCrops> crop= CropService.sale(farmerId);
+//		for(Crop c:crop)
+//			System.out.println(c);
+		return crop;
 		
 		
 	}

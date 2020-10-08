@@ -14,6 +14,7 @@ import com.lti.entity.Crop;
 import com.lti.repo.BidRepo;
 import com.lti.repo.CropBid;
 import com.lti.repo.CropRepo;
+import com.lti.repo.HistCrops;
 
 
 /**
@@ -98,9 +99,9 @@ public class CropServiceImp implements CropService {
 	}
 
 	@Override
-	public List<Crop> sale(int farmerId) {
+	public List<HistCrops> sale(int farmerId) {
 		// TODO Auto-generated method stub
-		List<Crop> sold= repo.soldCrops(farmerId);
+		List<HistCrops> sold= repo.soldCrops(farmerId);
 //		for(Crop c:sold)
 //			System.out.println(c);
 		return sold;

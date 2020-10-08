@@ -33,7 +33,7 @@ public interface CropRepo {
 	
 	Number maxBid(int cropid);
 	
-	List<Crop> soldCrops(int farmerId);
+	List<HistCrops> soldCrops(int farmerId);
 	
 	List<ReturnCrop> crops();
 
