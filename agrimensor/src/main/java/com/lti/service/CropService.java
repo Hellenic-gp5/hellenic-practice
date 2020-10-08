@@ -6,6 +6,8 @@ import com.lti.entity.Bid;
 import com.lti.entity.Crop;
 import com.lti.repo.CropBid;
 import com.lti.repo.HistCrops;
+import com.lti.repo.Market;
+import com.lti.repo.ReturnCrop;
 
 /**
  * @author Sakshi
@@ -39,4 +41,8 @@ Crop find(int cropId);
 	Number currentBid(int cropid);
 	
 	List<HistCrops> sale(int farmerId);
+	
+	List<ReturnCrop> crops();
+	
+	List<Market> market();
 }

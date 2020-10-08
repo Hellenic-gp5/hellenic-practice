@@ -15,6 +15,8 @@ import com.lti.repo.BidRepo;
 import com.lti.repo.CropBid;
 import com.lti.repo.CropRepo;
 import com.lti.repo.HistCrops;
+import com.lti.repo.Market;
+import com.lti.repo.ReturnCrop;
 
 
 /**
@@ -105,6 +107,17 @@ public class CropServiceImp implements CropService {
 //		for(Crop c:sold)
 //			System.out.println(c);
 		return sold;
+	}
+
+	@Override
+	public List<ReturnCrop> crops() {
+		
+		return repo.crops();
+	}
+
+	@Override
+	public List<Market> market() {
+		return repo.market();
 	}
 
 }
