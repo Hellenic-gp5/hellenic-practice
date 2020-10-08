@@ -84,11 +84,11 @@ public class Farmer extends User {
 	private List<Crop> crops = new ArrayList<Crop>();
 
 	@OneToMany(cascade = { CascadeType.ALL })
-<<<<<<< HEAD
+
 	@JsonIgnore
-=======
+
 	// @JsonIgnore
->>>>>>> 0e03a723fd2436f90b870381ef72f8809c5043cd
+
 	private List<Insurance> insurance = new ArrayList<Insurance>();
 
 	public List<Crop> getCrops() {
