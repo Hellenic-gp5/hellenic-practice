@@ -3,4 +3,5 @@ export class SellRequest{
     public cropName:string;
     public cropType:string;
     public fertilizer:string;
+    public cropBasePrice: number;
 }

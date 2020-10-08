@@ -17,6 +17,8 @@ import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.repo.CropBid;
+import com.lti.repo.CropRepo;
+import com.lti.repo.ReturnCrop;
 import com.lti.service.CropService;
 import com.lti.service.BidderService;
 import com.lti.service.FarmerService;
@@ -30,6 +32,8 @@ public class CropRestController {
 
 	@Autowired
 	private BidderService BidderService;
+	@Autowired
+	private CropRepo repo;
 
 	/*
 	 * @GetMapping(value = "/fetchCrop", produces = "application/json") public
@@ -77,6 +81,11 @@ public class CropRestController {
 		for(Crop c:crops)
 			c.setCurrentBid(CropService.currentBid(c.getCropId()));
 		return crops;
+	}
+	@GetMapping(value="/getAllCrops", produces = "application/json")
+	public List<ReturnCrop> getCrops(){
+		return repo.crops();
+		
 	}
 	
 //	@GetMapping(value="/maxbid")

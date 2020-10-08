@@ -13,9 +13,9 @@
        <class>com.lti.entity.Farmer</class>
 		<properties>
 		<property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
-        <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1522:orcl"/>
-        <property name="hibernate.connection.username" value="gladiator"/>
-        <property name="hibernate.connection.password" value="project"/> 
+        <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:ose"/>
+        <property name="hibernate.connection.username" value="glad"/>
+        <property name="hibernate.connection.password" value="gladiator"/> 
        <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
 		<property name="hibernate.show_sql" value="true"/>
 		<property name="hibernate.hbm2ddl.auto" value="update"/>
