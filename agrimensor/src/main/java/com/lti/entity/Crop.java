@@ -69,7 +69,8 @@ public class Crop {
 	
 	
 	//relation one-to-many for bid-crop entites
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	//@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToMany(cascade= {CascadeType.ALL})
 	@JsonIgnore
 	private List<Bid> bids = new ArrayList<Bid>();
 	

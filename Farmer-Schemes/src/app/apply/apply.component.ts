@@ -1,6 +1,9 @@
+import { i18nMetaToDocStmt } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { policy } from '../dashboard/insurance.model';
+import { InsuranceService } from '../services/insurance.service';
 
 @Component({
   selector: 'app-apply',
@@ -8,64 +11,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./apply.component.css'],
 })
 export class ApplyComponent implements OnInit {
-  policyApplyForm: FormGroup;
-  allAlert: String;
+ insurance=new policy();
 
-  get season() {
-    return this.policyApplyForm.get('season');
-  }
-  get year() {
-    return this.policyApplyForm.get('year');
-  }
-  get cropName() {
-    return this.policyApplyForm.get('crop');
-  }
+ flag:boolean=false;
+  stringifiedData: string;
+  parsedJson: any;
+constructor(private service:InsuranceService, private router:Router){}
+ onCalculate(){
+   this.flag=true;
+this.insurance.policyCompany="Agrimensor Finances";
+this.insurance.policyPremiumAmount= 0.10*this.insurance.sumInsured;
+if(this.insurance.season=="Rabi")
+  this.insurance.policySharedPremium= 0.015*this.insurance.policyPremiumAmount;
+else
+  this.insurance.policySharedPremium= 0.020 *this.insurance.policyPremiumAmount;
 
-  get sumInsured() {
-    return this.policyApplyForm.get('sumInsured');
-  }
+  this.insurance.sumPerHectare= this.insurance.sumInsured/this.insurance.policyCropArea;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  this.insurance.policyStatus="Active";
 
+ }
+farmerId: number;
+ onApply()
+ {
+  this.stringifiedData = JSON.stringify(this.insurance);
+  this.parsedJson = JSON.parse(this.stringifiedData);
+  this.service.addInsurance(this.farmerId,this.parsedJson);
+  this.router.navigate(['farmer']); }
+ 
   ngOnInit(): void {
-    this.createPolicyApplyForm();
+    this.farmerId=parseInt(localStorage.getItem("userId"));
   }
-  createPolicyApplyForm(): void {
-    this.policyApplyForm = this.fb.group({
-      season: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$'),
-        ],
-      ],
-      year: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))'
-          ),
-        ],
-      ],
-      crop: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$'),
-        ],
-      ],
-      sumInsured: ['', [Validators.required, Validators.pattern('[1-9]')]],
-    });
-  }
-
-  onApply(): void {
-    // console.log(this.farmerRegisterForm.value); //testing purpose only
-    if (this.policyApplyForm.valid) {
-      // this.register();
-      this.router.navigate(['/login']);
-    } else {
-      this.allAlert = 'All fields are mandatory to register.';
-    }
-  }
+  
 }

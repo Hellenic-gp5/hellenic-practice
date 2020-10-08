@@ -24,29 +24,38 @@
                 </table>
             </form> -->
 <div class="card">
-  <form class="align" [formGroup]="policyApplyForm" (ngSubmit)="onApply()">
-    <div class="form-group row">
-      <label for="season" class="col-sm-2 col-form-label">Season</label>
-      <div class="col-sm-3">
-        <input
-          type="text"
-          class="form-control"
-          id="Season"
-          placeholder="Season"
-          formControlName="season"
-        />
-      </div>
-    </div>
+  <form class="align" (ngSubmit)="onCalculate()">
     <div class="form-group row">
       <label for="year" class="col-sm-2 col-form-label">Year</label>
       <div class="col-sm-3">
-        <input
-          type="text"
+        <select
           class="form-control"
           id="inputPassword3"
           placeholder="Year"
-          formControlName="year"
-        />
+          name="year"
+          id="year"
+          [(ngModel)]="insurance.year"
+          #year="ngModel"
+        >
+        <option value="2020" selected>2020</option>
+        <option value="2021">2021</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="season" class="col-sm-2 col-form-label">Season</label>
+      <div class="col-sm-3">
+        <select 
+          type="text"
+          class="form-control"
+          name ="Season"
+          id="season"
+          placeholder="Season"   
+          [(ngModel)]="insurance.season"
+          #season="ngModel">
+          <option value="Kharif">Kharif</option>
+          <option value="Rabi" selected>Rabi</option>
+          </select>         
       </div>
     </div>
     <div class="form-group row">
@@ -55,10 +64,15 @@
         <input
           type="text"
           class="form-control"
-          id="cropname"
+          name="cropname"
           placeholder="Crop Name"
-          formControlName="crop"
-        />
+          required pattern="[a-z]{3,10}"
+          [(ngModel)]="insurance.crop_name"
+          #name="ngModel"
+        /><br>
+        <div *ngIf="name.touched &&  name.invalid" class="alert-warning">
+          Invalid Crop Name
+        </div>
       </div>
     </div>
     <div class="form-group row">
@@ -67,8 +81,25 @@
         <input
           type="number"
           class="form-control"
+          min="20000"
+          step="1000"
           id="sum"
-          formControlName="sumInsured"
+          name="sumInsured"
+          [(ngModel)]="insurance.sumInsured"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="sum" class="col-sm-2 col-form-label">Area(in Hectares)</label>
+      <div class="col-sm-3">
+        <input
+          type="number"
+          class="form-control"
+          min="0.5"
+          step="0.5"
+          id="Area"
+          name="Area"
+          [(ngModel)]="insurance.policyCropArea"
         />
       </div>
     </div>
@@ -81,7 +112,7 @@
   </form>
 </div>
 
-<table class="table-bordered table-striped">
+<table class="table-bordered table-striped" [hidden]="!flag">
   <thead>
     <tr>
       <th>Company</th>
@@ -97,14 +128,15 @@
   </thead>
   <tbody>
     <tr>
-      <td>orient</td>
-      <td>3000</td>
-      <td>Wheat</td>
-      <td>40000</td>
-      <td>100</td>
-      <td>2</td>
-      <td>100000</td>
-      <td><button type="submit" class="btn btn-success">Apply</button></td>
+      <td>{{insurance.policyCompany}}</td>
+      <td>{{insurance.sumPerHectare}}</td>
+      <td>{{insurance.season}}</td>
+      <td>{{insurance.crop_name}}</td>
+      <td>{{insurance.policyPremiumAmount}}</td>
+      <td>{{insurance.policySharedPremium}} </td>
+      <td>{{insurance.policyCropArea}}</td>
+      <td>{{insurance.sumInsured}}</td>
+      <td><button (click)="onApply()" type="button" class="btn btn-success">Apply</button></td>
     </tr>
   </tbody>
 </table>
