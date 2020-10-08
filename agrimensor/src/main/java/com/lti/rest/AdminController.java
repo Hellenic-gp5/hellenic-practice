@@ -20,7 +20,9 @@ import com.lti.entity.Admin;
 import com.lti.entity.Bid;
 import com.lti.entity.Count;
 import com.lti.entity.User;
+import com.lti.repo.AdminRepo;
 import com.lti.repo.BidRepo;
+import com.lti.repo.Counts;
 import com.lti.repo.UserRepo;
 import com.lti.service.AdminService;
 import com.lti.service.BidService;
@@ -40,6 +42,8 @@ public class AdminController {
 	private BidderService bidderService;
 	@Autowired
 	private FarmerService farmerService;
+	@Autowired
+	private AdminRepo arepo;
 	
 	@PostMapping(value="/addadmin",consumes="application/json")
 	public String create(@RequestBody Admin admin) {
@@ -75,16 +79,8 @@ public class AdminController {
 	 * "Status changed successfully to "+farmerStatus; }
 	 */
 	  @GetMapping(value = "/details", produces = "application/json")
-		public Number getTotalCount() {
-			return urepo.countUsers();
-		}
-	  @GetMapping(value = "/totalbidder", produces = "application/json")
-		public Number getTotalBidders() {
-			return bidderService.countBidder();
-		}
-	  @GetMapping(value = "/totalfarmer", produces = "application/json")
-		public Number getTotalFarmers() {
-			return farmerService.countFarmer();
-		}
-	 
+		public List<Counts> getTotalCount() {
+		  return arepo.counts();
+	  }
+		
 }

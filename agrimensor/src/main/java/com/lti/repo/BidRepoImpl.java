@@ -48,13 +48,11 @@ public class BidRepoImpl implements BidRepo {
 		return em.find(Bid.class, bidId);
 	}
 
-	@Transactional(value = TxType.REQUIRED)
-	public void updateBidStatus(int bidId, String bidStatus) {
-		// TODO Auto-generated method stub
-		Bid b1 = em.find(Bid.class, bidId);
-		b1.setBidStatus(bidStatus);
-	}
-
+	/*
+	 * @Transactional(value = TxType.REQUIRED) public void updateBidStatus(int
+	 * bidId, String bidStatus) { // TODO Auto-generated method stub Bid b1 =
+	 * em.find(Bid.class, bidId); b1.setBidStatus(bidStatus); }
+	 */
 	public List<Bid> listOfRejectedBids(String Status) {
 		Query q1 = em.createNamedQuery("getBidStatus");
 		q1.setParameter("crl", "Rejected");

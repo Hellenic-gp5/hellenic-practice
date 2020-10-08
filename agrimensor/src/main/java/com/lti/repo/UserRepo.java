@@ -13,5 +13,5 @@ public interface UserRepo {
 	
 	void updateUserStatus(int userId, String status);
 
-	Number countUsers();
+	
 }

@@ -28,8 +28,6 @@ public interface FarmerRepo {
 	
 	/* void updateFarmerStatus(int farmerId,String farmerStatus); */
 	
-	Number countFarmer();
-	
 	List<Crop> getAllCrops();
 	
 	List<Crop> SoldCrop(int farmerId);
