@@ -22,7 +22,9 @@ export class FarmerDashboardService {
   }
 
   viewSoldCropList() {
-    return this.http.get<crop[]>(this.baseUrl + '/');
+    return this.http.get<crop[]>(
+      this.baseUrl + '/sale?farmerId=' + this.farmerId
+    );
   }
 
   viewMarketPlace() {
@@ -47,6 +49,4 @@ export class FarmerDashboardService {
       this.baseUrl + '/listbidsOnCrop?cropId=' + cropId
     );
   }
-
-
 }

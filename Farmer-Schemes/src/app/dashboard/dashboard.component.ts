@@ -11,7 +11,7 @@ import { FarmerDashboardService } from '../services/farmer-dashboard.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  test:number;
+  test: number;
   fname: string;
   crops: crop[] = [];
   bids: items[] = [];
@@ -37,23 +37,20 @@ export class DashboardComponent implements OnInit {
     localStorage.setItem('id', this.cropBid.cropId.toString());*/
   }
   previousBidsOnCrop(cropId: number) {
-      if (this.bid == 'View Details') {
-       this.service
-      .viewMarketPlaceDetails(cropId)
-      .subscribe((data) => (this.pbids = data));
-        this.pb = true;
-        this.bid = 'close';
-        this.test=cropId;
-      } 
-      else {
-        this.pbids.length=0;
-        this.pb = false;
-        this.bid = 'View Details';
-        this.test=null;
-      }
-  
+    if (this.bid == 'View Details') {
+      this.service
+        .viewMarketPlaceDetails(cropId)
+        .subscribe((data) => (this.pbids = data));
+      this.pb = true;
+      this.bid = 'close';
+      this.test = cropId;
+    } else {
+      this.pbids.length = 0;
+      this.pb = false;
+      this.bid = 'View Details';
+      this.test = null;
+    }
   }
-  
 
   ngOnInit(): void {
     this.fname = localStorage.getItem('uname');

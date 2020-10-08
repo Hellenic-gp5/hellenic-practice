@@ -19,18 +19,16 @@
 
     <div class="card">
       <h3>View Sold Crop History</h3>
-      <kbd
+      <kbd>
+        <button
+          class="btn btn-primary"
+          [routerLink]="['add']"
+          style="float: right"
         >
-          <button
-            class="btn btn-primary"
-            [routerLink]="['add']"
-            style="float: right"
-          >
-            Place Sell Request
-          </button>
-        </kbd
-      >
-      
+          Place Sell Request
+        </button>
+      </kbd>
+
       <div class="table-responsive-md">
         <table class="table table-bordered table-hover table-striped table-sm">
           <thead>
@@ -40,9 +38,8 @@
               <th>Crop Name</th>
               <th>Fertiliser Type</th>
               <th>Quantity</th>
-              <th>MSP</th>
+              <th>Base Price</th>
               <th>Sold Price</th>
-              <th>Total Price</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -55,19 +52,17 @@
               <td>4000</td>
               <td>50</td>
               <td>60</td>
-              <td>24000</td>
               <td>Sold</td>
             </tr>
             <tr *ngFor="let c of crops">
-              <td>{{ c.crop_id }}</td>
-              <td>{{ c.crop_type }}</td>
-              <td>{{ c.crop_name }}</td>
-              <td>{{ c.fertiliser }}</td>
-              <td>{{ c.quantity }}</td>
-              <td>{{ c.msp }}</td>
-              <td>{{ c.sell_price }}</td>
-              <td>{{ c.total_price }}</td>
-              <td>{{ c.status }}</td>
+              <td>{{ c.cropId }}</td>
+              <td>{{ c.cropType }}</td>
+              <td>{{ c.cropName }}</td>
+              <td>{{ c.fertilizer }}</td>
+              <td>{{ c.cropQuantity }}</td>
+              <td>{{ c.cropBasePrice }}</td>
+              <td>{{ c.cropSoldPrice }}</td>
+              <td>{{ c.cropSoldStatus }}</td>
             </tr>
           </tbody>
         </table>
@@ -114,7 +109,7 @@
               <td>{{ b.cropName }}</td>
               <td>{{ b.cropQuantity }}</td>
               <td>{{ b.cropBasePrice }}</td>
-              <td>{{b.currentBid}} </td>
+              <td>{{ b.currentBid }}</td>
               <td>{{ b.cropSoldStatus }}</td>
               <td>
                 <button
@@ -122,8 +117,7 @@
                   (click)="previousBidsOnCrop(b.cropId)"
                   class="btn btn-success btn-sm"
                 >
-                  {{ bid}}
-
+                  {{ bid }}
                 </button>
               </td>
             </tr>
@@ -137,7 +131,6 @@
         <div class="table-responsive-md">
           <table class="table table-bordered table-striped">
             <thead>
-              
               <tr>
                 <th>Bid ID</th>
                 <th>Bidder ID</th>
@@ -231,7 +224,7 @@
           </tbody>
         </table>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
