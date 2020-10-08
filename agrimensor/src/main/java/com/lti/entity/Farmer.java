@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @PrimaryKeyJoinColumn(name = "farmerid", referencedColumnName = "user_id")
 @SecondaryTables({ @SecondaryTable(name = "farmer_info"), @SecondaryTable(name = "farmer_doc") })
 
-@SequenceGenerator(name = "farmerSeq", sequenceName = "farmer_seq", initialValue = 1001, allocationSize = 1)
+
 public class Farmer extends User {
 //	@GeneratedValue(generator = "farmerSeq",strategy = GenerationType.SEQUENCE)
 
@@ -80,12 +80,12 @@ public class Farmer extends User {
 		this.farmerContact = farmerContact;
 	}
 
-	@OneToMany(cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER)
-//	@JsonIgnore
+	@OneToMany(cascade = { CascadeType.REMOVE },fetch=FetchType.EAGER)
+	@JsonIgnore
 	private List<Crop> crops = new ArrayList<Crop>();
 
 	@OneToMany(cascade = { CascadeType.ALL })
-	//@JsonIgnore
+	@JsonIgnore
 	private List<Insurance> insurance = new ArrayList<Insurance>();
 
 	public List<Crop> getCrops() {

@@ -5,6 +5,7 @@ import java.util.List;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
+import com.lti.repo.Policies;
 
 public interface FarmerService {
 	
@@ -24,5 +25,7 @@ void persist(Farmer farmer);
 	
 	/* void updateFarmerStatus(String farmerStatus, int farmerId); */
 	
-	Number countFarmer();
+	//Number countFarmer();
+	
+	List<Policies> policies(int farmerid);
 }

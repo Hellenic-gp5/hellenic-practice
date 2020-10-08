@@ -13,6 +13,7 @@ import com.lti.entity.Farmer;
 import com.lti.entity.Insurance;
 import com.lti.repo.CropRepo;
 import com.lti.repo.FarmerRepo;
+import com.lti.repo.Policies;
 
 @Service
 public class FarmerServiceImpl implements FarmerService {
@@ -61,8 +62,15 @@ public class FarmerServiceImpl implements FarmerService {
 	 */
 
 
+//	@Override
+////	public Number countFarmer() {
+//			return repo.countFarmer();
+//	}
+
 	@Override
-	public Number countFarmer() {
-			return repo.countFarmer();
+	public List<Policies> policies(int farmerid) {
+		// TODO Auto-generated method stub
+		return repo.getinsurance(farmerid);
 	}
+	
 }
