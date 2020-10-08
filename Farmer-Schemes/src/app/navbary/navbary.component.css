@@ -35,7 +35,7 @@ img{
 
 .ins {
   position: relative;
-  left: -20px;
+  left: -25px;
 }
 
 .action {
@@ -43,3 +43,11 @@ img{
   left: 570px;
 }
 
+.ins button {
+  border: none;
+  background-color: #06163a;
+  color: #ffffb3;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
