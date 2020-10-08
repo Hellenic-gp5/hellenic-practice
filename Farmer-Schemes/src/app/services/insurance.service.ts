@@ -14,6 +14,13 @@ export class InsuranceService {
   saveInsuranceClaim(policyId, claim: any) {
     return this.http
       .post(this.baseUrl + '/-----?policyId=' + policyId, claim)
-      .subscribe((data) => (data = claim));
+      .subscribe((data) => (data = claim));}
+    
+  addInsurance(farmerId,ins:any){
+    this.http.post(this.baseUrl + '/apply?fid=' + farmerId, ins).subscribe((data)=>(data=ins));
+
+
   }
-}
+ 
+    }
+

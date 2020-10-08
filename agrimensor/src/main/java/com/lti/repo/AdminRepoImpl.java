@@ -1,5 +1,6 @@
 package com.lti.repo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -19,6 +20,7 @@ import com.lti.entity.User;
 @Repository
 public class AdminRepoImpl implements AdminRepo{
 
+	private CountRepo repo;
 	@PersistenceContext
 	private EntityManager em;
 	@Transactional(value = TxType.REQUIRED)
@@ -35,22 +37,24 @@ public class AdminRepoImpl implements AdminRepo{
 		return users;
 	}
 	@Override
-	public Count totalCount() {
-		Query q1 = em.createQuery("SELECT count(u) From User u WHERE u.status=:status");
-		q1.setParameter("status", "Approved");
-		int totalUsers = q1.getFirstResult();
-		
-		Query q2 = em.createQuery("SELECT count(f) From Farmer f");
-		int totalFarmer = q2.getFirstResult();
-		
-		Query q3 = em.createQuery("SELECT count(b) From Bidder b");
-		int totalBidder = q3.getFirstResult();
-		
-		Count c = new Count(totalUsers,totalFarmer,totalBidder);
-		
-		System.out.println(totalUsers+totalFarmer+totalBidder);
-		
-		return c;
+	public List<Counts> counts() {
+		List<Counts> adminCounts = new ArrayList<Counts>();
+		Counts count = new Counts();
+		Number sold = repo.countSoldCrop();
+		Number unsold = repo.countUnsoldCrop();
+		Number allcrops= (Number)(sold.intValue() + unsold.intValue());
+		Number pending=repo.countPendingInsurances();
+		count.setAllUsers(repo.countUsers());
+		count.setAllFarmers(repo.countFarmer());
+		count.setAllBidders(repo.countBidder());
+		count.setAllClaims(repo.countApprovedInsurances());
+		count.setRejectedClaims(repo.countPendingInsurances());
+		count.setSoldCrops(repo.countSoldCrop());
+		count.setApprovedClaims(repo.countRejectedInsurance());
+		count.setAllSellReq(allcrops);
+		count.setRejectedSellReq(repo.countUnsoldCrop());
+		adminCounts.add(count);
+		return adminCounts;
 	}
 
 }

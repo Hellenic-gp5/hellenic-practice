@@ -17,12 +17,6 @@ public interface CropRepo {
 	
 	void updateCrop(Crop crop);
 	
-	Number countUnsoldCrop();
-	
-	Number countSoldCrop();
-	
-	Number countAllCrops();
-	
 	void updateCropSoldStatus(int cropId,String cropSoldStatus);
 	
 	List<CropBid> listOfBidsByCropId(int id);
@@ -33,8 +27,9 @@ public interface CropRepo {
 	
 	Number maxBid(int cropid);
 	
-	List<Crop> soldCrops(int farmerId);
+	List<HistCrops> soldCrops(int farmerId);
 	
 	List<ReturnCrop> crops();
 
+	List<Market> market();
 }

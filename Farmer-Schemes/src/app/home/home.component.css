@@ -36,7 +36,7 @@ padding: 1%;
 .carousel-caption{
 background:rgba(92, 92, 58, 0.616) ;
 position: absolute;
-bottom: 20%;
+bottom: 10%;
 left: 1%;
 right: 1%;
 z-index: 20;
@@ -58,6 +58,7 @@ position: relative;
 cursor: pointer;
 background-color: /*	#FFA500 */ rgba(255, 255, 0,0.0);
 margin: none;
+border:none;
 }
 
 .container .card .face{

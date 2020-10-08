@@ -110,10 +110,4 @@ public class BidderRepoImp implements BidderRepo{
 
 	}
 
-	@Override
-	public Number countBidder() {
-		 return ((Number)em.createQuery("SELECT count(b) From Bidder b").getSingleResult()).intValue();
-			
-	}
-
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { crop } from './crop.model';
+import { crop1 } from './crop1.model';
 import { items } from './bid.model';
 import { previous } from './pb.model';
 import { policy } from './insurance.model';
@@ -13,7 +13,7 @@ import { FarmerDashboardService } from '../services/farmer-dashboard.service';
 export class DashboardComponent implements OnInit {
   test: number;
   fname: string;
-  crops: crop[] = [];
+  crops: crop1[] = [];
   bids: items[] = [];
   pb: boolean = false;
   bid: string = 'View Details';

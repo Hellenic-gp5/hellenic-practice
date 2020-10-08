@@ -3,23 +3,24 @@
 <table class="table-bordered table-striped">
   <thead>
     <tr>
-      <th>Seller Name</th>
+      <th>Seller ID</th>
       <th>Crop Name</th>
-      <th>Crop Season</th>
-      <th>Quantity</th>
-      <th>Previous Bid</th>
-      <th>Current Bid - Bidder ID</th>
+      <th>Crop Type</th>
+      <th>Base Price</th>
+      <th>Current Bid</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let m of market " value="u">
-      <td>{{m.seller}}</td>
-      <td>{{m.biddername}}</td>
+      <td>{{m.bidder}}</td>
       <td>{{m.cropName}}</td>
-      <td>{{m.cropSeason}}</td>
-      <td>{{m.cropQuantity}}</td>
-      <td>{{m.previousBid}}</td>
+      <td>{{m.cropType}}</td>
+      <td>{{m.basePrice}}</td>
       <td>{{m.currentBid}}</td>
+      <td><button class="btn btn-success" (click)="sold(m.cropId)"><i class="fa fa-check"></i></button>
+        <button class="btn btn-danger" (click)="rejectbid(m.cropId)"><i class="fa fa-times"></i></button>
+    </td>
     </tr>
     </tbody>
 </table>

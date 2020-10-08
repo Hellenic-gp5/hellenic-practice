@@ -9,7 +9,7 @@ import { InsuranceService } from '../services/insurance.service';
   styleUrls: ['./claim.component.css'],
 })
 export class ClaimComponent implements OnInit {
-  claim: Claim;
+  claim=new Claim();
   stringifiedData: string;
   parsedJson: any;
 

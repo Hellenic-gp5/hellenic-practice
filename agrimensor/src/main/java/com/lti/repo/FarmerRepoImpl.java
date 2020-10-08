@@ -56,7 +56,7 @@ public class FarmerRepoImpl implements FarmerRepo {
 	public void addInsurance(int farmerId, Insurance insurance) {
 		Farmer farmer=em.find(Farmer.class,farmerId);
 		farmer.getInsurance().add(insurance);
-		em.persist(insurance);
+		//em.persist(insurance);
 		em.merge(farmer);
 	}
 	
@@ -97,4 +97,5 @@ public class FarmerRepoImpl implements FarmerRepo {
 		return users;
 	}
 
+	
 }

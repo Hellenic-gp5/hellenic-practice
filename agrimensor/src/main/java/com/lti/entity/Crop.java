@@ -53,7 +53,7 @@ public class Crop {
 	@Column
 	private int cropQuantity;
 	@Column(length = 80)
-	private String cropSoldStatus= "Waiting for approval";
+	private String cropSoldStatus= "Queued";
 	@Column(length=50)
 	private String soilPH;
 	/**
@@ -69,7 +69,8 @@ public class Crop {
 	
 	
 	//relation one-to-many for bid-crop entites
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	//@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	@OneToMany(cascade= {CascadeType.ALL})
 	@JsonIgnore
 	private List<Bid> bids = new ArrayList<Bid>();
 	

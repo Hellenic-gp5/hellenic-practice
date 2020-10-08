@@ -37,10 +37,10 @@ public class FarmerRestController {
 		return "Farmer added successfully";
 	}
 	
-	@PostMapping(value="/apply/{fid}", consumes="application/json")
-	public String apply(@PathVariable int fid, @RequestBody Insurance insurance) {
+	@PostMapping(value="/apply", consumes="application/json")
+	public void apply(@RequestParam("fid") int fid, @RequestBody Insurance insurance) {
 		service.insure(fid, insurance);
-		return "insurance added successfully";
+	
 	}
 	
 	@GetMapping(value = "/fetchfarmer", produces = "application/json")
