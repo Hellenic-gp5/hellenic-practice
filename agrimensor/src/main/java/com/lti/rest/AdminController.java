@@ -36,14 +36,6 @@ public class AdminController {
 	private AdminService aservice;
 	@Autowired
 	private BidRepo repo;
-	@Autowired
-	private UserRepo urepo;
-	@Autowired
-	private BidderService bidderService;
-	@Autowired
-	private FarmerService farmerService;
-	@Autowired
-	private AdminRepo arepo;
 	
 	@PostMapping(value="/addadmin",consumes="application/json")
 	public String create(@RequestBody Admin admin) {
@@ -78,9 +70,6 @@ public class AdminController {
 	 * farmerService.updateFarmerStatus(farmerStatus, farmerId); return
 	 * "Status changed successfully to "+farmerStatus; }
 	 */
-	  @GetMapping(value = "/details", produces = "application/json")
-		public List<Counts> getTotalCount() {
-		  return arepo.counts();
-	  }
+	 
 		
 }
