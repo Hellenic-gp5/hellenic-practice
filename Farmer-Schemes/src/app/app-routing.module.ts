@@ -42,18 +42,18 @@ const routes: Routes = [
   {
     path: 'signup',
     component: RegistrationComponent, //Registration Component
-    children: [
-      { path: 'home', redirectTo: '/home' },
-      { path: 'login', redirectTo: '/login' },
+    children: [{path:'farmersignup',redirectTo:'/farmersignup', pathMatch:'full'},
+      { path: 'home', redirectTo: '/home' ,pathMatch:'full'},
+      { path: 'login', redirectTo: '/login',pathMatch:'full' },
     ],
   },
 
   {
     path: 'farmersignup',
     component: FarmerRegisterComponent, //FarmerRegistration Component
-    children: [
-      { path: 'home', redirectTo: '/home' },
-      { path: 'login', redirectTo: '/login' },
+    children: [{path:'signup', redirectTo:'/signup',pathMatch:'full'},
+      { path: 'home', redirectTo: '/home',pathMatch:'full' },
+      { path: 'login', redirectTo: '/login',pathMatch:'full' },
     ],
   },
 

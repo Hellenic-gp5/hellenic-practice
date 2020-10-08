@@ -13,7 +13,7 @@ export class FarmerRegisterComponent implements OnInit {
   farmerRegisterForm: FormGroup;
   allAlert: String;
   data: any;
-  farmer: FarmerRegisterModel;
+  farmer=new FarmerRegisterModel();
   email: string;
 
   // Getter Methods for shortening in form validation in html
@@ -29,6 +29,9 @@ export class FarmerRegisterComponent implements OnInit {
   }
   get farmerAddressLine1() {
     return this.farmerRegisterForm.get('farmerAddressLine1');
+  }
+  get farmerAddressLine2(){
+    return this.farmerRegisterForm.get('farmerAddressLine2');
   }
   get farmerLandAddress() {
     return this.farmerRegisterForm.get('farmerLandAddress');
@@ -60,7 +63,9 @@ export class FarmerRegisterComponent implements OnInit {
   get password() {
     return this.farmerRegisterForm.get('password');
   }
-
+  get confirmPassword(){
+    return this.farmerRegisterForm.get('confirmPassword');
+  }
   get farmerState() {
     return this.farmerRegisterForm.get('farmerState');
   }

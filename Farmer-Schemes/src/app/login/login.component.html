@@ -101,6 +101,7 @@
                 [(ngModel)]="login.username"
                 placeholder="Email-Id"
                 #username="ngModel"
+                required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               />
             </div>
             <div class="input-group form-group">
@@ -121,7 +122,7 @@
                   </svg>
                 </span>
               </div>
-              <!-- required pattern="[a-z]{7,14}" -->
+              
               <!--password required pattern is at least 7 small letters right now-->
               <input
                 type="password"
@@ -131,6 +132,7 @@
                 [(ngModel)]="login.password"
                 placeholder="password"
                 #password="ngModel"
+                required pattern="[a-z]{7,14}" 
               />
             </div>
             <div class="input-group form-group">
