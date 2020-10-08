@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserApprovalService {
   user: User;
 
-  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,7 @@ import { Claim } from '../claim/claim.module';
   providedIn: 'root',
 })
 export class InsuranceService {
-  private baseUrl: string = 'http://localhost:8081/agrimensor/rest';
+  private baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   // claim: Claim;
 
   constructor(private http: HttpClient) {}

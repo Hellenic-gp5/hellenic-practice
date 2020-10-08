@@ -9,7 +9,7 @@ import { User } from '../User.module';
   providedIn: 'root',
 })
 export class CropService {
-  private baseUrl: string = 'http://localhost:8081/agrimensor/rest';
+  private baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   crop: Crop;
   farmerId: number;
   user: User;

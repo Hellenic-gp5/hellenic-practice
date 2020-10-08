@@ -5,7 +5,7 @@ import { Market } from '../marketplace.module';
   providedIn: 'root'
 })
 export class MarketplaceService {
-  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   constructor(private http: HttpClient) {}
   getMarketCrops()
   {

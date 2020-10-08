@@ -8,7 +8,7 @@ import{User} from '.././user.module'
   providedIn: 'root',
 })
 export class AuthService {
-  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
 
   constructor(private http: HttpClient) {}
 

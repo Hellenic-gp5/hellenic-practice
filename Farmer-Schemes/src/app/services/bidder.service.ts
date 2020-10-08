@@ -8,7 +8,7 @@ import { hell } from '../bidder/makeBid.model';
   providedIn: 'root'
 })
 export class BidderService {
-  baseUrl: string = 'http://localhost:8081/agrimensor/rest';
+  baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   bidderId : number;
   cropId : number;
   bid:any;
