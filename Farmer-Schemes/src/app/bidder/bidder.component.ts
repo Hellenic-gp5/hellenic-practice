@@ -20,7 +20,7 @@ export class BidderComponent implements OnInit {
   bids: Bids[] = [];
   crops: items[] = [];
   cropId: number;
-  bid: hell;
+  bid= new hell();
   stringifiedData: string;
   parsedJson: any;
 
@@ -44,8 +44,7 @@ export class BidderComponent implements OnInit {
   makeBid() {
     this.stringifiedData = JSON.stringify(this.bid);
     this.parsedJson = JSON.parse(this.stringifiedData);
-    this.service.setBid(this.parsedJson);
-    this.service.addBid(this.cropId);
+    this.service.addBid(this.parsedJson,this.cropId);
     this.router.navigate(['/bidder']);
   }
 }

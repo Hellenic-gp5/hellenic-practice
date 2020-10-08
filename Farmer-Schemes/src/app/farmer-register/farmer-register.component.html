@@ -79,7 +79,7 @@
 
           <div class="nested-form">
             <label for="address">Address Line 2:</label>
-            <textarea rows="3"></textarea>
+            <textarea rows="3" formControlName="farmerAddressLine2"></textarea>
           </div>
         </div>
         <div class="nested-form">
@@ -308,7 +308,7 @@
           </div>
           <div class="nested-form">
             <label for="password">Confirm Password:</label>
-            <input type="password" name="confirmPassword" />
+            <input type="password" name="confirmPassword" formControlName="confirmPassword"/>
             <!-- <div
               *ngIf="
                 confirmPassword.invalid &&

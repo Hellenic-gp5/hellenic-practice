@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   async loggedIn() {
     await this.service.login(this.login).then((data) => (this.user = data));
     localStorage.setItem('user', JSON.stringify(this.user));
-    if (!this.user) {
+    if (localStorage.getItem('user')==null) {
       this.allAlert = 'Invalid email/password';
     }
 

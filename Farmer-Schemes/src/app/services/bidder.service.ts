@@ -11,12 +11,9 @@ export class BidderService {
   baseUrl: string = 'http://localhost:8080/agrimensor/rest';
   bidderId : number;
   cropId : number;
-  bid:any;
+ 
   user: User;
-  parsedJson: (
-    text: string,
-    reviver?: (this: any, key: string, value: any) => any
-  ) => any; 
+  
 
   constructor(private http: HttpClient) {
     this.bidderId = parseInt(localStorage.getItem("userId")); 
@@ -27,11 +24,11 @@ export class BidderService {
     return this.http.get<Bids[]>(this.baseUrl +'/listbids?bidderid=' + this.bidderId);
   }
 
-  addBid(Id: number)
+  addBid(bid:any,Id: number)
   {
     // this.cropId = Id;
-  this.http.post(this.baseUrl + '/makebid?bidderid='+ this.bidderId + '&cropid=' + Id, this.bid);
+  this.http.post(this.baseUrl + '/makebid?bidderid='+ this.bidderId + '&cropid=' + Id, bid);
   }
 
-  setBid(b:any){this.bid=b;}
+ 
 }
