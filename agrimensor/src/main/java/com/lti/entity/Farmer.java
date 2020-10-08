@@ -68,9 +68,8 @@ public class Farmer extends User {
 	private String farmerLandPIN;
 	@Column(length = 20, table = "farmer_info")
 	private String farmerLandArea;
-	@Column(length=10)
+	@Column(length = 10)
 	private String farmerContact;
-	
 
 	public String getFarmerContact() {
 		return farmerContact;
@@ -85,7 +84,7 @@ public class Farmer extends User {
 	private List<Crop> crops = new ArrayList<Crop>();
 
 	@OneToMany(cascade = { CascadeType.ALL })
-	//@JsonIgnore
+	// @JsonIgnore
 	private List<Insurance> insurance = new ArrayList<Insurance>();
 
 	public List<Crop> getCrops() {

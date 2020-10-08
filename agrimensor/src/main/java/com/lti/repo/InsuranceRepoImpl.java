@@ -1,6 +1,5 @@
 package com.lti.repo;
 
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,31 +23,31 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 	private EntityManager em;
 
 	@Transactional(value = TxType.REQUIRED)
-	//@Override
+	// @Override
 	public void Save(Insurance ins) {
 		// TODO Auto-generated method stub
 		em.persist(ins);
 	}
 
-	//@Override
+	// @Override
 	public Insurance fetch(int polid) {
 		// TODO Auto-generated method stub
 		return em.find(Insurance.class, polid);
 	}
 
-	
 	@Transactional(value = TxType.REQUIRED)
-	//@Override
+	// @Override
 	public void update(String status, int polid) {
 		// TODO Auto-generated method stub
-		Insurance i= em.find(Insurance.class, polid);
+		Insurance i = em.find(Insurance.class, polid);
 		i.setPolicyStatus(status);
 		em.merge(i);
-		}
+	}
+
 	@Transactional(value = TxType.REQUIRED)
-	@Override	
+	@Override
 	public void claim(int polid, InsuranceClaim claim) {
-		Insurance i =em.find(Insurance.class, polid);
+		Insurance i = em.find(Insurance.class, polid);
 		i.setClaim(claim);
 		em.persist(claim);
 		em.merge(i);
@@ -56,7 +55,7 @@ public class InsuranceRepoImpl implements InsuranceRepo {
 
 	@Override
 	public List<InsuranceClaim> getClaims() {
-		
+
 		return em.createQuery("FROM InsuranceClaim").getResultList();
 	}
 
