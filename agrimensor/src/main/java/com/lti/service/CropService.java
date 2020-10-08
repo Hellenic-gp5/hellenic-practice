@@ -34,4 +34,6 @@ Crop find(int cropId);
 	Number countUnsoldCrops();
 	
 	List<Crop> Active();
+	
+	Number currentBid(int cropid);
 }

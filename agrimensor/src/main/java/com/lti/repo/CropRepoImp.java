@@ -80,7 +80,8 @@ public class CropRepoImp implements CropRepo {
 	*/
 		public List<CropBid> listOfBidsByCropId(int id) {
 			Query q=em.createNativeQuery(" select b.bidder_bidderid,c.bidamount, c.bidid  from bidder_bids b join bids c on b.bids_bidid=c.bidid "
-					+ "where c.bidid in (select bids_bidid from crop_bids where crop_cropid =111) order by c.bidamount desc");
+					+ "where c.bidid in (select bids_bidid from crop_bids where crop_cropid =:id) order by c.bidamount desc");
+			q.setParameter("id", id);
 			List<Object[]> items=q.getResultList();
 			List<CropBid> bids=new ArrayList<CropBid>();
 			for(Object[] c: items)
@@ -115,6 +116,14 @@ public class CropRepoImp implements CropRepo {
 		// TODO Auto-generated method stub
 		List<Crop> crops=em.createQuery("FROM Crop WHERE cropSoldStatus = 'In Market'").getResultList();
 		return crops;
+	}
+
+	@Override
+	public Number maxBid(int cropid) {
+		// TODO Auto-generated method stub
+	Query q=	em.createNativeQuery(" select max(bidamount) from bids where bidid in (Select bids_bidid from crop_bids where crop_cropid=:id)");
+		q.setParameter("id", cropid);
+		return (Number)q.getSingleResult();
 	}
 	
 		

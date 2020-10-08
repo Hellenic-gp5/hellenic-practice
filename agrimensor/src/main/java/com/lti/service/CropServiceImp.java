@@ -91,4 +91,10 @@ public class CropServiceImp implements CropService {
 		return repo.ActiveCrops();
 	}
 
+	@Override
+	public Number currentBid(int cropid) {
+		// TODO Auto-generated method stub
+		return repo.maxBid(cropid);
+	}
+
 }

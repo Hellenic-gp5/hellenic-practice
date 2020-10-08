@@ -72,6 +72,14 @@ public class CropRestController {
 	
 	@GetMapping(value="/marketcrops", produces="application/json")
 	public List<Crop> activeCrops(){
-		return CropService.Active();
+		List<Crop> crops= CropService.Active();
+		for(Crop c:crops)
+			c.setCurrentBid(CropService.currentBid(c.getCropId()));
+		return crops;
+	}
+	
+	@GetMapping(value="/maxbid")
+	public Number curbid(@RequestParam int cropid) {
+		return CropService.currentBid(cropid);
 	}
 }
