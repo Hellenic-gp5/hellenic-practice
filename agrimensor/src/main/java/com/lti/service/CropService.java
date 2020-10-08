@@ -36,4 +36,6 @@ Crop find(int cropId);
 	List<Crop> Active();
 	
 	Number currentBid(int cropid);
+	
+	List<Crop> sale(int farmerId);
 }

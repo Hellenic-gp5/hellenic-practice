@@ -97,4 +97,13 @@ public class CropServiceImp implements CropService {
 		return repo.maxBid(cropid);
 	}
 
+	@Override
+	public List<Crop> sale(int farmerId) {
+		// TODO Auto-generated method stub
+		List<Crop> sold= repo.soldCrops(farmerId);
+//		for(Crop c:sold)
+//			System.out.println(c);
+		return sold;
+	}
+
 }

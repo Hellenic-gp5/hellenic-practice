@@ -32,5 +32,7 @@ public interface FarmerRepo {
 	
 	List<Crop> getAllCrops();
 	
+	List<Crop> SoldCrop(int farmerId);
+	
 	
 }

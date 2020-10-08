@@ -162,6 +162,14 @@ public class Crop {
 	public void setCurrentBid(Number currentBid) {
 		this.currentBid = currentBid;
 	}
+	@Override
+	public String toString() {
+		return "Crop [cropId=" + cropId + ", cropName=" + cropName + ", cropType=" + cropType + ", fertilizer="
+				+ fertilizer + ", cropBasePrice=" + cropBasePrice + ", cropSoldPrice=" + cropSoldPrice
+				+ ", cropSoldDate=" + cropSoldDate + ", currentBid=" + currentBid + ", cropQuantity=" + cropQuantity
+				+ ", cropSoldStatus=" + cropSoldStatus + ", soilPH=" + soilPH + ", bidder=" + bidder + ", bids=" + bids
+				+ "]";
+	}
 	
 	
 	

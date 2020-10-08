@@ -32,5 +32,7 @@ public interface CropRepo {
 	List<Crop>ActiveCrops();
 	
 	Number maxBid(int cropid);
+	
+	List<Crop> soldCrops(int farmerId);
 
 }

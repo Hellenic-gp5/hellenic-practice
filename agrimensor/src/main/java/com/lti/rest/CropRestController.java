@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
@@ -78,8 +79,18 @@ public class CropRestController {
 		return crops;
 	}
 	
-	@GetMapping(value="/maxbid")
-	public Number curbid(@RequestParam int cropid) {
-		return CropService.currentBid(cropid);
+//	@GetMapping(value="/maxbid")
+//	public Number curbid(@RequestParam int cropid) {
+//		return CropService.currentBid(cropid);
+//	}
+	
+	@PostMapping(value="/sale",produces="application/json")
+	public List<Crop> sellCrops(@RequestParam("farmerId")int farmerId){
+		List<Crop> sold= CropService.sale(farmerId);
+		for(Crop c:sold)
+			System.out.println(c);
+		return sold;
+		
+		
 	}
 }
