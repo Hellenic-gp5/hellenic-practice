@@ -4,6 +4,8 @@ nav {
 }
 .nav-item {
   margin: 0px 25px;
+  position: relative;
+  left: -150px;
 }
 .nav-item a {
   color: #ffffb3;
@@ -19,4 +21,15 @@ img{
   color: #06163a;
   background-color: #fff;
   border-radius: 4px;
+}
+
+.logo {
+  width: 64px;
+  position: relative;
+  left: 15px;
+}
+
+.action {
+  position: relative;
+  left: 270px;
 }
