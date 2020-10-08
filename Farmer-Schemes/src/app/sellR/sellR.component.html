@@ -33,19 +33,11 @@
         <table>
           <tr>
             <td>Crop Type :</td>
-            <input
-              type="text"
-              name="cropType"
-              [(ngModel)]="crop.cropType"
-              required
-              pattern="[A-Za-z]{3,}"
-              #cropType="ngModel"
-            />
-            <span
-              class="alert-warning"
-              *ngIf="cropType.touched && cropType.invalid"
-              >Crop Type is invalid</span
-            >
+            <select name="cropType" [(ngModel)]="crop.cropType">
+              <option value="Kharif">Kharif</option>
+              <option value="Rabi">Rabi</option>
+            </select>
+              
           </tr>
           <tr>
             <td>Crop Name:</td>
@@ -66,19 +58,16 @@
           <tr>
             <td>Fertilizer Type</td>
             <td>
-              <input
+              <select
                 type="text"
                 name="fertilizer"
-                [(ngModel)]="crop.fertilizer"
-                required
-                pattern="[A-Za-z]{3,}"
-                #fertilizer="ngModel"
-              />
-              <span
-                class="alert-warning"
-                *ngIf="fertilizer.touched && fertilizer.invalid"
-                >Fertilizer is invalid</span
-              >
+                [(ngModel)]="crop.fertilizer">
+                <option value="Nitrogen">Nitrogen</option>
+                <option value="Phosphorous">Phosphorous</option>
+                <option value="Potassium">Potassium</option>
+                <option value="Urea">Urea</option>
+                </select>
+              
             </td>
           </tr>
           <tr>

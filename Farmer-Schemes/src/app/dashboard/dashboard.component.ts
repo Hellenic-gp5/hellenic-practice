@@ -4,13 +4,14 @@ import { items } from './bid.model';
 import { previous } from './pb.model';
 import { policy } from './insurance.model';
 import { FarmerDashboardService } from '../services/farmer-dashboard.service';
-import { from } from 'rxjs';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  test:number;
   fname: string;
   crops: crop[] = [];
   bids: items[] = [];
@@ -18,7 +19,6 @@ export class DashboardComponent implements OnInit {
   bid: string = 'View Details';
   pbids: previous[] = [];
   cropBid: items;
-  pri: previous;
   policies: policy[] = [];
   constructor(private service: FarmerDashboardService) {}
   async previousBid() {
@@ -29,12 +29,32 @@ export class DashboardComponent implements OnInit {
       this.pb = false;
       this.bid = 'View Details';
     }
-    await this.service
+
+    /* await this.service
       .viewMarketPlaceDetails(this.pri)
       .then((data) => (this.cropBid = data));
     localStorage.setItem('cropBid', JSON.stringify(this.cropBid));
-    localStorage.setItem('id', this.cropBid.cropId.toString());
+    localStorage.setItem('id', this.cropBid.cropId.toString());*/
   }
+  previousBidsOnCrop(cropId: number) {
+      if (this.bid == 'View Details') {
+       this.service
+      .viewMarketPlaceDetails(cropId)
+      .subscribe((data) => (this.pbids = data));
+        this.pb = true;
+        this.bid = 'close';
+        this.test=cropId;
+      } 
+      else {
+        this.pbids.length=0;
+        this.pb = false;
+        this.bid = 'View Details';
+        this.test=null;
+      }
+  
+  }
+  
+
   ngOnInit(): void {
     this.fname = localStorage.getItem('uname');
     this.service.viewMarketPlace().subscribe((data) => (this.bids = data));

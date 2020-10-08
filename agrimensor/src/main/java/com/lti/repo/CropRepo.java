@@ -25,10 +25,14 @@ public interface CropRepo {
 	
 	void updateCropSoldStatus(int cropId,String cropSoldStatus);
 	
-	List<Bid> listOfBidsByCropId(int id);
+	List<CropBid> listOfBidsByCropId(int id);
 	
 	List<Crop> listofCrop(int bidderId);
 	
 	List<Crop>ActiveCrops();
+	
+	Number maxBid(int cropid);
+	
+	List<Crop> soldCrops(int farmerId);
 
 }

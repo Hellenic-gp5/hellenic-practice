@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.lti.entity.Bid;
 import com.lti.entity.Crop;
 import com.lti.repo.BidRepo;
+import com.lti.repo.CropBid;
 import com.lti.repo.CropRepo;
 
 
@@ -57,7 +58,7 @@ public class CropServiceImp implements CropService {
 	}
 
 	@Override
-	public List<Bid> listOfBids(int cropId) {
+	public List<CropBid> listOfBids(int cropId) {
 		return repo.listOfBidsByCropId(cropId);
 	}
 
@@ -88,6 +89,21 @@ public class CropServiceImp implements CropService {
 	public List<Crop> Active() {
 		// TODO Auto-generated method stub
 		return repo.ActiveCrops();
+	}
+
+	@Override
+	public Number currentBid(int cropid) {
+		// TODO Auto-generated method stub
+		return repo.maxBid(cropid);
+	}
+
+	@Override
+	public List<Crop> sale(int farmerId) {
+		// TODO Auto-generated method stub
+		List<Crop> sold= repo.soldCrops(farmerId);
+//		for(Crop c:sold)
+//			System.out.println(c);
+		return sold;
 	}
 
 }

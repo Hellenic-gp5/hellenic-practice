@@ -26,7 +26,7 @@ public class Insurance {
 //	@Column
 //	private int policyFarmerId;	
 	
-	private int policyCropId;
+
 		
 	/**
 	 * @author YOJAN
@@ -70,12 +70,12 @@ public class Insurance {
 //	public void setPolicyFarmerId(int policyFarmerId) {
 //		this.policyFarmerId = policyFarmerId;
 //	}
-	public int getPolicyCropId() {
-		return policyCropId;
-	}
-	public void setPolicyCropId(int policyCropId) {
-		this.policyCropId = policyCropId;
-	}
+//	public int getPolicyCropId() {
+//		return policyCropId;
+//	}
+//	public void setPolicyCropId(int policyCropId) {
+//		this.policyCropId = policyCropId;
+//	}
 	public String getSeason() {
 		return season;
 	}

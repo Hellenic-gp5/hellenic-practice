@@ -3,45 +3,25 @@
 <table class="table-bordered table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Claim ID</th>
       <th>Policy No.</th>
       <th>Sum Insured</th>
-      <th>Date of loss</th>
       <th>Cause of loss</th>
+      <th>Date of loss</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngFor="let claim of claims" value="u">
+      <td>{{claim.policyId}}</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button class="btn btn-success"><i class="fa fa-check"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+      <td>{{claim.causeOfLoss}}</td>
+      <td>{{claim.dateOfLoss}}</td>
+      <td><button class="btn btn-info"><i class="fa fa-info-circle"></i></button></td>
+      <td><button class="btn btn-success" (click)="claimApproved(claim.policyId)"><i class="fa fa-check"></i></button>
+          <button class="btn btn-danger" (click)="claimRejected(claim.policyId)"><i class="fa fa-times"></i></button>
       </td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button class="btn btn-success"><i class="fa fa-check"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button class="btn btn-success"><i class="fa fa-check"></i></button>
-         <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-      </td>
-    </tr>
-  </tbody>
+    </tbody>
 </table>
 <app-footer></app-footer>

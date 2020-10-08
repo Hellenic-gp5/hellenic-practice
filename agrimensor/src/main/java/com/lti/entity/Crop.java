@@ -49,6 +49,8 @@ public class Crop {
 	@Column(length=14)
 	private String cropSoldDate;
 	@Column
+	private Number currentBid;
+	@Column
 	private int cropQuantity;
 	@Column(length = 80)
 	private String cropSoldStatus= "Waiting for approval";
@@ -154,6 +156,21 @@ public class Crop {
 	public void setSoilPH(String soilPH) {
 		this.soilPH = soilPH;
 	}
+	public Number getCurrentBid() {
+		return currentBid;
+	}
+	public void setCurrentBid(Number currentBid) {
+		this.currentBid = currentBid;
+	}
+	@Override
+	public String toString() {
+		return "Crop [cropId=" + cropId + ", cropName=" + cropName + ", cropType=" + cropType + ", fertilizer="
+				+ fertilizer + ", cropBasePrice=" + cropBasePrice + ", cropSoldPrice=" + cropSoldPrice
+				+ ", cropSoldDate=" + cropSoldDate + ", currentBid=" + currentBid + ", cropQuantity=" + cropQuantity
+				+ ", cropSoldStatus=" + cropSoldStatus + ", soilPH=" + soilPH + ", bidder=" + bidder + ", bids=" + bids
+				+ "]";
+	}
+	
 	
 	
 

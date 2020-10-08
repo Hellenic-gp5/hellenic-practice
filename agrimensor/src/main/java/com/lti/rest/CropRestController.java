@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.lti.entity.Bid;
 import com.lti.entity.Bidder;
 import com.lti.entity.Crop;
 import com.lti.entity.Farmer;
+import com.lti.repo.CropBid;
 import com.lti.service.CropService;
 import com.lti.service.BidderService;
 import com.lti.service.FarmerService;
@@ -44,7 +46,7 @@ public class CropRestController {
 	}
 
 	@GetMapping(value = "/listbidsOnCrop", produces = "application/json")
-	public List<Bid> listbid(@RequestParam int cropId) {
+	public List<CropBid> listbid(@RequestParam int cropId) {
 		return CropService.listOfBids(cropId);
 	}
 
@@ -71,6 +73,24 @@ public class CropRestController {
 	
 	@GetMapping(value="/marketcrops", produces="application/json")
 	public List<Crop> activeCrops(){
-		return CropService.Active();
+		List<Crop> crops= CropService.Active();
+		for(Crop c:crops)
+			c.setCurrentBid(CropService.currentBid(c.getCropId()));
+		return crops;
+	}
+	
+//	@GetMapping(value="/maxbid")
+//	public Number curbid(@RequestParam int cropid) {
+//		return CropService.currentBid(cropid);
+//	}
+	
+	@PostMapping(value="/sale",produces="application/json")
+	public List<Crop> sellCrops(@RequestParam("farmerId")int farmerId){
+		List<Crop> sold= CropService.sale(farmerId);
+		for(Crop c:sold)
+			System.out.println(c);
+		return sold;
+		
+		
 	}
 }
