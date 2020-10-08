@@ -13,9 +13,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let claim of claims" value="u">
-      <td>{{claim.policyId}}</td>
+      <td>{{claim.claimId}}</td>
       <td></td>
-      <td>{{claim.causeOfLoss}}</td>
+      <td>{{claim.claimReason}}</td>
       <td>{{claim.dateOfLoss}}</td>
       <td><button class="btn btn-info"><i class="fa fa-info-circle"></i></button></td>
       <td><button class="btn btn-success" (click)="claimApproved(claim.policyId)"><i class="fa fa-check"></i></button>

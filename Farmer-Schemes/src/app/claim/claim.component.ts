@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { Claim } from '../claim/claim.module';
 import { InsuranceService } from '../services/insurance.service';
@@ -13,7 +14,7 @@ export class ClaimComponent implements OnInit {
   stringifiedData: string;
   parsedJson: any;
 
-  constructor(private service: InsuranceService) {}
+  constructor(private service: InsuranceService, private router:Router) {}
 
   ngOnInit(): void {}
 
@@ -21,5 +22,6 @@ export class ClaimComponent implements OnInit {
     this.stringifiedData = JSON.stringify(this.claim);
     this.parsedJson = JSON.parse(this.stringifiedData);
     this.service.saveInsuranceClaim(policyId, this.parsedJson);
+    this.router.navigate(['farmer']);
   }
 }

@@ -5,6 +5,7 @@ import { Bids } from '../bids.module';
 import { items } from '../dashboard/bid.model';
 import { crop } from '../dashboard/crop.model';
 import { crop1 } from '../dashboard/crop1.model';
+import { insuranceClaim } from '../dashboard/insuranceHistory.model';
 import { previous } from '../dashboard/pb.model';
 
 @Injectable({
@@ -49,5 +50,8 @@ export class FarmerDashboardService {
     return this.http.get<previous[]>(
       this.baseUrl + '/listbidsOnCrop?cropId=' + cropId
     );
+  }
+  viewInsurance(){
+    return this.http.get<insuranceClaim[]>(this.baseUrl+ '/listpolicies?farmerId='+this.farmerId )
   }
 }

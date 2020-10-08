@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     if (!this.user) {
       this.allAlert = 'Invalid email/password';
     }
+
     localStorage.setItem('uname', this.user.name);
     localStorage.setItem('userId', this.user.userId.toString());
 

@@ -7,7 +7,6 @@ import { PolicyreqService } from '../services/policyreq.service';
   styleUrls: ['./insurance.component.css']
 })
 export class InsuranceComponent implements OnInit {
-
   claims:ClaimReq[]=[];
   constructor(private service : PolicyreqService) { }
 
