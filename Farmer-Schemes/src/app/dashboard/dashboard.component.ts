@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   pbids: previous[] = [];
   cropBid: items;
   policies: policy[] = [];
+  
   constructor(private service: FarmerDashboardService) {}
   async previousBid() {
     if (this.bid == 'View Details') {
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit {
       this.pb = false;
       this.bid = 'View Details';
     }
+  
 
     /* await this.service
       .viewMarketPlaceDetails(this.pri)

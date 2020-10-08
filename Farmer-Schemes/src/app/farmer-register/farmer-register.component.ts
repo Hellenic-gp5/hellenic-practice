@@ -14,6 +14,7 @@ export class FarmerRegisterComponent implements OnInit {
   allAlert: String;
   data: any;
   farmer: FarmerRegisterModel;
+  email: string;
 
   // Getter Methods for shortening in form validation in html
 
@@ -126,8 +127,25 @@ export class FarmerRegisterComponent implements OnInit {
   }
   onRegister(): void {
     // console.log(this.farmerRegisterForm.value); //testing purpose only
+
+    this.farmer.farmerAADHAR = this.farmer.farmerAADHAR.replace(
+      /^c:\\fakepath\\/i,
+      'assets/img/document/'
+    );
+
+    this.farmer.farmerPAN = this.farmer.farmerPAN.replace(
+      /^c:\\fakepath\\/i,
+      'assets/img/document/'
+    );
+
+    this.farmer.farmerCertificate = this.farmer.farmerCertificate.replace(
+      /^c:\\fakepath\\/i,
+      'assets/img/document/'
+    );
+
     if (this.farmerRegisterForm.valid) {
       this.register();
+      this.emailSend();
       // this.router.navigate(['/login']);
     } else {
       this.allAlert = 'All fields are mandatory to register.';
@@ -140,6 +158,12 @@ export class FarmerRegisterComponent implements OnInit {
         this.data = response;
       });
     this.router.navigate(['/login']);
+  }
+
+  emailSend() {
+    this.authService.sendEmail(this.emailId).subscribe((response) => {
+      this.data = response;
+    });
   }
 
   selectedCountry: String = '--Choose State--';

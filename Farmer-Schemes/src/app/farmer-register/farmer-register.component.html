@@ -20,7 +20,12 @@
         <div class="form-group">
           <div class="nested-form">
             <label for="email">Email:</label>
-            <input type="email" name="email" formControlName="emailId" />
+            <input
+              type="email"
+              name="email"
+              formControlName="emailId"
+              [(ngModel)]="farmer.emailId"
+            />
             <div
               *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)"
               class="alert-message"
