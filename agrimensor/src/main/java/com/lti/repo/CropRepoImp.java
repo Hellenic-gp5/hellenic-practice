@@ -95,7 +95,26 @@ public class CropRepoImp implements CropRepo {
 			
 			return bids;
 		}
+		
 
+
+		@Override
+		public List<ReturnCrop> crops() {
+		Query q = em.createNativeQuery("select cropid, cropname, croptype, fertilizer, cropbaseprice, soilph from crop"  );
+		List<Object[]> crop= q.getResultList();
+		List<ReturnCrop> returnCrop=new ArrayList<ReturnCrop>();
+		for (Object[] o: crop) {
+			ReturnCrop r= new ReturnCrop();
+			r.setCropId((Number)o[0]);
+			r.setCropName((String)o[1]);
+			r.setCropType((String)o[2]);
+			r.setFertilizer((String)o[3]);
+			r.setCropBasePrice((Number)o[4]);
+			r.setSoilPH((String)o[5]);
+			returnCrop.add(r);
+		}
+			return returnCrop;
+		}
 	@Override
 	public Number countSoldCrop() {
 		 return ((Number)em.createQuery("SELECT count(c) From Crop c WHERE c.cropSoldStatus='SOLD'").getSingleResult()).intValue();
@@ -144,6 +163,7 @@ public class CropRepoImp implements CropRepo {
 //			System.out.println(f);
 		return sold;
 	}
+
 	
 		
 }

@@ -32,7 +32,7 @@ public class InsuranceRestController {
 	private InsuranceRepo repo;
 	
 	@GetMapping(value = "/insurancestatus/{polid}")
-	public String updateInsurance(@RequestParam String status, @PathVariable int polid) {
+	public String updateInsurance(@RequestParam String status, @RequestParam int polid) {
 		service.action(status, polid);
 		return "Status changed successfully to " + status;
 	}
