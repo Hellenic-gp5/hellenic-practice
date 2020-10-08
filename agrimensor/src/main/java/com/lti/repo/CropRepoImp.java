@@ -99,13 +99,15 @@ public class CropRepoImp implements CropRepo {
 
 		return bids;
 	}
+
 	@Override
 	public List<Market> market() {
-		Query q = em.createNativeQuery("select b.bidderid,c.cropid, c.cropname, c.croptype,c.cropbaseprice, c.currentbid from bidder_crop b join crop c on b.cropid=c.cropid");
+		Query q = em.createNativeQuery(
+				"select b.bidderid,c.cropid, c.cropname, c.croptype,c.cropbaseprice, c.currentbid from bidder_crop b join crop c on b.cropid=c.cropid");
 		List<Object[]> market = q.getResultList();
 		List<Market> place = new ArrayList<Market>();
 		for (Object[] m : market) {
-			Market mar= new Market();
+			Market mar = new Market();
 			mar.setBidder((Number) m[0]);
 			mar.setCropId((Number) m[1]);
 			mar.setCropName((String) m[2]);
@@ -119,8 +121,8 @@ public class CropRepoImp implements CropRepo {
 
 	@Override
 	public List<ReturnCrop> crops() {
-		Query q = em
-				.createNativeQuery("select cropid, cropname, croptype, fertilizer, cropbaseprice, soilph from crop where cropsoldstatus='Queued'");
+		Query q = em.createNativeQuery(
+				"select cropid, cropname, croptype, fertilizer, cropbaseprice, soilph from crop where cropsoldstatus='Queued'");
 		List<Object[]> crop = q.getResultList();
 		List<ReturnCrop> returnCrop = new ArrayList<ReturnCrop>();
 		for (Object[] o : crop) {
@@ -155,18 +157,8 @@ public class CropRepoImp implements CropRepo {
 	@Override
 	public List<HistCrops> soldCrops(int farmerId) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-//		Query q= em.createNativeQuery("select * from crop where cropsoldstatus='Sold' and cropid in (select crops_cropid from farmer_crop where farmer_farmerid=:fid)");
-//		q.setParameter("fid", farmerId);
-		Farmer farmer = em.find(Farmer.class, farmerId);
-		List<Crop> crops = farmer.getCrops();
-		List<Crop> sold = new ArrayList<Crop>();
-		for (Crop c : crops) {
-			System.out.println(c);
-			if (c.getCropSoldStatus() == "Sold")
-				sold.add(c);
-=======
-		Query q= em.createNativeQuery("select * from crop where cropsoldstatus='Sold' and cropid in (select crops_cropid from farmer_crop where farmer_farmerid=:fid)");
+		Query q = em.createNativeQuery(
+				"select * from crop where cropsoldstatus='Sold' and cropid in (select crops_cropid from farmer_crop where farmer_farmerid=:fid)");
 		q.setParameter("fid", farmerId);
 //		Farmer farmer= em.find(Farmer.class, farmerId);
 //		List<Crop> crops=farmer.getCrops();
@@ -178,21 +170,20 @@ public class CropRepoImp implements CropRepo {
 //			System.out.println(c);
 //			}
 //		}
-		
-		List<Object[]> sold=q.getResultList();
-		List<HistCrops> hist= new ArrayList<HistCrops>();
-		for(Object[] c:sold) {
-			HistCrops d=new HistCrops();
-			d.setCropId((Number)c[0]);
-			d.setCropBasePrice((Number)c[1]);
-			d.setCropName((String)c[2]);
-			d.setQuantity((Number)c[3]);
-			d.setCropSoldPrice((Number)c[5]);
-			d.setCropSoldStatus((String)c[6]);
-			d.setCropType((String)c[7]);
-			d.setFertilizer((String)c[8]);
-			hist.add(d);			
->>>>>>> branch 'master' of https://github.com/Hellenic-gp5/hellenic-practice.git
+
+		List<Object[]> sold = q.getResultList();
+		List<HistCrops> hist = new ArrayList<HistCrops>();
+		for (Object[] c : sold) {
+			HistCrops d = new HistCrops();
+			d.setCropId((Number) c[0]);
+			d.setCropBasePrice((Number) c[1]);
+			d.setCropName((String) c[2]);
+			d.setQuantity((Number) c[3]);
+			d.setCropSoldPrice((Number) c[5]);
+			d.setCropSoldStatus((String) c[6]);
+			d.setCropType((String) c[7]);
+			d.setFertilizer((String) c[8]);
+			hist.add(d);
 		}
 		return hist;
 	}
