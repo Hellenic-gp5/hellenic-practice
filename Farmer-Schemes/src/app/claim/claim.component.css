@@ -1,20 +1,31 @@
-.align {
-  margin: 80px auto;
-  position: relative;
-  left: 300px;
-  background: gainsboro;
-  padding: 20px;
+.container-fluid {
+  background-color: #066862;
+  padding: 5rem 4rem;
 }
-
-.mid {
-  position: relative;
-  left: 300px;
-  padding: 10px;
-  font-weight: bold;
-  font-size: medium;
+.container {
+  padding: 16px;
+  width: 50%;
+  margin: auto;
+  border: 2px solid #066862;
+  border-radius: 4px;
+  background-color: #fff;
 }
-
-button {
-  position: relative;
-  left: 300px;;
+h2 {
+  text-align: center;
+  color: #06163a;
+}
+h4 {
+  text-align: center;
+  color: #06163a;
+  margin-top: 25px;
+}
+.btn {
+  border: 2px solid #066862;
+  background-color: #066862;
+  color: #fff;
+}
+.form-control,
+.custom-select,
+.custom-file-input {
+  border: 2px solid #066862;
 }

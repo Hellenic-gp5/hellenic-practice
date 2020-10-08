@@ -1,170 +1,122 @@
 <app-navbary></app-navbary>
-<!-- <div class="container">
-<div class="panel-body">
-    <h3>Claim Insurance</h3>    
-    <form class="form-group">
-        <h4>------------Details of Insuree--------</h4>  
-        <table>
-            <tr>
-              <td>Policy No: </td>
-              <input type="text">
 
-            </tr>
-            <tr><td>Insurance Company:</td>
-            <input type="text">
-            </tr>
-            <tr><td>Name: </td>
-              <td><input type="text"></td>
-            </tr>
-            <tr><td>Sum Insured: </td>
-            <td><input type="number"></td></tr></table>
-            <h3>Details of Cause for Loss</h3>
-            <table>
-            <tr><td>Cause of Loss:  </td>
-            <td><input type="text"></td></tr>
-            <tr><td>Date of Loss</td>
-            <td><div class="input-group date" data-provide="datepicker">
-                <input type="date" class="form-control">
-                  </div></td>
-            </tr>
-            <tr><th colspan="2"><button type="submit" class="btn btn-success">
-                Submit
-            </button></th>
-
-            
-            </table>
-        </form>
-
+<div class="container-fluid">
+  <div class="container">
+    <h2>Claim</h2>
+    <form (ngSubmit)="saveClaim(claim.policyNo)" #addForm="ngForm">
+      <div class="form-group">
+        <h4>Details of Insuree</h4>
       </div>
-</div> -->
+      <div>
+        <label for="crop type">Policy No:</label>
+        <input
+          type="text"
+          name="policyNo"
+          [(ngModel)]="claim.policyNo"
+          required
+          pattern="[0-9]{1,}"
+          #policyNo="ngModel"
+          class="form-control"
+          placeholder="Policy"
+        />
+        <span class="alert-warning" *ngIf="policyNo.touched && policyNo.invalid"
+          >Policy No is invalid</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="crop name">Insurance Company:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="insuranceCompany"
+          [(ngModel)]="claim.insuranceCompany"
+          required
+          pattern="[A-Za-z]{3,}"
+          #insuranceCompany="ngModel"
+          placeholder="Company"
+        />
+        <span
+          class="alert-warning"
+          *ngIf="insuranceCompany.touched && insuranceCompany.invalid"
+          >Insurance Company is invalid</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="fertilizer type">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          [(ngModel)]="claim.name"
+          required
+          pattern="[A-Za-z]{3,}"
+          placeholder="Name"
+          #name="ngModel"
+        />
+        <span class="alert-warning" *ngIf="name.touched && name.invalid"
+          >Name is invalid</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="msp">Sum Insured:</label>
+        <input
+          type="number"
+          class="form-control"
+          name="sumInsured"
+          [(ngModel)]="claim.sumInsured"
+          required
+          pattern="[0-9]{1,}"
+          #sumInsured="ngModel"
+        />
+        <span
+          class="alert-warning"
+          *ngIf="sumInsured.touched && sumInsured.invalid"
+          >Sum Insured is invalid</span
+        >
+      </div>
+      <div class="form-group">
+        <h4>Details of Cause for Loss</h4>
+      </div>
+      <div class="form-group">
+        <label for="Quantity">Cause of Loss:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="claimReason"
+          [(ngModel)]="claim.claimReason"
+          required
+          pattern="[A-Za-z]{3,}"
+          #claimReason="ngModel"
+        />
+        <span
+          class="alert-warning"
+          *ngIf="claimReason.touched && claimReason.invalid"
+          >Cause of Loss is invalid</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="Quantity">Date of Loss:</label>
+        <input
+          type="date"
+          class="form-control"
+          name="dateOfLoss"
+          [(ngModel)]="claim.dateOfLoss"
+          #dateOfLoss="ngModel"
+        />
+        <span
+          class="alert-warning"
+          *ngIf="dateOfLoss.touched && dateOfLoss.invalid"
+          >Date of Loss is invalid</span
+        >
+      </div>
 
-<!-- <div class="card"> -->
-<form class="align" (ngSubmit)="saveClaim(claim.policyNo)" #addForm="ngForm">
-  <div class="form-group row">
-    <label for="details1" class="col-sm-2 col-form-label mid"
-      >Details of Insuree</label
-    >
-  </div>
-  <div class="form-group row">
-    <label for="policy_no" class="col-sm-2 col-form-label">Policy No.</label>
-    <div class="col-sm-3">
-      <input
-        type="text"
-        name="policyNo"
-        [(ngModel)]="claim.policyNo"
-        required
-        pattern="[0-9]{1,}"
-        #policyNo="ngModel"
-        class="form-control"
-        placeholder="Policy"
-      />
-      <span class="alert-warning" *ngIf="policyNo.touched && policyNo.invalid"
-        >Policy No is invalid</span
+      <button
+        type="submit"
+        class="btn btn-block mt-3"
+        [disabled]="!addForm.valid"
       >
-    </div>
+        Submit
+      </button>
+    </form>
   </div>
-  <div class="form-group row">
-    <label for="company" class="col-sm-2 col-form-label"
-      >Insurance Company</label
-    >
-    <div class="col-sm-3">
-      <input
-        type="text"
-        class="form-control"
-        name="insuranceCompany"
-        [(ngModel)]="claim.insuranceCompany"
-        required
-        pattern="[A-Za-z]{3,}"
-        #insuranceCompany="ngModel"
-        placeholder="Company"
-      />
-      <span
-        class="alert-warning"
-        *ngIf="insuranceCompany.touched && insuranceCompany.invalid"
-        >Insurance Company is invalid</span
-      >
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="name" class="col-sm-2 col-form-label">Name</label>
-    <div class="col-sm-3">
-      <input
-        type="text"
-        class="form-control"
-        name="name"
-        [(ngModel)]="claim.name"
-        required
-        pattern="[A-Za-z]{3,}"
-        placeholder="Name"
-        #name="ngModel"
-      />
-      <span class="alert-warning" *ngIf="name.touched && name.invalid"
-        >Name is invalid</span
-      >
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="sum" class="col-sm-2 col-form-label">Sum Insured</label>
-    <div class="col-sm-3">
-      <input
-        type="number"
-        class="form-control"
-        name="sumInsured"
-        [(ngModel)]="claim.sumInsured"
-        required
-        pattern="[0-9]{1,}"
-        #sumInsured="ngModel"
-      />
-      <span
-        class="alert-warning"
-        *ngIf="sumInsured.touched && sumInsured.invalid"
-        >Sum Insured is invalid</span
-      >
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="details2" class="col-sm-2 col-form-label mid"
-      >Details of Cause for Loss</label
-    >
-  </div>
-  <div class="form-group row">
-    <label for="cause" class="col-sm-2 col-form-label">Cause of Loss</label>
-    <div class="col-sm-3">
-      <input
-        type="text"
-        class="form-control"
-        name="claimReason"
-        [(ngModel)]="claim.claimReason"
-        required
-        pattern="[A-Za-z]{3,}"
-        #claimReason="ngModel"
-      />
-      <span
-        class="alert-warning"
-        *ngIf="claimReason.touched && claimReason.invalid"
-        >Cause of Loss is invalid</span
-      >
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="date" class="col-sm-2 col-form-label">Date of Loss</label>
-    <div class="col-sm-3">
-      <input
-        type="date"
-        class="form-control"
-        name="dateOfLoss"
-        [(ngModel)]="claim.dateOfLoss"
-        #dateOfLoss="ngModel"
-      />
-      <span
-        class="alert-warning"
-        *ngIf="dateOfLoss.touched && dateOfLoss.invalid"
-        >Date of Loss is invalid</span
-      >
-    </div>
-  </div>
-  <button type="submit" class="btn btn-success" [disabled]="!addForm.valid">
-    Submit
-  </button>
-</form>
-<!-- </div> -->
+</div>
