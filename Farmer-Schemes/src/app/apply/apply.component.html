@@ -1,33 +1,10 @@
 <app-navbary></app-navbary>
-
-<h3 id="heading">Apply for Policy</h3>
-<!-- <form class="form-group">
-            <table>
-                <tr>
-                  <td>Season: </td>
-                  <input type="text">
-                </tr>
-                <tr><td>Year:</td>
-                <input type="text">
-                </tr>
-                <tr><td>Crop: </td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr><td>Sum Insured: </td>
-                <td><input type="number"></td></tr>
-                <tr><td>Area:  </td>
-                <td><input type="text"></td></tr>
-                <tr>
-                    <td><button type="reset" class="btn btn-warning">Reset</button></td>
-                    <td><button type="submit" class="btn btn-info">Calculate</button>
-                </tr>              
-                </table>
-            </form> -->
-<div class="card">
-  <form class="align" (ngSubmit)="onCalculate()">
-    <div class="form-group row">
-      <label for="year" class="col-sm-2 col-form-label">Year</label>
-      <div class="col-sm-3">
+<div class="container-fluid">
+  <div class="container">
+    <h2>Apply for Policy</h2>
+    <form (ngSubmit)="onCalculate()" #addForm="ngForm">
+      <div class="form-group">
+        <label for="crop type">Year:</label>
         <select
           class="form-control"
           id="inputPassword3"
@@ -37,47 +14,43 @@
           [(ngModel)]="insurance.year"
           #year="ngModel"
         >
-        <option value="2020" selected>2020</option>
-        <option value="2021">2021</option>
+          <option value="2020" selected>2020</option>
+          <option value="2021">2021</option>
         </select>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="season" class="col-sm-2 col-form-label">Season</label>
-      <div class="col-sm-3">
-        <select 
+      <div class="form-group">
+        <label for="crop name">Season:</label>
+        <select
           type="text"
           class="form-control"
-          name ="Season"
+          name="Season"
           id="season"
-          placeholder="Season"   
+          placeholder="Season"
           [(ngModel)]="insurance.season"
-          #season="ngModel">
+          #season="ngModel"
+        >
           <option value="Kharif">Kharif</option>
           <option value="Rabi" selected>Rabi</option>
-          </select>         
+        </select>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="crop" class="col-sm-2 col-form-label">Crop Name</label>
-      <div class="col-sm-3">
+      <div class="form-group">
+        <label for="fertilizer type">Crop Name</label>
         <input
           type="text"
           class="form-control"
           name="cropname"
           placeholder="Crop Name"
-          required pattern="[a-z]{3,10}"
+          required
+          pattern="[a-z]{3,10}"
           [(ngModel)]="insurance.crop_name"
           #name="ngModel"
-        /><br>
-        <div *ngIf="name.touched &&  name.invalid" class="alert-warning">
+        /><br />
+        <span *ngIf="name.touched && name.invalid" class="alert-warning">
           Invalid Crop Name
-        </div>
+        </span>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="sum" class="col-sm-2 col-form-label">Sum Insured</label>
-      <div class="col-sm-3">
+      <div class="form-group">
+        <label for="msp">MSP:</label>
         <input
           type="number"
           class="form-control"
@@ -88,10 +61,8 @@
           [(ngModel)]="insurance.sumInsured"
         />
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="sum" class="col-sm-2 col-form-label">Area(in Hectares)</label>
-      <div class="col-sm-3">
+      <div class="form-group">
+        <label for="Quantity">Area(in Hectares):</label>
         <input
           type="number"
           class="form-control"
@@ -102,41 +73,57 @@
           [(ngModel)]="insurance.policyCropArea"
         />
       </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="reset" class="btn btn-warning action">Reset</button>
-        <button type="submit" class="btn btn-info action">Calculate</button>
-      </div>
-    </div>
-  </form>
-</div>
+      <button
+        type="reset"
+        class="btn btn-warning action ml-8"
+        style="margin-left: 100px"
+      >
+        Reset
+      </button>
+      <button
+        type="submit"
+        class="btn btn-info action ml-20"
+        style="margin-left: 200px"
+      >
+        Calculate
+      </button>
+    </form>
+  </div>
 
-<table class="table-bordered table-striped" [hidden]="!flag">
-  <thead>
-    <tr>
-      <th>Company</th>
-      <th>Sum/Hectare</th>
-      <th>Crop Type</th>
-      <th>Crop Name</th>
-      <th>Premium</th>
-      <th>Share Premium</th>
-      <th>Area</th>
-      <th>Sum Insured</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{insurance.policyCompany}}</td>
-      <td>{{insurance.sumPerHectare}}</td>
-      <td>{{insurance.season}}</td>
-      <td>{{insurance.crop_name}}</td>
-      <td>{{insurance.policyPremiumAmount}}</td>
-      <td>{{insurance.policySharedPremium}} </td>
-      <td>{{insurance.policyCropArea}}</td>
-      <td>{{insurance.sumInsured}}</td>
-      <td><button (click)="onApply()" type="button" class="btn btn-success">Apply</button></td>
-    </tr>
-  </tbody>
-</table>
+  <div class="card" [hidden]="!flag">
+    <div class="table-responsive-md">
+      <table class="table table-bordered table-hover table-striped table-sm">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Sum/Hectare</th>
+            <th>Crop Type</th>
+            <th>Crop Name</th>
+            <th>Premium</th>
+            <th>Share Premium</th>
+            <th>Area</th>
+            <th>Sum Insured</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ insurance.policyCompany }}</td>
+            <td>{{ insurance.sumPerHectare }}</td>
+            <td>{{ insurance.season }}</td>
+            <td>{{ insurance.crop_name }}</td>
+            <td>{{ insurance.policyPremiumAmount }}</td>
+            <td>{{ insurance.policySharedPremium }}</td>
+            <td>{{ insurance.policyCropArea }}</td>
+            <td>{{ insurance.sumInsured }}</td>
+            <td>
+              <button (click)="onApply()" type="button" class="btn btn-success">
+                Apply
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

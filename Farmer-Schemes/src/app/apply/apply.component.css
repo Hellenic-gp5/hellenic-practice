@@ -1,30 +1,42 @@
-table {
-  margin: 50px auto;
+.container-fluid {
+  background-color: #066862;
+  padding: 5rem 4rem;
+}
+.container {
+  padding: 16px;
+  width: 50%;
+  margin: auto;
+  border: 2px solid #066862;
+  border-radius: 4px;
+  background-color: #fff;
+}
+h2 {
   text-align: center;
+  color: #06163a;
 }
-
-.align {
-  margin: 20px;
-  position: relative;
-  left: 300px;
-  /* background: gainsboro; */
-  padding: 20px;
+.btn {
+  border: 2px solid #066862;
+  background-color: #066862;
+  color: #fff;
 }
- 
-.action {
-  margin: 5px 50px;
-  position: relative;
-  left: 50px;
-}
-
-#heading {
-  text-align: center;
-  padding-top: 80px;
+.form-control,
+.custom-select,
+.custom-file-input {
+  border: 2px solid #066862;
 }
 
 .card {
-  background-color:gainsboro;
+  background-color: #fff;
   border: none;
   padding: 16px;
   margin: 16px 0px;
+}
+
+thead {
+  background-color: #06163a;
+  color: #fff;
+}
+td button {
+  display: block;
+  margin: auto;
 }
