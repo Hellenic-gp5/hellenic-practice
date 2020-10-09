@@ -29,4 +29,10 @@ public class UserServiceImpl implements UserService {
 		repo.updateUserStatus(userId, status);
 	}
 
+	@Override
+	public void forgot(String emailId) {
+		// TODO Auto-generated method stub
+		repo.Forgotpassword(emailId);
+	}
+
 }

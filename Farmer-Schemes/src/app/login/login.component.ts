@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
     this.login = new LoginModel();
     this.roles = ['Farmer', 'Bidder', 'Admin'];
   }
+  forgot(){
+    this.service.forgotPassword(this.user.emailId);
+  }
   ngOnInit() {
     localStorage.setItem('user', null);
   }

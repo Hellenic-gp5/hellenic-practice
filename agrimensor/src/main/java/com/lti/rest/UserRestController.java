@@ -34,6 +34,11 @@ public class UserRestController {
 	@GetMapping(value = "/userstatus")
 	public String updateUserStatus(@RequestParam String userStatus, @RequestParam int userId) {
 		service.updateStatus(userId, userStatus);
+		
 		return "Status changed successfully to " + userStatus;
+	}
+	@GetMapping(value="/forgot")
+	public void credentials(@RequestParam("username") String username) {
+		service.forgot(username);
 	}
 }

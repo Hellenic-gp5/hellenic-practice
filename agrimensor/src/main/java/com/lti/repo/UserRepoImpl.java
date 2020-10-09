@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.lti.entity.Bidder;
 import com.lti.entity.User;
 import com.lti.pojo.Login;
-
+import com.lti.mail.*;
 /**
  * @author YOJAN Java version 1.8 Implementation of User repo
  */
@@ -45,10 +45,22 @@ public class UserRepoImpl implements UserRepo {
 			user.setStatus(status);
 
 			em.merge(user);
+			SendEmail.SendMail(user.getEmailId(),user.getPassword(),user.getName(), user.getRole());
 		} else {
 			em.remove(user);
 		}
 
+	}
+
+	@Override
+	public void Forgotpassword(String email) {
+		// TODO Auto-generated method stub
+		Query q=em.createNativeQuery("Select user_id from users where emailId=:email");
+		q.setParameter("email", email);
+		int userid=(int) q.getSingleResult();
+		User user=em.find(User.class, userid);
+		SendEmail.ForgotPassword(user.getEmailId(), user.getPassword(), user.getRole());
+		
 	}
 
 }

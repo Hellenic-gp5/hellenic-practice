@@ -12,4 +12,6 @@ public interface UserService {
 	User validate(Login login);
 	
 	void updateStatus(int userId, String status);
+	
+	void forgot(String emailId);
 }

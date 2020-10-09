@@ -27,6 +27,10 @@ export class LoginService {
       .toPromise();
     return result;
   }
+
+  forgotPassword(email:string){
+    this.http.get(this.baseUrl+ '/forgot?username='+email);
+  }
   setFlag(b: boolean) {
     this.flag = b;
   }
