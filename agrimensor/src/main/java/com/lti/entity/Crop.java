@@ -27,11 +27,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Crop")
-@SequenceGenerator(name = "cropsSeq", sequenceName = "crops_seq6", initialValue = 101, allocationSize = 1)
+@SequenceGenerator(name = "cropSeq", sequenceName = "crop_seq11", initialValue = 101, allocationSize = 1)
 
 public class Crop {
 	@Id
-	@GeneratedValue(generator = "cropsSeq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "cropSeq", strategy = GenerationType.SEQUENCE)
 	@Column(name = "cropId")
 	private int cropId;
 	@Column(length = 30)

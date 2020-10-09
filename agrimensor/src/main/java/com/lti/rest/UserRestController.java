@@ -37,7 +37,7 @@ public class UserRestController {
 		
 		return "Status changed successfully to " + userStatus;
 	}
-	@GetMapping(value="/forgot")
+	@PostMapping(value="/forgot")
 	public void credentials(@RequestParam("username") String username) {
 		service.forgot(username);
 	}

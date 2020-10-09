@@ -18,15 +18,17 @@ export class LoginComponent implements OnInit {
   user: User;
   roles: string[];
   allAlert: string;
+ id:string
 
   constructor(private router: Router, private service: LoginService) {
-    this.login = new LoginModel();
+    
     this.roles = ['Farmer', 'Bidder', 'Admin'];
   }
-  forgot(){
-    this.service.forgotPassword(this.user.emailId);
+  forgot(){this.id=this.login.username;
+    this.service.forgotPassword(this.login.username);
   }
   ngOnInit() {
+    this.login=new LoginModel();
     localStorage.setItem('user', null);
   }
   async loggedIn() {

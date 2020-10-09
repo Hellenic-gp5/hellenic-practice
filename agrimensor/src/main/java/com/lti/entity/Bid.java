@@ -17,14 +17,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Bids")
-@SequenceGenerator(name = "bidsSeq", sequenceName = "bids_seq1", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name = "bidSeq", sequenceName = "bids_seq10", initialValue = 1001, allocationSize = 1)
 /* @NamedQuery(name="getBidStatus", query="From Bid WHERE bidStatus=:crl") */
 //@NamedQuery(name = "getBidsByBidder", query = "FROM Bid WHERE bidderId=:bidderId")
 //@NamedQuery(name = "getBidsByCropId", query = "FROM Bid WHERE cropId=:cropId")
 public class Bid {
 
 	@Id
-	@GeneratedValue(generator = "bidsSeq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "bidSeq", strategy = GenerationType.SEQUENCE)
 	private int bidId;
 	@Column
 	private int bidAmount;

@@ -24,12 +24,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="users")
-@SequenceGenerator(name="userSeq1", sequenceName = "user_seq11", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="userSeq", sequenceName = "user_seq16", initialValue = 1001, allocationSize = 1)
 @Inheritance(strategy = InheritanceType.JOINED)
 
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "userSeq1")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "userSeq")
 	@Column(name="user_id")
 	private int userId;
 	@Column(length=50, unique=true)

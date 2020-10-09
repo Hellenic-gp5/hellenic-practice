@@ -40,21 +40,21 @@ public class Farmer extends User {
 //	private String farmerName;
 //	@Column(length = 30)
 //	private String farmerEmail;
-	@Column(length = 30, table = "farmer_info")
+	@Column(length = 50, table = "farmer_info")
 	private String farmerAddressLine1;
-	@Column(length = 30, table = "farmer_info")
+	@Column(length = 50, table = "farmer_info")
 	private String farmerAddressLine2;
 	@Column(length = 20, table = "farmer_info")
 	private String farmerCity;
 	@Column(length = 15, table = "farmer_info")
 	private String farmerState;
-	@Column(length = 40, table = "farmer_doc")
+	@Column(length = 100, table = "farmer_doc")
 	private String farmerPAN;
-	@Column(length = 40, table = "farmer_doc")
+	@Column(length = 100, table = "farmer_doc")
 	private String farmerCertificate;
 	@Column(table = "farmer_info")
 	private int farmerPINCode;
-	@Column(length = 40, table = "farmer_doc")
+	@Column(length = 100, table = "farmer_doc")
 	private String farmerAADHAR;
 	@Column(length = 15, table = "farmer_info")
 	private String farmerIFSC;
@@ -62,9 +62,9 @@ public class Farmer extends User {
 	private long farmerAccountNumber;
 //	@Column
 //	private String farmerPassword;
-	@Column(length = 20, table = "farmer_info")
+	@Column(length = 50, table = "farmer_info")
 	private String farmerLandAddress;
-	@Column(length = 20, table = "farmer_info")
+	@Column(length = 6, table = "farmer_info")
 	private String farmerLandPIN;
 	@Column(length = 20, table = "farmer_info")
 	private String farmerLandArea;

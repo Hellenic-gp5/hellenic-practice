@@ -45,7 +45,7 @@ public class Bidder extends User {
 	// @Column(length=50)
 	// private String bidderEmail;
 
-	@Column(length = 30, table = "bidder_info")
+	@Column(length = 50, table = "bidder_info")
 	private String bidderAddressLine1;
 
 	@Column(length = 30, table = "bidder_info")
@@ -57,13 +57,13 @@ public class Bidder extends User {
 	@Column(length = 25, table = "bidder_info")
 	private String bidderState;
 
-	@Column(length = 30, table = "bidder_doc")
+	@Column(length = 100, table = "bidder_doc")
 	private String bidderPAN;
 
 	@Column(length = 7, table = "bidder_info")
 	private int bidderPINCODE;
 
-	@Column(length = 30, table = "bidder_doc")
+	@Column(length = 100, table = "bidder_doc")
 	private String bidderAADHAR;
 
 	@Column(length = 25, table = "bidder_info")
@@ -72,7 +72,7 @@ public class Bidder extends User {
 	@Column(table = "bidder_info")
 	private String bidderAccountNumber;
 
-	@Column(length = 30, table = "bidder_doc")
+	@Column(length = 100, table = "bidder_doc")
 	private String bidderLicense;
 
 	@Column(length=10, table="bidder_info")

@@ -29,7 +29,9 @@ export class LoginService {
   }
 
   forgotPassword(email:string){
-    this.http.get(this.baseUrl+ '/forgot?username='+email);
+    const params = new HttpParams()
+      .append('username', email)
+    this.http.post(this.baseUrl+ '/forgot',{params:params});
   }
   setFlag(b: boolean) {
     this.flag = b;
