@@ -14,10 +14,10 @@ export class InsuranceComponent implements OnInit {
   }
   //check for params
   claimApproved(policyId) {
-    this.service.updateClaimStatus(policyId, 'Approved')
+    this.service.updateClaimStatus(policyId, 'Claim Approved')
     }
     claimRejected(policyId) {
-      this.service.updateClaimStatus(policyId, 'Rejetced') 
+      this.service.updateClaimStatus(policyId, 'Claim Rejetced') 
     }
 
 

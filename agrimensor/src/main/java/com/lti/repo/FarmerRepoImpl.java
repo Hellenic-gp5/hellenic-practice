@@ -68,31 +68,11 @@ public class FarmerRepoImpl implements FarmerRepo {
 		em.persist(crop);
 		em.merge(farmer);
 	}
-	//changing status of Farmer
-
-	/*
-	 * @Override
-	 * 
-	 * @Transactional(value = TxType.REQUIRED) public void updateFarmerStatus(int
-	 * farmerId, String farmerStatus) { Farmer farmer = em.find(Farmer.class,
-	 * farmerId); farmer.setFarmerStatus(farmerStatus); em.merge(farmer);
-	 * 
-	 * }
-	 */
-
-//	@Override
-//	public Number countFarmer() {
-//		 return ((Number)em.createQuery("SELECT count(f) From Farmer f").getSingleResult()).intValue();
-//			
-//	}
+	
 
 	@Override
 	public List<Crop> getAllCrops() {
-		/*
-		 * return em.
-		 * createNativeQuery("Select cropName, cropType, cropId From Crop where cropId in (Select cropId from farmer_crop)"
-		 * ).getResultList();
-		 */
+		
 		Query q=em.createQuery("From Crop");
 		List<Crop> users= q.getResultList();
 		return users;
@@ -101,7 +81,7 @@ public class FarmerRepoImpl implements FarmerRepo {
 	@Override
 	public List<Policies> getinsurance(int farmerid) {
 		// TODO Auto-generated method stub
-		Query q= em.createNativeQuery("select policyid, policycompany,policycroparea,season,policysharedpremium from "
+		Query q= em.createNativeQuery("select policyid, policycompany,policycroparea,season,policysharedpremium, policystatus from "
 				+ "insurance where policyid in (select insurance_policyid from farmer_insurance where farmer_farmerid=:fid)");
 		q.setParameter("fid",farmerid);
 		List<Object[]> policies=q.getResultList();
@@ -113,6 +93,7 @@ public class FarmerRepoImpl implements FarmerRepo {
 			p.setPolicyCropArea((Number)c[2]);
 			p.setSeason((String)c[3]);
 			p.setPolicySharedPremium((Number)c[4]);
+			p.setStatus((String)c[5]);
 			insurance.add(p);
 		}
 		return insurance;

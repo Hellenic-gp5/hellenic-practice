@@ -46,7 +46,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="msp">MSP(₹) :</label>
+        <label for="msp">MSP(₹/Quintals) :</label>
         <input
           type="text"
           name="cropBasePrice"
@@ -63,14 +63,16 @@
         >
       </div>
       <div class="form-group">
-        <label for="Quantity">Quantity:</label>
+        <label for="Quantity">Quantity(Quintals):</label>
         <input
           class="form-control"
           type="number"
           name="cropQAuantity"
           [(ngModel)]="crop.cropQuantity"
+          min="1"
+          step="1"
           required
-          pattern="[1-9]{1,}"
+          pattern="[1-9][0,9]{1,}"
           #cropQuantity="ngModel"
         />
         <span

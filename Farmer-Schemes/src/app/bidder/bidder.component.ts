@@ -36,15 +36,15 @@ export class BidderComponent implements OnInit {
     this.service2.viewMarketPlace().subscribe((data) => (this.crops = data));
   }
 
-  applyBid(u: number) {
+  async applyBid(u: number) {
     this.cropId = u;
     this.toggle = !this.toggle;
   }
 
-  makeBid() {
+  async makeBid() {
     this.stringifiedData = JSON.stringify(this.bid);
     this.parsedJson = JSON.parse(this.stringifiedData);
-    this.service.addBid(this.parsedJson,this.cropId);
+    await this.service.addBid(this.parsedJson,this.cropId);
     this.router.navigate(['/bidder']);
   }
 }

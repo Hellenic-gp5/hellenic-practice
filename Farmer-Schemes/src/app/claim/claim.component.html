@@ -49,7 +49,7 @@
           name="name"
           [(ngModel)]="claim.name"
           required
-          pattern="[A-Za-z]{3,}"
+          pattern="[A-Za-z]{3,}+[A-Za-z]{2,}"
           placeholder="Name"
           #name="ngModel"
         />

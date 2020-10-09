@@ -21,8 +21,8 @@ public final class SendEmail {
 	    public static void SendMail(String toMail,String password, String name, String role)
 	    {
 	     String host ="smtp.gmail.com" ;
-	            String user ="yojansaini@gmail.com";
-	            String pass = "FACEBOOK";
+	            String user ="agrimensorfasalbima@gmail.com";
+	            String pass = "gladiator@123";
 	            String to =toMail;                    //toMail;
 	            String from ="Agrimensor@gmail.com";                              //"your email";
 	            String subject = "User Approved" ;                           //subjectMail;
@@ -63,8 +63,8 @@ public final class SendEmail {
 	    public static void ForgotPassword(String toMail,String password, String role)
 	    {
 	     String host ="smtp.gmail.com" ;
-	            String user ="yojansaini@gmail.com";
-	            String pass = "FACEBOOK";
+	            String user ="agrimensorfasalbima@gmail.com";
+	            String pass = "gladiator@123";
 	            String to =toMail;                    //toMail;
 	            String from ="Agrimensor@gmail.com";                              //"your email";
 	            String subject = "Lost Credentials Retireval" ;                           //subjectMail;

@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Crop")
-@SequenceGenerator(name = "cropSeq", sequenceName = "crop_seq11", initialValue = 101, allocationSize = 1)
+@SequenceGenerator(name = "cropSeq", sequenceName = "crop_seq12", initialValue = 101, allocationSize = 1)
 
 public class Crop {
 	@Id

@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     
     this.roles = ['Farmer', 'Bidder', 'Admin'];
   }
-  forgot(){this.id=this.login.username;
-    this.service.forgotPassword(this.login.username);
+  async forgot(){this.id=this.login.username;
+    await this.service.forgotPassword(this.login.username);
   }
   ngOnInit() {
     this.login=new LoginModel();

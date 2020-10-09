@@ -33,13 +33,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 public class Farmer extends User {
-//	@GeneratedValue(generator = "farmerSeq",strategy = GenerationType.SEQUENCE)
 
-	// private int farmerId;
-//	@Column(length = 30)
-//	private String farmerName;
-//	@Column(length = 30)
-//	private String farmerEmail;
 	@Column(length = 50, table = "farmer_info")
 	private String farmerAddressLine1;
 	@Column(length = 50, table = "farmer_info")
@@ -60,8 +54,7 @@ public class Farmer extends User {
 	private String farmerIFSC;
 	@Column(table = "farmer_info")
 	private long farmerAccountNumber;
-//	@Column
-//	private String farmerPassword;
+
 	@Column(length = 50, table = "farmer_info")
 	private String farmerLandAddress;
 	@Column(length = 6, table = "farmer_info")
@@ -87,8 +80,7 @@ public class Farmer extends User {
 
 	@JsonIgnore
 
-	// @JsonIgnore
-
+	
 	private List<Insurance> insurance = new ArrayList<Insurance>();
 
 	public List<Crop> getCrops() {
@@ -107,26 +99,7 @@ public class Farmer extends User {
 		this.farmerCertificate = farmerCertificate;
 	}
 
-//	public int getFarmerId() {
-//		return farmerId;
-//	}
-//	public void setFarmerId(int farmerId) {
-//		this.farmerId = farmerId;
-//	}
-//	public String getFarmerName() {
-//		return farmerName;
-//	}
-//
-//	public void setFarmerName(String farmerName) {
-//		this.farmerName = farmerName;
-//	}
 
-//	public String getFarmerEmail() {
-//		return farmerEmail;
-//	}
-//	public void setFarmerEmail(String farmerEmail) {
-//		this.farmerEmail = farmerEmail;
-//	}
 	public String getFarmerAddressLine1() {
 		return farmerAddressLine1;
 	}
@@ -199,12 +172,7 @@ public class Farmer extends User {
 		this.farmerAccountNumber = farmerAccountNumber;
 	}
 
-//	public String getFarmerPassword() {
-//		return farmerPassword;
-//	}
-//	public void setFarmerPassword(String farmerPassword) {
-//		this.farmerPassword = farmerPassword;
-//	}
+
 	public String getFarmerLandAddress() {
 		return farmerLandAddress;
 	}

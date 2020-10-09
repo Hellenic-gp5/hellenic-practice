@@ -4,4 +4,5 @@ export class insuranceClaim {
   public policyCropArea: number;
   public season: string;
   public policySharedPremium: number;
+  public status: string;
 }

@@ -31,7 +31,7 @@ public class InsuranceRestController {
 	@Autowired
 	private InsuranceRepo repo;
 	
-	@GetMapping(value = "/insurancestatus/{polid}")
+	@GetMapping(value = "/insurancestatus")
 	public String updateInsurance(@RequestParam String status, @RequestParam int polid) {
 		service.action(status, polid);
 		return "Status changed successfully to " + status;

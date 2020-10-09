@@ -15,29 +15,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Insurance")
-@SequenceGenerator(name="insuranceSeq", sequenceName = "insurance_seq7", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="insuranceSeq", sequenceName = "insurance_seq8", initialValue = 1001, allocationSize = 1)
 
 public class Insurance {
 	@Id
 	@GeneratedValue(generator = "insuranceSeq",strategy = GenerationType.SEQUENCE)
 	private int policyId;
-//	@Column
-//	private int policyNumber;
-//	@Column
-//	private int policyFarmerId;	
-	
+
 
 		
 	/**
 	 * @author YOJAN
 	 */
 	
-//	@ManyToOne
-//	@JoinColumn(name = "farmerId")
-//	private Farmer farmerPolicy;
+
 	
 	@OneToOne(mappedBy = "insurance",cascade = CascadeType.ALL)
-//	@JoinColumn(name="policyID")
+
 	private InsuranceClaim claim;
 	
 	@Column(length=10)
@@ -46,7 +40,7 @@ public class Insurance {
 	private double sumPerHectare;
 	private int policyCropArea;
 	@Column(length =50)
-	private String policyStatus="PENDING";
+	private String policyStatus="Active";
 	private double policySharedPremium;
 	private double policyPremiumAmount;
 	@Column(length=30)
@@ -58,24 +52,7 @@ public class Insurance {
 	public void setPolicyId(int policyId) {
 		this.policyId = policyId;
 	}
-//	public int getPolicyNumber() {
-//		return policyNumber;
-//	}
-//	public void setPolicyNumber(int policyNumber) {
-//		this.policyNumber = policyNumber;
-//	}
-//	public int getPolicyFarmerId() {
-//		return policyFarmerId;
-//	}
-//	public void setPolicyFarmerId(int policyFarmerId) {
-//		this.policyFarmerId = policyFarmerId;
-//	}
-//	public int getPolicyCropId() {
-//		return policyCropId;
-//	}
-//	public void setPolicyCropId(int policyCropId) {
-//		this.policyCropId = policyCropId;
-//	}
+
 	public String getSeason() {
 		return season;
 	}
@@ -120,10 +97,7 @@ public class Insurance {
 		this.policyCompany = policyCompany;
 	}
 	
-	/*
-	 * public Farmer getFarmerPolicy() { return farmerPolicy; } public void
-	 * setFarmerPolicy(Farmer farmerPolicy) { this.farmerPolicy = farmerPolicy; }
-	 */
+	
 	public InsuranceClaim getClaim() {
 		return claim;
 	}

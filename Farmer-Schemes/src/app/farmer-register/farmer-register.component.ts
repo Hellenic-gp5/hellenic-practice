@@ -100,6 +100,10 @@ export class FarmerRegisterComponent implements OnInit {
         '',
         [Validators.required, Validators.maxLength(255)],
       ],
+      farmerAddressLine2: [
+        '',
+        [Validators.required, Validators.maxLength(255)],
+      ],
       farmerLandAddress: ['', [Validators.required, Validators.maxLength(255)]],
       farmerLandArea: ['', Validators.required],
       farmerState: ['', Validators.required],
@@ -128,6 +132,7 @@ export class FarmerRegisterComponent implements OnInit {
           ),
         ],
       ],
+      confirmPassword:[],
     });
   }
   onRegister(): void {

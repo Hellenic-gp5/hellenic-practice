@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Bids")
-@SequenceGenerator(name = "bidSeq", sequenceName = "bids_seq10", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name = "bidSeq", sequenceName = "bids_seq11", initialValue = 1001, allocationSize = 1)
 /* @NamedQuery(name="getBidStatus", query="From Bid WHERE bidStatus=:crl") */
 //@NamedQuery(name = "getBidsByBidder", query = "FROM Bid WHERE bidderId=:bidderId")
 //@NamedQuery(name = "getBidsByCropId", query = "FROM Bid WHERE cropId=:cropId")

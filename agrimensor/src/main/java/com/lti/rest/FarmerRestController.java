@@ -51,21 +51,12 @@ public class FarmerRestController {
 	
 	@PostMapping(value = "/addcrop", consumes = "application/json")
 	public String addCrop(@RequestParam("farmerId") int farmerId,@RequestBody Crop crop) {
-//		int id= Integer.parseInt(farmerId);
+
 		service.Add(farmerId,crop);
 		return "Crop added successfully";
 	}
 	
-//	@GetMapping(value = "/listfarmer", produces = "application/json")
-//	public List<Farmer> listFarmer(){
-//		return service.load();
-//	}
-//	
-//	@DeleteMapping("/delfarmer")
-//	public String delEmployee(@RequestParam("farmerId") int farmerId) {
-//		service.remove(farmerId);
-//		return "Farmer deleted successfully";
-//	}
+
 	@GetMapping(value ="/listallcrops", produces="appplication/json")
 		public List<Crop> getAllCrops(){
 			return repo.getAllCrops();

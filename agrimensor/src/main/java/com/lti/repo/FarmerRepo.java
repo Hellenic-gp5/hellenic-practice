@@ -26,8 +26,6 @@ public interface FarmerRepo {
 	
 	void addCrop(int farmerId, Crop crop);
 	
-	/* void updateFarmerStatus(int farmerId,String farmerStatus); */
-	
 	List<Crop> getAllCrops();
 	
 	List<Policies> getinsurance(int farmerid);

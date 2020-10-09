@@ -173,6 +173,7 @@
               <th>Area</th>
               <th>Season</th>
               <th>Premium Share (₹)</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -183,6 +184,7 @@
               <td>45</td>
               <td>Winter</td>
               <td>40000</td>
+              <td>Approved</td>
               <td>
                 <button class="btn btn-success btn-sm" [routerLink]="['claim']">
                   Claim
@@ -195,6 +197,7 @@
               <td>{{ i.policyCropArea }}</td>
               <td>{{ i.season }}</td>
               <td>{{ i.policySharedPremium }}</td>
+              <td>{{i.status}}</td>
               <td>
                 <div>
                   <button

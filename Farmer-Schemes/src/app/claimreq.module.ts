@@ -1,5 +1,5 @@
 export class ClaimReq{
-    public claimId: number;
+    public policyId: number;
     public claimReason:string;
     public dateOfLoss:string; 
 }

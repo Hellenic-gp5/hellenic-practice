@@ -6,6 +6,13 @@ private String policyCompany;
 private Number policyCropArea;
 private String season;
 private Number policySharedPremium;
+private String status;
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
 public Number getPolicyId() {
 	return policyId;
 }

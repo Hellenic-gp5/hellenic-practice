@@ -24,7 +24,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="users")
-@SequenceGenerator(name="userSeq", sequenceName = "user_seq16", initialValue = 1001, allocationSize = 1)
+@SequenceGenerator(name="userSeq", sequenceName = "user_seq18", initialValue = 1001, allocationSize = 1)
 @Inheritance(strategy = InheritanceType.JOINED)
 
 public class User {

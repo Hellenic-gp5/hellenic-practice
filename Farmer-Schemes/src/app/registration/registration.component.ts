@@ -52,9 +52,9 @@ export class RegistrationComponent implements OnInit {
   get password() {
     return this.bidderRegisterForm.get('password');
   }
-  //get confirmPassword() {
-  //return this.bidderRegisterForm.get('confirmPassword');
-  //}
+  get confirmPassword() {
+  return this.bidderRegisterForm.get('confirmPassword');
+  }
   get bidderState() {
     return this.bidderRegisterForm.get('bidderState');
   }
@@ -89,6 +89,10 @@ export class RegistrationComponent implements OnInit {
         '',
         [Validators.required, Validators.maxLength(255)],
       ],
+      bidderAddressLine2: [
+        '',
+        [Validators.required, Validators.maxLength(255)],
+      ],
       bidderAccnountNumber: [
         '',
         [Validators.required, Validators.pattern('^[0-9]{9,18}?$')],
@@ -111,19 +115,14 @@ export class RegistrationComponent implements OnInit {
           ),
         ],
       ],
-      /* confirmPassword: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
-          ),
-        ],
-      ],*/
+      confirmPassword: [],
+        
+      
     });
   }
   onRegister(): void {
-    if (this.bidderRegisterForm.valid) {
+    
+if (this.bidderRegisterForm.valid) {
       this.register();
     } else {
       this.allAlert = 'All fields are mandatory to register.';
